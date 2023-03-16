@@ -1,12 +1,10 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import {View} from "@aws-amplify/ui-react";
 import {API} from "aws-amplify";
 import { DataStore } from "@aws-amplify/datastore";
 import { SimulationData } from '../../models';
 import './Modelling.css'
-
-const data = await DataStore.query(SimulationData)
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -59,6 +57,16 @@ const dateLabelNames = {
 }
 
 const Modelling = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(()=>{
+      async function fetchData() {
+        const models = await DataStore.query(SimulationData);
+        console.log(models);  
+      }
+      fetchData();
+    }, []);
+
     const option = {
         tooltip: {
           trigger: 'axis',
@@ -136,11 +144,14 @@ const Modelling = () => {
       <view>
         <ReactEcharts option={option}/>
         <PolicyForm/>
-        <ul>
-          {data.map(entry => {
-            <li key={entry.id}>{entry.date}</li>
-          })}
-        </ul>
+        <div>
+          {data.map((item) => (
+            <div key={item.id}>
+              <h2>{item.date}</h2>
+              <p>{item.new}</p>
+            </div>
+          ))}
+        </div>
       </view>
     );
 }
