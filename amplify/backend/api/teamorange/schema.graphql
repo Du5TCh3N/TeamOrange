@@ -4,5 +4,6 @@ type SimulationData @model @auth(rules: [{allow: public}]) {
   queued: [Int!]!
   resolved: [Int!]!
   new: [Int!]!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
 }
- 

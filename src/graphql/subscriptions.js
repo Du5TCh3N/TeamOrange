@@ -1,9 +1,11 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateMyData = /* GraphQL */ `
-  subscription OnCreateMyData($filter: ModelSubscriptionMyDataFilterInput) {
-    onCreateMyData(filter: $filter) {
+export const onCreateSimulationData = /* GraphQL */ `
+  subscription OnCreateSimulationData(
+    $filter: ModelSubscriptionSimulationDataFilterInput
+  ) {
+    onCreateSimulationData(filter: $filter) {
       id
       date
       queued
@@ -17,9 +19,11 @@ export const onCreateMyData = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateMyData = /* GraphQL */ `
-  subscription OnUpdateMyData($filter: ModelSubscriptionMyDataFilterInput) {
-    onUpdateMyData(filter: $filter) {
+export const onUpdateSimulationData = /* GraphQL */ `
+  subscription OnUpdateSimulationData(
+    $filter: ModelSubscriptionSimulationDataFilterInput
+  ) {
+    onUpdateSimulationData(filter: $filter) {
       id
       date
       queued
@@ -33,9 +37,11 @@ export const onUpdateMyData = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteMyData = /* GraphQL */ `
-  subscription OnDeleteMyData($filter: ModelSubscriptionMyDataFilterInput) {
-    onDeleteMyData(filter: $filter) {
+export const onDeleteSimulationData = /* GraphQL */ `
+  subscription OnDeleteSimulationData(
+    $filter: ModelSubscriptionSimulationDataFilterInput
+  ) {
+    onDeleteSimulationData(filter: $filter) {
       id
       date
       queued

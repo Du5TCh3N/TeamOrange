@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getMyData = /* GraphQL */ `
-  query GetMyData($id: ID!) {
-    getMyData(id: $id) {
+export const getSimulationData = /* GraphQL */ `
+  query GetSimulationData($id: ID!) {
+    getSimulationData(id: $id) {
       id
       date
       queued
@@ -17,13 +17,13 @@ export const getMyData = /* GraphQL */ `
     }
   }
 `;
-export const listMyData = /* GraphQL */ `
-  query ListMyData(
-    $filter: ModelMyDataFilterInput
+export const listSimulationData = /* GraphQL */ `
+  query ListSimulationData(
+    $filter: ModelSimulationDataFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listMyData(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listSimulationData(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         date
@@ -41,14 +41,14 @@ export const listMyData = /* GraphQL */ `
     }
   }
 `;
-export const syncMyData = /* GraphQL */ `
-  query SyncMyData(
-    $filter: ModelMyDataFilterInput
+export const syncSimulationData = /* GraphQL */ `
+  query SyncSimulationData(
+    $filter: ModelSimulationDataFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncMyData(
+    syncSimulationData(
       filter: $filter
       limit: $limit
       nextToken: $nextToken

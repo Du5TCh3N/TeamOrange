@@ -1,12 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createMyData = /* GraphQL */ `
-  mutation CreateMyData(
-    $input: CreateMyDataInput!
-    $condition: ModelMyDataConditionInput
+export const createSimulationData = /* GraphQL */ `
+  mutation CreateSimulationData(
+    $input: CreateSimulationDataInput!
+    $condition: ModelSimulationDataConditionInput
   ) {
-    createMyData(input: $input, condition: $condition) {
+    createSimulationData(input: $input, condition: $condition) {
       id
       date
       queued
@@ -20,12 +20,12 @@ export const createMyData = /* GraphQL */ `
     }
   }
 `;
-export const updateMyData = /* GraphQL */ `
-  mutation UpdateMyData(
-    $input: UpdateMyDataInput!
-    $condition: ModelMyDataConditionInput
+export const updateSimulationData = /* GraphQL */ `
+  mutation UpdateSimulationData(
+    $input: UpdateSimulationDataInput!
+    $condition: ModelSimulationDataConditionInput
   ) {
-    updateMyData(input: $input, condition: $condition) {
+    updateSimulationData(input: $input, condition: $condition) {
       id
       date
       queued
@@ -39,12 +39,12 @@ export const updateMyData = /* GraphQL */ `
     }
   }
 `;
-export const deleteMyData = /* GraphQL */ `
-  mutation DeleteMyData(
-    $input: DeleteMyDataInput!
-    $condition: ModelMyDataConditionInput
+export const deleteSimulationData = /* GraphQL */ `
+  mutation DeleteSimulationData(
+    $input: DeleteSimulationDataInput!
+    $condition: ModelSimulationDataConditionInput
   ) {
-    deleteMyData(input: $input, condition: $condition) {
+    deleteSimulationData(input: $input, condition: $condition) {
       id
       date
       queued
