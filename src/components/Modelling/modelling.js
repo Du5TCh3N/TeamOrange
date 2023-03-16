@@ -2,7 +2,11 @@ import React, {Component, useState} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import {View} from "@aws-amplify/ui-react";
 import {API} from "aws-amplify";
+import { DataStore } from "@aws-amplify/datastore";
+import { SimulationData } from './models';
 import './Modelling.css'
+
+const data = await DataStore.query(SimulationData)
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -132,6 +136,11 @@ const Modelling = () => {
       <view>
         <ReactEcharts option={option}/>
         <PolicyForm/>
+        <ul>
+          {data.map(entry => {
+            <li key={entry.id}>{entry.date}</li>
+          })}
+        </ul>
       </view>
     );
 }
@@ -258,6 +267,7 @@ function PolicyForm() {
       <button className="submit-button" type="submit">Submit</button>
     </div>
   </form>
+
 
   );
 }
