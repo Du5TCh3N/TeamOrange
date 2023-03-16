@@ -5,5 +5,5 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
-export { default as MyDataCreateForm } from "./MyDataCreateForm";
-export { default as MyDataUpdateForm } from "./MyDataUpdateForm";
+export { default as SimulationDataCreateForm } from "./SimulationDataCreateForm";
+export { default as SimulationDataUpdateForm } from "./SimulationDataUpdateForm";

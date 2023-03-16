@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "MyData": {
-            "name": "MyData",
+        "SimulationData": {
+            "name": "SimulationData",
             "fields": {
                 "id": {
                     "name": "id",
@@ -60,11 +60,27 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "MyData",
+            "pluralName": "SimulationData",
             "attributes": [
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         }
@@ -72,5 +88,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.6",
-    "version": "9f35a0f0a6ae132087616725a78763a6"
+    "version": "0bee6dbdf8bf4160e3ea8e9ab7e1561a"
 };

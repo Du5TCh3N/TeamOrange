@@ -6,9 +6,9 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
-type EagerMyData = {
+type EagerSimulationData = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<MyData, 'id'>;
+    identifier: ManagedIdentifier<SimulationData, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
@@ -20,9 +20,9 @@ type EagerMyData = {
   readonly updatedAt?: string | null;
 }
 
-type LazyMyData = {
+type LazySimulationData = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<MyData, 'id'>;
+    identifier: ManagedIdentifier<SimulationData, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
@@ -34,8 +34,8 @@ type LazyMyData = {
   readonly updatedAt?: string | null;
 }
 
-export declare type MyData = LazyLoading extends LazyLoadingDisabled ? EagerMyData : LazyMyData
+export declare type SimulationData = LazyLoading extends LazyLoadingDisabled ? EagerSimulationData : LazySimulationData
 
-export declare const MyData: (new (init: ModelInit<MyData>) => MyData) & {
-  copyOf(source: MyData, mutator: (draft: MutableModel<MyData>) => MutableModel<MyData> | void): MyData;
+export declare const SimulationData: (new (init: ModelInit<SimulationData>) => SimulationData) & {
+  copyOf(source: SimulationData, mutator: (draft: MutableModel<SimulationData>) => MutableModel<SimulationData> | void): SimulationData;
 }
