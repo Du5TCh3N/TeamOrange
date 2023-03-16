@@ -9,13 +9,13 @@ import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 import BasicLayout from "./components/BasicLayout/basicLayout";
 
 // // Comment out the next 3 lines when editing locally
-// import { Amplify } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 
-// import { withAuthenticator } from '@aws-amplify/ui-react';
-// import '@aws-amplify/ui-react/styles.css';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
-// import awsExports from './aws-exports';
-// Amplify.configure(awsExports);
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
 
 
 function App(){
