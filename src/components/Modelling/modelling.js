@@ -3,7 +3,7 @@ import ReactEcharts from 'echarts-for-react';
 import {View} from "@aws-amplify/ui-react";
 import {API} from "aws-amplify";
 import { DataStore } from "@aws-amplify/datastore";
-import { SimulationData } from './models';
+import { SimulationData } from '../../models';
 import './Modelling.css'
 
 const data = await DataStore.query(SimulationData)
