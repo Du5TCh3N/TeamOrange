@@ -12,7 +12,7 @@ const Export = () => {
     const simulationData = {
       id: '6f39df0e-a367-42ea-9439-024c53e66a01',
       date: ['2022-03-18', '2022-03-19'],
-      queued: [10, 20],
+      queued: [-10, -20],
       resolved: [5, 10],
       new: [10, 15],
       createdAt: new Date().toISOString(),
@@ -32,47 +32,112 @@ const Export = () => {
       const models = await DataStore.query(SimulationData);
       console.log('Fetched Data:', models);
       setData(models);
-    //   await DataStore.clear()
     } catch (error) {
       console.log('Error fetching data:', error);
     }
   };
 
+  const handleClearClick = async () => {
+    try {
+      await DataStore.clear(SimulationData);
+    } catch(error) {
+      console.log('Error fetching data:', error);
+    }
+  }
+  // data.map((item) => item.date).flat(),
   const bandChart = {
-    title: {
-        text: 'Distribution of Band in Applications',
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
     },
-    tooltip: {},
-    xAxis: {
-        data: data.map((item) => item.date).flat(),
+    legend: {
+      data: ['New', 'Queued', 'Resolved']
     },
-    yAxis: {},
-    series: [
-        {
-            name: '',
-            type: 'bar',
-            data: data.map((item) => item.resolved).flat(),
-            color: '#2f7ed8' // Set color to blue
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: [
+      {
+        type: 'category',
+        axisTick: {
+          show: false
         },
+        data: data.map((item)=> item.date).flat()
+      }
     ],
-};
+    yAxis: [
+      {
+        type: 'value'
+      }
+    ],
+
+    series: [
+      {
+        name: 'New',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: data.map((item)=> item.new).flat()
+      },
+
+      {
+        name: 'Resolved',
+        type: 'bar',
+        stack: 'Total',
+        label: {
+          show: true
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: data.map((item)=> item.resolved).flat()
+      },
+
+      {
+        name: 'Queued',
+        type: 'bar',
+        stack: 'Total',
+        label: {
+          show: true,
+          position: 'left'
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: data.map((item)=> item.queued).flat()
+      }
+    ]
+  };
 
   return (
     <div>
       <h1>Test</h1>
-      {/* <button className="submit-button" onClick={handleSaveClick} disabled={isDataSaved}>
+      <button className="submit-button" onClick={handleSaveClick} disabled={isDataSaved}>
         Save Data
-      </button> */}
+      </button>
       <button className="submit-button" onClick={handleQueryClick}>Fetch Data</button>
+      <button className="submit-button" onClick={handleClearClick}>Clear Data</button>
       <div>
         {data.length === 0 ? (
           <p>Data is empty</p>
         ) : (
           data.map((item) => (
             <div key={item.id}>
-              <h2>ID: {item.id}</h2>
+              <h1>ID: {item.id}</h1>
               <h2>Date: {item.date.join(', ')}</h2>
               <h2>Resolved: {item.resolved.join(', ')}</h2>
+              <h2>New: {item.new.join(', ')}</h2>
+              <h2>Queued: {item.queued.join(', ')}</h2>
             </div>
           ))
         )}
