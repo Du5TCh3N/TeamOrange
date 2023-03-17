@@ -1,12 +1,10 @@
-import csv
 import datetime
-import tempfile
-
-import pandas as pd
-from applications import Applications
-from property import Property
 
 import boto3
+import pandas as pd
+
+from applications import Applications
+from property import Property
 
 
 def resolveApplication():
