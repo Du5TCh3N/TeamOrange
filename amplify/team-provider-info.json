@@ -1,4 +1,26 @@
 {
+  "devpolicy": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-teamorange-devpolicy-144432-authRole",
+      "UnauthRoleArn": "arn:aws:iam::538841638676:role/amplify-teamorange-devpolicy-144432-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::538841638676:role/amplify-teamorange-devpolicy-144432-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-teamorange-devpolicy-144432-deployment",
+      "UnauthRoleName": "amplify-teamorange-devpolicy-144432-unauthRole",
+      "StackName": "amplify-teamorange-devpolicy-144432",
+      "StackId": "arn:aws:cloudformation:eu-west-2:538841638676:stack/amplify-teamorange-devpolicy-144432/3b226700-c4d2-11ed-b85e-06ce375c57d6",
+      "AmplifyAppId": "d1htp7p0ywvi2a",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-teamorange-devpolicy-144432-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "function": {
+        "policytomodeller": {}
+      },
+      "auth": {
+        "teamorange": {}
+      }
+    }
+  },
   "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-teamorange-dev-121113-authRole",

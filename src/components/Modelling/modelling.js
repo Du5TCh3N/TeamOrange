@@ -178,6 +178,8 @@ function PolicyForm() {
     outputObj["startDate"] = dateInputs[0];
     outputObj["endDate"] = dateInputs[1];
 
+    console.log()
+
     try {
       const response = await API.post(
         "python-modeller-API",

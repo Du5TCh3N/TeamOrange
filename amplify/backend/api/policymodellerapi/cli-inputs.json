@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "paths": {
+    "/modeller": {
+      "name": "/modeller",
+      "lambdaFunction": "policytomodeller",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read",
+          "update"
+        ]
+      }
+    }
+  }
+}
