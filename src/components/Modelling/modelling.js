@@ -178,18 +178,18 @@ function PolicyForm() {
     outputObj["startDate"] = dateInputs[0];
     outputObj["endDate"] = dateInputs[1];
 
-    // try {
-    //   const response = await API.post(
-    //     "restapimodeller",
-    //     "/modeller-api",
-    //     {
-    //       body: {outputObj}
-    //     }
-    //   );
-    //   console.log(response);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const response = await API.post(
+        "python-modeller-API",
+        "/python-modeller",
+        {
+          body: {outputObj}
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
     console.log(outputObj);
   };
 
