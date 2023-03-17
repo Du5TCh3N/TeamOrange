@@ -48,5 +48,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "parameters": {
+    "AMPLIFY_function_policytomodeller_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "policytomodeller"
+        }
+      ]
+    },
+    "AMPLIFY_function_policytomodeller_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "policytomodeller"
+        }
+      ]
+    }
   }
 }

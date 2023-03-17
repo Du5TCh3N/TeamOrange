@@ -14,10 +14,16 @@
     },
     "categories": {
       "function": {
-        "policytomodeller": {}
+        "policytomodeller": {
+          "deploymentBucketName": "amplify-teamorange-devpolicy-144432-deployment",
+          "s3Key": "amplify-builds/policytomodeller-53613061707278706d2b-build.zip"
+        }
       },
       "auth": {
         "teamorange": {}
+      },
+      "api": {
+        "policymodellerapi": {}
       }
     }
   },
