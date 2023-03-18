@@ -67,7 +67,7 @@ const Modelling = () => {
       fetchData();
     }, []);
 
-    const option = {
+    const simulationChart = {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -144,9 +144,42 @@ const Modelling = () => {
           }
         ]
       };
+      const radarChart = {
+        title: {
+          // text: 'Radar Chart Example'
+        },
+        tooltip: {},
+        legend: {
+          data: ['Sales', 'Expenses']
+        },
+        radar: {
+          indicator: [
+            { name: 'Marketing', max: 100 },
+            { name: 'Sales', max: 100 },
+            { name: 'Development', max: 100 },
+            { name: 'Customer Support', max: 100 },
+            { name: 'Administration', max: 100 }
+          ]
+        },
+        series: [{
+          name: 'Budget vs spending',
+          type: 'radar',
+          data : [
+            {
+              value : [90, 80, 85, 75, 70],
+              name : 'Sales'
+            },
+            {
+              value : [70, 90, 80, 85, 80],
+              name : 'Expenses'
+            }
+          ]
+        }]
+      };
     return (
       <view>
-        <ReactEcharts option={option}/>
+        <ReactEcharts option={simulationChart}/>
+        <ReactEcharts option={radarChart}/>
         <PolicyForm/>
         {/* <div>
           {data.map((item) => (

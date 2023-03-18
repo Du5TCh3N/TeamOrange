@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactEcharts from 'echarts-for-react';
+import {Card, Col, Row } from 'antd';
 
 const Home = () => {
 
@@ -74,10 +75,43 @@ const Home = () => {
     const avatarUrl = "logo.png"
 
     return (
-        <>
-            <ReactEcharts option={bandChart}/>
-            <ReactEcharts option={bedroomChart}/>
-            <ReactEcharts option={yearChart}/>
+        <> <Row gutter={[16,16]}>
+            <Col span={8}>
+                <Card title="Home" bordered={false}>
+                    Home page
+                </Card>
+            </Col>
+            <Col span={8}>
+                <Card title="Histroy" bordered={false}>
+                    Histroical data (2014-) 
+                </Card>
+            </Col>
+            <Col span={8}>
+                <Card title="Model allocation" bordered={false}>
+                    Allocation analysis
+                </Card>
+
+            </Col>
+            <Col span={8}>
+                <Card title="Load data" bordered={false}>
+                    Upload CSV data
+                </Card>
+            </Col>
+            <Col span={8}>
+                <Card title="transfer" bordered={false}>
+                    transfer system
+                </Card>
+            </Col>
+            <Col span={8}>
+                <Card title="Foreaste" bordered={false}>
+                    Foreast platform
+                </Card>
+
+            </Col>
+
+        </Row>
+        
+
         </>
     );
 
