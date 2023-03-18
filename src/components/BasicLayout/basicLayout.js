@@ -15,6 +15,7 @@ import Export from '../Export/export';
 import FileUpload from '../FileUpload/fileUpload';
 import Home from '../Home/home';
 import Modelling from '../Modelling/modelling';
+import ModelData from '../ModelData/modelData';
 import User from '../User/user';
 import HistoryAnalysis from '../HistoryData/historyData';
 import Transfer from '../Transfer/transfer';
@@ -64,11 +65,9 @@ const BasicLayout = () => {
 
 
                     <SubMenu key="3" title="Model allocation" icon={<VideoCameraOutlined />}>
-
-                            <Menu.Item>                    { <Link to='/Modelling'>Model allocation</Link> }
-                    </Menu.Item>
+                            <Menu.Item>{<Link to='/Modelling'>Model</Link>}</Menu.Item> 
                         
-                            <Menu.Item>Data</Menu.Item>
+                            <Menu.Item>{<Link to='/ModelData'>Data</Link>}</Menu.Item> 
                         
                         </SubMenu>
                
@@ -124,6 +123,8 @@ const BasicLayout = () => {
                         <Route path="/FileUpload" element={<FileUpload />} />
 
                         <Route path="/Modelling" element={<Modelling />} />
+
+                        <Route path="/ModelData" element={<ModelData />} />
 
                         <Route path="/User" element={<User />} />
 
