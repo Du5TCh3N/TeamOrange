@@ -24,6 +24,23 @@ def resolveApplication():
     return resolvedCounter
 
 
+def saveToDynamoDB(data):
+    dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
+    table = dynamodb.Table('SimulationData-uovztv4lpfbj3mt537ffkqx2kq-dev')
+
+    # Create a new item with the entire list as attributes
+    item = {
+        'id': '1',  # Set the id to any value you like
+        'date': data['Date'],
+        'queued': data['Queue'],
+        'resolved': data['Resolved'],
+        'new': data['New'],
+        'createdAt': str(datetime.datetime.now())
+    }
+
+    table.put_item(Item=item)
+
+
 class Modeller:
 
     def __init__(self, startDate, endDate, currentDate=None, propertyReleaseType="Randomly", policy=None, supply=None):
@@ -104,16 +121,6 @@ class Modeller:
         self.assignHouseToCategory(3, "Downsizer")
         self.assignHouseToCategory(4, "Downsizer")
 
-        # allProperties = Property.getAllProperties()
-        # for property in allProperties:
-        #     print(property)
-
-        # numOfProperties = Property.getNumProperties()
-        # print(str(numOfProperties) + " properties were allocated to categories for giving out")
-        # difTotalSupply = self.totalSupply - numOfProperties
-        # print(str(difTotalSupply) + " properties were not used of the total supply")
-
-        # data = []
         data = {
             "Date": [],
             "Queue": [],
@@ -129,9 +136,6 @@ class Modeller:
             # Convert date to string using isoformat()
             date_str = self.currentDate.isoformat()
 
-            # Add ID to the item dictionary
-            # item = {'ID': str(id_counter), 'Date': date_str, 'Queue': len(queuedApplication), 'New': len(newApplication),
-            #         'Resolved': resolvedApplication}
             data["Date"].append(date_str)
             data["Queue"].append(queuedApplication)
             data['New'].append(newApplication)
@@ -142,7 +146,7 @@ class Modeller:
             self.currentDate += datetime.timedelta(days=1)
 
         # Add the data to the DynamoDB table
-        self.saveToDynamoDB(data)
+        saveToDynamoDB(data)
 
         print("Terminating Model")
 
@@ -170,35 +174,3 @@ class Modeller:
 
     def displayCurrentDate(self):
         print("The current date is:", self.currentDate)
-
-    def saveToDynamoDB(self, data):
-        # dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
-        # csv_table = dynamodb.Table('ModellerCSV')
-        # for item in data:
-        #     csv_table.put_item(Item=item)
-        # print("Wait Time: " + str(Applications.getAverageWaitingTime()))
-        # simulation_data_table = dynamodb.Table('SimulationData-knysgdi44vfgzcpw5osxnn6q7e-msciorange')
-        # simulation_result = {"id": "1", "Average Waiting Time": str(Applications.getAverageWaitingTime())}
-        # simulation_data_table.put_item(Item=simulation_result)
-        dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
-        table = dynamodb.Table('SimulationData-uovztv4lpfbj3mt537ffkqx2kq-dev')
-
-        # Create a new item with the entire list as attributes
-        item = {
-            'id': '1',  # Set the id to any value you like
-            'date': data['Date'],
-            'queued': data['Queue'],
-            'resolved': data['Resolved'],
-            'new': data['New'],
-            'createdAt': str(datetime.datetime.now())
-        }
-
-        table.put_item(Item=item)
-
-
-# from wsgiref.simple_server import make_server
-
-if __name__ == "__main__":
-    modeller = Modeller(startDate=datetime.date(2022, 1, 1), endDate=datetime.date(2022, 12, 31))
-    # modeller.saveToDynamoDB()
-    # print(rbkHousing)
