@@ -1,7 +1,9 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import ReactEcharts from 'echarts-for-react';
 import {View} from "@aws-amplify/ui-react";
 import {API} from "aws-amplify";
+import { DataStore } from "@aws-amplify/datastore";
+import { SimulationData } from '../../models';
 import './Modelling.css'
 
 const policyDefaults = {
@@ -55,7 +57,17 @@ const dateLabelNames = {
 }
 
 const Modelling = () => {
-    const option = {
+    const [data, setData] = useState([]);
+
+    useEffect(()=>{
+      async function fetchData() {
+        const models = await DataStore.query(SimulationData);
+        setData(models);
+      }
+      fetchData();
+    }, []);
+
+    const simulationChart = {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -77,7 +89,8 @@ const Modelling = () => {
             axisTick: {
               show: false
             },
-            data: ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04', '2022-01-05', '2022-01-06', '2022-01-07', '2022-01-08', '2022-01-09', '2022-01-10', '2022-01-11', '2022-01-12', '2022-01-13', '2022-01-14', '2022-01-15', '2022-01-16', '2022-01-17', '2022-01-18', '2022-01-19', '2022-01-20', '2022-01-21']
+            // data: ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04', '2022-01-05', '2022-01-06', '2022-01-07', '2022-01-08', '2022-01-09', '2022-01-10', '2022-01-11', '2022-01-12', '2022-01-13', '2022-01-14', '2022-01-15', '2022-01-16', '2022-01-17', '2022-01-18', '2022-01-19', '2022-01-20', '2022-01-21']
+            data: data.map((item)=>item.date).flat()
           }
         ],
         yAxis: [
@@ -91,13 +104,14 @@ const Modelling = () => {
             name: 'New',
             type: 'bar',
             label: {
-              show: true,
+              show: false,
               position: 'inside'
             },
             emphasis: {
               focus: 'series'
             },
-            data: [200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210]
+            // data: [200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210]
+            data: data.map((item)=>item.new).flat()
           },
 
           {
@@ -105,12 +119,13 @@ const Modelling = () => {
             type: 'bar',
             stack: 'Total',
             label: {
-              show: true
+              show: false
             },
             emphasis: {
               focus: 'series'
             },
-            data: [320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420]
+            // data: [320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420]
+            data: data.map((item)=>item.resolved).flat()
           },
 
           {
@@ -118,20 +133,62 @@ const Modelling = () => {
             type: 'bar',
             stack: 'Total',
             label: {
-              show: true,
+              show: false,
               position: 'left'
             },
             emphasis: {
               focus: 'series'
             },
-            data: [-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210]
+            // data: [-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210]
+            data: data.map((item)=> item.queued).flat()
           }
         ]
       };
+      const radarChart = {
+        title: {
+          // text: 'Radar Chart Example'
+        },
+        tooltip: {},
+        legend: {
+          data: ['Sales', 'Expenses']
+        },
+        radar: {
+          indicator: [
+            { name: 'Marketing', max: 100 },
+            { name: 'Sales', max: 100 },
+            { name: 'Development', max: 100 },
+            { name: 'Customer Support', max: 100 },
+            { name: 'Administration', max: 100 }
+          ]
+        },
+        series: [{
+          name: 'Budget vs spending',
+          type: 'radar',
+          data : [
+            {
+              value : [90, 80, 85, 75, 70],
+              name : 'Sales'
+            },
+            {
+              value : [70, 90, 80, 85, 80],
+              name : 'Expenses'
+            }
+          ]
+        }]
+      };
     return (
       <view>
-        <ReactEcharts option={option}/>
+        <ReactEcharts option={simulationChart}/>
+        <ReactEcharts option={radarChart}/>
         <PolicyForm/>
+        {/* <div>
+          {data.map((item) => (
+            <div key={item.id}>
+              <h2>{item.date}</h2>
+              <p>{item.new}</p>
+            </div>
+          ))}
+        </div> */}
       </view>
     );
 }
@@ -258,6 +315,7 @@ function PolicyForm() {
       <button className="submit-button" type="submit">Submit</button>
     </div>
   </form>
+
 
   );
 }

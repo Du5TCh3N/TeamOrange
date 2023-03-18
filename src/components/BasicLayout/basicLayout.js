@@ -1,111 +1,153 @@
-import React  ,{ useState }from 'react';
-import {Button, Avatar,Layout, Menu} from 'antd';
+import React, { useState } from 'react';
+import { Button, Avatar, Layout, Menu } from 'antd';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     UserOutlined,
     VideoCameraOutlined,
     UploadOutlined,
+    HistoryOutlined,
+    TransactionOutlined,
 } from '@ant-design/icons';
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Export from '../Export/export';
 import FileUpload from '../FileUpload/fileUpload';
 import Home from '../Home/home';
 import Modelling from '../Modelling/modelling';
+import ModelData from '../ModelData/modelData';
 import User from '../User/user';
+import HistoryAnalysis from '../HistoryData/historyData';
+import Transfer from '../Transfer/transfer';
+const { Header, Sider, Content } = Layout;
+const { SubMenu } = Menu;
 
-const {Header, Sider, Content} = Layout;
 const BasicLayout = () => {
-    const [collapsed,setCollapsed]=useState(false);
-    const toggle=()=>{
-      setCollapsed(!collapsed)
-    
+    const [collapsed, setCollapsed] = useState(false);
+    const toggle = () => {
+        setCollapsed(!collapsed)
+
     }
-   const avatarUrl = "assets/logo.png"
-  
+    const avatarUrl = "assets/logo.png"
+
 
     return (
-        <Layout style={{minHeight: '100vh'}}>
-                <Sider className="text-white" trigger={null} collapsible collapsed={ collapsed}>
+        <Layout style={{ minHeight: '100vh' }}>
+            <Sider className="text-white" trigger={null} collapsible collapsed={collapsed}>
 
-                    <h1 className="text-base font-bold underline text-white"
-                        style={{display: collapsed ? 'none' : 'block'}}>
-                        Data visualisation platform
-                    </h1>
-                    <div className="w-full mt-3">
-                        <div className="flex items-center">
-                            <Avatar className=" ml-3" size={48} src={avatarUrl}/>
-                            <span className="ml-5"
-                                  style={{display:  collapsed ? 'none' : 'block'}}>{"Kingston Councils"}</span>
-                        </div>
+                <div className="w-full mt-3">
+                    <div className="flex items-center">
+                        <Avatar className=" ml-3" size={48} src={avatarUrl} />
+                        <span className="ml-5"
+                            style={{ display: collapsed ? 'none' : 'block' }}>{"Kingston Councils"}</span>
                     </div>
+                </div>
 
+                <Menu className="mt-3" theme="dark" mode="inline" defaultSelectedKeys={['1']}>
 
-                    <Menu className="mt-3" theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+                    <Menu.Item key="1" icon={<UserOutlined />}>
+                        <Link to='/'>Home</Link>
+                    </Menu.Item>
+{/* 
+                    <Menu.Item key="2" icon={<HistoryOutlined />}>
 
-                        <Menu.Item key="1" icon={<UserOutlined/>}>
-                            <Link to='/'>Home</Link>
-                        </Menu.Item>
+                        <Link to='/HistoryData'>History</Link>
 
-                        <Menu.Item key="2" icon={<VideoCameraOutlined/>}>
-                        <Link to='/modelling'>Model allocation</Link>
-                        </Menu.Item>
+                    </Menu.Item> */}
 
+                    <SubMenu key="2" title="History" icon={<HistoryOutlined />}>
 
-                        <Menu.Item key = "3" icon= {<UploadOutlined/>}>
-                            <Link to='/FileUpload'>Load data</Link>
-                        </Menu.Item>
-
-                        <Menu.Item key="4" icon={<UploadOutlined/>}>
-                            <Link to='/Export'>Export</Link>
-                        </Menu.Item>
+                        <Menu.Item>{<Link to='/HistoryData'>Policy</Link>}</Menu.Item> 
                         
-                    </Menu>
+                        <Menu.Item>Data</Menu.Item>
 
-                </Sider>
-                <Layout className="site-layout">
-                    <Header className=" bg-amber-50 border-2" style={{backgroundColor: "#edeeeb"}}>
-                        <div className="flex items-center" >
-                            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-                                className: 'trigger',
-                                onClick: toggle,
-                            })}
-                            <span className="  ml-auto">
-                                <Avatar className="mr-2" size={48} src={avatarUrl}/>
-                                <span >
-                                    <Link to='/User'>{"David Hill"}</Link>
-                                </span>
+                        </SubMenu>
+
+
+                    <SubMenu key="3" title="Model allocation" icon={<VideoCameraOutlined />}>
+                            <Menu.Item>{<Link to='/Modelling'>Model</Link>}</Menu.Item> 
+                        
+                            <Menu.Item>{<Link to='/ModelData'>Data</Link>}</Menu.Item> 
+                        
+                        </SubMenu>
+               
+                    {/* <Link to='/modelling'>Model allocation</Link> */}
+
+                    <Menu.Item key="4" icon={<UploadOutlined />}>
+                        <Link to='/FileUpload'>Load data</Link>
+                    </Menu.Item>
+
+                    <Menu.Item key="5" icon={<TransactionOutlined />}>
+                        <Link to='/Transfer'>Transfer</Link>
+                    </Menu.Item>
+
+                    <Menu.Item key="6" icon={<UploadOutlined />}>
+                        <Link to='/Export'>Foreast</Link>
+                    </Menu.Item>
+                </Menu>
+            </Sider>
+
+            <Layout className="site-layout">
+                <Header className=" bg-amber-50 border-2" style={{ backgroundColor: "#edeeeb" }}>
+                    <div className="flex items-center" >
+                        {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+                            className: 'trigger',
+                            onClick: toggle,
+                        })}
+                        <span className="  ml-auto">
+                            <Avatar className="mr-2" size={48} src={avatarUrl} />
+                            <span >
+                                <Link to='/User'>{"Kingston Councils"}</Link>
                             </span>
+                        </span>
+
+                    </div>
+                </Header>
+
+                <Content
+                    className="site-layout-background"
+                    style={{
+
+                        padding: 24,
+                        minHeight: 280,
+                        backgroundColor: "#eef1e8"
+                    }}
+                >
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+
+                        <Route path="/HistoryData" element={<HistoryAnalysis />} />
+
+                        <Route path="/Export" element={<Export />} />
+
+                        <Route path="/FileUpload" element={<FileUpload />} />
+
+                        <Route path="/Modelling" element={<Modelling />} />
+
+                        <Route path="/ModelData" element={<ModelData />} />
+
+                        <Route path="/User" element={<User />} />
+
+                        <Route path="/Transfer" element={<Transfer />} />
+
+
+                    </Routes>
+                </Content>
+
+                <footer className="h-36 " style={{
+                    backgroundColor: "#3c3c3c",
+                }} >
+                    <div className="flex justify-center w-full">
+                        <div className="flex items-center">
+                            <img src="https://www.kingston.gov.uk/site/dist/images/site-logo-white.svg" alt="logo" className="w-24  ml-10 mt-5" />
 
                         </div>
 
-
-
-                    </Header>
-                    <Content
-                        className="site-layout-background"
-                        style={{
-                            margin: '24px 16px',
-                            padding: 24,
-                            minHeight: 280,
-                        }}
-                    >
-                               <Routes>
-                                    <Route path = "/" element = {<Home />} />
-
-                                    <Route path = "/Export" element={<Export />} />
-
-                                    <Route path = "/FileUpload" element = {<FileUpload />} />
-
-                                    <Route path = "/Modelling" element = {<Modelling />} />
-
-                                    <Route path = "/User" element = {<User />} />
-                                    
-                                </Routes>
-                    </Content>
-                </Layout>
+                    </div>
+                </footer>
             </Layout>
+        </Layout>
+
     );
 }
 
