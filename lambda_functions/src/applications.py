@@ -5,6 +5,7 @@ import pandas as pd
 
 class Applications:
     instances = []
+    historical = []
 
     def __init__(self, ID, Band, Category, BedroomSize, StartDate):
         self.ApplicationID = ID
@@ -50,7 +51,7 @@ class Applications:
     def getApplicationsByDate(cls, Date):
         datetime_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
         return [application for application in cls.instances if application.StartDate == datetime_date]
-        
+
     @classmethod
     def getNumberOfApplicationsByDate(cls, Date):
         datetime_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
@@ -60,14 +61,12 @@ class Applications:
     def getApplicationsBeforeDate(cls, Date):
         datetime_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
         return [application for application in cls.instances if application.StartDate <= datetime_date]
-        
+
     @classmethod
     def getNumberOfApplicationsBeforeDate(cls, Date, StartDate):
         datetime_start_date = datetime.datetime.combine(StartDate, datetime.datetime.min.time())
         datetime_end_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
         return len([application for application in cls.instances if datetime_start_date <= application.StartDate <= datetime_end_date])
-
-
 
     @classmethod
     def from_dataframe(cls, df):
@@ -114,10 +113,10 @@ class Applications:
 
 
     @classmethod
-    def getApplicationsBySizeAndCategory(cls, BedroomSize, Category):
+    def getApplicationsBySizeAndCategory(cls, BedroomSize, Category, Date):
         # Find all application instances of the requested BedroomSize and Category
         applications = [application for application in cls.instances if
-                        application.BedroomSize == BedroomSize and application.Category == Category]
+                        application.BedroomSize == BedroomSize and application.Category == Category and application.StartDate <= Date]
 
         # Split the applications into lists based on their Band
         band_applications = {}
@@ -134,8 +133,8 @@ class Applications:
         return band_applications
 
     @classmethod
-    def findPriority(cls, BedroomSize, Category):
-        waitingList = Applications.getApplicationsBySizeAndCategory(BedroomSize, Category)
+    def findPriority(cls, BedroomSize, Category, Date):
+        waitingList = Applications.getApplicationsBySizeAndCategory(BedroomSize, Category, Date)
 
         # Check if the dictionary is empty
         if not waitingList:
@@ -166,7 +165,7 @@ class Applications:
     def removeApplication(cls, instance):
         if instance in cls.instances:
             cls.instances.remove(instance)
-            
+
     @classmethod
     def updateWaitingTime(cls, currentDate):
         for application in cls.instances:
@@ -174,7 +173,7 @@ class Applications:
             startDate_date = datetime.date(application.StartDate.year, application.StartDate.month, application.StartDate.day)
             application.WaitTime = (currentDate_date - startDate_date).days
 
-            
+
     @classmethod
     def getAverageWaitingTime(cls):
         waiting_times = []
@@ -184,3 +183,19 @@ class Applications:
             return sum(waiting_times) / len(waiting_times)
         else:
             return 0
+
+    @classmethod
+    def getAverageWaitingTimeForCategory(cls, Category):
+        waiting_times = []
+        for application in cls.instances:
+            if application.Category == Category:
+                waiting_times.append(application.WaitTime)
+        if len(waiting_times) > 0:
+            return sum(waiting_times) / len(waiting_times)
+        else:
+            return 0
+
+    @classmethod
+    def historicalAnalysis(cls, ModelStartDate):
+        cls.historical.extend([app for app in cls.instances if app.StartDate < ModelStartDate])
+        cls.instances = [app for app in cls.instances if app.StartDate >= ModelStartDate]
