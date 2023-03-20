@@ -171,7 +171,10 @@ class Applications:
         for application in cls.instances:
             currentDate_date = datetime.date(currentDate.year, currentDate.month, currentDate.day)
             startDate_date = datetime.date(application.StartDate.year, application.StartDate.month, application.StartDate.day)
-            application.WaitTime = (currentDate_date - startDate_date).days
+            if currentDate_date >= startDate_date:
+                application.WaitTime = (currentDate_date - startDate_date).days
+            else:
+                application.WaitTime = 0
 
 
     @classmethod
@@ -199,3 +202,35 @@ class Applications:
     def historicalAnalysis(cls, ModelStartDate):
         cls.historical.extend([app for app in cls.instances if app.StartDate < ModelStartDate])
         cls.instances = [app for app in cls.instances if app.StartDate >= ModelStartDate]
+
+        trend = {
+            'category': {},
+            'band': {},
+            'bedroom_size': {}
+        }
+
+        for app in cls.historical:
+            year = app.StartDate.year
+
+            # Update category count
+            if app.Category not in trend['category']:
+                trend['category'][app.Category] = {}
+            if year not in trend['category'][app.Category]:
+                trend['category'][app.Category][year] = 0
+            trend['category'][app.Category][year] += 1
+
+            # Update band count
+            if app.Band not in trend['band']:
+                trend['band'][app.Band] = {}
+            if year not in trend['band'][app.Band]:
+                trend['band'][app.Band][year] = 0
+            trend['band'][app.Band][year] += 1
+
+            # Update bedroom size count
+            if app.BedroomSize not in trend['bedroom_size']:
+                trend['bedroom_size'][app.BedroomSize] = {}
+            if year not in trend['bedroom_size'][app.BedroomSize]:
+                trend['bedroom_size'][app.BedroomSize][year] = 0
+            trend['bedroom_size'][app.BedroomSize][year] += 1
+
+        return trend
