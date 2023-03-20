@@ -247,6 +247,15 @@ function PolicyForm() {
     // } catch (error) {
     //   console.log(error);
     // }
+    const headers = {
+      'Content-Type': 'application/json'
+    }
+    try {
+      const response = await API.post('python-modeller-API', '/policytomodeller-policydev', { event: {outputObj}, headers})
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
     console.log(outputObj);
   };
 

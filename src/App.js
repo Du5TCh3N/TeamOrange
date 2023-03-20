@@ -17,6 +17,18 @@ import '@aws-amplify/ui-react/styles.css';
 import awsExports from './aws-exports';
 Amplify.configure(awsExports);
 
+const apiEndpoint = 'https://sfk6ai8lg6.execute-api.eu-west-2.amazonaws.com/default'
+
+Amplify.API.configure({
+  endpoints: [
+    {
+      name: 'python-modeller-API',
+      endpoint: apiEndpoint,
+      region: 'eu-west-2'
+    }
+  ],
+});
+
 function App(){
     
   return(
