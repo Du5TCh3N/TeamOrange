@@ -25,3 +25,4 @@ amplifytools.xcconfig
 
 Pipfile
 Pipfile.lock
+*.pyc
