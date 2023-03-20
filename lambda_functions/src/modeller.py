@@ -73,7 +73,7 @@ class Modeller:
         Applications.from_dataframe(self.housing_register)
         # print(Applications.historicalAnalysis(datetime.datetime.combine(self.startDate, datetime.time())))
         yearly_table, monthly_table = Applications.historicalAnalysis(datetime.datetime.combine(self.startDate, datetime.time()))
-        print(Applications.findHistoricalCategoryAverage(yearly_table, monthly_table, 'Transfer'))
+        print(Applications.findHistoricalCategoryAverage(yearly_table, monthly_table, 'Homeless', past_number_years=5, current_year=self.startDate.year))
 
         self.assignHouseToCategories()
 

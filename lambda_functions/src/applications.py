@@ -250,11 +250,13 @@ class Applications:
         return (year_table, month_table)
 
     @classmethod
-    def findHistoricalCategoryAverage(cls, year_table, month_table, category):
+    def findHistoricalCategoryAverage(cls, year_table, month_table, category, past_number_years=None, current_year=None):
         # Count the total number of applications for the given category over the year
         total_year_count = 0
         year_count = 0
         for year, table in year_table.items():
+            if past_number_years is not None and year < current_year - past_number_years:
+                continue
             for key, count in table.items():
                 if key[0] == category:
                     total_year_count += count
@@ -270,6 +272,8 @@ class Applications:
         total_month_count = 0
         month_count = 0
         for year, year_table in month_table.items():
+            if past_number_years is not None and year < current_year - past_number_years:
+                continue
             for month, table in year_table.items():
                 for key, count in table.items():
                     if key[0] == category:
