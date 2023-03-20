@@ -203,34 +203,84 @@ class Applications:
         cls.historical.extend([app for app in cls.instances if app.StartDate < ModelStartDate])
         cls.instances = [app for app in cls.instances if app.StartDate >= ModelStartDate]
 
-        trend = {
-            'category': {},
-            'band': {},
-            'bedroom_size': {}
-        }
+        # Create two hash tables for year and month
+        year_table = {}
+        month_table = {}
 
-        for app in cls.historical:
-            year = app.StartDate.year
+        # Loop through each historical application and update the hash tables
+        for application in cls.historical:
+            year = application.StartDate.year
+            month = application.StartDate.month
+            category = application.Category
+            band = application.Band
+            bedroom_size = application.BedroomSize
 
-            # Update category count
-            if app.Category not in trend['category']:
-                trend['category'][app.Category] = {}
-            if year not in trend['category'][app.Category]:
-                trend['category'][app.Category][year] = 0
-            trend['category'][app.Category][year] += 1
+            # Update the year table
+            if year not in year_table:
+                year_table[year] = {}
+            year_key = (category, band, bedroom_size)
+            if year_key not in year_table[year]:
+                year_table[year][year_key] = 0
+            year_table[year][year_key] += 1
 
-            # Update band count
-            if app.Band not in trend['band']:
-                trend['band'][app.Band] = {}
-            if year not in trend['band'][app.Band]:
-                trend['band'][app.Band][year] = 0
-            trend['band'][app.Band][year] += 1
+            # Update the month table
+            if year not in month_table:
+                month_table[year] = {}
+            if month not in month_table[year]:
+                month_table[year][month] = {}
+            month_key = (category, band, bedroom_size)
+            if month_key not in month_table[year][month]:
+                month_table[year][month][month_key] = 0
+            month_table[year][month][month_key] += 1
 
-            # Update bedroom size count
-            if app.BedroomSize not in trend['bedroom_size']:
-                trend['bedroom_size'][app.BedroomSize] = {}
-            if year not in trend['bedroom_size'][app.BedroomSize]:
-                trend['bedroom_size'][app.BedroomSize][year] = 0
-            trend['bedroom_size'][app.BedroomSize][year] += 1
+        # Print the year table
+        # print("Year table:")
+        # for year, table in year_table.items():
+        #     print(year)
+        #     for key, count in table.items():
+        #         print(key, count)
 
-        return trend
+        # Print the month table
+        # print("Month table:")
+        # for year, year_table in month_table.items():
+        #     for month, table in year_table.items():
+        #         print(year, month)
+        #         for key, count in table.items():
+        #             print(key, count)
+        return (year_table, month_table)
+
+    @classmethod
+    def findHistoricalCategoryAverage(cls, year_table, month_table, category):
+        # Count the total number of applications for the given category over the year
+        total_year_count = 0
+        year_count = 0
+        for year, table in year_table.items():
+            for key, count in table.items():
+                if key[0] == category:
+                    total_year_count += count
+                    year_count += 1
+
+        # Calculate the average number of applications for the given category per year
+        if year_count > 0:
+            avg_year_count = total_year_count / year_count
+        else:
+            avg_year_count = 0
+
+        # Count the total number of applications for the given category over each month
+        total_month_count = 0
+        month_count = 0
+        for year, year_table in month_table.items():
+            for month, table in year_table.items():
+                for key, count in table.items():
+                    if key[0] == category:
+                        total_month_count += count
+                        month_count += 1
+
+        # Calculate the average number of applications for the given category per month
+        if month_count > 0:
+            avg_month_count = total_month_count / month_count
+        else:
+            avg_month_count = 0
+
+        # Return the average counts
+        return avg_year_count, avg_month_count
