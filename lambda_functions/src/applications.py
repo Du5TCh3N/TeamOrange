@@ -233,14 +233,14 @@ class Applications:
                 month_table[year][month][month_key] = 0
             month_table[year][month][month_key] += 1
 
-        # Print the year table
+        # # Print the year table
         # print("Year table:")
         # for year, table in year_table.items():
         #     print(year)
         #     for key, count in table.items():
         #         print(key, count)
 
-        # Print the month table
+        # # Print the month table
         # print("Month table:")
         # for year, year_table in month_table.items():
         #     for month, table in year_table.items():
@@ -277,6 +277,86 @@ class Applications:
             for month, table in year_table.items():
                 for key, count in table.items():
                     if key[0] == category:
+                        total_month_count += count
+                        month_count += 1
+
+        # Calculate the average number of applications for the given category per month
+        if month_count > 0:
+            avg_month_count = total_month_count / month_count
+        else:
+            avg_month_count = 0
+
+        # Return the average counts
+        return avg_year_count, avg_month_count
+
+    @classmethod
+    def findHistoricalBandAverage(cls, year_table, month_table, band, past_number_years=None, current_year=None):
+        # Count the total number of applications for the given category over the year
+        total_year_count = 0
+        year_count = 0
+        for year, table in year_table.items():
+            if past_number_years is not None and year < current_year - past_number_years:
+                continue
+            for key, count in table.items():
+                if key[1] == band:
+                    total_year_count += count
+                    year_count += 1
+
+        # Calculate the average number of applications for the given category per year
+        if year_count > 0:
+            avg_year_count = total_year_count / year_count
+        else:
+            avg_year_count = 0
+
+        # Count the total number of applications for the given category over each month
+        total_month_count = 0
+        month_count = 0
+        for year, year_table in month_table.items():
+            if past_number_years is not None and year < current_year - past_number_years:
+                continue
+            for month, table in year_table.items():
+                for key, count in table.items():
+                    if key[1] == band:
+                        total_month_count += count
+                        month_count += 1
+
+        # Calculate the average number of applications for the given category per month
+        if month_count > 0:
+            avg_month_count = total_month_count / month_count
+        else:
+            avg_month_count = 0
+
+        # Return the average counts
+        return avg_year_count, avg_month_count
+
+    @classmethod
+    def findHistoricalBedroomAverage(cls, year_table, month_table, bedroom, past_number_years=None, current_year=None):
+        # Count the total number of applications for the given category over the year
+        total_year_count = 0
+        year_count = 0
+        for year, table in year_table.items():
+            if past_number_years is not None and year < current_year - past_number_years:
+                continue
+            for key, count in table.items():
+                if key[2] == bedroom:
+                    total_year_count += count
+                    year_count += 1
+
+        # Calculate the average number of applications for the given category per year
+        if year_count > 0:
+            avg_year_count = total_year_count / year_count
+        else:
+            avg_year_count = 0
+
+        # Count the total number of applications for the given category over each month
+        total_month_count = 0
+        month_count = 0
+        for year, year_table in month_table.items():
+            if past_number_years is not None and year < current_year - past_number_years:
+                continue
+            for month, table in year_table.items():
+                for key, count in table.items():
+                    if key[2] == bedroom:
                         total_month_count += count
                         month_count += 1
 

@@ -73,8 +73,15 @@ class Modeller:
         Applications.from_dataframe(self.housing_register)
         # print(Applications.historicalAnalysis(datetime.datetime.combine(self.startDate, datetime.time())))
         yearly_table, monthly_table = Applications.historicalAnalysis(datetime.datetime.combine(self.startDate, datetime.time()))
-        print(Applications.findHistoricalCategoryAverage(yearly_table, monthly_table, 'Homeless', past_number_years=5, current_year=self.startDate.year))
-
+        category = "Homeless"
+        yearly, monthly = Applications.findHistoricalCategoryAverage(yearly_table, monthly_table, category, past_number_years=5, current_year=self.startDate.year)
+        print(f"{category}: Yearly Average is {yearly}, Monthly Average is {monthly}")
+        band = "Band 1"
+        yearly, monthly = Applications.findHistoricalBandAverage(yearly_table, monthly_table, band, past_number_years=5, current_year=self.startDate.year)
+        print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
+        band = 1
+        yearly, monthly = Applications.findHistoricalBedroomAverage(yearly_table, monthly_table, band, past_number_years=5, current_year=self.startDate.year)
+        print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
         self.assignHouseToCategories()
 
         # allProperties = Property.getAllProperties()
@@ -132,7 +139,7 @@ class Modeller:
             "TenantFinder Average Wait Time": 0.0,
             "Downsizer Average Wait Time": 0.0,
             "Decants Average Wait Time": 0.0,
-            "Other Average Wait Time": 0.0
+            "Other Average Wait Time": 0.0,
         }
         key_stat["Average Wait Time"] = Applications.getAverageWaitingTime()
         categories = ["PanelMoves", "Homeless", "SocialServicesQuota", "Transfer", "HomeScheme", "FirstTimeApplicants", "TenantFinder", "Downsizer", "Decants", "Other"]
