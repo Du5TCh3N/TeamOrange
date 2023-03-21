@@ -67,6 +67,10 @@ class Property:
         return [prop for prop in cls.instances if prop.Category == Category]
 
     @classmethod
+    def getNumberOfPropertiiesByCategory(cls, Category):
+        return len([prop for prop in cls.instances if prop.Category == Category])
+
+    @classmethod
     def getPropertiesByDate(cls, Date):
         return [prop for prop in cls.instances if prop.ReleaseDate == Date]
 

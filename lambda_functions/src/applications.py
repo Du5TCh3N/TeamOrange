@@ -50,6 +50,10 @@ class Applications:
         return [applications for applications in cls.instances if applications.Category == Category]
 
     @classmethod
+    def getNumberOfApplicationsByCategory(cls, Category):
+        return len([applications for applications in cls.instances if applications.Category == Category])
+
+    @classmethod
     def getApplicationsByDate(cls, Date):
         datetime_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
         return [application for application in cls.instances if application.StartDate == datetime_date]
@@ -379,6 +383,7 @@ class Applications:
 
         # Calculate the total number of years included in the calculation
         num_years = end_year - start_year + 1
+        # print("number of years", num_years)
 
         # Create dictionaries to store the total appearances and average appearances for each combination
         year_counts = {}
@@ -455,4 +460,34 @@ class Applications:
 
                         # Create the application instance
                         generated_application = cls(application_id, band, category, bedroom_size, start_date_str)
-                        Applications.instances.append(generated_application)
+                        # Applications.instances.append(generated_application)
+
+    @classmethod
+    def getResolvedInformation(cls):
+        categories = {}
+        band = {}
+        bedroom = {}
+        # Find number of applications in each category
+        for instance in cls.resolved:
+            # Update the categories dictionary
+            category = instance.Category
+            if category in categories:
+                categories[category] += 1
+            else:
+                categories[category] = 1
+
+            # Update the band dictionary
+            band_val = instance.Band
+            if band_val in band:
+                band[band_val] += 1
+            else:
+                band[band_val] = 1
+
+            # Update the bedroom dictionary
+            bedroom_val = instance.BedroomSize
+            if bedroom_val in bedroom:
+                bedroom[bedroom_val] += 1
+            else:
+                bedroom[bedroom_val] = 1
+
+        return categories, band, bedroom

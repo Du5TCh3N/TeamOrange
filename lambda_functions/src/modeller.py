@@ -86,14 +86,15 @@ class Modeller:
         # print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
 
         self.assignHouseToCategories()
+        print("Number of properties for category", Property.getNumberOfPropertiiesByCategory(Category="SocialServicesQuota"))
 
-        year_counts, year_averages, month_counts, month_averages = Applications.findHistoricalCombinationAverage(yearly_table, monthly_table, past_number_years=None, current_year=self.startDate.year)
-        # print(year_averages)
-        print(f"Initial number of applications: {Applications.getNumApplications()}")
+        year_counts, year_averages, month_counts, month_averages = Applications.findHistoricalCombinationAverage(yearly_table, monthly_table, past_number_years=5, current_year=self.startDate.year)
+        # print(f"Number of count per year: {sum(year_averages.values())}")
+        # print(f"Initial number of applications: {Applications.getNumApplications()}")
         Applications.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
-        print(f"Number of applications generated: {Applications.getNumApplications()}")
-
-        print(f"Number of properties: {Property.getNumProperties()}")
+        # print(f"Number of applications generated: {Applications.getNumApplications()}")
+        print("Number of applications for category:", Applications.getNumberOfApplicationsByCategory(Category="SocialServicesQuota"))
+        # print(f"Number of properties: {Property.getNumProperties()}")
 
         # instances = Applications.getAllApplications()
         # for instance in instances:
@@ -138,7 +139,8 @@ class Modeller:
             Applications.updateWaitingTime(currentDate_date)
             self.currentDate += datetime.timedelta(days=1)
 
-        print(Applications.getResolvedNumberApplications())
+        print("Number of Resolved Applications:", Applications.getResolvedNumberApplications())
+        print(f"Resolved applications: {Applications.getResolvedInformation()}")
         # Save the daily result of simulation
         self.saveSimulationToCSV(data, "simulation_data.csv")
         # self.saveToDynamoDB(data)
