@@ -1,6 +1,7 @@
 import datetime
 
 import pandas as pd
+import random
 
 
 class Applications:
@@ -233,20 +234,6 @@ class Applications:
                 month_table[year][month][month_key] = 0
             month_table[year][month][month_key] += 1
 
-        # # Print the year table
-        # print("Year table:")
-        # for year, table in year_table.items():
-        #     print(year)
-        #     for key, count in table.items():
-        #         print(key, count)
-
-        # # Print the month table
-        # print("Month table:")
-        # for year, year_table in month_table.items():
-        #     for month, table in year_table.items():
-        #         print(year, month)
-        #         for key, count in table.items():
-        #             print(key, count)
         return (year_table, month_table)
 
     @classmethod
@@ -368,3 +355,94 @@ class Applications:
 
         # Return the average counts
         return avg_year_count, avg_month_count
+
+    @classmethod
+    def findHistoricalCombinationAverage(cls, year_table, month_table, past_number_years=None, current_year=None):
+        if current_year is None:
+            current_year = datetime.datetime.now().year
+        if past_number_years is None:
+            past_number_years = current_year - min(year_table.keys())
+
+        # Calculate the start and end years based on the current year and past number of years
+        start_year = current_year - past_number_years
+        end_year = current_year - 1
+
+        # Calculate the total number of years included in the calculation
+        num_years = end_year - start_year + 1
+
+        # Create dictionaries to store the total appearances and average appearances for each combination
+        year_counts = {}
+        month_counts = {}
+        year_averages = {}
+        month_averages = {}
+
+        # Loop through each historical application and update the dictionaries
+        for application in cls.historical:
+            year = application.StartDate.year
+            month = application.StartDate.month
+            category = application.Category
+            band = application.Band
+            bedroom_size = application.BedroomSize
+
+            # Check if the application falls within the time range we're interested in
+            if year < start_year or year > end_year:
+                continue
+
+            # Update the year counts and averages
+            year_key = (category, band, bedroom_size)
+            if year_key not in year_counts:
+                year_counts[year_key] = 0
+            year_counts[year_key] += 1
+            if year_key not in year_averages:
+                year_averages[year_key] = 0
+            year_averages[year_key] += 1 / num_years
+
+            # Update the month counts and averages
+            month_key = (category, band, bedroom_size)
+            if month_key not in month_counts:
+                month_counts[month_key] = 0
+            month_counts[month_key] += 1
+            if month_key not in month_averages:
+                month_averages[month_key] = 0
+            month_averages[month_key] += 1 / (num_years * 12)
+
+        return year_counts, year_averages, month_counts, month_averages
+
+
+    @classmethod
+    def generateApplicationsBasedOnAverage(cls, year_average, month_average, startDate, endDate):
+        # List of all categories
+        categories = ['Decants', 'FirstTimeApplicant', 'HomeScheme', 'Homeless', 'SocialServicesQuota', 'Downsizer', 'Transfer', 'TenantFinder', 'PanelMoves', 'Other']
+        bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
+
+        # Generate applications for each category and band combination
+        for category in categories:
+            for band in bands:
+                for bedroom_size in range(1, 5):
+                    # Get the average number of applications per year and per month for this category, band, and bedroom size combination
+                    year_average_count = year_average.get((category, band, bedroom_size), 0)
+                    print(year_average_count)
+                    month_average_count = month_average.get((category, band, bedroom_size), 0)
+
+                    # Generate applications based on the average counts
+                    for i in range(int(year_average_count)):
+                        # Set the application ID as the current timestamp plus a unique identifier
+                        timestamp = int(datetime.datetime.now().timestamp() * 1000)
+                        unique_id = len(cls.instances) + 1
+                        application_id = f"{timestamp}-{unique_id}"
+
+                        # Set the start date as a random date within the simulation startDate and endDate
+                        # Compute the Unix timestamps for the start and end dates
+                        start_timestamp = datetime.datetime.combine(startDate, datetime.time.min).timestamp()
+                        end_timestamp = datetime.datetime.combine(endDate, datetime.time.max).timestamp()
+
+                        # Generate a random Unix timestamp between the start and end dates
+                        random_timestamp = random.uniform(start_timestamp, end_timestamp)
+
+                        # Convert the random Unix timestamp to a datetime object
+                        start_date = datetime.datetime.fromtimestamp(random_timestamp)
+                        start_date_str = start_date.strftime('%Y-%m-%d %H:%M:%S')
+
+                        # Create the application instance
+                        generated_application = cls(application_id, band, category, bedroom_size, start_date_str)
+                        Applications.instances.append(generated_application)

@@ -75,14 +75,22 @@ class Modeller:
         yearly_table, monthly_table = Applications.historicalAnalysis(datetime.datetime.combine(self.startDate, datetime.time()))
         category = "Homeless"
         yearly, monthly = Applications.findHistoricalCategoryAverage(yearly_table, monthly_table, category, past_number_years=5, current_year=self.startDate.year)
-        print(f"{category}: Yearly Average is {yearly}, Monthly Average is {monthly}")
+        # print(f"{category}: Yearly Average is {yearly}, Monthly Average is {monthly}")
         band = "Band 1"
         yearly, monthly = Applications.findHistoricalBandAverage(yearly_table, monthly_table, band, past_number_years=5, current_year=self.startDate.year)
-        print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
+        # print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
         band = 1
         yearly, monthly = Applications.findHistoricalBedroomAverage(yearly_table, monthly_table, band, past_number_years=5, current_year=self.startDate.year)
-        print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
+        # print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
         self.assignHouseToCategories()
+
+        year_counts, year_averages, month_counts, month_averages = Applications.findHistoricalCombinationAverage(yearly_table, monthly_table, past_number_years=5, current_year=self.startDate.year)
+        # print(year_averages)
+        Applications.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
+        print(Applications.getNumApplications())
+        instances = Applications.getAllApplications()
+        # for instance in instances:
+            # print(instance)
 
         # allProperties = Property.getAllProperties()
         # for property in allProperties:
@@ -293,8 +301,8 @@ if __name__ == "__main__":
         "3": 29,
         "4": 2
       },
-      "startDate": "2022-01-01",
-      "endDate": "2022-01-31"
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
     }
     policy = data.get("policy")
     supply = data.get("supply")
