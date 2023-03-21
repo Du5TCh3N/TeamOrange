@@ -251,7 +251,7 @@ function PolicyForm() {
       'Content-Type': 'application/json'
     }
     try {
-      const response = await API.post('python-modeller-API', '/policytomodeller-policydev', { body: outputObj})
+      const response = await API.post('python-modeller-API', '/policytomodeller-policydev', { body: outputObj })
       console.log(response)
     } catch (error) {
       console.log(error)
