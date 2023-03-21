@@ -1,14 +1,14 @@
 {
-  "devtwo": {
+  "devcred": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-teamorange-devtwo-155013-authRole",
-      "UnauthRoleArn": "arn:aws:iam::538841638676:role/amplify-teamorange-devtwo-155013-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::538841638676:role/amplify-teamorange-devtwo-155013-authRole",
+      "AuthRoleName": "amplify-teamorange-devcred-153426-authRole",
+      "UnauthRoleArn": "arn:aws:iam::538841638676:role/amplify-teamorange-devcred-153426-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::538841638676:role/amplify-teamorange-devcred-153426-authRole",
       "Region": "eu-west-2",
-      "DeploymentBucketName": "amplify-teamorange-devtwo-155013-deployment",
-      "UnauthRoleName": "amplify-teamorange-devtwo-155013-unauthRole",
-      "StackName": "amplify-teamorange-devtwo-155013",
-      "StackId": "arn:aws:cloudformation:eu-west-2:538841638676:stack/amplify-teamorange-devtwo-155013/3d6afab0-c412-11ed-b083-0a6cc7ce271a",
+      "DeploymentBucketName": "amplify-teamorange-devcred-153426-deployment",
+      "UnauthRoleName": "amplify-teamorange-devcred-153426-unauthRole",
+      "StackName": "amplify-teamorange-devcred-153426",
+      "StackId": "arn:aws:cloudformation:eu-west-2:538841638676:stack/amplify-teamorange-devcred-153426/dd2f95d0-c7fd-11ed-b04d-0ae24c717924",
       "AmplifyAppId": "d1htp7p0ywvi2a"
     }
   }

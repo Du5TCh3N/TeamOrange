@@ -17,12 +17,16 @@ export declare type SimulationDataCreateFormInputValues = {
     queued?: number[];
     resolved?: number[];
     new?: number[];
+    createdAt?: string;
+    updatedAt?: string;
 };
 export declare type SimulationDataCreateFormValidationValues = {
     date?: ValidationFunction<string>;
     queued?: ValidationFunction<number>;
     resolved?: ValidationFunction<number>;
     new?: ValidationFunction<number>;
+    createdAt?: ValidationFunction<string>;
+    updatedAt?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type SimulationDataCreateFormOverridesProps = {
@@ -31,6 +35,8 @@ export declare type SimulationDataCreateFormOverridesProps = {
     queued?: PrimitiveOverrideProps<TextFieldProps>;
     resolved?: PrimitiveOverrideProps<TextFieldProps>;
     new?: PrimitiveOverrideProps<TextFieldProps>;
+    createdAt?: PrimitiveOverrideProps<TextFieldProps>;
+    updatedAt?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type SimulationDataCreateFormProps = React.PropsWithChildren<{
     overrides?: SimulationDataCreateFormOverridesProps | undefined | null;
