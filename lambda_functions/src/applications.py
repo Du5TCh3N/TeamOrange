@@ -7,6 +7,7 @@ import random
 class Applications:
     instances = []
     historical = []
+    resolved = []
 
     def __init__(self, ID, Band, Category, BedroomSize, StartDate):
         self.ApplicationID = ID
@@ -158,6 +159,7 @@ class Applications:
     def removeApplicationByID(cls, ApplicationID):
         for application in cls.instances:
             if application.ApplicationID == ApplicationID:
+                cls.resolved.extend(application)
                 cls.instances.remove(application)
                 return True
         return False
@@ -166,6 +168,12 @@ class Applications:
     def removeApplication(cls, instance):
         if instance in cls.instances:
             cls.instances.remove(instance)
+            cls.resolved.append(instance)
+
+
+    @classmethod
+    def getResolvedNumberApplications(cls):
+        return len(cls.resolved)
 
     @classmethod
     def updateWaitingTime(cls, currentDate):
@@ -202,7 +210,9 @@ class Applications:
     @classmethod
     def historicalAnalysis(cls, ModelStartDate):
         cls.historical.extend([app for app in cls.instances if app.StartDate < ModelStartDate])
+        print(f"historical extracted: {len(cls.historical)}")
         cls.instances = [app for app in cls.instances if app.StartDate >= ModelStartDate]
+        print(f"instances left: {len(cls.instances)}")
 
         # Create two hash tables for year and month
         year_table = {}
@@ -421,7 +431,7 @@ class Applications:
                 for bedroom_size in range(1, 5):
                     # Get the average number of applications per year and per month for this category, band, and bedroom size combination
                     year_average_count = year_average.get((category, band, bedroom_size), 0)
-                    print(year_average_count)
+                    # print(year_average_count)
                     month_average_count = month_average.get((category, band, bedroom_size), 0)
 
                     # Generate applications based on the average counts

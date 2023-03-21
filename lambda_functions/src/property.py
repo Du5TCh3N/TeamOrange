@@ -88,9 +88,6 @@ class Property:
         return None
 
     @classmethod
-    def deleteProperty(cls, PropertyID):
-        for prop in cls.instances:
-            if prop.PropertyID == PropertyID:
-                cls.instances.remove(prop)
-                return True
-        return False
+    def deleteProperty(cls, property):
+        if property in cls.instances:
+            cls.instances.remove(property)

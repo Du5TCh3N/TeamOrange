@@ -18,11 +18,13 @@ def resolveApplication(currentDate):
     for prop in availableProperties:
         Category = prop.getCategory()
         Size = prop.getSize()
-        # print(prop)
+
         candidate = Applications.findPriority(Category=Category, BedroomSize=Size, Date=currentDate)
-        # print(candidate)
+
         if candidate is None:
             continue
+        # print(prop)
+        # print(candidate)
         Property.deleteProperty(prop)
         Applications.removeApplication(candidate)
         resolvedCounter += 1
@@ -82,13 +84,18 @@ class Modeller:
         band = 1
         yearly, monthly = Applications.findHistoricalBedroomAverage(yearly_table, monthly_table, band, past_number_years=5, current_year=self.startDate.year)
         # print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
+
         self.assignHouseToCategories()
 
-        year_counts, year_averages, month_counts, month_averages = Applications.findHistoricalCombinationAverage(yearly_table, monthly_table, past_number_years=5, current_year=self.startDate.year)
+        year_counts, year_averages, month_counts, month_averages = Applications.findHistoricalCombinationAverage(yearly_table, monthly_table, past_number_years=None, current_year=self.startDate.year)
         # print(year_averages)
+        print(f"Initial number of applications: {Applications.getNumApplications()}")
         Applications.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
-        print(Applications.getNumApplications())
-        instances = Applications.getAllApplications()
+        print(f"Number of applications generated: {Applications.getNumApplications()}")
+
+        print(f"Number of properties: {Property.getNumProperties()}")
+
+        # instances = Applications.getAllApplications()
         # for instance in instances:
             # print(instance)
 
@@ -131,6 +138,7 @@ class Modeller:
             Applications.updateWaitingTime(currentDate_date)
             self.currentDate += datetime.timedelta(days=1)
 
+        print(Applications.getResolvedNumberApplications())
         # Save the daily result of simulation
         self.saveSimulationToCSV(data, "simulation_data.csv")
         # self.saveToDynamoDB(data)
