@@ -147,7 +147,7 @@ class Modeller:
         # print("Number of Resolved Applications:", Applications.getResolvedNumberApplications())
         # print(f"Resolved applications: {Applications.getResolvedInformation()}")
         category_stat, band_stat, bedroom_stat = Applications.getResolvedInformation()
-        self.savePieChartToDynamoDB(category_stat)
+        self.savePieChartToDynamoDB(category_stat, band_stat, bedroom_stat)
         # print(f"All applications: {Applications.getAllApplicationInformation()}")
         # Save the daily result of simulation
         self.saveSimulationToCSV(data, "simulation_data.csv")
@@ -251,8 +251,10 @@ class Modeller:
 
         table.put_item(Item=item)
 
-    def savePieChartToDynamoDB(self, data):
-        json_str = json.dumps(data)
+    def savePieChartToDynamoDB(self, category_stat, band_stat, bedroom_stat):
+        category_json_str = json.dumps(category_stat)
+        band_json_str = json.dumps(band_stat)
+        bedroom_json_str = json.dumps(bedroom_stat)
         # aws_json = aws_encryption_sdk.json_encoder.encode(json_str)
 
         dynamodb = boto3.resource("dynamodb")
@@ -260,7 +262,19 @@ class Modeller:
         table.put_item(
             Item={
                 'id': 'category_piechart',
-                'data': json_str
+                'data': category_json_str
+            }
+        )
+        table.put_item(
+            Item={
+                'id': 'band_piechart',
+                'data': band_json_str
+            }
+        )
+        table.put_item(
+            Item={
+                'id': 'bedroom_piechart',
+                'data': bedroom_json_str
             }
         )
 
