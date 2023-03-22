@@ -491,3 +491,35 @@ class Applications:
                 bedroom[bedroom_val] = 1
 
         return categories, band, bedroom
+
+    @classmethod
+    def getAllApplicationInformation(cls):
+        categories = {}
+        band = {}
+        bedroom = {}
+
+        all_application = cls.resolved + cls.instances
+        # Find number of applications in each category
+        for instance in all_application:
+            # Update the categories dictionary
+            category = instance.Category
+            if category in categories:
+                categories[category] += 1
+            else:
+                categories[category] = 1
+
+            # Update the band dictionary
+            band_val = instance.Band
+            if band_val in band:
+                band[band_val] += 1
+            else:
+                band[band_val] = 1
+
+            # Update the bedroom dictionary
+            bedroom_val = instance.BedroomSize
+            if bedroom_val in bedroom:
+                bedroom[bedroom_val] += 1
+            else:
+                bedroom[bedroom_val] = 1
+
+        return categories, band, bedroom

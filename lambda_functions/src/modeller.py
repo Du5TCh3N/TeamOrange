@@ -1,7 +1,7 @@
 import csv
 import datetime
 import tempfile
-from tabulate import tabulate
+# from tabulate import tabulate
 
 import pandas as pd
 # from src.applications import Applications
@@ -143,7 +143,8 @@ class Modeller:
             self.currentDate += datetime.timedelta(days=1)
 
         # print("Number of Resolved Applications:", Applications.getResolvedNumberApplications())
-        # print(f"Resolved applications: {Applications.getResolvedInformation()}")
+        print(f"Resolved applications: {Applications.getResolvedInformation()}")
+        print(f"All applications: {Applications.getAllApplicationInformation()}")
         # Save the daily result of simulation
         self.saveSimulationToCSV(data, "simulation_data.csv")
         # self.saveToDynamoDB(data)
