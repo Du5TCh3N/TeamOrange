@@ -5,5 +5,9 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
+export { default as KeyStatsCreateForm } from "./KeyStatsCreateForm";
+export { default as KeyStatsUpdateForm } from "./KeyStatsUpdateForm";
+export { default as PiechartCreateForm } from "./PiechartCreateForm";
+export { default as PiechartUpdateForm } from "./PiechartUpdateForm";
 export { default as SimulationDataCreateForm } from "./SimulationDataCreateForm";
 export { default as SimulationDataUpdateForm } from "./SimulationDataUpdateForm";

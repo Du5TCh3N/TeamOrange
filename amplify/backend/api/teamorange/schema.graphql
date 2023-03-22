@@ -1,3 +1,13 @@
+type KeyStats @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: AWSJSON
+}
+
+type Piechart @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: AWSJSON
+}
+
 type SimulationData @model @auth(rules: [{allow: public}]) {
   id: ID!
   date: [String!]!
@@ -7,3 +17,4 @@ type SimulationData @model @auth(rules: [{allow: public}]) {
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
+ 

@@ -10,6 +10,8 @@ from applications import Applications
 from property import Property
 
 import boto3
+import json
+import aws_encryption_sdk
 
 def resolveApplication(currentDate):
     availableProperties = Property.getAllProperties()
@@ -143,10 +145,13 @@ class Modeller:
             self.currentDate += datetime.timedelta(days=1)
 
         # print("Number of Resolved Applications:", Applications.getResolvedNumberApplications())
-        print(f"Resolved applications: {Applications.getResolvedInformation()}")
-        print(f"All applications: {Applications.getAllApplicationInformation()}")
+        # print(f"Resolved applications: {Applications.getResolvedInformation()}")
+        category_stat, band_stat, bedroom_stat = Applications.getResolvedInformation()
+        self.savePieChartToDynamoDB(category_stat)
+        # print(f"All applications: {Applications.getAllApplicationInformation()}")
         # Save the daily result of simulation
         self.saveSimulationToCSV(data, "simulation_data.csv")
+        self.saveToDynamoDB(data)
         # self.saveToDynamoDB(data)
 
         # Save the key stat of the simulation
@@ -170,6 +175,7 @@ class Modeller:
             key = f"{category} Average Wait Time"
             key_stat[key] = Applications.getAverageWaitingTimeForCategory(category)
 
+        self.saveKeyStatToDynamoDB(key_stat)
         self.saveKeyStatToCSV(key_stat, "key_stat.csv")
 
         print("Terminating Model")
@@ -244,6 +250,32 @@ class Modeller:
         }
 
         table.put_item(Item=item)
+
+    def savePieChartToDynamoDB(self, data):
+        json_str = json.dumps(data)
+        # aws_json = aws_encryption_sdk.json_encoder.encode(json_str)
+
+        dynamodb = boto3.resource("dynamodb")
+        table = dynamodb.Table("Piechart-l6ud5eblpjg5rlgutkig3e5hia-dev")
+        table.put_item(
+            Item={
+                'id': 'category_piechart',
+                'data': json_str
+            }
+        )
+
+    def saveKeyStatToDynamoDB(self, data):
+        json_str = json.dumps(data)
+        # aws_json = aws_encryption_sdk.json_encoder.encode(json_str)
+
+        dynamodb = boto3.resource("dynamodb")
+        table = dynamodb.Table("KeyStats-l6ud5eblpjg5rlgutkig3e5hia-dev")
+        table.put_item(
+            Item={
+                'id': 'key_stat',
+                'data': json_str
+            }
+        )
 
     def saveSimulationToCSV(self, data, file_path):
         with open(file_path, mode='w', newline='') as csv_file:
