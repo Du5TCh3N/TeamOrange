@@ -82,19 +82,46 @@ const Modelling = () => {
   useEffect(() => {
     async function fetchData() {
       const models = await DataStore.query(SimulationData);
-      const piechartData = await DataStore.query(Piechart);
-
       setData(models);
 
-      const categoryList = piechartData.flatMap((item) => item.category);
-      const resolvedList = piechartData.flatMap((item) => (item.resolved))
+      const categoryPiechartData = await DataStore.query(Piechart, "category_piechart");
+      const bandPiechartData = await DataStore.query(Piechart, "band_piechart");
+      const bedroomPiechartData = await DataStore.query(Piechart, "bedroom_piechart");
+
+      const categoryList = categoryPiechartData.category;
+      const categoryResolvedList = categoryPiechartData.resolved;
+      // Create a dictionary mapping each category to its corresponding resolved value
       const categoryResolvedDict = {};
-      if (categoryList && resolvedList && categoryList.length === resolvedList.length) {
+      if (categoryList && categoryResolvedList && categoryList.length === categoryResolvedList.length) {
         for (let i = 0; i < categoryList.length; i++) {
-          categoryResolvedDict[categoryList[i]] = resolvedList[i];
+          categoryResolvedDict[categoryList[i]] = categoryResolvedList[i];
         }
       }
       setCategoryPieChartData(categoryResolvedDict)
+
+      const bandList = bandPiechartData.category;
+      const bandResolvedList = bandPiechartData.resolved;
+
+      // Create a dictionary mapping each category to its corresponding resolved value
+      const bandResolvedDict = {};
+      if (bandList && bandResolvedList && bandList.length === bandResolvedList.length) {
+        for (let i = 0; i < bandList.length; i++) {
+          bandResolvedDict[bandList[i]] = bandResolvedList[i];
+        }
+      }
+      setBandPieChartData(bandResolvedDict)
+
+      const bedroomList = bedroomPiechartData.category;
+      const bedroomResolvedList = bedroomPiechartData.resolved;
+
+      // Create a dictionary mapping each category to its corresponding resolved value
+      const bedroomResolvedDict = {};
+      if (bedroomList && bedroomResolvedList && bedroomList.length === bedroomResolvedList.length) {
+        for (let i = 0; i < bedroomList.length; i++) {
+          bedroomResolvedDict[bedroomList[i]] = bedroomResolvedList[i];
+        }
+      }
+      setBedroomPieChartData(bedroomResolvedDict)
 
     }
     fetchData();

@@ -12,7 +12,6 @@ from property import Property
 
 import boto3
 import json
-import aws_encryption_sdk
 
 def resolveApplication(currentDate):
     availableProperties = Property.getAllProperties()
@@ -153,7 +152,7 @@ class Modeller:
         # print("Number of Resolved Applications:", Applications.getResolvedNumberApplications())
         # print(f"Resolved applications: {Applications.getResolvedInformation()}")
         category_stat, band_stat, bedroom_stat = Applications.getResolvedInformation()
-        self.savePieChartToDynamoDB(category_stat)
+        self.savePieChartToDynamoDB(category_stat, band_stat, bedroom_stat)
         # print(f"All applications: {Applications.getAllApplicationInformation()}")
         # Save the daily result of simulation
         self.saveSimulationToCSV(data, "simulation_data.csv")
@@ -255,11 +254,15 @@ class Modeller:
 
         table.put_item(Item=item)
 
-    def savePieChartToDynamoDB(self, category_stat):
+    def savePieChartToDynamoDB(self, category_stat, band_stat, bedroom_stat):
         from datetime import datetime
 
-        categories_list = list(category_stat.keys())
-        value_list = list(category_stat.values())
+        category_list = list(category_stat.keys())
+        category_value_list = list(category_stat.values())
+        band_list = list(band_stat.keys())
+        band_value_list = list(band_stat.values())
+        bedroom_list = list(bedroom_stat.keys())
+        bedroom_value_list = list(bedroom_stat.values())
         # band_json_str = json.dumps(band_stat)
         # bedroom_json_str = json.dumps(bedroom_stat)
         # aws_json = aws_encryption_sdk.json_encoder.encode(json_str)
@@ -269,37 +272,39 @@ class Modeller:
         table.put_item(
             Item={
                 'id': 'category_piechart',
-                'category': categories_list,
-                'resolved': value_list,
-                '__typename': 'CategoryPieChartData',
+                'category': category_list,
+                'resolved': category_value_list,
+                '__typename': 'PieChartData',
                 'createdAt': datetime.now(tz.UTC).isoformat(),
                 'updatedAt': datetime.now(tz.UTC).isoformat(),
                 '_version': 1,
                 '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
             }
         )
-        # table.put_item(
-        #     Item={
-        #         'id': 'band_piechart',
-        #         'data': band_json_str,
-        #         '__typename': 'BandPieChartData',
-        #         'createdAt': datetime.now(tz.UTC).isoformat(),
-        #         'updatedAt': datetime.now(tz.UTC).isoformat(),
-        #         '_version': 1,
-        #         '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
-        #     }
-        # )
-        # table.put_item(
-        #     Item={
-        #         'id': 'bedroom_piechart',
-        #         'data': bedroom_json_str,
-        #         '__typename': 'BedroomPieChartData',
-        #         'createdAt': datetime.now(tz.UTC).isoformat(),
-        #         'updatedAt': datetime.now(tz.UTC).isoformat(),
-        #         '_version': 1,
-        #         '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
-        #     }
-        # )
+        table.put_item(
+            Item={
+                'id': 'band_piechart',
+                'category': band_list,
+                'resolved': band_value_list,
+                '__typename': 'PieChartData',
+                'createdAt': datetime.now(tz.UTC).isoformat(),
+                'updatedAt': datetime.now(tz.UTC).isoformat(),
+                '_version': 1,
+                '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
+            }
+        )
+        table.put_item(
+            Item={
+                'id': 'bedroom_piechart',
+                'category': bedroom_list,
+                'resolved': bedroom_value_list,
+                '__typename': 'PieChartData',
+                'createdAt': datetime.now(tz.UTC).isoformat(),
+                'updatedAt': datetime.now(tz.UTC).isoformat(),
+                '_version': 1,
+                '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
+            }
+        )
 
     def saveKeyStatToDynamoDB(self, data):
         from datetime import datetime
