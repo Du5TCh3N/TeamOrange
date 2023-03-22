@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextAreaFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Piechart } from "../models";
 export declare type ValidationResponse = {
@@ -14,15 +14,21 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type PiechartUpdateFormInputValues = {
-    name?: string;
+    category?: string[];
+    resolved?: number[];
+    applications?: number[];
 };
 export declare type PiechartUpdateFormValidationValues = {
-    name?: ValidationFunction<string>;
+    category?: ValidationFunction<string>;
+    resolved?: ValidationFunction<number>;
+    applications?: ValidationFunction<number>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type PiechartUpdateFormOverridesProps = {
     PiechartUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
-    name?: PrimitiveOverrideProps<TextAreaFieldProps>;
+    category?: PrimitiveOverrideProps<TextFieldProps>;
+    resolved?: PrimitiveOverrideProps<TextFieldProps>;
+    applications?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type PiechartUpdateFormProps = React.PropsWithChildren<{
     overrides?: PiechartUpdateFormOverridesProps | undefined | null;

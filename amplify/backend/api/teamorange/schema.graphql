@@ -5,7 +5,9 @@ type KeyStats @model @auth(rules: [{allow: public}]) {
 
 type Piechart @model @auth(rules: [{allow: public}]) {
   id: ID!
-  name: AWSJSON
+  category: [String]
+  resolved: [Int]
+  applications: [Int]
 }
 
 type SimulationData @model @auth(rules: [{allow: public}]) {

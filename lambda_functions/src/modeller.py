@@ -1,5 +1,6 @@
 import csv
 import datetime
+from dateutil import tz
 import tempfile
 # from tabulate import tabulate
 
@@ -147,7 +148,7 @@ class Modeller:
         # print("Number of Resolved Applications:", Applications.getResolvedNumberApplications())
         # print(f"Resolved applications: {Applications.getResolvedInformation()}")
         category_stat, band_stat, bedroom_stat = Applications.getResolvedInformation()
-        self.savePieChartToDynamoDB(category_stat, band_stat, bedroom_stat)
+        self.savePieChartToDynamoDB(category_stat)
         # print(f"All applications: {Applications.getAllApplicationInformation()}")
         # Save the daily result of simulation
         self.saveSimulationToCSV(data, "simulation_data.csv")
@@ -175,7 +176,7 @@ class Modeller:
             key = f"{category} Average Wait Time"
             key_stat[key] = Applications.getAverageWaitingTimeForCategory(category)
 
-        self.saveKeyStatToDynamoDB(key_stat)
+        # self.saveKeyStatToDynamoDB(key_stat)
         self.saveKeyStatToCSV(key_stat, "key_stat.csv")
 
         print("Terminating Model")
@@ -229,8 +230,6 @@ class Modeller:
         # simulation_result = {"id": "1", "Average Waiting Time": str(Applications.getAverageWaitingTime())}
         # simulation_data_table.put_item(Item=simulation_result)
         from datetime import datetime
-        from dateutil import tz
-        import boto3
 
         dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
         table = dynamodb.Table('SimulationData-l6ud5eblpjg5rlgutkig3e5hia-dev')
@@ -251,10 +250,13 @@ class Modeller:
 
         table.put_item(Item=item)
 
-    def savePieChartToDynamoDB(self, category_stat, band_stat, bedroom_stat):
-        category_json_str = json.dumps(category_stat)
-        band_json_str = json.dumps(band_stat)
-        bedroom_json_str = json.dumps(bedroom_stat)
+    def savePieChartToDynamoDB(self, category_stat):
+        from datetime import datetime
+
+        categories_list = list(category_stat.keys())
+        value_list = list(category_stat.values())
+        # band_json_str = json.dumps(band_stat)
+        # bedroom_json_str = json.dumps(bedroom_stat)
         # aws_json = aws_encryption_sdk.json_encoder.encode(json_str)
 
         dynamodb = boto3.resource("dynamodb")
@@ -262,23 +264,41 @@ class Modeller:
         table.put_item(
             Item={
                 'id': 'category_piechart',
-                'data': category_json_str
+                'category': categories_list,
+                'resolved': value_list,
+                '__typename': 'CategoryPieChartData',
+                'createdAt': datetime.now(tz.UTC).isoformat(),
+                'updatedAt': datetime.now(tz.UTC).isoformat(),
+                '_version': 1,
+                '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
             }
         )
-        table.put_item(
-            Item={
-                'id': 'band_piechart',
-                'data': band_json_str
-            }
-        )
-        table.put_item(
-            Item={
-                'id': 'bedroom_piechart',
-                'data': bedroom_json_str
-            }
-        )
+        # table.put_item(
+        #     Item={
+        #         'id': 'band_piechart',
+        #         'data': band_json_str,
+        #         '__typename': 'BandPieChartData',
+        #         'createdAt': datetime.now(tz.UTC).isoformat(),
+        #         'updatedAt': datetime.now(tz.UTC).isoformat(),
+        #         '_version': 1,
+        #         '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
+        #     }
+        # )
+        # table.put_item(
+        #     Item={
+        #         'id': 'bedroom_piechart',
+        #         'data': bedroom_json_str,
+        #         '__typename': 'BedroomPieChartData',
+        #         'createdAt': datetime.now(tz.UTC).isoformat(),
+        #         'updatedAt': datetime.now(tz.UTC).isoformat(),
+        #         '_version': 1,
+        #         '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
+        #     }
+        # )
 
     def saveKeyStatToDynamoDB(self, data):
+        from datetime import datetime
+
         json_str = json.dumps(data)
         # aws_json = aws_encryption_sdk.json_encoder.encode(json_str)
 
@@ -287,7 +307,12 @@ class Modeller:
         table.put_item(
             Item={
                 'id': 'key_stat',
-                'data': json_str
+                'data': json_str,
+                '__typename': 'keyStats',
+                'createdAt': datetime.now(tz.UTC).isoformat(),
+                'updatedAt': datetime.now(tz.UTC).isoformat(),
+                '_version': 1,
+                '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
             }
         )
 

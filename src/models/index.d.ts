@@ -40,7 +40,9 @@ type EagerPiechart = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly name?: string | null;
+  readonly category?: (string | null)[] | null;
+  readonly resolved?: (number | null)[] | null;
+  readonly applications?: (number | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -51,7 +53,9 @@ type LazyPiechart = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly name?: string | null;
+  readonly category?: (string | null)[] | null;
+  readonly resolved?: (number | null)[] | null;
+  readonly applications?: (number | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

@@ -6,11 +6,180 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextAreaField } from "@aws-amplify/ui-react";
+import {
+  Badge,
+  Button,
+  Divider,
+  Flex,
+  Grid,
+  Icon,
+  ScrollView,
+  Text,
+  TextField,
+  useTheme,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Piechart } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
+function ArrayField({
+  items = [],
+  onChange,
+  label,
+  inputFieldRef,
+  children,
+  hasError,
+  setFieldValue,
+  currentFieldValue,
+  defaultFieldValue,
+  lengthLimit,
+  getBadgeText,
+  errorMessage,
+}) {
+  const labelElement = <Text>{label}</Text>;
+  const {
+    tokens: {
+      components: {
+        fieldmessages: { error: errorStyles },
+      },
+    },
+  } = useTheme();
+  const [selectedBadgeIndex, setSelectedBadgeIndex] = React.useState();
+  const [isEditing, setIsEditing] = React.useState();
+  React.useEffect(() => {
+    if (isEditing) {
+      inputFieldRef?.current?.focus();
+    }
+  }, [isEditing]);
+  const removeItem = async (removeIndex) => {
+    const newItems = items.filter((value, index) => index !== removeIndex);
+    await onChange(newItems);
+    setSelectedBadgeIndex(undefined);
+  };
+  const addItem = async () => {
+    if (
+      currentFieldValue !== undefined &&
+      currentFieldValue !== null &&
+      currentFieldValue !== "" &&
+      !hasError
+    ) {
+      const newItems = [...items];
+      if (selectedBadgeIndex !== undefined) {
+        newItems[selectedBadgeIndex] = currentFieldValue;
+        setSelectedBadgeIndex(undefined);
+      } else {
+        newItems.push(currentFieldValue);
+      }
+      await onChange(newItems);
+      setIsEditing(false);
+    }
+  };
+  const arraySection = (
+    <React.Fragment>
+      {!!items?.length && (
+        <ScrollView height="inherit" width="inherit" maxHeight={"7rem"}>
+          {items.map((value, index) => {
+            return (
+              <Badge
+                key={index}
+                style={{
+                  cursor: "pointer",
+                  alignItems: "center",
+                  marginRight: 3,
+                  marginTop: 3,
+                  backgroundColor:
+                    index === selectedBadgeIndex ? "#B8CEF9" : "",
+                }}
+                onClick={() => {
+                  setSelectedBadgeIndex(index);
+                  setFieldValue(items[index]);
+                  setIsEditing(true);
+                }}
+              >
+                {getBadgeText ? getBadgeText(value) : value.toString()}
+                <Icon
+                  style={{
+                    cursor: "pointer",
+                    paddingLeft: 3,
+                    width: 20,
+                    height: 20,
+                  }}
+                  viewBox={{ width: 20, height: 20 }}
+                  paths={[
+                    {
+                      d: "M10 10l5.09-5.09L10 10l5.09 5.09L10 10zm0 0L4.91 4.91 10 10l-5.09 5.09L10 10z",
+                      stroke: "black",
+                    },
+                  ]}
+                  ariaLabel="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    removeItem(index);
+                  }}
+                />
+              </Badge>
+            );
+          })}
+        </ScrollView>
+      )}
+      <Divider orientation="horizontal" marginTop={5} />
+    </React.Fragment>
+  );
+  if (lengthLimit !== undefined && items.length >= lengthLimit && !isEditing) {
+    return (
+      <React.Fragment>
+        {labelElement}
+        {arraySection}
+      </React.Fragment>
+    );
+  }
+  return (
+    <React.Fragment>
+      {labelElement}
+      {isEditing && children}
+      {!isEditing ? (
+        <>
+          <Button
+            onClick={() => {
+              setIsEditing(true);
+            }}
+          >
+            Add item
+          </Button>
+          {errorMessage && hasError && (
+            <Text color={errorStyles.color} fontSize={errorStyles.fontSize}>
+              {errorMessage}
+            </Text>
+          )}
+        </>
+      ) : (
+        <Flex justifyContent="flex-end">
+          {(currentFieldValue || isEditing) && (
+            <Button
+              children="Cancel"
+              type="button"
+              size="small"
+              onClick={() => {
+                setFieldValue(defaultFieldValue);
+                setIsEditing(false);
+                setSelectedBadgeIndex(undefined);
+              }}
+            ></Button>
+          )}
+          <Button
+            size="small"
+            variation="link"
+            isDisabled={hasError}
+            onClick={addItem}
+          >
+            {selectedBadgeIndex !== undefined ? "Save" : "Add"}
+          </Button>
+        </Flex>
+      )}
+      {arraySection}
+    </React.Fragment>
+  );
+}
 export default function PiechartCreateForm(props) {
   const {
     clearOnSuccess = true,
@@ -23,16 +192,36 @@ export default function PiechartCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    name: "",
+    category: [],
+    resolved: [],
+    applications: [],
   };
-  const [name, setName] = React.useState(initialValues.name);
+  const [category, setCategory] = React.useState(initialValues.category);
+  const [resolved, setResolved] = React.useState(initialValues.resolved);
+  const [applications, setApplications] = React.useState(
+    initialValues.applications
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setName(initialValues.name);
+    setCategory(initialValues.category);
+    setCurrentCategoryValue("");
+    setResolved(initialValues.resolved);
+    setCurrentResolvedValue("");
+    setApplications(initialValues.applications);
+    setCurrentApplicationsValue("");
     setErrors({});
   };
+  const [currentCategoryValue, setCurrentCategoryValue] = React.useState("");
+  const categoryRef = React.createRef();
+  const [currentResolvedValue, setCurrentResolvedValue] = React.useState("");
+  const resolvedRef = React.createRef();
+  const [currentApplicationsValue, setCurrentApplicationsValue] =
+    React.useState("");
+  const applicationsRef = React.createRef();
   const validations = {
-    name: [{ type: "JSON" }],
+    category: [],
+    resolved: [],
+    applications: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -60,7 +249,9 @@ export default function PiechartCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          name,
+          category,
+          resolved,
+          applications,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -106,29 +297,148 @@ export default function PiechartCreateForm(props) {
       {...getOverrideProps(overrides, "PiechartCreateForm")}
       {...rest}
     >
-      <TextAreaField
-        label="Name"
-        isRequired={false}
-        isReadOnly={false}
-        onChange={(e) => {
-          let { value } = e.target;
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
           if (onChange) {
             const modelFields = {
-              name: value,
+              category: values,
+              resolved,
+              applications,
             };
             const result = onChange(modelFields);
-            value = result?.name ?? value;
+            values = result?.category ?? values;
           }
-          if (errors.name?.hasError) {
-            runValidationTasks("name", value);
-          }
-          setName(value);
+          setCategory(values);
+          setCurrentCategoryValue("");
         }}
-        onBlur={() => runValidationTasks("name", name)}
-        errorMessage={errors.name?.errorMessage}
-        hasError={errors.name?.hasError}
-        {...getOverrideProps(overrides, "name")}
-      ></TextAreaField>
+        currentFieldValue={currentCategoryValue}
+        label={"Category"}
+        items={category}
+        hasError={errors?.category?.hasError}
+        errorMessage={errors?.category?.errorMessage}
+        setFieldValue={setCurrentCategoryValue}
+        inputFieldRef={categoryRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Category"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentCategoryValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.category?.hasError) {
+              runValidationTasks("category", value);
+            }
+            setCurrentCategoryValue(value);
+          }}
+          onBlur={() => runValidationTasks("category", currentCategoryValue)}
+          errorMessage={errors.category?.errorMessage}
+          hasError={errors.category?.hasError}
+          ref={categoryRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "category")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              category,
+              resolved: values,
+              applications,
+            };
+            const result = onChange(modelFields);
+            values = result?.resolved ?? values;
+          }
+          setResolved(values);
+          setCurrentResolvedValue("");
+        }}
+        currentFieldValue={currentResolvedValue}
+        label={"Resolved"}
+        items={resolved}
+        hasError={errors?.resolved?.hasError}
+        errorMessage={errors?.resolved?.errorMessage}
+        setFieldValue={setCurrentResolvedValue}
+        inputFieldRef={resolvedRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Resolved"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={currentResolvedValue}
+          onChange={(e) => {
+            let value = isNaN(parseInt(e.target.value))
+              ? e.target.value
+              : parseInt(e.target.value);
+            if (errors.resolved?.hasError) {
+              runValidationTasks("resolved", value);
+            }
+            setCurrentResolvedValue(value);
+          }}
+          onBlur={() => runValidationTasks("resolved", currentResolvedValue)}
+          errorMessage={errors.resolved?.errorMessage}
+          hasError={errors.resolved?.hasError}
+          ref={resolvedRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "resolved")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              category,
+              resolved,
+              applications: values,
+            };
+            const result = onChange(modelFields);
+            values = result?.applications ?? values;
+          }
+          setApplications(values);
+          setCurrentApplicationsValue("");
+        }}
+        currentFieldValue={currentApplicationsValue}
+        label={"Applications"}
+        items={applications}
+        hasError={errors?.applications?.hasError}
+        errorMessage={errors?.applications?.errorMessage}
+        setFieldValue={setCurrentApplicationsValue}
+        inputFieldRef={applicationsRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Applications"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={currentApplicationsValue}
+          onChange={(e) => {
+            let value = isNaN(parseInt(e.target.value))
+              ? e.target.value
+              : parseInt(e.target.value);
+            if (errors.applications?.hasError) {
+              runValidationTasks("applications", value);
+            }
+            setCurrentApplicationsValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("applications", currentApplicationsValue)
+          }
+          errorMessage={errors.applications?.errorMessage}
+          hasError={errors.applications?.hasError}
+          ref={applicationsRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "applications")}
+        ></TextField>
+      </ArrayField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

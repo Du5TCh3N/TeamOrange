@@ -3,7 +3,7 @@ import ReactEcharts from 'echarts-for-react';
 import { View } from "@aws-amplify/ui-react";
 import { API } from "aws-amplify";
 import { DataStore } from "@aws-amplify/datastore";
-import { SimulationData } from '../../models';
+import { SimulationData, Piechart } from '../../models';
 import './Modelling.css'
 
 const policyDefaults = {
@@ -60,7 +60,7 @@ const Modelling = () => {
   const [data, setData] = useState([]);
   const [categoryRadarChartData, setCategoryRadarChartData] = useState([]);
   const [categoryPieChartData, setCategoryPieChartData] = useState({
-    'Homeless': 5,
+    'Homeless': 3,
     'SocialServicesQuota': 2,
     'Downsizer': 2,
     'HomeScheme': 2,
@@ -82,7 +82,20 @@ const Modelling = () => {
   useEffect(() => {
     async function fetchData() {
       const models = await DataStore.query(SimulationData);
+      const piechartData = await DataStore.query(Piechart);
+
       setData(models);
+
+      const categoryList = piechartData.flatMap((item) => item.category);
+      const resolvedList = piechartData.flatMap((item) => (item.resolved))
+      const categoryResolvedDict = {};
+      if (categoryList && resolvedList && categoryList.length === resolvedList.length) {
+        for (let i = 0; i < categoryList.length; i++) {
+          categoryResolvedDict[categoryList[i]] = resolvedList[i];
+        }
+      }
+      setCategoryPieChartData(categoryResolvedDict)
+
     }
     fetchData();
   }, []);
