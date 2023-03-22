@@ -1,12 +1,12 @@
 Statistic,Value
-Average Wait Time,172.44244604316546
+Average Wait Time,166.30575539568346
 PanelMoves Average Wait Time,0
-Homeless Average Wait Time,165.4
-SocialServicesQuota Average Wait Time,128.6
-Transfer Average Wait Time,182.28205128205127
-HomeScheme Average Wait Time,73.0
+Homeless Average Wait Time,149.66315789473686
+SocialServicesQuota Average Wait Time,169.0
+Transfer Average Wait Time,186.28205128205127
+HomeScheme Average Wait Time,122.0
 FirstTimeApplicants Average Wait Time,0
-TenantFinder Average Wait Time,213.8181818181818
-Downsizer Average Wait Time,100.88888888888889
+TenantFinder Average Wait Time,193.45454545454547
+Downsizer Average Wait Time,156.11111111111111
 Decants Average Wait Time,0
-Other Average Wait Time,135.5
+Other Average Wait Time,151.3125

@@ -523,3 +523,17 @@ class Applications:
                 bedroom[bedroom_val] = 1
 
         return categories, band, bedroom
+
+    @classmethod
+    def findTimeRange(cls):
+        all_applications = cls.resolved + cls.instances + cls.historical
+        if len(all_applications) == 0:
+            return None, None
+        earliest_date = all_applications[0].StartDate
+        latest_date = all_applications[0].StartDate
+        for application in all_applications:
+            if application.StartDate < earliest_date:
+                earliest_date = application.StartDate
+            if application.StartDate > latest_date:
+                latest_date = application.StartDate
+        return earliest_date, latest_date

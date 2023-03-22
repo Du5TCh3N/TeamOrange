@@ -96,7 +96,12 @@ class Modeller:
         year_counts, year_averages, month_counts, month_averages = Applications.findHistoricalCombinationAverage(yearly_table, monthly_table, past_number_years=5, current_year=self.startDate.year)
         # print(f"Number of count per year: {sum(year_averages.values())}")
         # print(f"Initial number of applications: {Applications.getNumApplications()}")
-        Applications.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
+
+        # Check if model start after all the applications, decide if generated applications are needed.
+        earliest, latest = Applications.findTimeRange()
+        startDate_datetime = datetime.datetime.combine(self.startDate, datetime.time.min)
+        if latest and startDate_datetime >= latest:
+            Applications.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
         # print(f"Number of applications generated: {Applications.getNumApplications()}")
         # print(f"Number of applications for {category}: {Applications.getNumberOfApplicationsByCategory(Category=category)}")
         # print()
