@@ -1,6 +1,7 @@
 import csv
 import datetime
 import tempfile
+from tabulate import tabulate
 
 import pandas as pd
 # from src.applications import Applications
@@ -86,14 +87,16 @@ class Modeller:
         # print(f"{band}: Yearly Average is {yearly}, Monthly Average is {monthly}")
 
         self.assignHouseToCategories()
-        print("Number of properties for category", Property.getNumberOfPropertiiesByCategory(Category="SocialServicesQuota"))
+        category="Decants"
+        # print(f"Number of properties for {category}: {Property.getNumberOfPropertiiesByCategory(Category=category)}")
 
         year_counts, year_averages, month_counts, month_averages = Applications.findHistoricalCombinationAverage(yearly_table, monthly_table, past_number_years=5, current_year=self.startDate.year)
         # print(f"Number of count per year: {sum(year_averages.values())}")
         # print(f"Initial number of applications: {Applications.getNumApplications()}")
         Applications.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
         # print(f"Number of applications generated: {Applications.getNumApplications()}")
-        print("Number of applications for category:", Applications.getNumberOfApplicationsByCategory(Category="SocialServicesQuota"))
+        # print(f"Number of applications for {category}: {Applications.getNumberOfApplicationsByCategory(Category=category)}")
+        # print()
         # print(f"Number of properties: {Property.getNumProperties()}")
 
         # instances = Applications.getAllApplications()
@@ -139,8 +142,8 @@ class Modeller:
             Applications.updateWaitingTime(currentDate_date)
             self.currentDate += datetime.timedelta(days=1)
 
-        print("Number of Resolved Applications:", Applications.getResolvedNumberApplications())
-        print(f"Resolved applications: {Applications.getResolvedInformation()}")
+        # print("Number of Resolved Applications:", Applications.getResolvedNumberApplications())
+        # print(f"Resolved applications: {Applications.getResolvedInformation()}")
         # Save the daily result of simulation
         self.saveSimulationToCSV(data, "simulation_data.csv")
         # self.saveToDynamoDB(data)
@@ -186,49 +189,25 @@ class Modeller:
             TenantFinder + Downsizer + Decants
         self.policy["Other"] = 1 - total
 
-    def assignHouseToCategory(self, BedroomSize, Category):
+    def assignHouseToCategoryForSize(self, BedroomSize, Category):
         total = self.supply[str(BedroomSize)]
         assignedForCategory = int(total * self.policy[Category])
 
         Property.generateProperties(BedroomSize, Category, self.currentDate, assignedForCategory)
 
+        return assignedForCategory
+
     def assignHouseToCategories(self):
-        self.assignHouseToCategory(1, "Decants")
-        self.assignHouseToCategory(2, "Decants")
-        self.assignHouseToCategory(3, "Decants")
-        self.assignHouseToCategory(4, "Decants")
-        self.assignHouseToCategory(1, "PanelMoves")
-        self.assignHouseToCategory(2, "PanelMoves")
-        self.assignHouseToCategory(3, "PanelMoves")
-        self.assignHouseToCategory(4, "PanelMoves")
-        self.assignHouseToCategory(1, "Homeless")
-        self.assignHouseToCategory(2, "Homeless")
-        self.assignHouseToCategory(3, "Homeless")
-        self.assignHouseToCategory(4, "Homeless")
-        self.assignHouseToCategory(1, "SocialServicesQuota")
-        self.assignHouseToCategory(2, "SocialServicesQuota")
-        self.assignHouseToCategory(3, "SocialServicesQuota")
-        self.assignHouseToCategory(4, "SocialServicesQuota")
-        self.assignHouseToCategory(1, "Transfer")
-        self.assignHouseToCategory(2, "Transfer")
-        self.assignHouseToCategory(3, "Transfer")
-        self.assignHouseToCategory(4, "Transfer")
-        self.assignHouseToCategory(1, "HomeScheme")
-        self.assignHouseToCategory(2, "HomeScheme")
-        self.assignHouseToCategory(3, "HomeScheme")
-        self.assignHouseToCategory(4, "HomeScheme")
-        self.assignHouseToCategory(1, "FirstTimeApplicants")
-        self.assignHouseToCategory(2, "FirstTimeApplicants")
-        self.assignHouseToCategory(3, "FirstTimeApplicants")
-        self.assignHouseToCategory(4, "FirstTimeApplicants")
-        self.assignHouseToCategory(1, "TenantFinder")
-        self.assignHouseToCategory(2, "TenantFinder")
-        self.assignHouseToCategory(3, "TenantFinder")
-        self.assignHouseToCategory(4, "TenantFinder")
-        self.assignHouseToCategory(1, "Downsizer")
-        self.assignHouseToCategory(2, "Downsizer")
-        self.assignHouseToCategory(3, "Downsizer")
-        self.assignHouseToCategory(4, "Downsizer")
+        categories = ["Decants", "PanelMoves", "Homeless", "SocialServicesQuota", "Transfer", "HomeScheme", "FirstTimeApplicants", "TenantFinder", "Downsizer"]
+        sizes = [1, 2, 3, 4]
+        over_all_assignment = [['Category', "1 Bed", "2 Bed", "3 Bed", "4 Bed"]]
+        for category in categories:
+            category_assignment = [category]
+            for size in sizes:
+                num = self.assignHouseToCategoryForSize(size, category)
+                category_assignment.append(num)
+            over_all_assignment.append(category_assignment)
+        # print(tabulate(over_all_assignment, headers='firstrow'))
 
     def displayCurrentDate(self):
         print("The current date is:", self.currentDate)

@@ -214,9 +214,9 @@ class Applications:
     @classmethod
     def historicalAnalysis(cls, ModelStartDate):
         cls.historical.extend([app for app in cls.instances if app.StartDate < ModelStartDate])
-        print(f"historical extracted: {len(cls.historical)}")
+        # print(f"historical extracted: {len(cls.historical)}")
         cls.instances = [app for app in cls.instances if app.StartDate >= ModelStartDate]
-        print(f"instances left: {len(cls.instances)}")
+        # print(f"instances left: {len(cls.instances)}")
 
         # Create two hash tables for year and month
         year_table = {}
