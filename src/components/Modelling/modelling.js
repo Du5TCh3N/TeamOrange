@@ -163,6 +163,11 @@ const Modelling = () => {
         type: 'value'
       }
     ],
+    dataZoom: {
+      // id: 'dataZoomY',
+      type: "slider",
+      start: 90
+    },
 
     series: [
       {
@@ -342,7 +347,7 @@ const Modelling = () => {
   };
   return (
     <view>
-      <div style={{ display: 'block' }}>
+      <div style={{ display: 'block', width: '100%' }}>
         <ReactEcharts option={simulationChart} />
       </div>
       <div style={{ display: 'inline-block', width: '25%' }}>
