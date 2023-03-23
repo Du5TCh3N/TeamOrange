@@ -4,8 +4,10 @@ import { schema } from './schema';
 
 
 
-const { SimulationData } = initSchema(schema);
+const { KeyStats, Piechart, SimulationData } = initSchema(schema);
 
 export {
+  KeyStats,
+  Piechart,
   SimulationData
 };

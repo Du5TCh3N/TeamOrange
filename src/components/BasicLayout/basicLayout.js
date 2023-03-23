@@ -39,7 +39,7 @@ const BasicLayout = () => {
                     <div className="flex items-center">
                         <Avatar className=" ml-3" size={48} src={avatarUrl} />
                         <span className="ml-5"
-                            style={{ display: collapsed ? 'none' : 'block' }}>{"Kingston Councils"}</span>
+                            style={{ display: collapsed ? 'none' : 'block' }}><Link to='/User'>{"Kingston Councils"}</Link></span>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@ const BasicLayout = () => {
                         <span className="  ml-auto">
                             <Avatar className="mr-2" size={48} src={avatarUrl} />
                             <span >
-                                <Link to='/User'>{"Kingston Councils"}</Link>
+                                <Link to='/User'>{""}</Link>
                             </span>
                         </span>
 

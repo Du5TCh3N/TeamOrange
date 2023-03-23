@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DataStore } from '@aws-amplify/datastore';
-import { SimulationData } from '../../models';
+import { SimulationData, Piechart } from '../../models';
 import ReactEcharts from 'echarts-for-react';
 import './Export.css';
 
@@ -29,7 +29,7 @@ const Export = () => {
 
   const handleQueryClick = async () => {
     try {
-      const models = await DataStore.query(SimulationData);
+      const models = await DataStore.query(Piechart);
       console.log('Fetched Data:', models);
       setData(models);
     } catch (error) {
@@ -40,84 +40,84 @@ const Export = () => {
   const handleClearClick = async () => {
     try {
       await DataStore.clear(SimulationData);
-    } catch(error) {
+    } catch (error) {
       console.log('Error fetching data:', error);
     }
   }
   // data.map((item) => item.date).flat(),
-  const bandChart = {
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow'
-      }
-    },
-    legend: {
-      data: ['New', 'Queued', 'Resolved']
-    },
-    grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      containLabel: true
-    },
-    xAxis: [
-      {
-        type: 'category',
-        axisTick: {
-          show: false
-        },
-        data: data.map((item)=> item.date).flat()
-      }
-    ],
-    yAxis: [
-      {
-        type: 'value'
-      }
-    ],
+  // const bandChart = {
+  //   tooltip: {
+  //     trigger: 'axis',
+  //     axisPointer: {
+  //       type: 'shadow'
+  //     }
+  //   },
+  //   legend: {
+  //     data: ['New', 'Queued', 'Resolved']
+  //   },
+  //   grid: {
+  //     left: '3%',
+  //     right: '4%',
+  //     bottom: '3%',
+  //     containLabel: true
+  //   },
+  //   xAxis: [
+  //     {
+  //       type: 'category',
+  //       axisTick: {
+  //         show: false
+  //       },
+  //       data: data.map((item) => item.date).flat()
+  //     }
+  //   ],
+  //   yAxis: [
+  //     {
+  //       type: 'value'
+  //     }
+  //   ],
 
-    series: [
-      {
-        name: 'New',
-        type: 'bar',
-        label: {
-          show: true,
-          position: 'inside'
-        },
-        emphasis: {
-          focus: 'series'
-        },
-        data: data.map((item)=> item.new).flat()
-      },
+  //   series: [
+  //     {
+  //       name: 'New',
+  //       type: 'bar',
+  //       label: {
+  //         show: true,
+  //         position: 'inside'
+  //       },
+  //       emphasis: {
+  //         focus: 'series'
+  //       },
+  //       data: data.map((item) => item.new).flat()
+  //     },
 
-      {
-        name: 'Resolved',
-        type: 'bar',
-        stack: 'Total',
-        label: {
-          show: true
-        },
-        emphasis: {
-          focus: 'series'
-        },
-        data: data.map((item)=> item.resolved).flat()
-      },
+  //     {
+  //       name: 'Resolved',
+  //       type: 'bar',
+  //       stack: 'Total',
+  //       label: {
+  //         show: true
+  //       },
+  //       emphasis: {
+  //         focus: 'series'
+  //       },
+  //       data: data.map((item) => item.resolved).flat()
+  //     },
 
-      {
-        name: 'Queued',
-        type: 'bar',
-        stack: 'Total',
-        label: {
-          show: true,
-          position: 'left'
-        },
-        emphasis: {
-          focus: 'series'
-        },
-        data: data.map((item)=> item.queued).flat()
-      }
-    ]
-  };
+  //     {
+  //       name: 'Queued',
+  //       type: 'bar',
+  //       stack: 'Total',
+  //       label: {
+  //         show: true,
+  //         position: 'left'
+  //       },
+  //       emphasis: {
+  //         focus: 'series'
+  //       },
+  //       data: data.map((item) => item.queued).flat()
+  //     }
+  //   ]
+  // };
 
   return (
     <div>
@@ -134,18 +134,16 @@ const Export = () => {
           data.map((item) => (
             <div key={item.id}>
               <h1>ID: {item.id}</h1>
-              <h2>Date: {item.date.join(', ')}</h2>
+              <h2>Date: {item.category.join(', ')}</h2>
               <h2>Resolved: {item.resolved.join(', ')}</h2>
-              <h2>New: {item.new.join(', ')}</h2>
-              <h2>Queued: {item.queued.join(', ')}</h2>
             </div>
           ))
         )}
       </div>
-      <ReactEcharts option={bandChart}/>
+      {/* <ReactEcharts option={bandChart} /> */}
     </div>
   );
 }
-  
+
 
 export default Export;
