@@ -6,6 +6,53 @@ import { DataStore } from "@aws-amplify/datastore";
 import { SimulationData, Piechart } from '../../models';
 import './Modelling.css'
 
+import AWS from 'aws-sdk';
+
+process.env.AWS_SDK_LOAD_CONFIG = 1;
+const lambda = new AWS.Lambda({
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY,
+  secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY,
+  // region: process.env.REACT_APP_AWS_REGION,
+  region: "eu-west-2",
+  apiVersion: '2015-03-31',
+});
+
+function callLambdaFunction() {
+  const params = {
+    FunctionName: 'python-modeller',
+    Payload: JSON.stringify({
+      "policy": {
+        "PanelMoves": 0.02,
+        "Homeless": 0.04,
+        "SocialServicesQuota": 0.04,
+        "Transfer": 0.01,
+        "HomeScheme": 0.04,
+        "FirstTimeApplicants": 0.01,
+        "TenantFinder": 0.01,
+        "Downsizer": 0.02,
+        "Decants": 0.8,
+        "Other": 0.01
+      },
+      "supply": {
+        "1": 58,
+        "2": 53,
+        "3": 29,
+        "4": 2
+      },
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
+    })
+  };
+
+  lambda.invoke(params, function(err, data){
+    if (err) {
+      console.log("Error: ", err)
+    } else {
+      console.log("Data: ", data)
+    }
+  })
+};
+
 const policyDefaults = {
   "PanelMoves": 0.02,
   "Homeless": 0.04,
@@ -410,28 +457,16 @@ function PolicyForm() {
     outputObj["startDate"] = dateInputs[0];
     outputObj["endDate"] = dateInputs[1];
 
-    // try {
-    //   const response = await API.post(
-    //     "restapimodeller",
-    //     "/modeller-api",
-    //     {
-    //       body: {outputObj}
-    //     }
-    //   );
-    //   console.log(response);
-    // } catch (error) {
-    //   console.log(error);
+    // const headers = {
+    //   'Content-Type': 'application/json'
     // }
-    const headers = {
-      'Content-Type': 'application/json'
-    }
-    try {
-      const response = await API.post('python-modeller-API', '/policytomodeller-policydev', { body: outputObj.toString(), headers: headers })
-      console.log(response)
-    } catch (error) {
-      console.log(error)
-    }
-    console.log(outputObj);
+    // try {
+    //   const response = await API.post('python-modeller-API', '/policytomodeller-policydev', { body: outputObj.toString(), headers: headers })
+    //   console.log(response)
+    // } catch (error) {
+    //   console.log(error)
+    // }
+    // console.log(outputObj);
   };
 
   return (
@@ -496,7 +531,7 @@ function PolicyForm() {
       </div>
 
       <div className="submit-container">
-        <button className="submit-button" type="submit">Submit</button>
+        <button className="submit-button" type="submit" onClick={callLambdaFunction}>Submit</button>
       </div>
     </form>
 
