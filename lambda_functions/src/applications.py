@@ -111,11 +111,12 @@ class Applications:
             else:
                 Category = "Other"
             BedroomSize = int(row.get('Bedroom', 1) or 1)
-            StartDateRaw = row['BandStartDate'][:19]
+            StartDateRaw = row['BandStartDate']
             # print(StartDateRaw)
-            StartDate = datetime.datetime.strptime(StartDateRaw, '%Y-%m-%d %H:%M:%S').date()
+            StartDate = datetime.datetime.strptime(StartDateRaw, '%d/%m/%y').date()
             StartDate_str = StartDate.strftime('%Y-%m-%d %H:%M:%S')
             cls(ID, Band, Category, BedroomSize, StartDate_str)
+
 
 
     @classmethod
