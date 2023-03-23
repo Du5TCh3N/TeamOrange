@@ -1,53 +1,12 @@
 import React, { useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 import AWS from 'aws-sdk';
-//import dotenv from 'dotenv';
-//dotenv.config();
 
-/*AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_REGION
-});*/
 const FileUpload = () => {
   const [uploading, setUploading] = useState(false);
- /* const [chartOption, setChartOption] = useState({
-    title: {
-      text: 'Referer of a Website',
-      subtext: 'Fake Data',
-      left: 'center'
-    },
-    tooltip: {
-      trigger: 'item'
-    },
-    legend: {
-      orient: 'vertical',
-      left: 'left'
-    },
-    series: [
-      {
-        name: 'Access From',
-        type: 'pie',
-        radius: '50%',
-        data: [
-          { value: 1048, name: 'Search Engine' },
-          { value: 735, name: 'Direct' },
-          { value: 580, name: 'Email' },
-          { value: 484, name: 'Union Ads' },
-          { value: 300, name: 'Video Ads' }
-        ],
-        emphasis: {
-          itemStyle: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-          }
-        }
-      }
-    ]
-  });
-*/
-  const handleUpload = (file) => {
+  const [file, setFile] = useState();
+
+  const handleUpload = () => {
     setUploading(true);
     process.env.AWS_SDK_LOAD_CONFIG = 1;
     const s3 = new AWS.S3({
@@ -92,17 +51,10 @@ const FileUpload = () => {
         value: Number(row[1]),
         name: row[0],
       }));
-     /* setChartOption({
-        ...chartOption,
-        series: [
-          {
-            ...chartOption.series[0],
-            data: chartData,
-          },
-        ],
-      });*/
-      handleUpload(file); // pass the selected file to handleUpload
+
+      // handleUpload(file); // pass the selected file to handleUpload
     };
+    setFile(file)
     reader.readAsText(file);
   };
   
@@ -111,8 +63,8 @@ const FileUpload = () => {
     <div>
      
       <input type="file" accept=".csv" onChange={handleFileSelect} />
-      <button onClick={handleUpload} disabled={uploading}>
-        {uploading ? 'Uploading...' : 'Upload'}
+      <button onClick={handleUpload}>
+        Upload{/* {uploading ? 'Uploading...' : 'Upload'} */}
       </button>
     </div>
   );
