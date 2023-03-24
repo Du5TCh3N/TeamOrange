@@ -538,3 +538,42 @@ class Applications:
             if application.StartDate > latest_date:
                 latest_date = application.StartDate
         return earliest_date, latest_date
+
+    @classmethod
+    def findDistributionOfBandInApplicationBarchart(cls):
+        bandBarchartData = {}
+        all_applications = cls.resolved + cls.instances + cls.historical
+        for application in all_applications:
+            band = application.Band
+            if band in bandBarchartData:
+                bandBarchartData[band] += 1
+            else:
+                bandBarchartData[band] = 1
+        bandBarchartData = dict(sorted(bandBarchartData.items()))
+        return bandBarchartData
+
+    @classmethod
+    def findDistributionOfBedroomInApplicationBarchart(cls):
+        bedBarchartData = {}
+        all_applications = cls.resolved + cls.instances + cls.historical
+        for application in all_applications:
+            bedroomSize = application.BedroomSize
+            if bedroomSize in bedBarchartData:
+                bedBarchartData[bedroomSize] += 1
+            else:
+                bedBarchartData[bedroomSize] = 1
+        bedBarchartData = dict(sorted(bedBarchartData.items()))
+        return bedBarchartData
+
+    @classmethod
+    def findDistributionOfApplicationOverYearBarchart(cls):
+        yearBarchartData = {}
+        all_applications = cls.resolved + cls.instances + cls.historical
+        for application in all_applications:
+            year = application.StartDate.year
+            if year in yearBarchartData:
+                yearBarchartData[year] += 1
+            else:
+                yearBarchartData[year] = 1
+        yearBarchartData = dict(sorted(yearBarchartData.items()))
+        return yearBarchartData
