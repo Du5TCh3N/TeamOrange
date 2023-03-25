@@ -68,7 +68,7 @@ class Property:
         return [prop for prop in cls.__instances if prop.Category == Category]
 
     @classmethod
-    def getNumberOfPropertiiesByCategory(cls, Category):
+    def getNumberOfPropertiesByCategory(cls, Category):
         return len([prop for prop in cls.__instances if prop.Category == Category])
 
     @classmethod
@@ -100,3 +100,7 @@ class Property:
     @classmethod
     def createInstances(cls, instances):
         cls.__instances = instances
+
+    @classmethod
+    def clearInstances(cls):
+        cls.__instances = []
