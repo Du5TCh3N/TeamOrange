@@ -28,7 +28,9 @@ const BasicLayout = () => {
         setCollapsed(!collapsed)
 
     }
-    const avatarUrl = "https://www.kingston.gov.uk/site/dist/images/site-logo.svg"
+    const logo = "https://www.kingston.gov.uk/site/dist/images/site-logo.svg"
+
+    const logoWhite = "https://www.kingston.gov.uk/site/dist/images/site-logo-white.svg"
 
 
     return (
@@ -37,7 +39,7 @@ const BasicLayout = () => {
 
                 <div className="w-full mt-3">
                     <div className="flex items-center">
-                        <Avatar className=" ml-3" size={48} src={avatarUrl} />
+                        <Avatar className=" ml-3" size={48} src={logoWhite} />
                         <span className="ml-5"
                             style={{ display: collapsed ? 'none' : 'block' }}><Link to='/User'>{"Kingston Councils"}</Link></span>
                     </div>
@@ -95,7 +97,7 @@ const BasicLayout = () => {
                             onClick: toggle,
                         })}
                         <span className="  ml-auto">
-                            <Avatar className="mr-2" size={48} src={avatarUrl} />
+                            <Avatar className="mr-2" size={48} src={logo} />
                             <span >
                                 <Link to='/User'>{""}</Link>
                             </span>
@@ -139,7 +141,7 @@ const BasicLayout = () => {
                 }} >
                     <div className="flex justify-center w-full">
                         <div className="flex items-center">
-                            <img src={avatarUrl} alt="logo" className="w-24  ml-10 mt-5" />
+                            <img src={logoWhite} alt="logo" className="w-24  ml-10 mt-5" />
 
                         </div>
 
