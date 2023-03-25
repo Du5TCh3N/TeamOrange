@@ -28,7 +28,7 @@ const BasicLayout = () => {
         setCollapsed(!collapsed)
 
     }
-    const avatarUrl = "assets/logo.png"
+    const avatarUrl = "../../assets/logo.png"
 
 
     return (
