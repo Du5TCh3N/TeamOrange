@@ -28,7 +28,7 @@ const BasicLayout = () => {
         setCollapsed(!collapsed)
 
     }
-    const avatarUrl = "https://www.kingston.gov.uk/site/dist/images/site-logo-white.svg"
+    const avatarUrl = "https://www.kingston.gov.uk/site/dist/images/site-logo.svg"
 
 
     return (
