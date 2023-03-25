@@ -25,5 +25,4 @@ amplifytools.xcconfig
 
 .idea/
 lambda_functions/src/key_stat.csv
-lambda_functions/src/modeller.py
 *.csv
