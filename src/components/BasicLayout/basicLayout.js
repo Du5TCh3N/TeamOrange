@@ -28,7 +28,7 @@ const BasicLayout = () => {
         setCollapsed(!collapsed)
 
     }
-    const avatarUrl = "../../assets/logo.png"
+    const avatarUrl = "https://www.kingston.gov.uk/site/dist/images/site-logo-white.svg"
 
 
     return (
@@ -139,7 +139,7 @@ const BasicLayout = () => {
                 }} >
                     <div className="flex justify-center w-full">
                         <div className="flex items-center">
-                            <img src="https://www.kingston.gov.uk/site/dist/images/site-logo-white.svg" alt="logo" className="w-24  ml-10 mt-5" />
+                            <img src={avatarUrl} alt="logo" className="w-24  ml-10 mt-5" />
 
                         </div>
 
