@@ -5,18 +5,18 @@ import random
 
 
 class Applications:
-    instances = []
-    historical = []
-    resolved = []
+    __instances = []
+    __historical = []
+    __resolved = []
 
     def __init__(self, ID, Band, Category, BedroomSize, StartDate):
         self.ApplicationID = ID
         self.Band = Band
         self.Category = Category
         self.BedroomSize = BedroomSize
-        self.StartDate = datetime.datetime.strptime(StartDate, '%Y-%m-%d %H:%M:%S')
+        self.StartDate = datetime.datetime.strptime(StartDate, '%Y-%m-%d')
         self.WaitTime = 0
-        Applications.instances.append(self)
+        Applications.__instances.append(self)
 
     def __str__(self):
         return f"ApplicationID: {self.ApplicationID}, Band: {self.Band}, Category: {self.Category}, " \
@@ -24,55 +24,56 @@ class Applications:
 
     @classmethod
     def getAllApplications(cls):
-        return [applications for applications in cls.instances]
+        return [applications for applications in cls.__instances]
 
     @classmethod
     def getNumApplications(cls):
-        return len(cls.instances)
+        return len(cls.__instances)
 
     @classmethod
     def checkExistence(cls, instance):
-        if instance in cls.instances:
+        if instance in cls.__instances:
             return True
         else:
             return False
 
     @classmethod
     def getApplicationsByBand(cls, Band):
-        return [applications for applications in cls.instances if applications.Band == Band]
+        return [applications for applications in cls.__instances if applications.Band == Band]
 
     @classmethod
     def getApplicationsBySize(cls, BedroomSize):
-        return [applications for applications in cls.instances if applications.BedroomSize == BedroomSize]
+        return [applications for applications in cls.__instances if applications.BedroomSize == BedroomSize]
 
     @classmethod
     def getApplicationsByCategory(cls, Category):
-        return [applications for applications in cls.instances if applications.Category == Category]
+        return [applications for applications in cls.__instances if applications.Category == Category]
 
     @classmethod
     def getNumberOfApplicationsByCategory(cls, Category):
-        return len([applications for applications in cls.instances if applications.Category == Category])
+        return len([applications for applications in cls.__instances if applications.Category == Category])
 
     @classmethod
     def getApplicationsByDate(cls, Date):
         datetime_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
-        return [application for application in cls.instances if application.StartDate == datetime_date]
+        return [application for application in cls.__instances if application.StartDate == datetime_date]
 
     @classmethod
     def getNumberOfApplicationsByDate(cls, Date):
         datetime_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
-        return len([application for application in cls.instances if application.StartDate == datetime_date])
+        return len([application for application in cls.__instances if application.StartDate == datetime_date])
 
     @classmethod
     def getApplicationsBeforeDate(cls, Date):
         datetime_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
-        return [application for application in cls.instances if application.StartDate <= datetime_date]
+        return [application for application in cls.__instances if application.StartDate <= datetime_date]
 
     @classmethod
     def getNumberOfApplicationsBeforeDate(cls, Date, StartDate):
         datetime_start_date = datetime.datetime.combine(StartDate, datetime.datetime.min.time())
         datetime_end_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
-        return len([application for application in cls.instances if datetime_start_date <= application.StartDate <= datetime_end_date])
+        return len([application for application in cls.__instances if
+                    datetime_start_date <= application.StartDate <= datetime_end_date])
 
     @classmethod
     def from_dataframe(cls, df):
@@ -117,13 +118,12 @@ class Applications:
             StartDate_str = StartDate.strftime('%Y-%m-%d %H:%M:%S')
             cls(ID, Band, Category, BedroomSize, StartDate_str)
 
-
-
     @classmethod
     def getApplicationsBySizeAndCategory(cls, BedroomSize, Category, Date):
         # Find all application instances of the requested BedroomSize and Category
-        applications = [application for application in cls.instances if
-                        application.BedroomSize == BedroomSize and application.Category == Category and application.StartDate <= Date]
+        applications = [application for application in cls.__instances if
+                        application.BedroomSize == BedroomSize and application.Category == Category and
+                        application.StartDate <= Date]
 
         # Split the applications into lists based on their Band
         band_applications = {}
@@ -162,39 +162,38 @@ class Applications:
 
     @classmethod
     def removeApplicationByID(cls, ApplicationID):
-        for application in cls.instances:
+        for application in cls.__instances:
             if application.ApplicationID == ApplicationID:
-                cls.resolved.extend(application)
-                cls.instances.remove(application)
+                cls.__resolved.extend(application)
+                cls.__instances.remove(application)
                 return True
         return False
 
     @classmethod
     def removeApplication(cls, instance):
-        if instance in cls.instances:
-            cls.instances.remove(instance)
-            cls.resolved.append(instance)
-
+        if instance in cls.__instances:
+            cls.__instances.remove(instance)
+            cls.__resolved.append(instance)
 
     @classmethod
     def getResolvedNumberApplications(cls):
-        return len(cls.resolved)
+        return len(cls.__resolved)
 
     @classmethod
     def updateWaitingTime(cls, currentDate):
-        for application in cls.instances:
+        for application in cls.__instances:
             currentDate_date = datetime.date(currentDate.year, currentDate.month, currentDate.day)
-            startDate_date = datetime.date(application.StartDate.year, application.StartDate.month, application.StartDate.day)
+            startDate_date = datetime.date(application.StartDate.year, application.StartDate.month,
+                                           application.StartDate.day)
             if currentDate_date >= startDate_date:
                 application.WaitTime = (currentDate_date - startDate_date).days
             else:
                 application.WaitTime = 0
 
-
     @classmethod
     def getAverageWaitingTime(cls):
         waiting_times = []
-        for application in cls.instances:
+        for application in cls.__instances:
             waiting_times.append(application.WaitTime)
         if len(waiting_times) > 0:
             return sum(waiting_times) / len(waiting_times)
@@ -204,7 +203,7 @@ class Applications:
     @classmethod
     def getAverageWaitingTimeForCategory(cls, Category):
         waiting_times = []
-        for application in cls.instances:
+        for application in cls.__instances:
             if application.Category == Category:
                 waiting_times.append(application.WaitTime)
         if len(waiting_times) > 0:
@@ -214,9 +213,9 @@ class Applications:
 
     @classmethod
     def historicalAnalysis(cls, ModelStartDate):
-        cls.historical.extend([app for app in cls.instances if app.StartDate < ModelStartDate])
+        cls.__historical.extend([app for app in cls.__instances if app.StartDate < ModelStartDate])
         # print(f"historical extracted: {len(cls.historical)}")
-        cls.instances = [app for app in cls.instances if app.StartDate >= ModelStartDate]
+        cls.__instances = [app for app in cls.__instances if app.StartDate >= ModelStartDate]
         # print(f"instances left: {len(cls.instances)}")
 
         # Create two hash tables for year and month
@@ -224,7 +223,7 @@ class Applications:
         month_table = {}
 
         # Loop through each historical application and update the hash tables
-        for application in cls.historical:
+        for application in cls.__historical:
             year = application.StartDate.year
             month = application.StartDate.month
             category = application.Category
@@ -252,7 +251,8 @@ class Applications:
         return (year_table, month_table)
 
     @classmethod
-    def findHistoricalCategoryAverage(cls, year_table, month_table, category, past_number_years=None, current_year=None):
+    def findHistoricalCategoryAverage(cls, year_table, month_table, category, past_number_years=None,
+                                      current_year=None):
         # Count the total number of applications for the given category over the year
         total_year_count = 0
         year_count = 0
@@ -393,7 +393,7 @@ class Applications:
         month_averages = {}
 
         # Loop through each historical application and update the dictionaries
-        for application in cls.historical:
+        for application in cls.__historical:
             year = application.StartDate.year
             month = application.StartDate.month
             category = application.Category
@@ -424,11 +424,11 @@ class Applications:
 
         return year_counts, year_averages, month_counts, month_averages
 
-
     @classmethod
     def generateApplicationsBasedOnAverage(cls, year_average, month_average, startDate, endDate):
         # List of all categories
-        categories = ['Decants', 'FirstTimeApplicant', 'HomeScheme', 'Homeless', 'SocialServicesQuota', 'Downsizer', 'Transfer', 'TenantFinder', 'PanelMoves', 'Other']
+        categories = ['Decants', 'FirstTimeApplicant', 'HomeScheme', 'Homeless', 'SocialServicesQuota', 'Downsizer',
+                      'Transfer', 'TenantFinder', 'PanelMoves', 'Other']
         bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
 
         # Generate applications for each category and band combination
@@ -444,7 +444,7 @@ class Applications:
                     for i in range(int(year_average_count)):
                         # Set the application ID as the current timestamp plus a unique identifier
                         timestamp = int(datetime.datetime.now().timestamp() * 1000)
-                        unique_id = len(cls.instances) + 1
+                        unique_id = len(cls.__instances) + 1
                         application_id = f"{timestamp}-{unique_id}"
 
                         # Set the start date as a random date within the simulation startDate and endDate
@@ -469,7 +469,7 @@ class Applications:
         band = {}
         bedroom = {}
         # Find number of applications in each category
-        for instance in cls.resolved:
+        for instance in cls.__resolved:
             # Update the categories dictionary
             category = instance.Category
             if category in categories:
@@ -499,7 +499,7 @@ class Applications:
         band = {}
         bedroom = {}
 
-        all_application = cls.resolved + cls.instances
+        all_application = cls.__resolved + cls.__instances
         # Find number of applications in each category
         for instance in all_application:
             # Update the categories dictionary
@@ -527,7 +527,7 @@ class Applications:
 
     @classmethod
     def findTimeRange(cls):
-        all_applications = cls.resolved + cls.instances + cls.historical
+        all_applications = cls.__resolved + cls.__instances + cls.__historical
         if len(all_applications) == 0:
             return None, None
         earliest_date = all_applications[0].StartDate
@@ -542,7 +542,7 @@ class Applications:
     @classmethod
     def findDistributionOfBandInApplicationBarchart(cls):
         bandBarchartData = {}
-        all_applications = cls.resolved + cls.instances + cls.historical
+        all_applications = cls.__resolved + cls.__instances + cls.__historical
         for application in all_applications:
             band = application.Band
             if band in bandBarchartData:
@@ -555,7 +555,7 @@ class Applications:
     @classmethod
     def findDistributionOfBedroomInApplicationBarchart(cls):
         bedBarchartData = {}
-        all_applications = cls.resolved + cls.instances + cls.historical
+        all_applications = cls.__resolved + cls.__instances + cls.__historical
         for application in all_applications:
             bedroomSize = application.BedroomSize
             if bedroomSize in bedBarchartData:
@@ -568,7 +568,7 @@ class Applications:
     @classmethod
     def findDistributionOfApplicationOverYearBarchart(cls):
         yearBarchartData = {}
-        all_applications = cls.resolved + cls.instances + cls.historical
+        all_applications = cls.__resolved + cls.__instances + cls.__historical
         for application in all_applications:
             year = application.StartDate.year
             if year in yearBarchartData:
@@ -577,3 +577,8 @@ class Applications:
                 yearBarchartData[year] = 1
         yearBarchartData = dict(sorted(yearBarchartData.items()))
         return yearBarchartData
+
+    @classmethod
+    def createApplicationInstances(cls, instances):
+        cls.__instances = instances
+

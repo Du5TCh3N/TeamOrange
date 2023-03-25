@@ -26,19 +26,20 @@ while loop to (while current_date < latest date in data)
     increment application's waiting time
     increment current_date
 """
+import datetime
 
 
 class Property:
     id_counter = 0
-    instances = []
+    __instances = []
 
     def __init__(self, BedroomSize, Category, ReleaseDate):
         self.PropertyID = Property.id_counter
         Property.id_counter += 1
         self.BedroomSize = BedroomSize
         self.Category = Category
-        self.ReleaseDate = ReleaseDate
-        Property.instances.append(self)
+        self.ReleaseDate = datetime.datetime.strptime(ReleaseDate, '%Y-%m-%d %H:%M:%S')
+        Property.__instances.append(self)
 
     def __str__(self):
         return f"PropertyID: {self.PropertyID}, Category: {self.Category}, BedroomSize: {self.BedroomSize}, " \
@@ -52,27 +53,27 @@ class Property:
 
     @classmethod
     def getAllProperties(cls):
-        return [properties for properties in cls.instances]
+        return [properties for properties in cls.__instances]
 
     @classmethod
     def getNumProperties(cls):
-        return len(cls.instances)
+        return len(cls.__instances)
 
     @classmethod
     def getPropertiesByRoomSize(cls, BedroomSize):
-        return [prop for prop in cls.instances if prop.BedroomSize == BedroomSize]
+        return [prop for prop in cls.__instances if prop.BedroomSize == BedroomSize]
 
     @classmethod
     def getPropertiesByCategory(cls, Category):
-        return [prop for prop in cls.instances if prop.Category == Category]
+        return [prop for prop in cls.__instances if prop.Category == Category]
 
     @classmethod
     def getNumberOfPropertiiesByCategory(cls, Category):
-        return len([prop for prop in cls.instances if prop.Category == Category])
+        return len([prop for prop in cls.__instances if prop.Category == Category])
 
     @classmethod
     def getPropertiesByDate(cls, Date):
-        return [prop for prop in cls.instances if prop.ReleaseDate == Date]
+        return [prop for prop in cls.__instances if prop.ReleaseDate == Date]
 
     @classmethod
     def generateProperties(cls, BedroomSize, Category, ReleaseDate, number):
@@ -82,10 +83,10 @@ class Property:
     @classmethod
     def assignProperty(cls, BedroomSize, Category):
         # Find a property instance with the same BedroomSize and Category
-        for prop in cls.instances:
+        for prop in cls.__instances:
             if prop.BedroomSize == BedroomSize and prop.Category == Category:
                 # Remove the property instance from instances and return it
-                cls.instances.remove(prop)
+                cls.__instances.remove(prop)
                 return prop
 
         # If no matching property instance is found, return None
@@ -93,5 +94,9 @@ class Property:
 
     @classmethod
     def deleteProperty(cls, property):
-        if property in cls.instances:
-            cls.instances.remove(property)
+        if property in cls.__instances:
+            cls.__instances.remove(property)
+
+    @classmethod
+    def createInstances(cls, instances):
+        cls.__instances = instances
