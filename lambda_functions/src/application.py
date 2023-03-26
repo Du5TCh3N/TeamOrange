@@ -4,7 +4,7 @@ import pandas as pd
 import random
 
 
-class Applications:
+class Application:
     __instances = []
     __historical = []
     __resolved = []
@@ -16,7 +16,7 @@ class Applications:
         self.BedroomSize = BedroomSize
         self.StartDate = datetime.datetime.strptime(StartDate, '%Y-%m-%d')
         self.WaitTime = 0
-        Applications.__instances.append(self)
+        Application.__instances.append(self)
 
     def __str__(self):
         return f"ApplicationID: {self.ApplicationID}, Band: {self.Band}, Category: {self.Category}, " \
@@ -69,9 +69,9 @@ class Applications:
         return [application for application in cls.__instances if application.StartDate <= datetime_date]
 
     @classmethod
-    def getNumberOfApplicationsBeforeDate(cls, Date, StartDate):
+    def getNumberOfApplicationsBetweenDate(cls, EndDate, StartDate):
         datetime_start_date = datetime.datetime.combine(StartDate, datetime.datetime.min.time())
-        datetime_end_date = datetime.datetime.combine(Date, datetime.datetime.min.time())
+        datetime_end_date = datetime.datetime.combine(EndDate, datetime.datetime.min.time())
         return len([application for application in cls.__instances if
                     datetime_start_date <= application.StartDate <= datetime_end_date])
 
@@ -113,7 +113,6 @@ class Applications:
                 Category = "Other"
             BedroomSize = int(row.get('Bedroom', 1) or 1)
             StartDateRaw = row['BandStartDate']
-            # print(StartDateRaw)
             StartDate = datetime.datetime.strptime(StartDateRaw, '%d/%m/%y').date()
             StartDate_str = StartDate.strftime('%Y-%m-%d %H:%M:%S')
             cls(ID, Band, Category, BedroomSize, StartDate_str)
@@ -141,7 +140,7 @@ class Applications:
 
     @classmethod
     def findPriority(cls, BedroomSize, Category, Date):
-        waitingList = Applications.getApplicationsBySizeAndCategory(BedroomSize, Category, Date)
+        waitingList = Application.getApplicationsBySizeAndCategory(BedroomSize, Category, Date)
 
         # Check if the dictionary is empty
         if not waitingList:
@@ -582,3 +581,7 @@ class Applications:
     def createApplicationInstances(cls, instances):
         cls.__instances = instances
 
+
+    @classmethod
+    def clearApplicationInstances(cls):
+        cls.__instances = []

@@ -27,33 +27,29 @@ class TestClassProperty(TestCase):
     def setUp(self) -> None:
         self.testProperty1 = Property(1, "Decants", "2023-01-01 00:00:00")
         self.testProperty2 = Property(1, "Decants", "2023-01-01 00:00:00")
+        self.list_of_properties = [self.testProperty1, self.testProperty2]
 
     def tearDown(self) -> None:
         Property.clearInstances()
 
     def test_get_all_properties(self):
-        list_of_properties = [self.testProperty1, self.testProperty2]
-        assert list_of_properties == Property.getAllProperties()
+        assert self.list_of_properties == Property.getAllProperties()
 
     def test_get_num_properties(self):
         assert Property.getNumProperties() == 2
 
     def test_get_properties_by_room_size(self):
-        list_of_properties = [self.testProperty1, self.testProperty2]
-        assert Property.getPropertiesByRoomSize(1) == list_of_properties
+        assert Property.getPropertiesByRoomSize(1) == self.list_of_properties
 
     def test_get_properties_by_category(self):
-        list_of_properties = [self.testProperty1, self.testProperty2]
-        assert Property.getPropertiesByCategory("Decants") == list_of_properties
+        assert Property.getPropertiesByCategory("Decants") == self.list_of_properties
 
     def test_get_number_of_properties_by_category(self):
-        list_of_properties = [self.testProperty1, self.testProperty2]
-        assert Property.getNumberOfPropertiesByCategory("Decants") == len(list_of_properties)
+        assert Property.getNumberOfPropertiesByCategory("Decants") == len(self.list_of_properties)
 
     def test_get_properties_by_date(self):
-        list_of_properties = [self.testProperty1, self.testProperty2]
         testDate = datetime.datetime(year=2023, month=1, day=1)
-        assert Property.getPropertiesByDate(testDate) == list_of_properties
+        assert Property.getPropertiesByDate(testDate) == self.list_of_properties
 
     def test_generate_properties(self):
         Property.generateProperties(1, "Decants", "2023-01-01 00:00:00", 5)

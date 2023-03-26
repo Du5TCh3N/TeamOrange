@@ -3,7 +3,7 @@ import datetime
 from dateutil import tz
 
 import pandas as pd
-from applications import Applications
+from application import Application
 from property import Property
 
 import boto3
@@ -18,12 +18,12 @@ def resolveApplication(currentDate):
         Category = prop.getCategory()
         Size = prop.getSize()
 
-        candidate = Applications.findPriority(Category=Category, BedroomSize=Size, Date=currentDate)
+        candidate = Application.findPriority(Category=Category, BedroomSize=Size, Date=currentDate)
 
         if candidate is None:
             continue
         Property.deleteProperty(prop)
-        Applications.removeApplication(candidate)
+        Application.removeApplication(candidate)
         resolvedCounter += 1
     return resolvedCounter
 
@@ -161,7 +161,7 @@ def setupDynamoDB():
 
 def calculateKeyStatistics():
     # Save the key stat of the simulation
-    key_stat = {"Average Wait Time": Applications.getAverageWaitingTime(), "PanelMoves Average Wait Time": 0.0,
+    key_stat = {"Average Wait Time": Application.getAverageWaitingTime(), "PanelMoves Average Wait Time": 0.0,
                 "Homeless Average Wait Time": 0.0, "SocialServicesQuota Average Wait Time": 0.0,
                 "Transfer Average Wait Time": 0.0, "HomeScheme Average Wait Time": 0.0,
                 "FirstTimeApplicants Average Wait Time": 0.0, "TenantFinder Average Wait Time": 0.0,
@@ -171,12 +171,12 @@ def calculateKeyStatistics():
                   "TenantFinder", "Downsizer", "Decants", "Other"]
     for category in categories:
         key = f"{category} Average Wait Time"
-        key_stat[key] = Applications.getAverageWaitingTimeForCategory(category)
+        key_stat[key] = Application.getAverageWaitingTimeForCategory(category)
     saveKeyStatToCSV(key_stat, "key_stat.csv")
 
 
 def calculateGraphs():
-    category_stat, band_stat, bedroom_stat = Applications.getResolvedInformation()
+    category_stat, band_stat, bedroom_stat = Application.getResolvedInformation()
     savePieChartToDynamoDB(category_stat, band_stat, bedroom_stat)
     # Save the daily result of simulation
 
@@ -213,20 +213,20 @@ class Modeller:
 
         rbkHousing = setupDynamoDB()
         self.housing_register = rbkHousing
-        Applications.from_dataframe(self.housing_register)
-        yearly_table, monthly_table = Applications.historicalAnalysis(
+        Application.from_dataframe(self.housing_register)
+        yearly_table, monthly_table = Application.historicalAnalysis(
             datetime.datetime.combine(self.startDate, datetime.time()))
 
         self.assignHouseToCategories()
 
-        year_counts, year_averages, month_counts, month_averages = Applications.findHistoricalCombinationAverage(
+        year_counts, year_averages, month_counts, month_averages = Application.findHistoricalCombinationAverage(
             yearly_table, monthly_table, past_number_years=5, current_year=self.startDate.year)
 
         # Check if model start after all the applications, decide if generated applications are needed.
-        earliest, latest = Applications.findTimeRange()
+        earliest, latest = Application.findTimeRange()
         startDate_datetime = datetime.datetime.combine(self.startDate, datetime.time.min)
         if latest and startDate_datetime >= latest:
-            Applications.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
+            Application.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
 
         outputData = self.runModel()
         saveToDynamoDB(outputData)
@@ -243,9 +243,9 @@ class Modeller:
             "Resolved": []
         }
         while self.currentDate < self.endDate:
-            queuedApplication = Applications.getNumberOfApplicationsBeforeDate(self.currentDate, self.startDate)
+            queuedApplication = Application.getNumberOfApplicationsBetweenDate(self.currentDate, self.startDate)
             queuedApplication = -1 * queuedApplication
-            newApplication = Applications.getNumberOfApplicationsByDate(self.currentDate)
+            newApplication = Application.getNumberOfApplicationsByDate(self.currentDate)
             resolvedApplication = resolveApplication(datetime.datetime.combine(self.currentDate, datetime.time()))
 
             # Convert date to string using isoformat()
@@ -258,7 +258,7 @@ class Modeller:
             outputData["Resolved"].append(resolvedApplication)
 
             currentDate_date = datetime.date(self.currentDate.year, self.currentDate.month, self.currentDate.day)
-            Applications.updateWaitingTime(currentDate_date)
+            Application.updateWaitingTime(currentDate_date)
             self.currentDate += datetime.timedelta(days=1)
         return outputData
 

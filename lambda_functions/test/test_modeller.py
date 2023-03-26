@@ -1,7 +1,7 @@
 import datetime
 from unittest import TestCase
 
-from applications import Applications
+from application import Application
 from modeller import resolveApplication, Modeller
 from property import Property
 
@@ -15,11 +15,11 @@ class TestModeller(TestCase):
 
         assert Property.getAllProperties() == instancePropList
 
-        newTestApplication = Applications("Test-1", "Band 1", "Decants", 3, "2023-03-25")
+        newTestApplication = Application("Test-1", "Band 1", "Decants", 3, "2023-03-25")
         instanceAppList = [newTestApplication]
-        Applications.createApplicationInstances(instanceAppList)
+        Application.createApplicationInstances(instanceAppList)
 
-        assert Applications.getAllApplications() == instanceAppList
+        assert Application.getAllApplications() == instanceAppList
 
         currentDate = datetime.datetime.now()
         resolved = resolveApplication(currentDate)
