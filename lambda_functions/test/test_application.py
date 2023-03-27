@@ -80,12 +80,6 @@ class TestApplication(TestCase):
         candidate = Application.findPriority(1, "Decants", testDate)
         assert candidate == self.testApplication1
 
-    def test_remove_application_by_id(self):
-        assert Application.removeApplicationByID("Test-1")
-
-    def test_remove_application_by_id_fail(self):
-        assert not Application.removeApplicationByID("Fail")
-
     def test_remove_application(self):
         Application.removeApplication(self.testApplication1)
         assert Application.getNumApplications() == len(self.list_of_applications) - 1
@@ -98,25 +92,52 @@ class TestApplication(TestCase):
         assert self.testApplication2.WaitTime == 1
 
     def test_get_average_waiting_time(self):
-        self.fail()
+        testDate = datetime.datetime(year=2023, month=3, day=26)
+        Application.updateWaitingTime(testDate)
+        assert Application.getAverageWaitingTime() == 1
+
+    def test_get_average_waiting_time_return_zero(self):
+        Application.clearApplicationInstances()
+        assert Application.getAverageWaitingTime() == 0
 
     def test_get_average_waiting_time_for_category(self):
-        self.fail()
+        testDate = datetime.datetime(year=2023, month=3, day=26)
+        Application.updateWaitingTime(testDate)
+        assert Application.getAverageWaitingTimeForCategory("Decants") == 1
 
     def test_historical_analysis(self):
-        self.fail()
+        testDate = datetime.datetime(year=2023, month=3, day=31)
+        expected = ({2023: {('Decants', 'Band 1', 1): 2}}, {2023: {3: {('Decants', 'Band 1', 1): 2}}})
+        assert Application.historicalAnalysis(testDate) == expected
 
     def test_find_historical_category_average(self):
-        self.fail()
+        testDate = datetime.datetime(year=2023, month=3, day=31)
+        historical_analysis = Application.historicalAnalysis(testDate)
+        expected = (2.0, 2.0)
+        assert Application.findHistoricalCategoryAverage(historical_analysis[0],
+                                                         historical_analysis[1],
+                                                         "Decants") == expected
 
     def test_find_historical_band_average(self):
-        self.fail()
+        testDate = datetime.datetime(year=2023, month=3, day=31)
+        historical_analysis = Application.historicalAnalysis(testDate)
+        expected = (2.0, 2.0)
+        assert Application.findHistoricalBandAverage(historical_analysis[0],
+                                                     historical_analysis[1],
+                                                     "Band 1") == expected
 
     def test_find_historical_bedroom_average(self):
-        self.fail()
+        testDate = datetime.datetime(year=2023, month=3, day=31)
+        historical_analysis = Application.historicalAnalysis(testDate)
+        expected = (2.0, 2.0)
+        assert Application.findHistoricalBedroomAverage(historical_analysis[0],
+                                                        historical_analysis[1],
+                                                        1) == expected
 
     def test_find_historical_combination_average(self):
-        self.fail()
+        testDate = datetime.datetime(year=2023, month=3, day=31)
+        historical_analysis = Application.historicalAnalysis(testDate)
+        assert Application.findHistoricalCombinationAverage(historical_analysis[0]) == ({}, {}, {}, {})
 
     def test_generate_applications_based_on_average(self):
         self.fail()
@@ -128,16 +149,4 @@ class TestApplication(TestCase):
         self.fail()
 
     def test_find_time_range(self):
-        self.fail()
-
-    def test_find_distribution_of_band_in_application_barchart(self):
-        self.fail()
-
-    def test_find_distribution_of_bedroom_in_application_barchart(self):
-        self.fail()
-
-    def test_find_distribution_of_application_over_year_barchart(self):
-        self.fail()
-
-    def test_create_application_instances(self):
         self.fail()

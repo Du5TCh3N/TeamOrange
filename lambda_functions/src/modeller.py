@@ -210,7 +210,6 @@ class Modeller:
         self.currentDate = currentDate if currentDate is not None else startDate
         self.propertyReleaseType = propertyReleaseType
 
-
         rbkHousing = setupDynamoDB()
         self.housing_register = rbkHousing
         Application.from_dataframe(self.housing_register)
@@ -220,7 +219,7 @@ class Modeller:
         self.assignHouseToCategories()
 
         year_counts, year_averages, month_counts, month_averages = Application.findHistoricalCombinationAverage(
-            yearly_table, monthly_table, past_number_years=5, current_year=self.startDate.year)
+            yearly_table, past_number_years=5, current_year=self.startDate.year)
 
         # Check if model start after all the applications, decide if generated applications are needed.
         earliest, latest = Application.findTimeRange()

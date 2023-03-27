@@ -160,15 +160,6 @@ class Application:
         return None
 
     @classmethod
-    def removeApplicationByID(cls, ApplicationID):
-        for application in cls.__instances:
-            if application.ApplicationID == ApplicationID:
-                cls.__resolved.extend(application)
-                cls.__instances.remove(application)
-                return True
-        return False
-
-    @classmethod
     def removeApplication(cls, instance):
         if instance in cls.__instances:
             cls.__instances.remove(instance)
@@ -213,9 +204,7 @@ class Application:
     @classmethod
     def historicalAnalysis(cls, ModelStartDate):
         cls.__historical.extend([app for app in cls.__instances if app.StartDate < ModelStartDate])
-        # print(f"historical extracted: {len(cls.historical)}")
         cls.__instances = [app for app in cls.__instances if app.StartDate >= ModelStartDate]
-        # print(f"instances left: {len(cls.instances)}")
 
         # Create two hash tables for year and month
         year_table = {}
@@ -247,7 +236,7 @@ class Application:
                 month_table[year][month][month_key] = 0
             month_table[year][month][month_key] += 1
 
-        return (year_table, month_table)
+        return year_table, month_table
 
     @classmethod
     def findHistoricalCategoryAverage(cls, year_table, month_table, category, past_number_years=None,
@@ -371,7 +360,7 @@ class Application:
         return avg_year_count, avg_month_count
 
     @classmethod
-    def findHistoricalCombinationAverage(cls, year_table, month_table, past_number_years=None, current_year=None):
+    def findHistoricalCombinationAverage(cls, year_table, past_number_years=None, current_year=None):
         if current_year is None:
             current_year = datetime.datetime.now().year
         if past_number_years is None:
@@ -394,7 +383,6 @@ class Application:
         # Loop through each historical application and update the dictionaries
         for application in cls.__historical:
             year = application.StartDate.year
-            month = application.StartDate.month
             category = application.Category
             band = application.Band
             bedroom_size = application.BedroomSize
@@ -434,7 +422,8 @@ class Application:
         for category in categories:
             for band in bands:
                 for bedroom_size in range(1, 5):
-                    # Get the average number of applications per year and per month for this category, band, and bedroom size combination
+                    # Get the average number of applications per year and per month for this category, band,
+                    # and bedroom size combination
                     year_average_count = year_average.get((category, band, bedroom_size), 0)
                     # print(year_average_count)
                     month_average_count = month_average.get((category, band, bedroom_size), 0)
