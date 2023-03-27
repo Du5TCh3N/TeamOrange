@@ -1,72 +1,139 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 
 const ModelData = () => {
 
-    const bandChart = {
+    const [bandChartData, setBandChartData] = useState([
+        { name: 'Band 1', value: 1000 },
+        { name: 'Band 2', value: 378 },
+        { name: 'Band 3', value: 955 },
+        { name: 'Band 4', value: 1377 },
+        { name: 'Band 5', value: 205 },
+      ]);
+      
+      const bandChart = {
         title: {
-            text: 'Distribution of Band in Applications',
+          text: 'Distribution of Band in Applications',
         },
         tooltip: {},
         xAxis: {
-            data: ['Band 1', 'Band 2', 'Band 3', 'Band 4', 'Band 5',]
+          data: bandChartData.map((data) => data.name),
         },
         yAxis: {},
         series: [
-            {
-                name: '',
-                type: 'bar',
-                data: [238, 378, 955, 1377, 205],
-                color: '#2f7ed8' // Set color to blue
-            },
+          {
+            name: '',
+            type: 'bar',
+            data: bandChartData.map((data) => ({
+              value: data.value,
+              itemStyle: { color: '#2f7ed8' },
+            })),
+          },
         ],
-    };
+        toolbox: {
+          show: true,
+          feature: {
+            saveAsImage: {},
+          },
+        },
+      };
+      
     
-    const bedroomChart = {
+      const [bedroomChartData, setBedroomChartData] = useState([
+        { name: '1 Bed', value: 1020 },
+        { name: '2 Bed', value: 988 },
+        { name: '3 Bed', value: 853 },
+        { name: '4 Bed', value: 245 },
+        { name: '5 Bed', value: 39 },
+        { name: '6 Bed', value: 4 },
+        { name: '7 Bed', value: 1 },
+      ]);
+      
+      const bedroomChart = {
         title: {
-            text: 'Distribution of Bedroom in Applications',
+          text: 'Distribution of Bedroom in Applications',
         },
         tooltip: {},
         xAxis: {
-            data: ['1 Bed', '2 Bed', '3 Bed', '4 Bed', '5 Bed', '6 Bed', '7 Bed']
+          data: bedroomChartData.map((data) => data.name),
         },
         yAxis: {},
         series: [
-            {
-                name: '',
-                type: 'bar',
-                data: [1020, 988, 853, 245, 39, 4, 1],
-                color: '#8bbc21' // Set color to green
-            },
+          {
+            name: '',
+            type: 'bar',
+            data: bedroomChartData.map((data) => ({
+              value: data.value,
+              itemStyle: { color: '#8bbc21' },
+            })),
+          },
         ],
-    };
+        toolbox: {
+          show: true,
+          feature: {
+            saveAsImage: {},
+          },
+        },
+      };
     
-    const yearChart = {
+      const [yearChartData, setYearChartData] = useState([
+        { name: '1995', value: 1 },
+        { name: '1996', value: 19 },
+        { name: '1997', value: 9 },
+        { name: '1998', value: 11 },
+        { name: '1999', value: 9 },
+        { name: '2000', value: 12 },
+        { name: '2001', value: 11 },
+        { name: '2002', value: 12 },
+        { name: '2003', value: 19 },
+        { name: '2004', value: 24 },
+        { name: '2005', value: 20 },
+        { name: '2006', value: 31 },
+        { name: '2007', value: 30 },
+        { name: '2008', value: 39 },
+        { name: '2009', value: 38 },
+        { name: '2010', value: 40 },
+        { name: '2011', value: 38 },
+        { name: '2012', value: 52 },
+        { name: '2013', value: 90 },
+        { name: '2014', value: 131 },
+        { name: '2015', value: 206 },
+        { name: '2016', value: 263 },
+        { name: '2017', value: 390 },
+        { name: '2018', value: 310 },
+        { name: '2019', value: 309 },
+        { name: '2020', value: 410 },
+        { name: '2021', value: 384 },
+        { name: '2022', value: 248 },
+      ]);
+      
+      const yearChart = {
         title: {
-            text: 'Distribution of Applications over the Years',
+          text: 'Distribution of Applications over the Years',
         },
         tooltip: {},
         xAxis: {
-            data: [
-                '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002',
-                '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010',
-                '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018',
-                '2019', '2020', '2021', '2022'
-            ]
+          data: yearChartData.map((data) => data.name),
         },
         yAxis: {},
         series: [
-            {
-                name: '',
-                type: 'bar',
-                data: [
-                    1, 19, 9, 11, 9, 12, 11, 12, 19, 24, 20, 31, 30, 39, 38, 40,
-                    38, 52, 90, 131, 206, 263, 390, 310, 309, 410, 384, 248
-                ],
-                color: '#910000' // Set color to red
-            },
+          {
+            name: '',
+            type: 'bar',
+            data: yearChartData.map((data) => ({
+              value: data.value,
+              itemStyle: { color: '#910000' },
+            })),
+          },
         ],
-    };
+        toolbox: {
+          show: true,
+          feature: {
+            saveAsImage: {},
+          },
+        },
+      };
+      
     
     
 

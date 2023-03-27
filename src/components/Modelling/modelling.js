@@ -105,7 +105,56 @@ const dateLabelNames = {
 
 const Modelling = () => {
   const [data, setData] = useState([]);
-  const [categoryRadarChartData, setCategoryRadarChartData] = useState([]);
+  const [categoryRadarChartData, setCategoryRadarChartData] = useState([
+    {
+      name: 'Applications',
+      value: [100, 7, 11, 3, 5, 1, 100, 39, 11, 16],
+    },
+    {
+      name: 'Resolved',
+      value: [50, 2, 2, 2, 5, 1, 75, 20, 3, 4],
+    },
+    {
+      name: 'Homless',
+      max: 100,
+    },
+    {
+      name: 'SocialServicesQuota',
+      max: 20,
+    },
+    {
+      name: 'Downsizer',
+      max: 20,
+    },
+    {
+      name: 'HomeScheme',
+      max: 20,
+    },
+    {
+      name: 'Decants',
+      max: 20,
+    },
+    {
+      name: 'PanelMoves',
+      max: 20,
+    },
+    {
+      name: 'FirstTimeApplicant',
+      max: 100,
+    },
+    {
+      name: 'Transfer',
+      max: 50,
+    },
+    {
+      name: 'TenantFinder',
+      max: 20,
+    },
+    {
+      name: 'Other',
+      max: 20,
+    },
+  ]);
   const [categoryPieChartData, setCategoryPieChartData] = useState({
     'Homeless': 3,
     'SocialServicesQuota': 2,
@@ -259,8 +308,26 @@ const Modelling = () => {
         // data: [-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210]
         data: data.map((item) => item.queued).flat()
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
+
+  const applications = categoryRadarChartData.find(
+    (data) => data.name === 'Applications'
+  );
+  const indicators = categoryRadarChartData.filter((data) =>
+    Object.prototype.hasOwnProperty.call(data, 'max')
+  );
+
+  indicators.forEach((indicator) => {
+    indicator.max = applications.value[indicators.indexOf(indicator)];
+  });
+
   const radarChart = {
     title: {
       text: 'Comparison of Applications to Resolved',
@@ -268,37 +335,27 @@ const Modelling = () => {
     },
     tooltip: {},
     legend: {
-      data: ['Sales', 'Expenses'],
+      data: ['Applications', 'Resolved'],
       bottom: 0
     },
     radar: {
-      indicator: [
-        { name: 'Homless', max: 100 },
-        { name: 'SocialServicesQuota', max: 20 },
-        { name: 'Downsizer', max: 20 },
-        { name: 'HomeScheme', max: 20 },
-        { name: 'Decants', max: 20 },
-        { name: 'PanelMoves', max: 20 },
-        { name: 'FirstTimeApplicant', max: 100 },
-        { name: 'Transfer', max: 50 },
-        { name: 'TenantFinder', max: 20 },
-        { name: 'Other', max: 20 },
-      ]
+      indicator: indicators.map((indicator) => ({
+        name: indicator.name, 
+        max: indicator.max,
+      }))
     },
     series: [{
       name: 'Budget vs spending',
       type: 'radar',
-      data: [
-        {
-          value: [100, 7, 11, 3, 5, 1, 100, 39, 11, 16],
-          name: 'Applications'
-        },
-        {
-          value: [5, 2, 2, 2, 5, 1, 0, 0, 0, 0],
-          name: 'Resolved'
-        }
-      ]
-    }]
+      data: categoryRadarChartData.map(({ name, value }) => ({ name, value })),
+    }],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {},
+      }
+    }
   };
   const categoryPieChart = {
     title: {
@@ -328,7 +385,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
 
   const bandPieChart = {
@@ -359,7 +423,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
 
   const bedroomPieChart = {
@@ -390,7 +461,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
   return (
     <view>
