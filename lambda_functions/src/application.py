@@ -14,7 +14,7 @@ class Application:
         self.Band = Band
         self.Category = Category
         self.BedroomSize = BedroomSize
-        self.StartDate = datetime.datetime.strptime(StartDate, '%Y-%m-%d')
+        self.StartDate = datetime.datetime.strptime(StartDate, '%Y-%m-%d %H:%M:%S')
         self.WaitTime = 0
         Application.__instances.append(self)
 
