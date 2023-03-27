@@ -21,6 +21,7 @@ import HistoryAnalysis from '../HistoryAnalysis/historyAnalysis';
 import HistoryData from '../HistoryData/historyData';
 import Transfer from '../Transfer/transfer';
 import TransferSystem from '../TransferSystem/transferSystem';
+import TransferUpload from '../TransferUpload/transferUpload';
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
@@ -93,6 +94,11 @@ const BasicLayout = () => {
                             { <Link to='/Transfer'>Data</Link> }
                         </Menu.Item>
 
+                        <Menu.Item>
+                            { <Link to='/TransferUpload'>Load data</Link> }
+                        </Menu.Item>
+
+
                     </SubMenu>
 
                     <Menu.Item key="6" icon={<UploadOutlined />}>
@@ -147,6 +153,9 @@ const BasicLayout = () => {
                         <Route path="/TransferSystem" element={<TransferSystem />} />
 
                         <Route path="/Transfer" element={<Transfer />} />
+
+                        <Route path="/TransferUpload" element={<TransferUpload />} />
+
 
 
                     </Routes>
