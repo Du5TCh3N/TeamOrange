@@ -69,7 +69,7 @@ const BasicLayout = () => {
                         </SubMenu>
 
 
-                    <SubMenu key="3" title="Model allocation" icon={<VideoCameraOutlined />}>
+                    <SubMenu key="3" title="Forecast" icon={<VideoCameraOutlined />}>
                             <Menu.Item>{<Link to='/FileUpload'>Load data</Link>}</Menu.Item> 
 
                             <Menu.Item>{<Link to='/Modelling'>Model</Link>}</Menu.Item> 
@@ -80,22 +80,19 @@ const BasicLayout = () => {
                
                     {/* <Link to='/modelling'>Model allocation</Link> */}
 
-                    <Menu.Item key="4" icon={<UploadOutlined />}>
-                        <Link to='/FileUpload'>Load data</Link>
-                    </Menu.Item>
 
-                    <SubMenu key="5" title = "Transfer" icon={<TransactionOutlined />}>
-                        
+                    <SubMenu key="4" title = "Transfer" icon={<TransactionOutlined />}>
+
+                        <Menu.Item>
+                            { <Link to='/TransferUpload'>Load Data</Link> }
+                        </Menu.Item>
+
                         <Menu.Item>
                             {<Link to='/TransferSystem'>System</Link>}
                         </Menu.Item>
 
                         <Menu.Item>
                             { <Link to='/Transfer'>Data</Link> }
-                        </Menu.Item>
-
-                        <Menu.Item>
-                            { <Link to='/TransferUpload'>Load data</Link> }
                         </Menu.Item>
 
 
