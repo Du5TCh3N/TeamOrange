@@ -5,6 +5,8 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
+export { default as PivotTableCreateForm } from "./PivotTableCreateForm";
+export { default as PivotTableUpdateForm } from "./PivotTableUpdateForm";
 export { default as RadarchartCreateForm } from "./RadarchartCreateForm";
 export { default as RadarchartUpdateForm } from "./RadarchartUpdateForm";
 export { default as BarchartCreateForm } from "./BarchartCreateForm";

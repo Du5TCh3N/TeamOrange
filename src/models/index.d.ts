@@ -6,6 +6,40 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerPivotTable = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<PivotTable, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly Bedroom1?: (number | null)[] | null;
+  readonly Bedroom2?: (number | null)[] | null;
+  readonly Bedroom3?: (number | null)[] | null;
+  readonly Bedroom4plus?: (number | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyPivotTable = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<PivotTable, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly Bedroom1?: (number | null)[] | null;
+  readonly Bedroom2?: (number | null)[] | null;
+  readonly Bedroom3?: (number | null)[] | null;
+  readonly Bedroom4plus?: (number | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type PivotTable = LazyLoading extends LazyLoadingDisabled ? EagerPivotTable : LazyPivotTable
+
+export declare const PivotTable: (new (init: ModelInit<PivotTable>) => PivotTable) & {
+  copyOf(source: PivotTable, mutator: (draft: MutableModel<PivotTable>) => MutableModel<PivotTable> | void): PivotTable;
+}
+
 type EagerRadarchart = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Radarchart, 'id'>;
@@ -43,7 +77,7 @@ type EagerBarchart = {
   };
   readonly id: string;
   readonly name?: (string | null)[] | null;
-  readonly value?: (string | null)[] | null;
+  readonly value?: (number | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -55,7 +89,7 @@ type LazyBarchart = {
   };
   readonly id: string;
   readonly name?: (string | null)[] | null;
-  readonly value?: (string | null)[] | null;
+  readonly value?: (number | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

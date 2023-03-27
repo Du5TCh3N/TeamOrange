@@ -1,5 +1,89 @@
 export const schema = {
     "models": {
+        "PivotTable": {
+            "name": "PivotTable",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "Bedroom1": {
+                    "name": "Bedroom1",
+                    "isArray": true,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "Bedroom2": {
+                    "name": "Bedroom2",
+                    "isArray": true,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "Bedroom3": {
+                    "name": "Bedroom3",
+                    "isArray": true,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "Bedroom4plus": {
+                    "name": "Bedroom4plus",
+                    "isArray": true,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "PivotTables",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Radarchart": {
             "name": "Radarchart",
             "fields": {
@@ -89,7 +173,7 @@ export const schema = {
                 "value": {
                     "name": "value",
                     "isArray": true,
-                    "type": "String",
+                    "type": "Int",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
@@ -357,5 +441,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.6",
-    "version": "6b0c05330e16f655f2d361555b00aa9a"
+    "version": "3d6f8594bd7c153aef309e7209e67ddf"
 };

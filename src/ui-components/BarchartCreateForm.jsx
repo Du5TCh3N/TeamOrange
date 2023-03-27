@@ -356,9 +356,13 @@ export default function BarchartCreateForm(props) {
           label="Value"
           isRequired={false}
           isReadOnly={false}
+          type="number"
+          step="any"
           value={currentValueValue}
           onChange={(e) => {
-            let { value } = e.target;
+            let value = isNaN(parseInt(e.target.value))
+              ? e.target.value
+              : parseInt(e.target.value);
             if (errors.value?.hasError) {
               runValidationTasks("value", value);
             }

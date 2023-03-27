@@ -14,11 +14,11 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type BarchartCreateFormInputValues = {
     name?: string[];
-    value?: string[];
+    value?: number[];
 };
 export declare type BarchartCreateFormValidationValues = {
     name?: ValidationFunction<string>;
-    value?: ValidationFunction<string>;
+    value?: ValidationFunction<number>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type BarchartCreateFormOverridesProps = {

@@ -1,10 +1,12 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import ReactEcharts from 'echarts-for-react';
+import { DataStore } from "@aws-amplify/datastore";
+import { Barchart } from '../../models';
 
 const ModelData = () => {
 
     const [bandChartData, setBandChartData] = useState([
-        { name: 'Band 1', value: 1000 },
+        { name: 'Band 1', value: 400 },
         { name: 'Band 2', value: 378 },
         { name: 'Band 3', value: 955 },
         { name: 'Band 4', value: 1377 },
@@ -106,7 +108,7 @@ const ModelData = () => {
         { name: '2021', value: 384 },
         { name: '2022', value: 248 },
       ]);
-      
+
       const yearChart = {
         title: {
           text: 'Distribution of Applications over the Years',
@@ -133,6 +135,37 @@ const ModelData = () => {
           },
         },
       };
+      
+      useEffect(() => {
+        async function fetchData() {
+          // await DataStore.clear();
+          const bandBarchartData = await DataStore.query(Barchart, "band_barchart");
+          const bedroomBarchartData = await DataStore.query(Barchart, "bedroom_barchart");
+          const yearBarchartData = await DataStore.query(Barchart, "year_barchart");
+          
+          const bandData = bandBarchartData.value.map((value, index) => ({
+            name: bandBarchartData.name[index],
+            value
+          }));
+          console.log("Band: ", bandData)
+          setBandChartData(bandData);
+          
+          console.log("Bedroom: ", bedroomBarchartData)
+          const bedData = bedroomBarchartData.value.map((value, index) => ({
+            name: bedroomBarchartData.name[index],
+            value
+          }));
+          setBedroomChartData(bedData);
+          
+          console.log("Year: ", yearBarchartData)
+          const yearData = yearBarchartData.value.map((value, index) => ({
+            name: yearBarchartData.name[index],
+            value
+          }));
+          setYearChartData(yearData);
+        }
+        fetchData();
+      }, []);
       
     
     

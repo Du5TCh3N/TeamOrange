@@ -19,7 +19,7 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Barchart } from "../models";
+import { PivotTable } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
 function ArrayField({
@@ -180,10 +180,10 @@ function ArrayField({
     </React.Fragment>
   );
 }
-export default function BarchartUpdateForm(props) {
+export default function PivotTableUpdateForm(props) {
   const {
     id: idProp,
-    barchart,
+    pivotTable,
     onSuccess,
     onError,
     onSubmit,
@@ -193,40 +193,57 @@ export default function BarchartUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    name: [],
-    value: [],
+    Bedroom1: [],
+    Bedroom2: [],
+    Bedroom3: [],
+    Bedroom4plus: [],
   };
-  const [name, setName] = React.useState(initialValues.name);
-  const [value, setValue] = React.useState(initialValues.value);
+  const [Bedroom1, setBedroom1] = React.useState(initialValues.Bedroom1);
+  const [Bedroom2, setBedroom2] = React.useState(initialValues.Bedroom2);
+  const [Bedroom3, setBedroom3] = React.useState(initialValues.Bedroom3);
+  const [Bedroom4plus, setBedroom4plus] = React.useState(
+    initialValues.Bedroom4plus
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = barchartRecord
-      ? { ...initialValues, ...barchartRecord }
+    const cleanValues = pivotTableRecord
+      ? { ...initialValues, ...pivotTableRecord }
       : initialValues;
-    setName(cleanValues.name ?? []);
-    setCurrentNameValue("");
-    setValue(cleanValues.value ?? []);
-    setCurrentValueValue("");
+    setBedroom1(cleanValues.Bedroom1 ?? []);
+    setCurrentBedroom1Value("");
+    setBedroom2(cleanValues.Bedroom2 ?? []);
+    setCurrentBedroom2Value("");
+    setBedroom3(cleanValues.Bedroom3 ?? []);
+    setCurrentBedroom3Value("");
+    setBedroom4plus(cleanValues.Bedroom4plus ?? []);
+    setCurrentBedroom4plusValue("");
     setErrors({});
   };
-  const [barchartRecord, setBarchartRecord] = React.useState(barchart);
+  const [pivotTableRecord, setPivotTableRecord] = React.useState(pivotTable);
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
-        ? await DataStore.query(Barchart, idProp)
-        : barchart;
-      setBarchartRecord(record);
+        ? await DataStore.query(PivotTable, idProp)
+        : pivotTable;
+      setPivotTableRecord(record);
     };
     queryData();
-  }, [idProp, barchart]);
-  React.useEffect(resetStateValues, [barchartRecord]);
-  const [currentNameValue, setCurrentNameValue] = React.useState("");
-  const nameRef = React.createRef();
-  const [currentValueValue, setCurrentValueValue] = React.useState("");
-  const valueRef = React.createRef();
+  }, [idProp, pivotTable]);
+  React.useEffect(resetStateValues, [pivotTableRecord]);
+  const [currentBedroom1Value, setCurrentBedroom1Value] = React.useState("");
+  const Bedroom1Ref = React.createRef();
+  const [currentBedroom2Value, setCurrentBedroom2Value] = React.useState("");
+  const Bedroom2Ref = React.createRef();
+  const [currentBedroom3Value, setCurrentBedroom3Value] = React.useState("");
+  const Bedroom3Ref = React.createRef();
+  const [currentBedroom4plusValue, setCurrentBedroom4plusValue] =
+    React.useState("");
+  const Bedroom4plusRef = React.createRef();
   const validations = {
-    name: [],
-    value: [],
+    Bedroom1: [],
+    Bedroom2: [],
+    Bedroom3: [],
+    Bedroom4plus: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -254,8 +271,10 @@ export default function BarchartUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          name,
-          value,
+          Bedroom1,
+          Bedroom2,
+          Bedroom3,
+          Bedroom4plus,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -286,7 +305,7 @@ export default function BarchartUpdateForm(props) {
             }
           });
           await DataStore.save(
-            Barchart.copyOf(barchartRecord, (updated) => {
+            PivotTable.copyOf(pivotTableRecord, (updated) => {
               Object.assign(updated, modelFields);
             })
           );
@@ -299,7 +318,7 @@ export default function BarchartUpdateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "BarchartUpdateForm")}
+      {...getOverrideProps(overrides, "PivotTableUpdateForm")}
       {...rest}
     >
       <ArrayField
@@ -307,42 +326,48 @@ export default function BarchartUpdateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              name: values,
-              value,
+              Bedroom1: values,
+              Bedroom2,
+              Bedroom3,
+              Bedroom4plus,
             };
             const result = onChange(modelFields);
-            values = result?.name ?? values;
+            values = result?.Bedroom1 ?? values;
           }
-          setName(values);
-          setCurrentNameValue("");
+          setBedroom1(values);
+          setCurrentBedroom1Value("");
         }}
-        currentFieldValue={currentNameValue}
-        label={"Name"}
-        items={name}
-        hasError={errors?.name?.hasError}
-        errorMessage={errors?.name?.errorMessage}
-        setFieldValue={setCurrentNameValue}
-        inputFieldRef={nameRef}
+        currentFieldValue={currentBedroom1Value}
+        label={"Bedroom1"}
+        items={Bedroom1}
+        hasError={errors?.Bedroom1?.hasError}
+        errorMessage={errors?.Bedroom1?.errorMessage}
+        setFieldValue={setCurrentBedroom1Value}
+        inputFieldRef={Bedroom1Ref}
         defaultFieldValue={""}
       >
         <TextField
-          label="Name"
+          label="Bedroom1"
           isRequired={false}
           isReadOnly={false}
-          value={currentNameValue}
+          type="number"
+          step="any"
+          value={currentBedroom1Value}
           onChange={(e) => {
-            let { value } = e.target;
-            if (errors.name?.hasError) {
-              runValidationTasks("name", value);
+            let value = isNaN(parseInt(e.target.value))
+              ? e.target.value
+              : parseInt(e.target.value);
+            if (errors.Bedroom1?.hasError) {
+              runValidationTasks("Bedroom1", value);
             }
-            setCurrentNameValue(value);
+            setCurrentBedroom1Value(value);
           }}
-          onBlur={() => runValidationTasks("name", currentNameValue)}
-          errorMessage={errors.name?.errorMessage}
-          hasError={errors.name?.hasError}
-          ref={nameRef}
+          onBlur={() => runValidationTasks("Bedroom1", currentBedroom1Value)}
+          errorMessage={errors.Bedroom1?.errorMessage}
+          hasError={errors.Bedroom1?.hasError}
+          ref={Bedroom1Ref}
           labelHidden={true}
-          {...getOverrideProps(overrides, "name")}
+          {...getOverrideProps(overrides, "Bedroom1")}
         ></TextField>
       </ArrayField>
       <ArrayField
@@ -350,46 +375,148 @@ export default function BarchartUpdateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              name,
-              value: values,
+              Bedroom1,
+              Bedroom2: values,
+              Bedroom3,
+              Bedroom4plus,
             };
             const result = onChange(modelFields);
-            values = result?.value ?? values;
+            values = result?.Bedroom2 ?? values;
           }
-          setValue(values);
-          setCurrentValueValue("");
+          setBedroom2(values);
+          setCurrentBedroom2Value("");
         }}
-        currentFieldValue={currentValueValue}
-        label={"Value"}
-        items={value}
-        hasError={errors?.value?.hasError}
-        errorMessage={errors?.value?.errorMessage}
-        setFieldValue={setCurrentValueValue}
-        inputFieldRef={valueRef}
+        currentFieldValue={currentBedroom2Value}
+        label={"Bedroom2"}
+        items={Bedroom2}
+        hasError={errors?.Bedroom2?.hasError}
+        errorMessage={errors?.Bedroom2?.errorMessage}
+        setFieldValue={setCurrentBedroom2Value}
+        inputFieldRef={Bedroom2Ref}
         defaultFieldValue={""}
       >
         <TextField
-          label="Value"
+          label="Bedroom2"
           isRequired={false}
           isReadOnly={false}
           type="number"
           step="any"
-          value={currentValueValue}
+          value={currentBedroom2Value}
           onChange={(e) => {
             let value = isNaN(parseInt(e.target.value))
               ? e.target.value
               : parseInt(e.target.value);
-            if (errors.value?.hasError) {
-              runValidationTasks("value", value);
+            if (errors.Bedroom2?.hasError) {
+              runValidationTasks("Bedroom2", value);
             }
-            setCurrentValueValue(value);
+            setCurrentBedroom2Value(value);
           }}
-          onBlur={() => runValidationTasks("value", currentValueValue)}
-          errorMessage={errors.value?.errorMessage}
-          hasError={errors.value?.hasError}
-          ref={valueRef}
+          onBlur={() => runValidationTasks("Bedroom2", currentBedroom2Value)}
+          errorMessage={errors.Bedroom2?.errorMessage}
+          hasError={errors.Bedroom2?.hasError}
+          ref={Bedroom2Ref}
           labelHidden={true}
-          {...getOverrideProps(overrides, "value")}
+          {...getOverrideProps(overrides, "Bedroom2")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              Bedroom1,
+              Bedroom2,
+              Bedroom3: values,
+              Bedroom4plus,
+            };
+            const result = onChange(modelFields);
+            values = result?.Bedroom3 ?? values;
+          }
+          setBedroom3(values);
+          setCurrentBedroom3Value("");
+        }}
+        currentFieldValue={currentBedroom3Value}
+        label={"Bedroom3"}
+        items={Bedroom3}
+        hasError={errors?.Bedroom3?.hasError}
+        errorMessage={errors?.Bedroom3?.errorMessage}
+        setFieldValue={setCurrentBedroom3Value}
+        inputFieldRef={Bedroom3Ref}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Bedroom3"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={currentBedroom3Value}
+          onChange={(e) => {
+            let value = isNaN(parseInt(e.target.value))
+              ? e.target.value
+              : parseInt(e.target.value);
+            if (errors.Bedroom3?.hasError) {
+              runValidationTasks("Bedroom3", value);
+            }
+            setCurrentBedroom3Value(value);
+          }}
+          onBlur={() => runValidationTasks("Bedroom3", currentBedroom3Value)}
+          errorMessage={errors.Bedroom3?.errorMessage}
+          hasError={errors.Bedroom3?.hasError}
+          ref={Bedroom3Ref}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "Bedroom3")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              Bedroom1,
+              Bedroom2,
+              Bedroom3,
+              Bedroom4plus: values,
+            };
+            const result = onChange(modelFields);
+            values = result?.Bedroom4plus ?? values;
+          }
+          setBedroom4plus(values);
+          setCurrentBedroom4plusValue("");
+        }}
+        currentFieldValue={currentBedroom4plusValue}
+        label={"Bedroom4plus"}
+        items={Bedroom4plus}
+        hasError={errors?.Bedroom4plus?.hasError}
+        errorMessage={errors?.Bedroom4plus?.errorMessage}
+        setFieldValue={setCurrentBedroom4plusValue}
+        inputFieldRef={Bedroom4plusRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Bedroom4plus"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={currentBedroom4plusValue}
+          onChange={(e) => {
+            let value = isNaN(parseInt(e.target.value))
+              ? e.target.value
+              : parseInt(e.target.value);
+            if (errors.Bedroom4plus?.hasError) {
+              runValidationTasks("Bedroom4plus", value);
+            }
+            setCurrentBedroom4plusValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("Bedroom4plus", currentBedroom4plusValue)
+          }
+          errorMessage={errors.Bedroom4plus?.errorMessage}
+          hasError={errors.Bedroom4plus?.hasError}
+          ref={Bedroom4plusRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "Bedroom4plus")}
         ></TextField>
       </ArrayField>
       <Flex
@@ -403,7 +530,7 @@ export default function BarchartUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || barchart)}
+          isDisabled={!(idProp || pivotTable)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -415,7 +542,7 @@ export default function BarchartUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || barchart) ||
+              !(idProp || pivotTable) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

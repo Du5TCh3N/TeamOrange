@@ -1,3 +1,11 @@
+type PivotTable @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Bedroom1: [Int]
+  Bedroom2: [Int]
+  Bedroom3: [Int]
+  Bedroom4plus: [Int]
+}
+
 type Radarchart @model @auth(rules: [{allow: public}]) {
   id: ID!
   Total: [Int]
@@ -7,7 +15,7 @@ type Radarchart @model @auth(rules: [{allow: public}]) {
 type Barchart @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: [String]
-  value: [String]
+  value: [Int]
 }
 
 type KeyStats @model @auth(rules: [{allow: public}]) {
