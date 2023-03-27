@@ -5,6 +5,10 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
+export { default as RadarchartCreateForm } from "./RadarchartCreateForm";
+export { default as RadarchartUpdateForm } from "./RadarchartUpdateForm";
+export { default as BarchartCreateForm } from "./BarchartCreateForm";
+export { default as BarchartUpdateForm } from "./BarchartUpdateForm";
 export { default as KeyStatsCreateForm } from "./KeyStatsCreateForm";
 export { default as KeyStatsUpdateForm } from "./KeyStatsUpdateForm";
 export { default as PiechartCreateForm } from "./PiechartCreateForm";

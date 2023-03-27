@@ -6,6 +6,66 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerRadarchart = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Radarchart, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly Total?: (number | null)[] | null;
+  readonly Value?: (number | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyRadarchart = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Radarchart, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly Total?: (number | null)[] | null;
+  readonly Value?: (number | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Radarchart = LazyLoading extends LazyLoadingDisabled ? EagerRadarchart : LazyRadarchart
+
+export declare const Radarchart: (new (init: ModelInit<Radarchart>) => Radarchart) & {
+  copyOf(source: Radarchart, mutator: (draft: MutableModel<Radarchart>) => MutableModel<Radarchart> | void): Radarchart;
+}
+
+type EagerBarchart = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Barchart, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly name?: (string | null)[] | null;
+  readonly value?: (string | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyBarchart = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Barchart, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly name?: (string | null)[] | null;
+  readonly value?: (string | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Barchart = LazyLoading extends LazyLoadingDisabled ? EagerBarchart : LazyBarchart
+
+export declare const Barchart: (new (init: ModelInit<Barchart>) => Barchart) & {
+  copyOf(source: Barchart, mutator: (draft: MutableModel<Barchart>) => MutableModel<Barchart> | void): Barchart;
+}
+
 type EagerKeyStats = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<KeyStats, 'id'>;
