@@ -17,8 +17,10 @@ import Home from '../Home/home';
 import Modelling from '../Modelling/modelling';
 import ModelData from '../ModelData/modelData';
 import User from '../User/user';
-import HistoryAnalysis from '../HistoryData/historyData';
+import HistoryAnalysis from '../HistoryAnalysis/historyAnalysis';
+import HistoryData from '../HistoryData/historyData';
 import Transfer from '../Transfer/transfer';
+import TransferSystem from '../TransferSystem/transferSystem';
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
@@ -59,14 +61,16 @@ const BasicLayout = () => {
 
                     <SubMenu key="2" title="History" icon={<HistoryOutlined />}>
 
-                        <Menu.Item>{<Link to='/HistoryData'>Policy</Link>}</Menu.Item> 
+                        <Menu.Item>{<Link to='/HistoryAnalysis'>Policy</Link>}</Menu.Item> 
                         
-                        <Menu.Item>Data</Menu.Item>
+                        <Menu.Item>{<Link to='/HistoryData'>Data</Link>}</Menu.Item>
 
                         </SubMenu>
 
 
                     <SubMenu key="3" title="Model allocation" icon={<VideoCameraOutlined />}>
+                            <Menu.Item>{<Link to='/FileUpload'>Load data</Link>}</Menu.Item> 
+
                             <Menu.Item>{<Link to='/Modelling'>Model</Link>}</Menu.Item> 
                         
                             <Menu.Item>{<Link to='/ModelData'>Data</Link>}</Menu.Item> 
@@ -79,9 +83,17 @@ const BasicLayout = () => {
                         <Link to='/FileUpload'>Load data</Link>
                     </Menu.Item>
 
-                    <Menu.Item key="5" icon={<TransactionOutlined />}>
-                        <Link to='/Transfer'>Transfer</Link>
-                    </Menu.Item>
+                    <SubMenu key="5" title = "Transfer" icon={<TransactionOutlined />}>
+                        
+                        <Menu.Item>
+                            {<Link to='/TransferSystem'>System</Link>}
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            { <Link to='/Transfer'>Data</Link> }
+                        </Menu.Item>
+
+                    </SubMenu>
 
                     <Menu.Item key="6" icon={<UploadOutlined />}>
                         <Link to='/Export'>Foreast</Link>
@@ -118,7 +130,9 @@ const BasicLayout = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
 
-                        <Route path="/HistoryData" element={<HistoryAnalysis />} />
+                        <Route path="/HistoryAnalysis" element={<HistoryAnalysis />} />
+
+                        <Route path="/HistoryData" element={<HistoryData />} />
 
                         <Route path="/Export" element={<Export />} />
 
@@ -129,6 +143,8 @@ const BasicLayout = () => {
                         <Route path="/ModelData" element={<ModelData />} />
 
                         <Route path="/User" element={<User />} />
+
+                        <Route path="/TransferSystem" element={<TransferSystem />} />
 
                         <Route path="/Transfer" element={<Transfer />} />
 
