@@ -259,7 +259,13 @@ const Modelling = () => {
         // data: [-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210]
         data: data.map((item) => item.queued).flat()
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
   const radarChart = {
     title: {
@@ -298,7 +304,14 @@ const Modelling = () => {
           name: 'Resolved'
         }
       ]
-    }]
+    }],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {},
+      }
+    }
   };
   const categoryPieChart = {
     title: {
@@ -328,7 +341,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
 
   const bandPieChart = {
@@ -359,7 +379,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
 
   const bedroomPieChart = {
@@ -390,7 +417,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
   return (
     <view>

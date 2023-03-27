@@ -20,6 +20,12 @@ const ModelData = () => {
                 color: '#2f7ed8' // Set color to blue
             },
         ],
+        toolbox: {
+          show: true, 
+          feature: {
+            saveAsImage: {}
+          }
+        }
     };
     
     const bedroomChart = {
@@ -39,6 +45,12 @@ const ModelData = () => {
                 color: '#8bbc21' // Set color to green
             },
         ],
+        toolbox: {
+          show: true, 
+          feature: {
+            saveAsImage: {}
+          }
+        }
     };
     
     const yearChart = {
@@ -66,6 +78,12 @@ const ModelData = () => {
                 color: '#910000' // Set color to red
             },
         ],
+        toolbox: {
+          show: true, 
+          feature: {
+            saveAsImage: {}
+          }
+        }
     };
     
     
