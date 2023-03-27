@@ -3,7 +3,7 @@ import ReactEcharts from 'echarts-for-react';
 import { View } from "@aws-amplify/ui-react";
 import { API } from "aws-amplify";
 import { DataStore } from "@aws-amplify/datastore";
-import { SimulationData, Piechart } from '../../models';
+import { SimulationData, Piechart, Radarchart } from '../../models';
 import './Modelling.css'
 
 import AWS from 'aws-sdk';
@@ -218,6 +218,14 @@ const Modelling = () => {
         }
       }
       setBedroomPieChartData(bedroomResolvedDict)
+
+      const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart")
+      const radarChartData = categoryRadarchart.total.L.map((value, index) => ({
+          name: categoryRadarchart.name.L[index].S,
+          value: categoryRadarchart.value.L[index].N,
+          max: categoryRadarchart.total.L[index].N,
+      }));
+      console.log(radarChartData)
 
     }
     fetchData();

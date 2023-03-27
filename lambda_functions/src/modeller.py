@@ -172,7 +172,7 @@ def calculateKeyStatistics():
     for category in categories:
         key = f"{category} Average Wait Time"
         key_stat[key] = Application.getAverageWaitingTimeForCategory(category)
-    saveKeyStatToCSV(key_stat, "key_stat.csv")
+    # saveKeyStatToCSV(key_stat, "key_stat.csv")
 
 
 def calculateGraphs():
@@ -287,7 +287,7 @@ class Modeller:
 
     def assignHouseToCategories(self):
         categories = ["Decants", "PanelMoves", "Homeless", "SocialServicesQuota", "Transfer", "HomeScheme",
-                      "FirstTimeApplicants", "TenantFinder", "Downsizer"]
+                      "FirstTimeApplicants", "TenantFinder", "Downsizer", "Other"]
         sizes = [1, 2, 3, 4]
         over_all_assignment = [['Category', "1 Bed", "2 Bed", "3 Bed", "4 Bed"]]
         for category in categories:
