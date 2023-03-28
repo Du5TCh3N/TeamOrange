@@ -66,7 +66,7 @@ const UserManuals = () => {
         <Modal title="Data Visualisation user m" open={isModal1Open} footer={null} onCancel={cancel}  >
         <p>Step1: open left hand side manu button "HistoryData"</p>
         <p>Step2: click "Allocation Policy" to double check the information of Royal Borough of Kingston upon Thames Housing Allocation Scheme 2017 </p>
-        <p>Step3: click "Data" to check the historical data over 2014 - 2022 </p>
+        <p>Step3: click "Historical Data" to check the historical data over 2014 - 2022 </p>
       </Modal>
 
       <Modal title="Basic Modal" open={isModal2Open} footer={null} onCancel={cancel}  >

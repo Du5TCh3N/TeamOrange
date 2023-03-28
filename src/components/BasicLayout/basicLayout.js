@@ -15,6 +15,9 @@ import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import UserManuals from '../UserManuals/UserManuals';
+import ModelAllocationManuals from '../UserManuals/ModelAllocationManuals';
+import TransferManuals from '../UserManuals/TransferManuals';
+
 import FileUpload from '../FileUpload/fileUpload';
 import Home from '../Home/home';
 
@@ -76,7 +79,7 @@ const BasicLayout = () => {
 
                     </SubMenu>
 
-                    <SubMenu key="3" title="Model allocation" icon={<VideoCameraOutlined />}>
+                    <SubMenu key="3" title="Model Allocation" icon={<VideoCameraOutlined />}>
 
                             <Menu.Item>   
                                 { <Link to='/ModelUpload'>Upload CSV file</Link> }
@@ -91,14 +94,14 @@ const BasicLayout = () => {
                             </Menu.Item>
          
                     </SubMenu>
-                    <SubMenu key="5" title = "transfer" icon={<TransactionOutlined />}>
+                    <SubMenu key="5" title = "Transfer" icon={<TransactionOutlined />}>
                         
                         <Menu.Item>
                             { <Link to='/TransferUpload'> Upload CSV file</Link> }
                         </Menu.Item>
 
                         <Menu.Item>
-                            {<Link to='/TransferSystem'>Transfer System</Link>}
+                            {<Link to='/TransferSystem'>Transfer</Link>}
                         </Menu.Item>
 
                         <Menu.Item>
@@ -107,9 +110,23 @@ const BasicLayout = () => {
 
                     </SubMenu>
 
-                    <Menu.Item key="6" icon={<ContainerOutlined />}>
-                        <Link to='/UserManuals'>User Manual</Link>
-                    </Menu.Item>
+                    <SubMenu key="6" title = "UserManuals" icon={<ContainerOutlined />}>
+
+                        <Menu.Item>
+                            <Link to='/UserManuals'>User Manual</Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            {<Link to='/ModelAllocationManuals'>Model Allocation</Link>}
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            {<Link to='/TransferManuals'>Transfer System</Link>}
+                        </Menu.Item>
+                    </SubMenu>
+
+
+
                 </Menu>
             </Sider>
 
