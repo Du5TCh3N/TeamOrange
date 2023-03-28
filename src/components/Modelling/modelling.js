@@ -179,6 +179,7 @@ const Modelling = () => {
           categoryResolvedDict[categoryList[i]] = categoryResolvedList[i];
         }
       }
+      console.log(categoryResolvedDict)
       setCategoryPieChartData(categoryResolvedDict)
 
       const bandList = bandPiechartData.category;
@@ -190,7 +191,8 @@ const Modelling = () => {
         for (let i = 0; i < bandList.length; i++) {
           bandResolvedDict[bandList[i]] = bandResolvedList[i];
         }
-      }
+      };
+      console.log(categoryResolvedDict)
       setBandPieChartData(bandResolvedDict)
 
       const bedroomList = bedroomPiechartData.category;
@@ -203,6 +205,7 @@ const Modelling = () => {
           bedroomResolvedDict[bedroomList[i]] = bedroomResolvedList[i];
         }
       };
+      console.log(bedroomResolvedDict)
       setBedroomPieChartData(bedroomResolvedDict);
 
       const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart", { forceNetworkFetch: true });
