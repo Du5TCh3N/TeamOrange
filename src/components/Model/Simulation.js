@@ -147,10 +147,10 @@ const Modelling = () => {
     'Band 3': 5
   });
   const [bedroomPieChartData, setBedroomPieChartData] = useState({
-    '1 Bed': 7,
-    '2 Bed': 7,
-    '3 Bed': 2,
-    '4 Bed': 1
+    'Bedroom 1': 7,
+    'Bedroom 2': 7,
+    'Bedroom 3': 2,
+    'Bedroom 4': 1
   });
 
   useEffect(() => {
@@ -321,7 +321,7 @@ const Modelling = () => {
 
   const radarChart = {
     title: {
-      text: 'Comparison of Applications to Resolved',
+      text: 'Comparison chart',
       left: 'center'
     },
     tooltip: {},
@@ -350,7 +350,7 @@ const Modelling = () => {
   };
   const categoryPieChart = {
     title: {
-      text: 'Resolved Applicants by Category',
+      text: 'Category percentage',
       // subtext: 'Fake Data',
       left: 'center'
     },
@@ -388,7 +388,7 @@ const Modelling = () => {
 
   const bandPieChart = {
     title: {
-      text: 'Resolved Applicants by Band',
+      text: 'Band priority',
       // subtext: 'Fake Data',
       left: 'center'
     },
@@ -426,7 +426,7 @@ const Modelling = () => {
 
   const bedroomPieChart = {
     title: {
-      text: 'Resolved Applicants by Bedroom Size',
+      text: 'Bedroom Size',
       // subtext: 'Fake Data',
       left: 'center'
     },
