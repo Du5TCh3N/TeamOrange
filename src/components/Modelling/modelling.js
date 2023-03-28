@@ -558,13 +558,17 @@ function PolicyForm() {
           <br/>
           <input
             disabled="true"
+            className="input-group"
             type="range"
             max="1"
             min="0"
+            step={0.01}
             name="total-policy"
             value={policyInputs.reduce((a, b) => a + b, 0)}
             style={{ width: "100px" }}
            />
+          <br/>
+            <span className="range-value">{policyInputs.reduce((a, b) => a + b, 0)}</span>
         </div>
       </div>
 
