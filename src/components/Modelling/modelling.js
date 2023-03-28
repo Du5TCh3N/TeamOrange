@@ -17,31 +17,10 @@ const lambda = new AWS.Lambda({
   apiVersion: '2015-03-31',
 });
 
-function callLambdaFunction() {
+function callLambdaFunction(payload) {
   const params = {
     FunctionName: 'python-modeller',
-    Payload: JSON.stringify({
-      "policy": {
-        "PanelMoves": 0.02,
-        "Homeless": 0.04,
-        "SocialServicesQuota": 0.04,
-        "Transfer": 0.01,
-        "HomeScheme": 0.04,
-        "FirstTimeApplicants": 0.01,
-        "TenantFinder": 0.01,
-        "Downsizer": 0.02,
-        "Decants": 0.8,
-        "Other": 0.01
-      },
-      "supply": {
-        "1": 58,
-        "2": 53,
-        "3": 29,
-        "4": 2
-      },
-      "startDate": "2022-01-01",
-      "endDate": "2022-12-31"
-    })
+    Payload: JSON.stringify(payload)
   };
 
   lambda.invoke(params, function(err, data){
@@ -51,7 +30,7 @@ function callLambdaFunction() {
       console.log("Data: ", data)
     }
   })
-};
+}
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -545,16 +524,7 @@ function PolicyForm() {
     outputObj["startDate"] = dateInputs[0];
     outputObj["endDate"] = dateInputs[1];
 
-    // const headers = {
-    //   'Content-Type': 'application/json'
-    // }
-    // try {
-    //   const response = await API.post('python-modeller-API', '/policytomodeller-policydev', { body: outputObj.toString(), headers: headers })
-    //   console.log(response)
-    // } catch (error) {
-    //   console.log(error)
-    // }
-    // console.log(outputObj);
+    callLambdaFunction(outputObj);
   };
 
   return (

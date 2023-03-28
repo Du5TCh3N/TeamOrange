@@ -20,7 +20,6 @@ class TestApplication(TestCase):
                                              "BedroomSize: 1, StartDate: 2023-03-25 00:00:00"
 
     def test_get_all_applications(self):
-
         assert Application.getAllApplications() == self.list_of_applications
 
     def test_get_num_applications(self):
@@ -136,11 +135,18 @@ class TestApplication(TestCase):
 
     def test_find_historical_combination_average(self):
         testDate = datetime.datetime(year=2023, month=3, day=31)
+        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2022-03-25")
+        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2021-03-25")
         historical_analysis = Application.historicalAnalysis(testDate)
+        print(Application.findHistoricalCombinationAverage(historical_analysis[0]))
         assert Application.findHistoricalCombinationAverage(historical_analysis[0]) == ({}, {}, {}, {})
 
     def test_generate_applications_based_on_average(self):
-        self.fail()
+        testDate = datetime.datetime(year=2023, month=3, day=31)
+        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2022-03-25")
+        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2021-03-25")
+        historical_analysis = Application.historicalAnalysis(testDate)
+        print(Application.generateApplicationsBasedOnAverage())
 
     def test_get_resolved_information(self):
         self.fail()
