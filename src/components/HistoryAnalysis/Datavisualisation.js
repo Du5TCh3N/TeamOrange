@@ -168,7 +168,7 @@ const Datavisualisation = () => {
             </Col>
 
             <Col span={8}>
-                <Card title="DataData 2015" bordered={false}>
+                <Card title="Data 2015" bordered={false}>
                 <ReactEcharts option={option2}/>  
                 </Card>
             </Col>
