@@ -526,7 +526,7 @@ function PolicyForm() {
     outputObj["startDate"] = dateInputs[0];
     outputObj["endDate"] = dateInputs[1];
 
-    const sum_of_inputs = policyDefaults.reduce((a, b) => a + b, 0);
+    const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
 
     if (sum_of_inputs >= 1) {
       return (
