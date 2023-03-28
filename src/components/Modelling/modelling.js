@@ -5,6 +5,7 @@ import {Piechart, Radarchart, SimulationData} from '../../models';
 import './Modelling.css'
 
 import AWS from 'aws-sdk';
+import {Alert} from "@aws-amplify/ui-react";
 
 process.env.AWS_SDK_LOAD_CONFIG = 1;
 const lambda = new AWS.Lambda({
@@ -525,7 +526,21 @@ function PolicyForm() {
     outputObj["startDate"] = dateInputs[0];
     outputObj["endDate"] = dateInputs[1];
 
-    callLambdaFunction(outputObj);
+    const sum_of_inputs = policyDefaults.reduce((a, b) => a + b, 0);
+
+    if (sum_of_inputs >= 1) {
+      return (
+        <Alert
+          variation="error"
+          isDismissible="True"
+          heading="Policy Total Greater Than 1"
+        >
+        Policy allocation total must be between 0 and 1
+        </Alert>
+        )
+    } else {
+      callLambdaFunction(outputObj);
+    }
   };
 
 
@@ -608,7 +623,7 @@ function PolicyForm() {
       </div>
 
       <div className="submit-container">
-        <button className="submit-button" type="submit" onClick={callLambdaFunction}>Submit</button>
+        <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
       </div>
     </form>
 
