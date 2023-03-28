@@ -1,83 +1,123 @@
 import React, { Component, useState, useEffect } from 'react';
 import ReactEcharts from 'echarts-for-react';
 import { DataStore } from "@aws-amplify/datastore";
-import { Barchart } from '../../models';
+import { Barchart, SimulationData } from '../../models';
 
 // Todo data support
 const Model = () => {
-    const option = {
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        legend: {
-          data: ['Profit', 'Expenses', 'Income']
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [
-          {
-            type: 'category',
-            axisTick: {
-              show: false
-            },
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          }
-        ],
-        yAxis: [
-          {
-            type: 'value'
-          }
-        ],
+    const [pastSimulationData, setPastSimulationData] = useState([]);
 
-        series: [
-          {
-            name: 'Profit',
-            type: 'bar',
-            label: {
-              show: true,
-              position: 'inside'
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210]
+    useEffect(() => {
+      async function fetchData() {
+        const models = await DataStore.query(SimulationData, "pastLambdaSimulation");
+        console.log("Fetch", models);
+        const pastSimulationData = models.date.map((date, index) => ({
+          date,
+          resolved: models.resolved[index],
+          new: models.new[index],
+          queued: models.queued[index],
+        }));
+        setPastSimulationData(pastSimulationData);
+        console.log("past:", pastSimulationData);
+  
+      }
+      fetchData();
+    }, []);
+
+    const pastSimulation = {
+      title: {
+        text: 'Simulation',
+        left: 'center'
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        data: ['New', 'Queued', 'Resolved'],
+        top: 30
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: [
+        {
+          type: 'category',
+          axisTick: {
+            show: false
           },
-
-          {
-            name: 'Income',
-            type: 'bar',
-            stack: 'Total',
-            label: {
-              show: true
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420]
+          // data: ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04', '2022-01-05', '2022-01-06', '2022-01-07', '2022-01-08', '2022-01-09', '2022-01-10', '2022-01-11', '2022-01-12', '2022-01-13', '2022-01-14', '2022-01-15', '2022-01-16', '2022-01-17', '2022-01-18', '2022-01-19', '2022-01-20', '2022-01-21']
+          data: pastSimulationData.map((item) => item.date).flat()
+        }
+      ],
+      yAxis: [
+        {
+          type: 'value'
+        }
+      ],
+      dataZoom: {
+        // id: 'dataZoomY',
+        type: "inside",
+        start: 0, 
+        end: 10
+      },
+  
+      series: [
+        {
+          name: 'New',
+          type: 'bar',
+          label: {
+            show: false,
+            position: 'inside'
           },
-
-          {
-            name: 'Expenses',
-            type: 'bar',
-            stack: 'Total',
-            label: {
-              show: true,
-              position: 'left'
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210]
-          }
-        ]
-      };
+          emphasis: {
+            focus: 'series'
+          },
+          // data: [200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210,200, 170, 240, 244, 200, 220, 210]
+          data: pastSimulationData.map((item) => item.new).flat()
+        },
+  
+        {
+          name: 'Resolved',
+          type: 'bar',
+          stack: 'Total',
+          label: {
+            show: false
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          // data: [320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420,320, 302, 341, 374, 390, 450, 420]
+          data: pastSimulationData.map((item) => item.resolved).flat()
+        },
+  
+        {
+          name: 'Queued',
+          type: 'bar',
+          stack: 'Total',
+          label: {
+            show: false,
+            position: 'left'
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          // data: [-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210]
+          data: pastSimulationData.map((item) => item.queued).flat()
+        }
+      ],
+      toolbox: {
+        show: true, 
+        feature: {
+          saveAsImage: {}
+        }
+      }
+    };
 
        // define the radar chart options
   const option2 = {
@@ -279,8 +319,10 @@ const Model = () => {
   
     return (
         <>
-            <ReactEcharts option={option}/>
-            <ReactEcharts option={option2}/>
+            <ReactEcharts option={pastSimulation}/>
+            <br></br>
+            <br></br>
+            {/* <ReactEcharts option={option2}/> */}
             <div style={{ display: 'inline-block', width: '33%' }}>
               <ReactEcharts option={bandChart}/>
             </div>
