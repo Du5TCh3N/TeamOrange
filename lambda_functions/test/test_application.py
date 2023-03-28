@@ -7,15 +7,16 @@ from application import Application
 class TestApplication(TestCase):
 
     def setUp(self) -> None:
-        self.testApplication1 = Application("Test-1", "Band 1", "Decants", 1, "2023-03-25")
-        self.testApplication2 = Application("Test-2", "Band 1", "Decants", 1, "2023-03-25")
+        self.testApplication1 = Application("Test-1", "Band 1", "Decants", 1, "2023-03-25 00:00:00")
+        self.testApplication2 = Application("Test-2", "Band 1", "Decants", 1, "2023-03-25 00:00:00")
         self.list_of_applications = [self.testApplication1, self.testApplication2]
 
     def tearDown(self) -> None:
         Application.clearApplicationInstances()
+        Application.removeApplication(self.testApplication1)
+        Application.removeApplication(self.testApplication2)
 
     def test_to_string(self):
-        print(str(self.testApplication1))
         assert str(self.testApplication1) == "ApplicationID: Test-1, Band: Band 1, Category: Decants, " \
                                              "BedroomSize: 1, StartDate: 2023-03-25 00:00:00"
 
@@ -63,8 +64,8 @@ class TestApplication(TestCase):
 
     def test_get_applications_by_size_and_category(self):
         testDate = datetime.datetime(year=2023, month=3, day=25)
-        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2023-03-25")
-        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2023-03-25")
+        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2023-03-25 00:00:00")
+        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2023-03-25 00:00:00")
 
         test_banded_applications = {
             "Band 1": [self.testApplication1, self.testApplication2],
@@ -106,13 +107,18 @@ class TestApplication(TestCase):
 
     def test_historical_analysis(self):
         testDate = datetime.datetime(year=2023, month=3, day=31)
-        expected = ({2023: {('Decants', 'Band 1', 1): 2}}, {2023: {3: {('Decants', 'Band 1', 1): 2}}})
+        expected = ({2023: {('Decants', 'Band 1', 1): 10},
+                     2022: {('Decants', 'Band 2', 1): 1},
+                     2021: {('Decants', 'Band 3', 1): 1}},
+                    {2023: {3: {('Decants', 'Band 1', 1): 10}},
+                     2022: {3: {('Decants', 'Band 2', 1): 1}},
+                     2021: {3: {('Decants', 'Band 3', 1): 1}}})
         assert Application.historicalAnalysis(testDate) == expected
 
     def test_find_historical_category_average(self):
         testDate = datetime.datetime(year=2023, month=3, day=31)
         historical_analysis = Application.historicalAnalysis(testDate)
-        expected = (2.0, 2.0)
+        expected = (6.0, 6.0)
         assert Application.findHistoricalCategoryAverage(historical_analysis[0],
                                                          historical_analysis[1],
                                                          "Decants") == expected
@@ -128,31 +134,37 @@ class TestApplication(TestCase):
     def test_find_historical_bedroom_average(self):
         testDate = datetime.datetime(year=2023, month=3, day=31)
         historical_analysis = Application.historicalAnalysis(testDate)
-        expected = (2.0, 2.0)
+        expected = (4.0, 4.0)
         assert Application.findHistoricalBedroomAverage(historical_analysis[0],
                                                         historical_analysis[1],
                                                         1) == expected
 
     def test_find_historical_combination_average(self):
         testDate = datetime.datetime(year=2023, month=3, day=31)
-        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2022-03-25")
-        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2021-03-25")
+        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2022-03-25 00:00:00")
+        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2021-03-25 00:00:00")
         historical_analysis = Application.historicalAnalysis(testDate)
-        print(Application.findHistoricalCombinationAverage(historical_analysis[0]))
-        assert Application.findHistoricalCombinationAverage(historical_analysis[0]) == ({}, {}, {}, {})
+        year_average = ({('Decants', 'Band 2', 1): 1, ('Decants', 'Band 3', 1): 1},
+                        {('Decants', 'Band 2', 1): 0.5, ('Decants', 'Band 3', 1): 0.5},
+                        {('Decants', 'Band 2', 1): 1, ('Decants', 'Band 3', 1): 1},
+                        {('Decants', 'Band 2', 1): 0.041666666666666664, ('Decants', 'Band 3', 1): 0.041666666666666664})
+        assert Application.findHistoricalCombinationAverage(historical_analysis[0]) == year_average
 
     def test_generate_applications_based_on_average(self):
-        testDate = datetime.datetime(year=2023, month=3, day=31)
-        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2022-03-25")
-        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2021-03-25")
-        historical_analysis = Application.historicalAnalysis(testDate)
-        print(Application.generateApplicationsBasedOnAverage())
-
-    def test_get_resolved_information(self):
-        self.fail()
+        startDate = datetime.datetime(year=2021, month=1, day=1)
+        endDate = datetime.datetime.today()
+        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2022-03-25 00:00:00")
+        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2021-03-25 00:00:00")
+        historical_analysis = Application.historicalAnalysis(startDate)
+        Application.generateApplicationsBasedOnAverage(historical_analysis[0], startDate, endDate)
+        assert not Application.getNumApplications() == len(self.list_of_applications)
 
     def test_get_all_application_information(self):
-        self.fail()
+        info = ({'Decants': 2}, {'Band 1': 2}, {1: 2})
+        assert Application.getAllApplicationInformation() == info
 
     def test_find_time_range(self):
-        self.fail()
+        self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2022-03-25 00:00:00")
+        self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2021-03-25 00:00:00")
+        expected = (datetime.datetime(2021, 3, 25, 0, 0), datetime.datetime(2023, 3, 25, 0, 0))
+        assert Application.findTimeRange() == expected

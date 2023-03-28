@@ -6,7 +6,7 @@ from property import Property
 
 class TestProperty(TestCase):
     def setUp(self) -> None:
-        self.testProperty = Property(1, "Decants", "2023-01-01 00:00:00")
+        self.testProperty = Property(1, "Decants", datetime.datetime(2023, 1, 1, 0, 0))
 
     def tearDown(self) -> None:
         Property.deleteProperty(self.testProperty)
@@ -25,8 +25,8 @@ class TestProperty(TestCase):
 
 class TestClassProperty(TestCase):
     def setUp(self) -> None:
-        self.testProperty1 = Property(1, "Decants", "2023-01-01 00:00:00")
-        self.testProperty2 = Property(1, "Decants", "2023-01-01 00:00:00")
+        self.testProperty1 = Property(1, "Decants", datetime.datetime(2023, 1, 1, 0, 0))
+        self.testProperty2 = Property(1, "Decants", datetime.datetime(2023, 1, 1, 0, 0))
         self.list_of_properties = [self.testProperty1, self.testProperty2]
 
     def tearDown(self) -> None:
@@ -52,7 +52,7 @@ class TestClassProperty(TestCase):
         assert Property.getPropertiesByDate(testDate) == self.list_of_properties
 
     def test_generate_properties(self):
-        Property.generateProperties(1, "Decants", "2023-01-01 00:00:00", 5)
+        Property.generateProperties(1, "Decants", datetime.datetime(2023, 1, 1, 0, 0), 5)
         assert Property.getNumProperties() == 7
 
     def test_assign_property_fail(self):
