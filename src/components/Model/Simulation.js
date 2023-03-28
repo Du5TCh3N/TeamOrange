@@ -253,7 +253,7 @@ const Simulation = () => {
       // id: 'dataZoomY',
       type: "inside",
       start: 0, 
-      end: 25
+      end: 10
     },
 
     series: [
@@ -361,7 +361,7 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: '50%',
+        radius: '60%',
         data: Object.keys(categoryPieChartData).map((key) => {
           return {
             value: categoryPieChartData[key],
@@ -399,7 +399,7 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: '50%',
+        radius: ['30%', '60%'],
         data: Object.keys(bandPieChartData).map((key) => {
           return {
             value: bandPieChartData[key],
@@ -437,7 +437,8 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: '50%',
+        radius: '60%',
+        avoidLabelOverlap: false,
         data: Object.keys(bedroomPieChartData).map((key) => {
           return {
             value: bedroomPieChartData[key],
