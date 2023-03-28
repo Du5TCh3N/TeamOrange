@@ -251,8 +251,9 @@ const Simulation = () => {
     ],
     dataZoom: {
       // id: 'dataZoomY',
-      type: "slider",
-      start: 0
+      type: "inside",
+      start: 0, 
+      end: 25
     },
 
     series: [
