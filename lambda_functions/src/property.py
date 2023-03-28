@@ -38,7 +38,7 @@ class Property:
         Property.id_counter += 1
         self.BedroomSize = BedroomSize
         self.Category = Category
-        self.ReleaseDate = datetime.datetime.strptime(ReleaseDate, '%Y-%m-%d %H:%M:%S')
+        self.ReleaseDate = datetime.datetime.strptime(ReleaseDate.strftime('%Y-%m-%d %H:%M:%S'), '%Y-%m-%d %H:%M:%S')
         Property.__instances.append(self)
 
     def __str__(self):

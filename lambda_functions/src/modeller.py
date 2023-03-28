@@ -180,6 +180,59 @@ def calculateGraphs():
     savePieChartToDynamoDB(category_stat, band_stat, bedroom_stat)
     # Save the daily result of simulation
 
+def calculateBarcharts():
+    from datetime import datetime
+    
+    dynamodb = boto3.resource("dynamodb")
+    table = dynamodb.Table("Barchart-l6ud5eblpjg5rlgutkig3e5hia-dev")
+
+    bandBarchartData = Application.findDistributionOfBandInApplicationBarchart()
+    bandBarchartName = list(bandBarchartData.keys())
+    bandBarchartValue = list(bandBarchartData.values())
+    table.put_item(
+        Item={
+            'id': 'band_barchart',
+            'name': bandBarchartName,
+            'value': bandBarchartValue,
+            '__typename': 'BarchartData',
+            'createdAt': datetime.now(tz.UTC).isoformat(),
+            'updatedAt': datetime.now(tz.UTC).isoformat(),
+            '_version': 1,
+            '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
+        }
+    )
+
+    bedroomBarchartData = Application.findDistributionOfBedroomInApplicationBarchart()
+    bedroomBarchartName = list(bedroomBarchartData.keys())
+    bedroomBarchartValue = list(bedroomBarchartData.values())
+    table.put_item(
+        Item={
+            'id': 'bedroom_barchart',
+            'name': bedroomBarchartName,
+            'value': bedroomBarchartValue,
+            '__typename': 'BarchartData',
+            'createdAt': datetime.now(tz.UTC).isoformat(),
+            'updatedAt': datetime.now(tz.UTC).isoformat(),
+            '_version': 1,
+            '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
+        }
+    )
+
+    yearBarchartData = Application.findDistributionOfApplicationOverYearBarchart()
+    yearBarchartName = list(yearBarchartData.keys())
+    yearBarchartValue = list(yearBarchartData.values())
+    table.put_item(
+        Item={
+            'id': 'year_barchart',
+            'name': yearBarchartName,
+            'value': yearBarchartValue,
+            '__typename': 'BarchartData',
+            'createdAt': datetime.now(tz.UTC).isoformat(),
+            'updatedAt': datetime.now(tz.UTC).isoformat(),
+            '_version': 1,
+            '_lastChangedAt': int(datetime.now(tz.UTC).timestamp() * 1000)
+        }
+    )
 
 class Modeller:
 
@@ -228,9 +281,11 @@ class Modeller:
             Application.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
 
         outputData = self.runModel()
-        saveToDynamoDB(outputData)
-        calculateGraphs()
-        calculateKeyStatistics()
+
+        # saveToDynamoDB(outputData)
+        # calculateGraphs()
+        calculateBarcharts()
+        # calculateKeyStatistics()
 
         print("Terminating Model")
 

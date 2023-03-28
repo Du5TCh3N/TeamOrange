@@ -533,10 +533,11 @@ class Application:
         all_applications = cls.__resolved + cls.__instances + cls.__historical
         for application in all_applications:
             band = application.Band
-            if band in bandBarchartData:
-                bandBarchartData[band] += 1
-            else:
-                bandBarchartData[band] = 1
+            if band != "":
+                if band in bandBarchartData:
+                    bandBarchartData[band] += 1
+                else:
+                    bandBarchartData[band] = 1
         bandBarchartData = dict(sorted(bandBarchartData.items()))
         return bandBarchartData
 
@@ -546,10 +547,12 @@ class Application:
         all_applications = cls.__resolved + cls.__instances + cls.__historical
         for application in all_applications:
             bedroomSize = application.BedroomSize
-            if bedroomSize in bedBarchartData:
-                bedBarchartData[bedroomSize] += 1
-            else:
-                bedBarchartData[bedroomSize] = 1
+            if bedroomSize != None:
+
+                if bedroomSize in bedBarchartData:
+                    bedBarchartData[bedroomSize] += 1
+                else:
+                    bedBarchartData[bedroomSize] = 1
         bedBarchartData = dict(sorted(bedBarchartData.items()))
         return bedBarchartData
 
