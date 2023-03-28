@@ -177,12 +177,19 @@ const Modelling = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const models = await DataStore.query(SimulationData);
-      setData(models);
+      const models = await DataStore.query(SimulationData, "LambdaSimulation", { forceNetworkFetch: true });
+      const data = models.date.map((date, index) => ({
+        date,
+        resolved: models.resolved[index],
+        new: models.new[index],
+        queued: models.queued[index],
+      }));
+      setData(data);
+      console.log(models);
 
-      const categoryPiechartData = await DataStore.query(Piechart, "category_piechart");
-      const bandPiechartData = await DataStore.query(Piechart, "band_piechart");
-      const bedroomPiechartData = await DataStore.query(Piechart, "bedroom_piechart");
+      const categoryPiechartData = await DataStore.query(Piechart, "category_piechart", { forceNetworkFetch: true });
+      const bandPiechartData = await DataStore.query(Piechart, "band_piechart", { forceNetworkFetch: true });
+      const bedroomPiechartData = await DataStore.query(Piechart, "bedroom_piechart", { forceNetworkFetch: true });
 
       const categoryList = categoryPiechartData.category;
       const categoryResolvedList = categoryPiechartData.resolved;
@@ -216,16 +223,11 @@ const Modelling = () => {
         for (let i = 0; i < bedroomList.length; i++) {
           bedroomResolvedDict[bedroomList[i]] = bedroomResolvedList[i];
         }
-      }
-      setBedroomPieChartData(bedroomResolvedDict)
+      };
+      setBedroomPieChartData(bedroomResolvedDict);
 
-      const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart")
-      const radarChartData = categoryRadarchart.total.L.map((value, index) => ({
-          name: categoryRadarchart.name.L[index].S,
-          value: categoryRadarchart.value.L[index].N,
-          max: categoryRadarchart.total.L[index].N,
-      }));
-      console.log(radarChartData)
+      const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart", { forceNetworkFetch: true });
+      console.log(categoryRadarchart);
 
     }
     fetchData();
@@ -270,7 +272,7 @@ const Modelling = () => {
     dataZoom: {
       // id: 'dataZoomY',
       type: "slider",
-      start: 90
+      start: 0
     },
 
     series: [

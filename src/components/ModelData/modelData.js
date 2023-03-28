@@ -7,7 +7,7 @@ const ModelData = () => {
 
     const [bandChartData, setBandChartData] = useState([
         { name: 'Band 1', value: 400 },
-        { name: 'Band 2', value: 378 },
+        { name: 'Band 2', value: 400 },
         { name: 'Band 3', value: 955 },
         { name: 'Band 4', value: 1377 },
         { name: 'Band 5', value: 205 },
@@ -139,9 +139,9 @@ const ModelData = () => {
       useEffect(() => {
         async function fetchData() {
           // await DataStore.clear();
-          const bandBarchartData = await DataStore.query(Barchart, "band_barchart");
-          const bedroomBarchartData = await DataStore.query(Barchart, "bedroom_barchart");
-          const yearBarchartData = await DataStore.query(Barchart, "year_barchart");
+          const bandBarchartData = await DataStore.query(Barchart, "band_barchart", { forceNetworkFetch: true });
+          const bedroomBarchartData = await DataStore.query(Barchart, "bedroom_barchart", { forceNetworkFetch: true });
+          const yearBarchartData = await DataStore.query(Barchart, "year_barchart", { forceNetworkFetch: true });
           
           const bandData = bandBarchartData.value.map((value, index) => ({
             name: bandBarchartData.name[index],
