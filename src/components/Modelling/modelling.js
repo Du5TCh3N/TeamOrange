@@ -1,9 +1,7 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { View } from "@aws-amplify/ui-react";
-import { API } from "aws-amplify";
-import { DataStore } from "@aws-amplify/datastore";
-import { SimulationData, Piechart, Radarchart } from '../../models';
+import {DataStore} from "@aws-amplify/datastore";
+import {Piechart, Radarchart, SimulationData} from '../../models';
 import './Modelling.css'
 
 import AWS from 'aws-sdk';
@@ -527,6 +525,7 @@ function PolicyForm() {
     callLambdaFunction(outputObj);
   };
 
+
   return (
     <form onSubmit={handleSubmit} className="form-container">
       <div className="form-column">
@@ -551,6 +550,19 @@ function PolicyForm() {
             <span className="range-value">{policyInputs[index] || value}</span>
           </div>
         ))}
+        <div className="input-group" key="total-policy">
+          <label htmlFor="total-policy">Total Allocation</label>
+          <br/>
+          <input
+            disabled="true"
+            type="range"
+            max="1"
+            min="0"
+            name="total-policy"
+            value={policyInputs.reduce((a, b) => a + b, 0)}
+            style={{ width: "100px" }}
+           />
+        </div>
       </div>
 
       <div className="form-column">
