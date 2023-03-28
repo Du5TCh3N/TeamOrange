@@ -556,7 +556,7 @@ function PolicyForm() {
               style={{ width: "100px" }}
             />
             <br />
-            <span className="range-value">{policyInputs[index] * 100 || value * 100}%</span>
+            <span className="range-value">{Math.round(policyInputs[index] * 100) || Math.round(value * 100)}%</span>
           </div>
         ))}
         <div className="input-group" key="total-policy">
@@ -574,7 +574,7 @@ function PolicyForm() {
             style={{ width: "100px" }}
            />
           <br/>
-            <span className="range-value">{policyInputs.reduce((a, b) => a + b, 0) * 100}%</span>
+            <span className="range-value">{Math.round(policyInputs.reduce((a, b) => a + b, 0) * 100)}%</span>
         </div>
       </div>
 
@@ -617,8 +617,6 @@ function PolicyForm() {
         <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
       </div>
     </form>
-
-
   );
 }
 
