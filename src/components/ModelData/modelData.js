@@ -139,9 +139,9 @@ const ModelData = () => {
       useEffect(() => {
         async function fetchData() {
           // await DataStore.clear();
-          const bandBarchartData = await DataStore.query(Barchart, "band_barchart", { forceNetworkFetch: true });
-          const bedroomBarchartData = await DataStore.query(Barchart, "bedroom_barchart", { forceNetworkFetch: true });
-          const yearBarchartData = await DataStore.query(Barchart, "year_barchart", { forceNetworkFetch: true });
+          const bandBarchartData = await DataStore.query(Barchart, "band_barchart");
+          const bedroomBarchartData = await DataStore.query(Barchart, "bedroom_barchart");
+          const yearBarchartData = await DataStore.query(Barchart, "year_barchart");
           
           const bandData = bandBarchartData.value.map((value, index) => ({
             name: bandBarchartData.name[index],
