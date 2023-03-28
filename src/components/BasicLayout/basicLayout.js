@@ -101,7 +101,7 @@ const BasicLayout = () => {
                         </Menu.Item>
 
                         <Menu.Item>
-                            {<Link to='/TransferSystem'>Transfer</Link>}
+                            {<Link to='/TransferSystem'>Transfer Result</Link>}
                         </Menu.Item>
 
                         <Menu.Item>

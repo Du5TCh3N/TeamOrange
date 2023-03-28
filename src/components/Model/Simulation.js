@@ -81,7 +81,7 @@ const dateLabelNames = {
   "endDate": "End Date"
 }
 
-const Modelling = () => {
+const Simulation = () => {
   const [data, setData] = useState([]);
   const [categoryRadarChartData, setCategoryRadarChartData] = useState([
     {
@@ -652,4 +652,4 @@ function PolicyForm() {
   );
 }
 
-export default Modelling;
+export default Simulation;

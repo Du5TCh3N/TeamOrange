@@ -162,19 +162,19 @@ const Datavisualisation = () => {
         <> <Row gutter={[16,16]}>
 
             <Col span={8}>
-                <Card title="Data 2014" bordered={false}>
+                <Card title="Data 2014" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }} >
                     <ReactEcharts option={option1}/>  
                 </Card>
             </Col>
 
             <Col span={8}>
-                <Card title="Data 2015" bordered={false}>
+                <Card title="Data 2015" bordered={false}style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }}>
                 <ReactEcharts option={option2}/>  
                 </Card>
             </Col>
 
             <Col span={8}>
-                <Card title="Data 2016" bordered={false}>
+                <Card title="Data 2016" bordered={false}style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }}>
                 <ReactEcharts option={option3}/>  
                 </Card>
 
@@ -182,21 +182,21 @@ const Datavisualisation = () => {
 
 
             <Col span={8}>
-                <Card title="Data 2017" bordered={false}>
+                <Card title="Data 2017" bordered={false}style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }}>
                 <ReactEcharts option={option4}/>  
                 </Card>
             </Col>
 
 
             <Col span={8}>
-                <Card title="Data 2018" bordered={false}>
+                <Card title="Data 2018" bordered={false}style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }}>
                 <ReactEcharts option={option5}/>  
                 </Card>
             </Col>
 
 
             <Col span={8}>
-                <Card title="Data 2019" bordered={false}>
+                <Card title="Data 2019" bordered={false}style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }}>
                 <ReactEcharts option={option6}/>  
                 </Card>
 
