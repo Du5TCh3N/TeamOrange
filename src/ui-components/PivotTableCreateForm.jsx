@@ -197,14 +197,14 @@ export default function PivotTableCreateForm(props) {
     Bedroom3: [],
     Bedroom4: [],
     Bedroom5: [],
-    Total: [],
+    Summary: [],
   };
   const [Bedroom1, setBedroom1] = React.useState(initialValues.Bedroom1);
   const [Bedroom2, setBedroom2] = React.useState(initialValues.Bedroom2);
   const [Bedroom3, setBedroom3] = React.useState(initialValues.Bedroom3);
   const [Bedroom4, setBedroom4] = React.useState(initialValues.Bedroom4);
   const [Bedroom5, setBedroom5] = React.useState(initialValues.Bedroom5);
-  const [Total, setTotal] = React.useState(initialValues.Total);
+  const [Summary, setSummary] = React.useState(initialValues.Summary);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setBedroom1(initialValues.Bedroom1);
@@ -217,8 +217,8 @@ export default function PivotTableCreateForm(props) {
     setCurrentBedroom4Value("");
     setBedroom5(initialValues.Bedroom5);
     setCurrentBedroom5Value("");
-    setTotal(initialValues.Total);
-    setCurrentTotalValue("");
+    setSummary(initialValues.Summary);
+    setCurrentSummaryValue("");
     setErrors({});
   };
   const [currentBedroom1Value, setCurrentBedroom1Value] = React.useState("");
@@ -231,15 +231,15 @@ export default function PivotTableCreateForm(props) {
   const Bedroom4Ref = React.createRef();
   const [currentBedroom5Value, setCurrentBedroom5Value] = React.useState("");
   const Bedroom5Ref = React.createRef();
-  const [currentTotalValue, setCurrentTotalValue] = React.useState("");
-  const TotalRef = React.createRef();
+  const [currentSummaryValue, setCurrentSummaryValue] = React.useState("");
+  const SummaryRef = React.createRef();
   const validations = {
     Bedroom1: [],
     Bedroom2: [],
     Bedroom3: [],
     Bedroom4: [],
     Bedroom5: [],
-    Total: [],
+    Summary: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -272,7 +272,7 @@ export default function PivotTableCreateForm(props) {
           Bedroom3,
           Bedroom4,
           Bedroom5,
-          Total,
+          Summary,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -328,7 +328,7 @@ export default function PivotTableCreateForm(props) {
               Bedroom3,
               Bedroom4,
               Bedroom5,
-              Total,
+              Summary,
             };
             const result = onChange(modelFields);
             values = result?.Bedroom1 ?? values;
@@ -379,7 +379,7 @@ export default function PivotTableCreateForm(props) {
               Bedroom3,
               Bedroom4,
               Bedroom5,
-              Total,
+              Summary,
             };
             const result = onChange(modelFields);
             values = result?.Bedroom2 ?? values;
@@ -430,7 +430,7 @@ export default function PivotTableCreateForm(props) {
               Bedroom3: values,
               Bedroom4,
               Bedroom5,
-              Total,
+              Summary,
             };
             const result = onChange(modelFields);
             values = result?.Bedroom3 ?? values;
@@ -481,7 +481,7 @@ export default function PivotTableCreateForm(props) {
               Bedroom3,
               Bedroom4: values,
               Bedroom5,
-              Total,
+              Summary,
             };
             const result = onChange(modelFields);
             values = result?.Bedroom4 ?? values;
@@ -532,7 +532,7 @@ export default function PivotTableCreateForm(props) {
               Bedroom3,
               Bedroom4,
               Bedroom5: values,
-              Total,
+              Summary,
             };
             const result = onChange(modelFields);
             values = result?.Bedroom5 ?? values;
@@ -583,45 +583,41 @@ export default function PivotTableCreateForm(props) {
               Bedroom3,
               Bedroom4,
               Bedroom5,
-              Total: values,
+              Summary: values,
             };
             const result = onChange(modelFields);
-            values = result?.Total ?? values;
+            values = result?.Summary ?? values;
           }
-          setTotal(values);
-          setCurrentTotalValue("");
+          setSummary(values);
+          setCurrentSummaryValue("");
         }}
-        currentFieldValue={currentTotalValue}
-        label={"Total"}
-        items={Total}
-        hasError={errors?.Total?.hasError}
-        errorMessage={errors?.Total?.errorMessage}
-        setFieldValue={setCurrentTotalValue}
-        inputFieldRef={TotalRef}
+        currentFieldValue={currentSummaryValue}
+        label={"Summary"}
+        items={Summary}
+        hasError={errors?.Summary?.hasError}
+        errorMessage={errors?.Summary?.errorMessage}
+        setFieldValue={setCurrentSummaryValue}
+        inputFieldRef={SummaryRef}
         defaultFieldValue={""}
       >
         <TextField
-          label="Total"
+          label="Summary"
           isRequired={false}
           isReadOnly={false}
-          type="number"
-          step="any"
-          value={currentTotalValue}
+          value={currentSummaryValue}
           onChange={(e) => {
-            let value = isNaN(parseInt(e.target.value))
-              ? e.target.value
-              : parseInt(e.target.value);
-            if (errors.Total?.hasError) {
-              runValidationTasks("Total", value);
+            let { value } = e.target;
+            if (errors.Summary?.hasError) {
+              runValidationTasks("Summary", value);
             }
-            setCurrentTotalValue(value);
+            setCurrentSummaryValue(value);
           }}
-          onBlur={() => runValidationTasks("Total", currentTotalValue)}
-          errorMessage={errors.Total?.errorMessage}
-          hasError={errors.Total?.hasError}
-          ref={TotalRef}
+          onBlur={() => runValidationTasks("Summary", currentSummaryValue)}
+          errorMessage={errors.Summary?.errorMessage}
+          hasError={errors.Summary?.hasError}
+          ref={SummaryRef}
           labelHidden={true}
-          {...getOverrideProps(overrides, "Total")}
+          {...getOverrideProps(overrides, "Summary")}
         ></TextField>
       </ArrayField>
       <Flex

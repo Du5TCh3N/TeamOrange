@@ -50,10 +50,10 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "Total": {
-                    "name": "Total",
+                "Summary": {
+                    "name": "Summary",
                     "isArray": true,
-                    "type": "Int",
+                    "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
@@ -457,5 +457,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.6",
-    "version": "1ba244190ebb190e6fe3dea17aea4b5a"
+    "version": "7088401723a2f5c267bc6a974de3d600"
 };

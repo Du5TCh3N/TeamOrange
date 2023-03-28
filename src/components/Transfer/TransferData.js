@@ -22,16 +22,8 @@ const TransferData = () => {
       "Bedroom5": [1,1,3,2,23]
     });
     const [cost, setCost] = useState({
-      "Bedroom1": [500,70,46,3,1],
-      "Bedroom2": [32,618,88,36,5],
-      "Bedroom3": [74,21,395,9,2],
-      "Bedroom4": [1,2,2,641],
-      "Bedroom5": [1,1,3,2,23]
+      "Summary": ['1630000', '86', '18953.49']
     });
-
-    const [totalCost, setTotalCost] = useState({
-      "Total Cost": "£1,630,000"
-    })
 
     useEffect(() => {
       async function fetchData() {
@@ -44,9 +36,9 @@ const TransferData = () => {
             beforeTransferBedroomData[key] = beforeTransferTableQuery[key];
           }
         });
-
+        console.log("Before: ", beforeTransferBedroomData);
         setBeforeTransferBedroomData(beforeTransferBedroomData);
-        console.log(beforeTransferBedroomData);
+        
 
         const afterTransferTableQuery = await DataStore.query(PivotTable, "AfterTransfer");
         const afterTransferBedroomData = {};
@@ -57,7 +49,8 @@ const TransferData = () => {
             afterTransferBedroomData[key] = afterTransferTableQuery[key];
           }
         });
-
+        
+        console.log("After: ", afterTransferTableQuery);
         setAfterTransferBedroomData(afterTransferBedroomData);
 
         const CostTableQuery = await DataStore.query(PivotTable, "Cost");
@@ -65,12 +58,13 @@ const TransferData = () => {
 
         // extract the values for each bedroom and load them into the bedroomData object
         Object.keys(CostTableQuery).forEach(key => {
-          if (key.startsWith('Bedroom')) {
+          if (key === 'Summary') {
             cost[key] = CostTableQuery[key];
-          }
+          }          
         });
-
+        console.log("Summary: ", cost);
         setCost(cost);
+        
       }
       fetchData();
     }, []);
@@ -130,37 +124,37 @@ const TransferData = () => {
       
       const BeforeTransferColumns = [
         {
-            title: 'Current Living Bedroom Size',
+            title: 'Current Bedroom Size',
             dataIndex: 'FlatID',
             key: 'FlatID',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 1',
+            title: 'Preferred Bedroom 1',
             dataIndex: 'Bedroom',
             key: 'Bedroom',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 2',
+            title: 'Preferred Bedroom 2',
             dataIndex: 'OccupierID',
             key: 'OccupierID',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 3',
+            title: 'Preferred Bedroom 3',
             dataIndex: 'LivingCost',
             key: 'LivingCost',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 4',
+            title: 'Preferred Bedroom 4',
             dataIndex: 'Satisfied',
             key: 'Satisfied',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 5',
+            title: 'Preferred Bedroom 5',
             dataIndex: 'ExpectedSpace',
             key: 'ExpectedSpace',
             align: 'center',
@@ -229,37 +223,37 @@ const TransferData = () => {
       
       const AfterTransferColumns = [
         {
-            title: 'Current Living Bedroom Size',
+            title: 'Current Bedroom Size',
             dataIndex: 'FlatID',
             key: 'FlatID',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 1',
+            title: 'Preferred Bedroom 1',
             dataIndex: 'Bedroom',
             key: 'Bedroom',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 2',
+            title: 'Preferred Bedroom 2',
             dataIndex: 'OccupierID',
             key: 'OccupierID',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 3',
+            title: 'Preferred Bedroom 3',
             dataIndex: 'LivingCost',
             key: 'LivingCost',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 4',
+            title: 'Preferred Bedroom 4',
             dataIndex: 'Satisfied',
             key: 'Satisfied',
             align: 'center',
         },
         {
-            title: 'Expected Bedroom 5',
+            title: 'Preferred Bedroom 5',
             dataIndex: 'ExpectedSpace',
             key: 'ExpectedSpace',
             align: 'center',
@@ -283,24 +277,24 @@ const TransferData = () => {
 
             <Col span={24}>
                 <Card title="Save Cost" bordered={false}>
-                  {totalCost["Total Cost"]}
+                  {cost["Summary"][0]}
                 </Card>
             </Col>
-            <Col span={8}>
-                <Card title="Satisfaction" bordered={false}>
-                    B
+            <Col span={12}>
+                <Card title="Households Moved" bordered={false}>
+                  {cost["Summary"][1]}
                 </Card>
             </Col>
-            <Col span={8}>
-                <Card title="Satisfaction" bordered={false}>
-                    C
+            <Col span={12}>
+                <Card title="Maximum Incentive for households to move" bordered={false}>
+                  {cost["Summary"][2]}
                 </Card>
             </Col>
-            <Col span={8}>
+            {/* <Col span={8}>
                 <Card title="Satisfaction" bordered={false}>
                     D
                 </Card>
-            </Col>
+            </Col> */}
 
         </Row>
             <br></br>

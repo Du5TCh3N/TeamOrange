@@ -5,7 +5,7 @@ type PivotTable @model @auth(rules: [{allow: public}]) {
   Bedroom3: [Int]
   Bedroom4: [Int]
   Bedroom5: [Int]
-  Total: [Int]
+  Summary: [String]
 }
 
 type Radarchart @model @auth(rules: [{allow: public}]) {

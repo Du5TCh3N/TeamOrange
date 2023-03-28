@@ -17,7 +17,7 @@ type EagerPivotTable = {
   readonly Bedroom3?: (number | null)[] | null;
   readonly Bedroom4?: (number | null)[] | null;
   readonly Bedroom5?: (number | null)[] | null;
-  readonly Total?: (number | null)[] | null;
+  readonly Summary?: (string | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -33,7 +33,7 @@ type LazyPivotTable = {
   readonly Bedroom3?: (number | null)[] | null;
   readonly Bedroom4?: (number | null)[] | null;
   readonly Bedroom5?: (number | null)[] | null;
-  readonly Total?: (number | null)[] | null;
+  readonly Summary?: (string | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
