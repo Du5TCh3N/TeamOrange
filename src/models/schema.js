@@ -34,8 +34,24 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "Bedroom4plus": {
-                    "name": "Bedroom4plus",
+                "Bedroom4": {
+                    "name": "Bedroom4",
+                    "isArray": true,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "Bedroom5": {
+                    "name": "Bedroom5",
+                    "isArray": true,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "Total": {
+                    "name": "Total",
                     "isArray": true,
                     "type": "Int",
                     "isRequired": false,
@@ -441,5 +457,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.6",
-    "version": "3d6f8594bd7c153aef309e7209e67ddf"
+    "version": "1ba244190ebb190e6fe3dea17aea4b5a"
 };

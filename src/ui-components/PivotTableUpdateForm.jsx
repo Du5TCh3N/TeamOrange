@@ -196,14 +196,16 @@ export default function PivotTableUpdateForm(props) {
     Bedroom1: [],
     Bedroom2: [],
     Bedroom3: [],
-    Bedroom4plus: [],
+    Bedroom4: [],
+    Bedroom5: [],
+    Total: [],
   };
   const [Bedroom1, setBedroom1] = React.useState(initialValues.Bedroom1);
   const [Bedroom2, setBedroom2] = React.useState(initialValues.Bedroom2);
   const [Bedroom3, setBedroom3] = React.useState(initialValues.Bedroom3);
-  const [Bedroom4plus, setBedroom4plus] = React.useState(
-    initialValues.Bedroom4plus
-  );
+  const [Bedroom4, setBedroom4] = React.useState(initialValues.Bedroom4);
+  const [Bedroom5, setBedroom5] = React.useState(initialValues.Bedroom5);
+  const [Total, setTotal] = React.useState(initialValues.Total);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = pivotTableRecord
@@ -215,8 +217,12 @@ export default function PivotTableUpdateForm(props) {
     setCurrentBedroom2Value("");
     setBedroom3(cleanValues.Bedroom3 ?? []);
     setCurrentBedroom3Value("");
-    setBedroom4plus(cleanValues.Bedroom4plus ?? []);
-    setCurrentBedroom4plusValue("");
+    setBedroom4(cleanValues.Bedroom4 ?? []);
+    setCurrentBedroom4Value("");
+    setBedroom5(cleanValues.Bedroom5 ?? []);
+    setCurrentBedroom5Value("");
+    setTotal(cleanValues.Total ?? []);
+    setCurrentTotalValue("");
     setErrors({});
   };
   const [pivotTableRecord, setPivotTableRecord] = React.useState(pivotTable);
@@ -236,14 +242,19 @@ export default function PivotTableUpdateForm(props) {
   const Bedroom2Ref = React.createRef();
   const [currentBedroom3Value, setCurrentBedroom3Value] = React.useState("");
   const Bedroom3Ref = React.createRef();
-  const [currentBedroom4plusValue, setCurrentBedroom4plusValue] =
-    React.useState("");
-  const Bedroom4plusRef = React.createRef();
+  const [currentBedroom4Value, setCurrentBedroom4Value] = React.useState("");
+  const Bedroom4Ref = React.createRef();
+  const [currentBedroom5Value, setCurrentBedroom5Value] = React.useState("");
+  const Bedroom5Ref = React.createRef();
+  const [currentTotalValue, setCurrentTotalValue] = React.useState("");
+  const TotalRef = React.createRef();
   const validations = {
     Bedroom1: [],
     Bedroom2: [],
     Bedroom3: [],
-    Bedroom4plus: [],
+    Bedroom4: [],
+    Bedroom5: [],
+    Total: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -274,7 +285,9 @@ export default function PivotTableUpdateForm(props) {
           Bedroom1,
           Bedroom2,
           Bedroom3,
-          Bedroom4plus,
+          Bedroom4,
+          Bedroom5,
+          Total,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -329,7 +342,9 @@ export default function PivotTableUpdateForm(props) {
               Bedroom1: values,
               Bedroom2,
               Bedroom3,
-              Bedroom4plus,
+              Bedroom4,
+              Bedroom5,
+              Total,
             };
             const result = onChange(modelFields);
             values = result?.Bedroom1 ?? values;
@@ -378,7 +393,9 @@ export default function PivotTableUpdateForm(props) {
               Bedroom1,
               Bedroom2: values,
               Bedroom3,
-              Bedroom4plus,
+              Bedroom4,
+              Bedroom5,
+              Total,
             };
             const result = onChange(modelFields);
             values = result?.Bedroom2 ?? values;
@@ -427,7 +444,9 @@ export default function PivotTableUpdateForm(props) {
               Bedroom1,
               Bedroom2,
               Bedroom3: values,
-              Bedroom4plus,
+              Bedroom4,
+              Bedroom5,
+              Total,
             };
             const result = onChange(modelFields);
             values = result?.Bedroom3 ?? values;
@@ -476,47 +495,149 @@ export default function PivotTableUpdateForm(props) {
               Bedroom1,
               Bedroom2,
               Bedroom3,
-              Bedroom4plus: values,
+              Bedroom4: values,
+              Bedroom5,
+              Total,
             };
             const result = onChange(modelFields);
-            values = result?.Bedroom4plus ?? values;
+            values = result?.Bedroom4 ?? values;
           }
-          setBedroom4plus(values);
-          setCurrentBedroom4plusValue("");
+          setBedroom4(values);
+          setCurrentBedroom4Value("");
         }}
-        currentFieldValue={currentBedroom4plusValue}
-        label={"Bedroom4plus"}
-        items={Bedroom4plus}
-        hasError={errors?.Bedroom4plus?.hasError}
-        errorMessage={errors?.Bedroom4plus?.errorMessage}
-        setFieldValue={setCurrentBedroom4plusValue}
-        inputFieldRef={Bedroom4plusRef}
+        currentFieldValue={currentBedroom4Value}
+        label={"Bedroom4"}
+        items={Bedroom4}
+        hasError={errors?.Bedroom4?.hasError}
+        errorMessage={errors?.Bedroom4?.errorMessage}
+        setFieldValue={setCurrentBedroom4Value}
+        inputFieldRef={Bedroom4Ref}
         defaultFieldValue={""}
       >
         <TextField
-          label="Bedroom4plus"
+          label="Bedroom4"
           isRequired={false}
           isReadOnly={false}
           type="number"
           step="any"
-          value={currentBedroom4plusValue}
+          value={currentBedroom4Value}
           onChange={(e) => {
             let value = isNaN(parseInt(e.target.value))
               ? e.target.value
               : parseInt(e.target.value);
-            if (errors.Bedroom4plus?.hasError) {
-              runValidationTasks("Bedroom4plus", value);
+            if (errors.Bedroom4?.hasError) {
+              runValidationTasks("Bedroom4", value);
             }
-            setCurrentBedroom4plusValue(value);
+            setCurrentBedroom4Value(value);
           }}
-          onBlur={() =>
-            runValidationTasks("Bedroom4plus", currentBedroom4plusValue)
-          }
-          errorMessage={errors.Bedroom4plus?.errorMessage}
-          hasError={errors.Bedroom4plus?.hasError}
-          ref={Bedroom4plusRef}
+          onBlur={() => runValidationTasks("Bedroom4", currentBedroom4Value)}
+          errorMessage={errors.Bedroom4?.errorMessage}
+          hasError={errors.Bedroom4?.hasError}
+          ref={Bedroom4Ref}
           labelHidden={true}
-          {...getOverrideProps(overrides, "Bedroom4plus")}
+          {...getOverrideProps(overrides, "Bedroom4")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              Bedroom1,
+              Bedroom2,
+              Bedroom3,
+              Bedroom4,
+              Bedroom5: values,
+              Total,
+            };
+            const result = onChange(modelFields);
+            values = result?.Bedroom5 ?? values;
+          }
+          setBedroom5(values);
+          setCurrentBedroom5Value("");
+        }}
+        currentFieldValue={currentBedroom5Value}
+        label={"Bedroom5"}
+        items={Bedroom5}
+        hasError={errors?.Bedroom5?.hasError}
+        errorMessage={errors?.Bedroom5?.errorMessage}
+        setFieldValue={setCurrentBedroom5Value}
+        inputFieldRef={Bedroom5Ref}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Bedroom5"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={currentBedroom5Value}
+          onChange={(e) => {
+            let value = isNaN(parseInt(e.target.value))
+              ? e.target.value
+              : parseInt(e.target.value);
+            if (errors.Bedroom5?.hasError) {
+              runValidationTasks("Bedroom5", value);
+            }
+            setCurrentBedroom5Value(value);
+          }}
+          onBlur={() => runValidationTasks("Bedroom5", currentBedroom5Value)}
+          errorMessage={errors.Bedroom5?.errorMessage}
+          hasError={errors.Bedroom5?.hasError}
+          ref={Bedroom5Ref}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "Bedroom5")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              Bedroom1,
+              Bedroom2,
+              Bedroom3,
+              Bedroom4,
+              Bedroom5,
+              Total: values,
+            };
+            const result = onChange(modelFields);
+            values = result?.Total ?? values;
+          }
+          setTotal(values);
+          setCurrentTotalValue("");
+        }}
+        currentFieldValue={currentTotalValue}
+        label={"Total"}
+        items={Total}
+        hasError={errors?.Total?.hasError}
+        errorMessage={errors?.Total?.errorMessage}
+        setFieldValue={setCurrentTotalValue}
+        inputFieldRef={TotalRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Total"
+          isRequired={false}
+          isReadOnly={false}
+          type="number"
+          step="any"
+          value={currentTotalValue}
+          onChange={(e) => {
+            let value = isNaN(parseInt(e.target.value))
+              ? e.target.value
+              : parseInt(e.target.value);
+            if (errors.Total?.hasError) {
+              runValidationTasks("Total", value);
+            }
+            setCurrentTotalValue(value);
+          }}
+          onBlur={() => runValidationTasks("Total", currentTotalValue)}
+          errorMessage={errors.Total?.errorMessage}
+          hasError={errors.Total?.hasError}
+          ref={TotalRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "Total")}
         ></TextField>
       </ArrayField>
       <Flex

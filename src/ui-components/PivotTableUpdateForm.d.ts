@@ -17,13 +17,17 @@ export declare type PivotTableUpdateFormInputValues = {
     Bedroom1?: number[];
     Bedroom2?: number[];
     Bedroom3?: number[];
-    Bedroom4plus?: number[];
+    Bedroom4?: number[];
+    Bedroom5?: number[];
+    Total?: number[];
 };
 export declare type PivotTableUpdateFormValidationValues = {
     Bedroom1?: ValidationFunction<number>;
     Bedroom2?: ValidationFunction<number>;
     Bedroom3?: ValidationFunction<number>;
-    Bedroom4plus?: ValidationFunction<number>;
+    Bedroom4?: ValidationFunction<number>;
+    Bedroom5?: ValidationFunction<number>;
+    Total?: ValidationFunction<number>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type PivotTableUpdateFormOverridesProps = {
@@ -31,7 +35,9 @@ export declare type PivotTableUpdateFormOverridesProps = {
     Bedroom1?: PrimitiveOverrideProps<TextFieldProps>;
     Bedroom2?: PrimitiveOverrideProps<TextFieldProps>;
     Bedroom3?: PrimitiveOverrideProps<TextFieldProps>;
-    Bedroom4plus?: PrimitiveOverrideProps<TextFieldProps>;
+    Bedroom4?: PrimitiveOverrideProps<TextFieldProps>;
+    Bedroom5?: PrimitiveOverrideProps<TextFieldProps>;
+    Total?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type PivotTableUpdateFormProps = React.PropsWithChildren<{
     overrides?: PivotTableUpdateFormOverridesProps | undefined | null;
