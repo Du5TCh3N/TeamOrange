@@ -465,6 +465,7 @@ const Simulation = () => {
       <div style={{ display: 'block', width: '100%' }}>
         <ReactEcharts option={simulationChart} />
       </div>
+      <br></br>
       <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={radarChart} />
       </div>
@@ -477,6 +478,7 @@ const Simulation = () => {
       <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={bedroomPieChart} />
       </div>
+      <br></br>
       <PolicyForm />
     </view>
 

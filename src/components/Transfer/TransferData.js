@@ -305,9 +305,11 @@ const TransferData = () => {
         </Row>
             <br></br>
             <br></br>
+            
+            <Table dataSource={BeforeTransferDataSource} columns={BeforeTransferColumns} title={() => BeforeTransfertitleComponent} pagination={{ hideOnSinglePage: true }}/>
             <br></br>
-            <Table dataSource={BeforeTransferDataSource} columns={BeforeTransferColumns} title={() => BeforeTransfertitleComponent}/>
-            <Table dataSource={AfterTransferDataSource} columns={AfterTransferColumns} title={() => AfterTransfertitleComponent}/>
+            <br></br>
+            <Table dataSource={AfterTransferDataSource} columns={AfterTransferColumns} title={() => AfterTransfertitleComponent} pagination={{ hideOnSinglePage: true }}/>
         </div>
     );
 }
