@@ -22,7 +22,7 @@ const TransferData = () => {
       "Bedroom5": [1,1,3,2,23]
     });
     const [cost, setCost] = useState({
-      "Summary": ['1630000', '86', '18953.49']
+      "Summary": ['£1,630,000.00', '86', '£0.00 ~ £18,953.49']
     });
 
     useEffect(() => {
