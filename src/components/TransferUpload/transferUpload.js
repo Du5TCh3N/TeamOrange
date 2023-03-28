@@ -1,9 +1,221 @@
+// // // import React, { useState } from 'react';
+// // import ReactEcharts from 'echarts-for-react';
+// // import AWS from 'aws-sdk';
+
+// // const FileUpload = () => {
+// //   const [uploading, setUploading] = useState(false);
+// //   const [expectedHeaders, setExpectedHeaders] = useState([]);
+
+// //   const handleUpload = (file) => {
+// //     setUploading(true);
+// //     process.env.AWS_SDK_LOAD_CONFIG = 1;
+// //     const s3 = new AWS.S3({
+// //       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY,
+// //       secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY,
+// //       region: process.env.REACT_APP_AWS_REGION,
+// //     });
+  
+// //     const fileName = file.name;
+  
+// //     const reader = new FileReader();
+// //     reader.onload = (event) => {
+// //       const contents = event.target.result;
+// //       const csvArray = contents.split('\n');
+// //       const headers = csvArray[0].trim().split(';'); // get the headers from the first row of the CSV file
+      
+// //       // check if the headers match the expected headers
+// //       const expectedHeaders = ['FlatID', 'Bedroom', 'OccupierID', 'Living Cost', 'Satisfied', 'Expected Space', 'Transfer Cost', 'Transfer Refund'];
+// //       if (!headers.every((header) => expectedHeaders.includes(header)) || headers.length != expectedHeaders.length) {
+// //         alert('File headers do not match expected headers.');
+// //         setUploading(false);
+// //         return;
+// //       }
+  
+// //       const uploadParams = {
+// //         Bucket: 'process-transfer',
+// //         Key: fileName,
+// //         ContentType: file.type,
+// //         Body: file,
+// //       };
+  
+// //       s3.upload(uploadParams, (err, data) => {
+// //         if (err) {
+// //           console.log(err);
+// //           setUploading(false);
+// //         } else {
+// //           console.log(data);
+// //           setUploading(false);
+// //           alert('File uploaded successfully');
+// //         }
+// //       });
+// //     };
+// //     reader.readAsText(file);
+// //   };
+  
+
+// //   const handleFileSelect = (event) => {
+// //     const file = event.target.files[0];
+// //     if (!file) {
+// //       return; // no file selected, so do nothing
+// //     }
+// //     const reader = new FileReader();
+// //     reader.onload = (event) => {
+// //       const contents = event.target.result;
+// //       const csvArray = contents.split('\n');
+// //       const csvData = csvArray.map((row) => row.split(','));
+// //       setExpectedHeaders(csvData[0]);
+
+// //       const chartData = csvData.map((row) => ({
+// //         value: Number(row[1]),
+// //         name: row[0],
+// //       }));
+
+// //       handleUpload(file); // pass the selected file to handleUpload
+// //     };
+// //     reader.readAsText(file);
+// //   };
+
+// //   const headersMatchExpected = (headers) => {
+// //     const expectedHeaders = ['FlatID', 'Bedroom', 'OccupierID', 'Living Cost', 'Satisfied', 'Expected Space', 'Transfer Cost', 'Transfer Refund'];
+// //     //console.log("headers: ", headers);
+// //     //console.log(headers.every((header, index) => header === expectedHeaders[index]));
+// //     if (headers.length != expectedHeaders.length){
+// //       return false;
+// //     }
+// //     return headers.every((header, index) => header === expectedHeaders[index]);
+// //   };
+
+// //   return (
+// //     <div>
+// //       <input type="file" accept=".csv" onChange={handleFileSelect} />
+// //       <button onClick={handleUpload} disabled={uploading || !headersMatchExpected(expectedHeaders)}>
+// //         {uploading ? 'Uploading...' : 'Upload'}
+// //       </button>
+// //     </div>
+// //   );
+// // };
+
+// // export default FileUpload;
+
+
+// import React, { useState } from 'react';
+// import ReactEcharts from 'echarts-for-react';
+// import AWS from 'aws-sdk';
+
+// const FileUpload = () => {
+//   const [uploading, setUploading] = useState(false);
+//   const [expectedHeaders, setExpectedHeaders] = useState([]);
+
+//   const handleUpload = (file) => {
+//     setUploading(true);
+//     process.env.AWS_SDK_LOAD_CONFIG = 1;
+//     const s3 = new AWS.S3({
+//       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY,
+//       secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY,
+//       region: process.env.REACT_APP_AWS_REGION,
+//     });
+  
+//     const fileName = file.name;
+  
+//     const reader = new FileReader();
+//     reader.onload = (event) => {
+//       const contents = event.target.result;
+//       const csvArray = contents.split('\n');
+//       const headers = csvArray[0].trim().split(';'); // get the headers from the first row of the CSV file
+      
+//       // check if the headers match the expected headers
+//       const expectedHeaders = ["FlatID", "Bedroom", "OccupierID", "Living Cost", "Satisfied", "ExpectedSpace", "TransferCost", "TransferRefund"];
+//       console.log("Headers", headers);
+
+     // expectedHeaders[2].toString();
+      // console.log("ExpectedHeaders", expectedHeaders);
+      // console.log("0", headers[0]===expectedHeaders[0]);
+      // console.log("1", headers[1]===expectedHeaders[1]);
+      // console.log("2",typeof(headers[2]), typeof(expectedHeaders), headers[2], expectedHeaders[2], headers[2]===expectedHeaders[2]);
+      // console.log("3", headers[3]===expectedHeaders[3]);
+      // console.log("3", headers[4]===expectedHeaders[4]);
+      // console.log("4", headers[5]===expectedHeaders[5]);
+      // console.log("5", headers[6]===expectedHeaders[6]);
+      // console.log("6", headers[7]===expectedHeaders[7]);
+      // console.log("7", headers[8]===expectedHeaders[8]);
+
+//       if (!headers.every((header) => expectedHeaders.includes(header)) || headers.length !== expectedHeaders.length) {
+//         alert('File headers do not match expected headers.');
+//         setUploading(false);
+//         return;
+//       }
+  
+//       const uploadParams = {
+//         Bucket: 'process-transfer',
+//         Key: fileName,
+//         ContentType: file.type,
+//         Body: file,
+//       };
+  
+//       s3.upload(uploadParams, (err, data) => {
+//         if (err) {
+//           console.log(err);
+//           setUploading(false);
+//         } else {
+//           console.log(data);
+//           setUploading(false);
+//           alert('File uploaded successfully');
+//         }
+//       });
+//     };
+//     reader.readAsText(file);
+//   };
+  
+
+//   const handleFileSelect = (event) => {
+//     const file = event.target.files[0];
+//     if (!file) {
+//       return; // no file selected, so do nothing
+//     }
+//     const reader = new FileReader();
+//     reader.onload = (event) => {
+//       const contents = event.target.result;
+//       const csvArray = contents.split('\n');
+//       const csvData = csvArray.map((row) => row.split(','));
+//       setExpectedHeaders(csvData[0]);
+//       console.log(typeof(expectedHeaders));
+//       expectedHeaders[2].toString();
+//       const chartData = csvData.map((row) => ({
+//         value: Number(row[1]),
+//         name: row[0],
+//       }));
+//     };
+//     reader.readAsText(file);
+//   };
+
+//   const headersMatchExpected = (headers) => {
+//     const expectedHeaders = ['FlatID', 'Bedroom', 'OccupierID', 'Living Cost', 'Satisfied', 'Expected Space', 'Transfer Cost', 'Transfer Refund'];
+//     if (headers.length !== expectedHeaders.length){
+//       return false;
+//     }
+//     return headers.every((header, index) => header === expectedHeaders[index]);
+//   };
+
+//   return (
+//     <div>
+//       <input type="file" accept=".csv" onChange={handleFileSelect} />
+//       <button onClick={(event) => handleUpload(event.target.previousSibling.files[0])}>
+//         {uploading ? 'Uploading...' : 'Upload'}
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default FileUpload;
+
 import React, { useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 import AWS from 'aws-sdk';
 
 const FileUpload = () => {
   const [uploading, setUploading] = useState(false);
+  const [expectedHeaders, setExpectedHeaders] = useState([]);
+  const [bedrooms, setBedrooms] = useState([30, 30, 30, 30, 30]);
 
   const handleUpload = (file) => {
     setUploading(true);
@@ -16,23 +228,62 @@ const FileUpload = () => {
   
     const fileName = file.name;
   
-    const uploadParams = {
-      Bucket: 'process-transfer',
-      Key: fileName,
-      ContentType: file.type,
-      Body: file,
-    };
-  
-    s3.upload(uploadParams, (err, data) => {
-      if (err) {
-        console.log(err);
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const contents = event.target.result;
+      const csvArray = contents.split('\n');
+      const headers = csvArray[0].trim().split(';'); // get the headers from the first row of the CSV file
+      const curExpectedHeaders = ["FlatID", "Bedroom", "OccupierID", "Living Cost", "Satisfied", "ExpectedSpace", "TransferCost", "TransferRefund"];
+      console.log("ExpectedHeaders", curExpectedHeaders);
+      console.log("0", headers[0]===curExpectedHeaders[0]);  
+      console.log("1", headers[1]===curExpectedHeaders[1]);
+      console.log("2",typeof(headers[2]), typeof(curExpectedHeaders), headers[2], curExpectedHeaders[2], headers[2]===curExpectedHeaders[2]);
+      console.log("3", headers[3]===curExpectedHeaders[3]);
+      console.log("3", headers[4]===curExpectedHeaders[4]);
+      console.log("4", headers[5]===curExpectedHeaders[5]);
+      console.log("5", headers[6]===curExpectedHeaders[6]);
+      console.log("6", headers[7]===curExpectedHeaders[7]);
+      console.log("7", headers[8]===curExpectedHeaders[8]);
+      if (!headers.every((header) => curExpectedHeaders.includes(header)) || headers.length !== curExpectedHeaders.length) {
+        alert('File headers do not match expected headers.');
         setUploading(false);
-      } else {
-        console.log(data);
-        setUploading(false);
-        alert('File uploaded successfully');
+        return;
       }
-    });
+  
+      const csvData = csvArray.slice(1).map((row) => row.split(';'));
+      const jsonData = csvData.map((row) => ({
+        FlatID: row[0],
+        Bedroom: row[1],
+        OccupierID: row[2],
+        LivingCost: row[3],
+        Satisfied: row[4],
+        ExpectedSpace: row[5],
+        TransferCost: row[6],
+        TransferRefund: row[7],
+      }));
+      
+      const uploadParams = {
+        Bucket: 'process-transfer',
+        Key: fileName,
+        ContentType: file.type,
+        Body: JSON.stringify({
+          data: jsonData,
+          bedrooms: bedrooms,
+        }),
+      };
+  
+      s3.upload(uploadParams, (err, data) => {
+        if (err) {
+          console.log(err);
+          setUploading(false);
+        } else {
+          console.log(data);
+          setUploading(false);
+          alert('File uploaded successfully');
+        }
+      });
+    };
+    reader.readAsText(file);
   };
   
 
@@ -45,27 +296,46 @@ const FileUpload = () => {
     reader.onload = (event) => {
       const contents = event.target.result;
       const csvArray = contents.split('\n');
-      const csvData = csvArray.map((row) => row.split(','));
-      const chartData = csvData.map((row) => ({
-        value: Number(row[1]),
-        name: row[0],
-      }));
-
-      handleUpload(file); // pass the selected file to handleUpload
+      const csvData = csvArray.map((row) => row.split(';'));
+      setExpectedHeaders(csvData[0]);
     };
     reader.readAsText(file);
   };
-  
+
+  const handleBedroomChange = (index, value) => {
+    const newBedrooms = [...bedrooms];
+    newBedrooms[index] = parseInt(value) || 30;
+    setBedrooms(newBedrooms);
+  };
 
   return (
-    <div>
-     
-      <input type="file" accept=".csv" onChange={handleFileSelect} />
-      <button onClick={handleUpload} disabled={uploading}>
-        {uploading ? 'Uploading...' : 'Upload'}
-      </button>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', border: '1px solid #ccc', padding: '10px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
+        <label htmlFor="bedroom1">1 Bedroom:</label>
+        <input type="text" id="bedroom1" name="bedroom1" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[0]} onChange={(event) => handleBedroomChange(0, event.target.value)} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
+        <label htmlFor="bedroom2">2 Bedrooms:</label>
+        <input type="text" id="bedroom2" name="bedroom2" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[1]} onChange={(event) => handleBedroomChange(1, event.target.value)} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
+        <label htmlFor="bedroom3">3 Bedrooms:</label>
+        <input type="text" id="bedroom3" name="bedroom3" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[2]} onChange={(event) => handleBedroomChange(2, event.target.value)} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
+        <label htmlFor="bedroom4">4 Bedrooms:</label>
+        <input type="text" id="bedroom4" name="bedroom4" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[3]} onChange={(event) => handleBedroomChange(3, event.target.value)} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
+        <label htmlFor="bedroom5">5 Bedrooms:</label>
+        <input type="text" id="bedroom5" name="bedroom5" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[4]} onChange={(event) => handleBedroomChange(4, event.target.value)} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '10px' }}>
+        <input type="file" accept=".csv" onChange={handleFileSelect} />
+        <button onClick={(event) => handleUpload(event.target.previousSibling.files[0])} style={{ border: '1px solid #ccc', padding: '5px' }}>
+          {uploading ? 'Uploading...' : 'Upload'}
+        </button>
+      </div>
     </div>
-  );
-};
-
+  );}
 export default FileUpload;
