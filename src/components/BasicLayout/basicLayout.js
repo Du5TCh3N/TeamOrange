@@ -91,7 +91,7 @@ const BasicLayout = () => {
                             </Menu.Item>
          
                     </SubMenu>
-                    <SubMenu key="5" title = "transfer" icon={<TransactionOutlined />}>
+                    <SubMenu key="5" title = "Transfer" icon={<TransactionOutlined />}>
                         
                         <Menu.Item>
                             { <Link to='/TransferUpload'> Upload CSV file</Link> }
