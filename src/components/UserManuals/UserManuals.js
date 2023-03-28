@@ -7,7 +7,6 @@ const UserManuals = () => {
     const [isModal2Open, setIsModal2Open] = useState(false);
     const [isModal3Open, setIsModal3Open] = useState(false);
     const [isModal4Open, setIsModal4Open] = useState(false);
-
     const showModal1 = () => {
       setIsModal1Open(true);
     };
@@ -25,10 +24,8 @@ const UserManuals = () => {
         setIsModal2Open(false);
         setIsModal3Open(false);
         setIsModal4Open(false);
-
       };
 
-    
     return (
 
         <> <Row gutter={[16,16]}>
@@ -47,7 +44,6 @@ const UserManuals = () => {
                     <br/>
                     Click here to show how to use it!
                 </Card>
-
             </Col>
 
             <Col span={24}>
@@ -64,16 +60,13 @@ const UserManuals = () => {
                     <br/>
                     Click here to show how to use it!
                 </Card>
-
             </Col>
-
         </Row>
         
         <Modal title="Data Visualisation user m" open={isModal1Open} footer={null} onCancel={cancel}  >
         <p>Step1: open left hand side manu button "HistoryData"</p>
         <p>Step2: click "Allocation Policy" to double check the information of Royal Borough of Kingston upon Thames Housing Allocation Scheme 2017 </p>
         <p>Step3: click "Data" to check the historical data over 2014 - 2022 </p>
-    
       </Modal>
 
       <Modal title="Basic Modal" open={isModal2Open} footer={null} onCancel={cancel}  >
@@ -89,9 +82,9 @@ const UserManuals = () => {
       </Modal>     
       
        <Modal title="Basic Modal" open={isModal4Open} footer={null}onCancel={cancel}   >
-        <p>Step1:</p>
-        <p>Step2:</p>
-        <p>Step3:</p>
+        <p>Step1: </p>
+        <p>Step2: </p>
+        <p>Step3: </p>
       </Modal>
         </>
     )

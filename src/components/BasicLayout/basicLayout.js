@@ -9,7 +9,7 @@ import {
     HistoryOutlined,
     TransactionOutlined,
     ContainerOutlined
-    
+
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -147,6 +147,7 @@ const BasicLayout = () => {
                         <Route path="/Datavisualisation" element={<Datavisualisation />} />
 
                         <Route path="/UserManuals" element={<UserManuals />} />
+                        
 
                         <Route path="/FileUpload" element={<FileUpload />} />
 
