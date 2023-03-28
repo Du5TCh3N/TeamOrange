@@ -1,5 +1,11 @@
 node_modules
 
+*.pyc
+
+.idea/
+lambda_functions/src/key_stat.csv
+*.csv
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -21,8 +27,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-*.pyc
-
-.idea/
-lambda_functions/src/key_stat.csv
-*.csv
