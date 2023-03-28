@@ -156,7 +156,7 @@ const Modelling = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const models = await DataStore.query(SimulationData, "LambdaSimulation", { forceNetworkFetch: true });
+      const models = await DataStore.query(SimulationData, "LambdaSimulation");
       const data = models.date.map((date, index) => ({
         date,
         resolved: models.resolved[index],
@@ -166,9 +166,9 @@ const Modelling = () => {
       setData(data);
       console.log(models);
 
-      const categoryPiechartData = await DataStore.query(Piechart, "category_piechart", { forceNetworkFetch: true });
-      const bandPiechartData = await DataStore.query(Piechart, "band_piechart", { forceNetworkFetch: true });
-      const bedroomPiechartData = await DataStore.query(Piechart, "bedroom_piechart", { forceNetworkFetch: true });
+      const categoryPiechartData = await DataStore.query(Piechart, "category_piechart");
+      const bandPiechartData = await DataStore.query(Piechart, "band_piechart");
+      const bedroomPiechartData = await DataStore.query(Piechart, "bedroom_piechart");
 
       const categoryList = categoryPiechartData.category;
       const categoryResolvedList = categoryPiechartData.resolved;
@@ -208,7 +208,7 @@ const Modelling = () => {
       console.log(bedroomResolvedDict)
       setBedroomPieChartData(bedroomResolvedDict);
 
-      const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart", { forceNetworkFetch: true });
+      const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart");
       console.log(categoryRadarchart);
 
     }
