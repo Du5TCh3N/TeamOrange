@@ -8,6 +8,8 @@ import {
     UploadOutlined,
     HistoryOutlined,
     TransactionOutlined,
+    ContainerOutlined
+    
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -105,8 +107,8 @@ const BasicLayout = () => {
 
                     </SubMenu>
 
-                    <Menu.Item key="6" icon={<UploadOutlined />}>
-                        <Link to='/Export'>Foreast</Link>
+                    <Menu.Item key="6" icon={<ContainerOutlined />}>
+                        <Link to='/UserManuals'>User Manual</Link>
                     </Menu.Item>
                 </Menu>
             </Sider>
