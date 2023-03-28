@@ -29,6 +29,10 @@ const TransferData = () => {
       "Bedroom5": [1,1,3,2,23]
     });
 
+    const [totalCost, setTotalCost] = useState({
+      "Total Cost": "£1,630,000"
+    })
+
     useEffect(() => {
       async function fetchData() {
         const beforeTransferTableQuery = await DataStore.query(PivotTable, "BeforeTransfer");
@@ -279,7 +283,7 @@ const TransferData = () => {
 
             <Col span={24}>
                 <Card title="Save Cost" bordered={false}>
-                    P
+                  {totalCost["Total Cost"]}
                 </Card>
             </Col>
             <Col span={8}>

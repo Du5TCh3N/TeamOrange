@@ -93,7 +93,7 @@ const Simulation = () => {
     },
     {
       name: 'Homless',
-      max: 100,
+      max: 200,
     },
     {
       name: 'SocialServicesQuota',
@@ -315,7 +315,7 @@ const Simulation = () => {
   );
 
   indicators.forEach((indicator) => {
-    indicator.max = applications.value[indicators.indexOf(indicator)];
+    indicator.max = 1.2 * applications.value[indicators.indexOf(indicator)];
   });
 
   const radarChart = {
