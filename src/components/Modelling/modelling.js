@@ -5,7 +5,6 @@ import {Piechart, Radarchart, SimulationData} from '../../models';
 import './Modelling.css'
 
 import AWS from 'aws-sdk';
-import {Alert} from "@aws-amplify/ui-react";
 
 process.env.AWS_SDK_LOAD_CONFIG = 1;
 const lambda = new AWS.Lambda({
@@ -529,15 +528,7 @@ function PolicyForm() {
     const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
 
     if (sum_of_inputs >= 1) {
-      return (
-        <Alert
-          variation="error"
-          isDismissible="True"
-          heading="Policy Total Greater Than 1"
-        >
-        Policy allocation total must be between 0 and 1
-        </Alert>
-        )
+      // TODO: Add some sort of dialog to alert user that policy should be less than 100%
     } else {
       callLambdaFunction(outputObj);
     }
@@ -565,7 +556,7 @@ function PolicyForm() {
               style={{ width: "100px" }}
             />
             <br />
-            <span className="range-value">{policyInputs[index] || value}</span>
+            <span className="range-value">{policyInputs[index] * 100 || value * 100}%</span>
           </div>
         ))}
         <div className="input-group" key="total-policy">
@@ -583,7 +574,7 @@ function PolicyForm() {
             style={{ width: "100px" }}
            />
           <br/>
-            <span className="range-value">{policyInputs.reduce((a, b) => a + b, 0)}</span>
+            <span className="range-value">{policyInputs.reduce((a, b) => a + b, 0) * 100}%</span>
         </div>
       </div>
 
