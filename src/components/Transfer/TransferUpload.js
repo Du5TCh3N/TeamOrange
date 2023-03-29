@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactEcharts from 'echarts-for-react';
 import AWS from 'aws-sdk';
+import { DataStore } from 'aws-amplify';
 
 const TransferUpload = () => {
   const [uploading, setUploading] = useState(false);
@@ -15,6 +16,8 @@ const TransferUpload = () => {
       secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY,
       region: process.env.REACT_APP_AWS_REGION,
     });
+
+    DataStore.clear();
   
     const fileName = file.name;
   
@@ -34,7 +37,7 @@ const TransferUpload = () => {
       console.log("5", headers[6]===curExpectedHeaders[6]);
       console.log("6", headers[7]===curExpectedHeaders[7]);
       console.log("7", headers[8]===curExpectedHeaders[8]);
-      if (!headers.every((header) => curExpectedHeaders.includes(header)) || headers.length !== curExpectedHeaders.length) {
+      if ((!headers.every((header) => curExpectedHeaders.includes(header)) || headers.length !== curExpectedHeaders.length) && headers[2] === "OccupierID") {
         alert('File headers do not match expected headers.');
         setUploading(false);
         return;

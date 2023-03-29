@@ -86,7 +86,7 @@ const ModelUpload = () => {
   return (
     <div>
       <input type="file" accept=".csv" onChange={handleFileSelect} />
-      <button onClick={(event) => handleUpload(event.target.previousSibling.files[0])}>
+      <button className="submit-button" type="submit" onClick={(event) => handleUpload(event.target.previousSibling.files[0])}>
         {uploading ? 'Uploading...' : 'Upload'}
       </button>
     </div>
