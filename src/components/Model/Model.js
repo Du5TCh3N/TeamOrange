@@ -9,7 +9,7 @@ const Model = () => {
 
     useEffect(() => {
       async function fetchData() {
-        const models = await DataStore.query(SimulationData, "pastLambdaSimulation");
+        const models = await DataStore.query(SimulationData, "PastLambdaSimulation");
         console.log("Fetch", models);
         const pastSimulationData = models.date.map((date, index) => ({
           date,
