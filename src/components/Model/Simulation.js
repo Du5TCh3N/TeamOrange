@@ -497,14 +497,17 @@ function PolicyForm() {
         // handle the response here
         if (response.StatusCode === 200) {
           setShowDialog(true);
+          console.log(response);
         }
         else {
           setErrorShowDialog(true);
+          console.log(response);
         }
       })
     } catch (error) {
       // handle the error here
       setErrorShowDialog(true);
+      console.log(error);
     }
   }
   const [policyInputs, setPolicyInputs] = useState(Object.entries(policyDefaults).map(([_, value]) => value));
