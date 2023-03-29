@@ -493,15 +493,14 @@ function PolicyForm() {
     };
 
     try {
-      const response = await lambda.invoke(params).promise().then(() => {
+      const response = await lambda.invoke(params).promise().then((result) => {
         // handle the response here
-        if (response["statusCode"] === 200) {
+        console.log(result);
+        if (result["statusCode"] === 200) {
           setShowDialog(true);
-          console.log(response);
         }
         else {
           setErrorShowDialog(true);
-          console.log(response);
         }
       })
     } catch (error) {
