@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { Button, Avatar, Layout, Menu } from 'antd';
+import { Avatar, Layout, Menu } from 'antd';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     UserOutlined,
     VideoCameraOutlined,
-    UploadOutlined,
     HistoryOutlined,
     TransactionOutlined,
     ContainerOutlined
     
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import UserManuals from '../UserManuals/UserManuals';
 import FileUpload from '../FileUpload/fileUpload';
@@ -120,8 +119,8 @@ const BasicLayout = () => {
                             className: 'trigger',
                             onClick: toggle,
                         })}
-                        <span className="  ml-auto">
-                            <Avatar className="mr-2" size={48} src={logo} />
+                        <span className="ml-auto">
+                            <Avatar className="mr-2" size={52} src={logo} />
                             <span >
                                 <Link to='/User'>{"Kingston Councils"}</Link>
                             </span>
@@ -151,13 +150,17 @@ const BasicLayout = () => {
                         <Route path="/FileUpload" element={<FileUpload />} />
 
                         <Route path="/Model" element={<Model />} />
+
                         <Route path="/ModelUpload" element={<ModelUpload />} />
+
                         <Route path="/Simulation" element={<Simulation />} />
 
                         <Route path="/User" element={<User />} />
 
                         <Route path="/TransferData" element={<TransferData />} />
+
                         <Route path="/TransferSystem" element={<TransferSystem />} />
+
                         <Route path="/TransferUpload" element={<TransferUpload />} />
 
                     </Routes>
