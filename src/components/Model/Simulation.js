@@ -17,31 +17,6 @@ const lambda = new AWS.Lambda({
   apiVersion: '2015-03-31',
 });
 
-const [showDialog, setShowDialog] = useState(false);
-const [showErrorDialog, setErrorShowDialog] = useState(false);
-
-
-async function callLambdaFunction(payload) {
-  const params = {
-    FunctionName: 'python-modeller',
-    Payload: JSON.stringify(payload)
-  };
-
-  try {
-    const response = await lambda.invoke(params).promise().then(() => {
-      // handle the response here
-      if (response.StatusCode === 200) {
-        setShowDialog(true);
-      }
-      else {
-        setErrorShowDialog(true);
-      }
-    })
-  } catch (error) {
-    // handle the error here
-    setErrorShowDialog(true);
-  }
-}
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -506,7 +481,32 @@ const Simulation = () => {
   );
 }
 
+
 function PolicyForm() {
+  const [showDialog, setShowDialog] = useState(false);
+  const [showErrorDialog, setErrorShowDialog] = useState(false);
+
+  async function callLambdaFunction(payload) {
+    const params = {
+      FunctionName: 'python-modeller',
+      Payload: JSON.stringify(payload)
+    };
+
+    try {
+      const response = await lambda.invoke(params).promise().then(() => {
+        // handle the response here
+        if (response.StatusCode === 200) {
+          setShowDialog(true);
+        }
+        else {
+          setErrorShowDialog(true);
+        }
+      })
+    } catch (error) {
+      // handle the error here
+      setErrorShowDialog(true);
+    }
+  }
   const [policyInputs, setPolicyInputs] = useState(Object.entries(policyDefaults).map(([_, value]) => value));
   const [supplyInputs, setSupplyInputs] = useState(Object.entries(supplyDefaults).map(([_, value]) => value));
   const [dateInputs, setDateInputs] = useState(Object.entries(dateDefaults).map(([_, value]) => value));
