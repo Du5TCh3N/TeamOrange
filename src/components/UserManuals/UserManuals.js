@@ -7,7 +7,6 @@ const UserManuals = () => {
     const [isModal2Open, setIsModal2Open] = useState(false);
     const [isModal3Open, setIsModal3Open] = useState(false);
     const [isModal4Open, setIsModal4Open] = useState(false);
-
     const showModal1 = () => {
       setIsModal1Open(true);
     };
@@ -47,7 +46,6 @@ const UserManuals = () => {
                     <br/>
                     Click here to show how to use it!
                 </Card>
-
             </Col>
 
             <Col span={24}>
@@ -59,21 +57,18 @@ const UserManuals = () => {
             </Col>
     
             <Col span={24}>
-                <Card title="Forecast" bordered={false} onClick={showModal4}>
+                <Card title="Simulation" bordered={false} onClick={showModal4}>
                     Foreast platform module is used to predict the percentage of allocation number based on the previous data over 5 years for our users based on their situation for a referable service to Kingston Councilse.<br/>
                     <br/>
                     Click here to show how to use it!
                 </Card>
-
             </Col>
-
         </Row>
         
         <Modal title="Data Visualisation user m" open={isModal1Open} footer={null} onCancel={cancel}  >
         <p>Step1: open left hand side manu button "HistoryData"</p>
-        <p>Step2: click "Policy" to check the Thamess Housing Allocations Scheme 2017 </p>
-        <p>Step3: click "Data" to check the historical data over 2014 - 2022 </p>
-    
+        <p>Step2: click "Allocation Policy" to double check the information of Royal Borough of Kingston upon Thames Housing Allocation Scheme 2017 </p>
+        <p>Step3: click "Historical Data" to check the historical data over 2014 - 2022 </p>
       </Modal>
 
       <Modal title="Basic Modal" open={isModal2Open} footer={null} onCancel={cancel}  >
@@ -84,14 +79,14 @@ const UserManuals = () => {
 
       <Modal title="Basic Modal" open={isModal3Open} footer={null} onCancel={cancel}  >
         <p>Step1: open left hand side manu button "Transfer"</p>
-        <p>Step2: click "Transfer System" to</p>
+        <p>Step2: click "Upload CSV file" to upload a CSV file</p>
         <p>Step3: click "Model" to</p>
       </Modal>     
       
        <Modal title="Basic Modal" open={isModal4Open} footer={null}onCancel={cancel}   >
-        <p>Step1:</p>
-        <p>Step2:</p>
-        <p>Step3:</p>
+        <p>Step1: </p>
+        <p>Step2: </p>
+        <p>Step3: </p>
       </Modal>
         </>
     )

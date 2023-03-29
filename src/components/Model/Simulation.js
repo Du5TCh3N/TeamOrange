@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import { Card, Col, Row } from 'antd';
 import ReactEcharts from 'echarts-for-react';
 import {DataStore} from "@aws-amplify/datastore";
 import {Piechart, Radarchart, SimulationData} from '../../models';
-import './Modelling.css'
+import './Simulation.css'
 
 import AWS from 'aws-sdk';
 
@@ -94,8 +95,8 @@ const Simulation = () => {
       value: [50, 2, 2, 2, 5, 1, 75, 20, 3, 4],
     },
     {
-      name: 'Homless',
-      max: 200,
+      name: 'Homeless',
+      max: 100,
     },
     {
       name: 'SocialServicesQuota',
@@ -148,10 +149,10 @@ const Simulation = () => {
     'Band 3': 5
   });
   const [bedroomPieChartData, setBedroomPieChartData] = useState({
-    '1 Bed': 7,
-    '2 Bed': 7,
-    '3 Bed': 2,
-    '4 Bed': 1
+    'Bedroom 1': 7,
+    'Bedroom 2': 7,
+    'Bedroom 3': 2,
+    'Bedroom 4': 1
   });
 
   useEffect(() => {
@@ -323,7 +324,7 @@ const Simulation = () => {
 
   const radarChart = {
     title: {
-      text: 'Comparison of Applications to Resolved',
+      text: 'Comparison chart',
       left: 'center'
     },
     tooltip: {},
@@ -352,7 +353,7 @@ const Simulation = () => {
   };
   const categoryPieChart = {
     title: {
-      text: 'Resolved Applicants by Category',
+      text: 'Category percentage',
       // subtext: 'Fake Data',
       left: 'center'
     },
@@ -390,7 +391,7 @@ const Simulation = () => {
 
   const bandPieChart = {
     title: {
-      text: 'Resolved Applicants by Band',
+      text: 'Band percentage',
       // subtext: 'Fake Data',
       left: 'center'
     },
@@ -428,7 +429,7 @@ const Simulation = () => {
 
   const bedroomPieChart = {
     title: {
-      text: 'Resolved Applicants by Bedroom Size',
+      text: 'Bedroom Size',
       // subtext: 'Fake Data',
       left: 'center'
     },
@@ -465,24 +466,36 @@ const Simulation = () => {
     }
   };
   return (
+
     <view>
+    <Col span={24}>
+    <Card title="Simulation Over Time" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+        
       <div style={{ display: 'block', width: '100%' }}>
         <ReactEcharts option={simulationChart} />
       </div>
-      <br></br>
+      </Card>
+    </Col>    
+    <Row gutter={[24,24]}>
+    <Col span={24}>
+    <Card title="Statistics of Simulation" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
       <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={radarChart} />
       </div>
       <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={categoryPieChart} />
       </div>
+
       <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={bandPieChart} />
       </div>
+
       <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={bedroomPieChart} />
       </div>
-      <br></br>
+      </Card>
+    </Col>
+    </Row>  
       <PolicyForm />
     </view>
 
@@ -545,87 +558,97 @@ function PolicyForm() {
 
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <div className="form-column">
-        <h2>Application Policy Inputs</h2>
-        {Object.entries(policyDefaults).map(([key, value], index) => (
-          <div className="input-group" key={`policy-input-${key}-${index}`}>
-            <label htmlFor={`policy-input-${key}-${index}`}>{policyLabelNames[key]}</label>
-            <br />
+    <Row gutter={[16,16]}>
+
+        <Col span={24}>
+            <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+
+
+        <form onSubmit={handleSubmit} className="form-container">
+        <div className="form-column">
+            <h2>Application Policy Inputs</h2>
+            {Object.entries(policyDefaults).map(([key, value], index) => (
+            <div className="input-group" key={`policy-input-${key}-${index}`}>
+                <label htmlFor={`policy-input-${key}-${index}`}>{policyLabelNames[key]}</label>
+                <br />
+                <input
+                id={`policy-input-${key}-${index}`}
+                className="range-input"
+                type="range"
+                step="0.01"
+                max="1"
+                min="0"
+                name={`policy-input-${key}-${index}`}
+                value={policyInputs[index] || value}
+                onChange={(e) => handlePolicyInputChange(index, e.target.value)}
+                style={{ width: "100px" }}
+                />
+                <br />
+                <span className="range-value">{policyInputs[index] * 100 || value * 100}%</span>
+            </div>
+            ))}
+            <div className="input-group" key="total-policy">
+            <label htmlFor="total-policy">Total Allocation</label>
+            <br/>
             <input
-              id={`policy-input-${key}-${index}`}
-              className="range-input"
-              type="range"
-              step="0.01"
-              max="1"
-              min="0"
-              name={`policy-input-${key}-${index}`}
-              value={policyInputs[index] || value}
-              onChange={(e) => handlePolicyInputChange(index, e.target.value)}
-              style={{ width: "100px" }}
+                disabled="true"
+                className="input-group"
+                type="range"
+                max="1"
+                min="0"
+                step={0.01}
+                name="total-policy"
+                value={policyInputs.reduce((a, b) => a + b, 0)}
+                style={{ width: "100px" }}
             />
-            <br />
-            <span className="range-value">{Math.round(policyInputs[index] * 100) || Math.round(value * 100)}%</span>
-          </div>
-        ))}
-        <div className="input-group" key="total-policy">
-          <label htmlFor="total-policy">Total Al1</label>
-          <br/>
-          <input
-            disabled="true"
-            className="input-group"
-            type="range"
-            max="1"
-            min="0"
-            step={0.01}
-            name="total-policy"
-            value={policyInputs.reduce((a, b) => a + b, 0)}
-            style={{ width: "100px" }}
-           />
-          <br/>
-            <span className="range-value">{Math.round(policyInputs.reduce((a, b) => a + b, 0) * 100)}%</span>
+            <br/>
+                <span className="range-value">{policyInputs.reduce((a, b) => a + b, 0) * 100}%</span>
+            </div>
         </div>
-      </div>
 
-      <div className="form-column">
-        <h2>Property Supply Inputs</h2>
-        {Object.entries(supplyDefaults).map(([key, value], index) => (
-          <div className="input-group" key={`supply-input-${key}-${index}`}>
-            <label htmlFor={`supply-input-${key}-${index}`}>{supplyLabelNames[key]}</label>
-            <input
-              id={`supply-input-${key}-${index}`}
-              className="number-input"
-              type="number"
-              step="1"
-              name={`supply-input-${key}-${index}`}
-              value={supplyInputs[key] || value}
-              onChange={(e) => handleSupplyInputChange(key, e.target.value)}
-            />
-          </div>
-        ))}
-      </div>
+        <div className="form-column">
+            <h2>Property Supply Inputs</h2>
+            {Object.entries(supplyDefaults).map(([key, value], index) => (
+            <div className="input-group" key={`supply-input-${key}-${index}`}>
+                <label htmlFor={`supply-input-${key}-${index}`}>{supplyLabelNames[key]}</label>
+                <input
+                id={`supply-input-${key}-${index}`}
+                className="number-input"
+                type="number"
+                step="1"
+                name={`supply-input-${key}-${index}`}
+                value={supplyInputs[key] || value}
+                onChange={(e) => handleSupplyInputChange(key, e.target.value)}
+                />
+            </div>
+            ))}
+        </div>
 
-      <div className="form-column">
-        <h2>Date Inputs</h2>
-        {Object.entries(dateDefaults).map(([key, value], index) => (
-          <div className="input-group" key={`date-input-${key}-${index}`}>
-            <label htmlFor={`date-input-${key}-${index}`}>{dateLabelNames[key]}</label>
-            <input
-              id={`date-input-${key}-${index}`}
-              className="date-input"
-              type="date"
-              name={`date-input-${key}-${index}`}
-              value={dateInputs[index] || value}
-              onChange={(e) => handleDateInputChange(index, e.target.value)}
-            />
-          </div>
-        ))}
-      </div>
+        <div className="form-column">
+            <h2>Date Inputs</h2>
+            {Object.entries(dateDefaults).map(([key, value], index) => (
+            <div className="input-group" key={`date-input-${key}-${index}`}>
+                <label htmlFor={`date-input-${key}-${index}`}>{dateLabelNames[key]}</label>
+                <input
+                id={`date-input-${key}-${index}`}
+                className="date-input"
+                type="date"
+                name={`date-input-${key}-${index}`}
+                value={dateInputs[index] || value}
+                onChange={(e) => handleDateInputChange(index, e.target.value)}
+                />
+            </div>
+            ))}
+        </div>
 
-      <div className="submit-container">
-        <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
-      </div>
-    </form>
+        <div className="submit-container">
+            <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
+        </div>
+        </form>
+    </Card>
+        </Col>
+    </Row>  
+
   );
 }
 
