@@ -559,54 +559,17 @@ function PolicyForm() {
 
 
   return (
-    <Row gutter={[16,16]}>
-
-        <Col span={24}>
-            <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
-
-
-        <form onSubmit={handleSubmit} className="form-container">
-        <div className="form-column">
-            <h2>Application Policy Inputs</h2>
-            {Object.entries(policyDefaults).map(([key, value], index) => (
-            <div className="input-group" key={`policy-input-${key}-${index}`}>
-                <label htmlFor={`policy-input-${key}-${index}`}>{policyLabelNames[key]}</label>
-                <br />
-                <input
-                id={`policy-input-${key}-${index}`}
-                className="range-input"
-                type="range"
-                step="0.01"
-                max="1"
-                min="0"
-                name={`policy-input-${key}-${index}`}
-                value={policyInputs[index] || value}
-                onChange={(e) => handlePolicyInputChange(index, e.target.value)}
-                style={{ width: "100px" }}
-                />
-                <br />
-                <span className="range-value">{Math.round(policyInputs[index] * 100) || Math.round(value * 100)}%</span>
-            </div>
-            ))}
-            <div className="input-group" key="total-policy">
-            <label htmlFor="total-policy">Total Allocation</label>
-            <br/>
-            <input
-                disabled="true"
-                className="input-group"
-                type="range"
-                max="1"
-                min="0"
-                step={0.01}
-                name="total-policy"
-                value={policyInputs.reduce((a, b) => a + b, 0)}
-                style={{ width: "100px" }}
-            />
-            <br/>
-              <span className="range-value">{Math.round(policyInputs.reduce((a, b) => a + b, 0) * 100)}%</span>
-            </div>
-        </div>
     <div>
+      <Row gutter={[16,16]}>
+          <Col span={24}>
+              <Card title="Policy changes to simulate the allocation "
+                    bordered={false}
+                    style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }}
+                    headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }}
+                    bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+           </Card>
+          </Col>
+      </Row>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="form-column">
           <h2>Application Policy Inputs</h2>
@@ -666,40 +629,7 @@ function PolicyForm() {
             </div>
           ))}
         </div>
-        <div className="form-column">
-            <h2>Property Supply Inputs</h2>
-            {Object.entries(supplyDefaults).map(([key, value], index) => (
-            <div className="input-group" key={`supply-input-${key}-${index}`}>
-                <label htmlFor={`supply-input-${key}-${index}`}>{supplyLabelNames[key]}</label>
-                <input
-                id={`supply-input-${key}-${index}`}
-                className="number-input"
-                type="number"
-                step="1"
-                name={`supply-input-${key}-${index}`}
-                value={supplyInputs[key] || value}
-                onChange={(e) => handleSupplyInputChange(key, e.target.value)}
-                />
-            </div>
-            ))}
-        </div>
 
-        <div className="form-column">
-          <h2>Date Inputs</h2>
-          {Object.entries(dateDefaults).map(([key, value], index) => (
-            <div className="input-group" key={`date-input-${key}-${index}`}>
-              <label htmlFor={`date-input-${key}-${index}`}>{dateLabelNames[key]}</label>
-              <input
-                id={`date-input-${key}-${index}`}
-                className="date-input"
-                type="date"
-                name={`date-input-${key}-${index}`}
-                value={dateInputs[index] || value}
-                onChange={(e) => handleDateInputChange(index, e.target.value)}
-              />
-            </div>
-          ))}
-        </div>
         <div className="form-column">
             <h2>Date Inputs</h2>
             {Object.entries(dateDefaults).map(([key, value], index) => (
@@ -720,34 +650,27 @@ function PolicyForm() {
         <div className="submit-container">
             <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
         </div>
-        </form>
-    </Card>
-        </Col>
-    </Row>
-
-        <div className="submit-container">
-          <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
-        </div>
+        {showDialog && (
+          <div>
+            <Alert
+              variation="success"
+              heading="Policy Updated"
+            >
+              The policy has been uploaded.
+            </Alert>
+          </div>
+        )}
+        {showErrorDialog && (
+          <div>
+            <Alert
+              variation="error"
+              heading="Error when submitting"
+            >
+              An error occurred when trying to submit the updated policy.
+            </Alert>
+          </div>
+        )}
       </form>
-      {showDialog && (
-        <div>
-          <Alert
-            variation="success"
-            heading="Policy Updated"
-          >
-            The policy has been uploaded.
-          </Alert>
-        </div>)}
-      {showErrorDialog && (
-        <div>
-          <Alert
-            variation="error"
-            heading="Error when submitting"
-          >
-            An error occurred when trying to submit the updated policy.
-          </Alert>
-        </div>
-      )}
     </div>
   );
 }
