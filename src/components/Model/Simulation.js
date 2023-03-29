@@ -15,20 +15,22 @@ const lambda = new AWS.Lambda({
   apiVersion: '2015-03-31',
 });
 
-function callLambdaFunction(payload) {
+async function callLambdaFunction(payload) {
   const params = {
     FunctionName: 'python-modeller',
     Payload: JSON.stringify(payload)
   };
 
-  lambda.invoke(params, function(err, data){
-    if (err) {
-      console.log("Error: ", err)
-    } else {
-      console.log("Data: ", data)
-    }
-  })
+  try {
+    const response = await lambda.invoke(params).promise();
+    console.log('Data:', response);
+    // handle the response here
+  } catch (error) {
+    console.log('Error:', error);
+    // handle the error here
+  }
 }
+
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -515,6 +517,7 @@ function PolicyForm() {
   };
 
   const handleSubmit = async (e) => {
+    console.log("Pressed")
     e.preventDefault();
     let outputObj = {
       "policy": {},
@@ -522,6 +525,7 @@ function PolicyForm() {
       "startDate": "",
       "endDate": ""
     };
+    console.log("e:", e);
 
     outputObj["policy"] = policyDefaults;
     outputObj["supply"] = supplyDefaults;
@@ -530,8 +534,9 @@ function PolicyForm() {
     outputObj["endDate"] = dateInputs[1];
 
     const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
+    console.log(sum_of_inputs)
 
-    if (sum_of_inputs >= 1) {
+    if (sum_of_inputs > 1) {
       // TODO: Add some sort of dialog to alert user that policy should be less than 100%
     } else {
       callLambdaFunction(outputObj);
@@ -564,7 +569,7 @@ function PolicyForm() {
           </div>
         ))}
         <div className="input-group" key="total-policy">
-          <label htmlFor="total-policy">Total Allocation</label>
+          <label htmlFor="total-policy">Total Al1</label>
           <br/>
           <input
             disabled="true"

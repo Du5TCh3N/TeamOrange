@@ -26,7 +26,7 @@ const Model = () => {
 
     const pastSimulation = {
       title: {
-        text: 'Simulation',
+        text: 'Standard Policy Simulation',
         left: 'center'
       },
       tooltip: {
