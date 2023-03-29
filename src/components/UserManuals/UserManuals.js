@@ -24,8 +24,10 @@ const UserManuals = () => {
         setIsModal2Open(false);
         setIsModal3Open(false);
         setIsModal4Open(false);
+
       };
 
+    
     return (
 
         <> <Row gutter={[16,16]}>

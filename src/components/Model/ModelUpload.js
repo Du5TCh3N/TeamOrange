@@ -7,7 +7,6 @@ const ModelUpload = () => {
   const [expectedHeaders, setExpectedHeaders] = useState([]);
 
   const handleUpload = (file) => {
-    console.log("Test?????")
     setUploading(true);
     process.env.AWS_SDK_LOAD_CONFIG = 1;
     const s3 = new AWS.S3({
@@ -22,13 +21,13 @@ const ModelUpload = () => {
     reader.onload = (event) => {
       const contents = event.target.result;
       const csvArray = contents.split('\n');
-      console.log("csvArray", csvArray[0]);
       const headers = csvArray[0].trim().split(';'); // get the headers from the first row of the CSV file
-      console.log("HEADERSSSS", headers);
       
       // check if the headers match the expected headers
-      const expectedHeaders = ['ApplicationId', 'AppCategory', 'AppMob', 'Band', 'BandStartDate', 'Bedroom'];
-      if (!headers.every((header) => expectedHeaders.includes(header)) || headers.length != expectedHeaders.length) {
+      const expectedHeaders = ['ApplicationId', 'Band','Bedroom', 'AppCategory', 'AppMob', 'BandStartDate'];
+      console.log("Headers", headers);
+      console.log("ExpectedHeaders", expectedHeaders);
+      if (!headers.every((header) => expectedHeaders.includes(header)) || headers.length !== expectedHeaders.length) {
         alert('File headers do not match expected headers.');
         setUploading(false);
         return;
@@ -72,18 +71,13 @@ const ModelUpload = () => {
         value: Number(row[1]),
         name: row[0],
       }));
-
-      handleUpload(file); // pass the selected file to handleUpload
     };
     reader.readAsText(file);
   };
 
   const headersMatchExpected = (headers) => {
-    const expectedHeaders = ['ApplicationId', 'AppCategory', 'AppMob', 'Band', 'BandStartDate', 'Bedroom'];
-    //console.log("headers: ", headers);
-    //console.log(headers.every((header, index) => header === expectedHeaders[index]));
-    if (headers.length != expectedHeaders.length){
-      console.log("FALSEEEEEE");
+    const expectedHeaders = ['ApplicationId', 'Band', 'AppCategory', 'AppMob', 'BandStartDate'];
+    if (headers.length !== expectedHeaders.length){
       return false;
     }
     return headers.every((header, index) => header === expectedHeaders[index]);
@@ -92,7 +86,7 @@ const ModelUpload = () => {
   return (
     <div>
       <input type="file" accept=".csv" onChange={handleFileSelect} />
-      <button onClick={handleUpload} disabled={uploading || !headersMatchExpected(expectedHeaders)}>
+      <button onClick={(event) => handleUpload(event.target.previousSibling.files[0])}>
         {uploading ? 'Uploading...' : 'Upload'}
       </button>
     </div>

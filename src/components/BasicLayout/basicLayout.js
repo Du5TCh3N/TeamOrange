@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Avatar, Layout, Menu } from 'antd';
+import { Avatar, Layout, Menu } from 'antd';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     UserOutlined,
     VideoCameraOutlined,
-    UploadOutlined,
     HistoryOutlined,
     TransactionOutlined,
     ContainerOutlined
@@ -137,8 +136,8 @@ const BasicLayout = () => {
                             className: 'trigger',
                             onClick: toggle,
                         })}
-                        <span className="  ml-auto">
-                            <Avatar className="mr-2" size={48} src={logo} />
+                        <span className="ml-auto">
+                            <Avatar className="mr-2" size={52} src={logo} />
                             <span >
                                 <Link to='/User'>{"Kingston Councils"}</Link>
                             </span>
@@ -164,7 +163,6 @@ const BasicLayout = () => {
                         <Route path="/Datavisualisation" element={<Datavisualisation />} />
 
                         <Route path="/UserManuals" element={<UserManuals />} />
-                        
 
                         <Route path="/FileUpload" element={<FileUpload />} />
 

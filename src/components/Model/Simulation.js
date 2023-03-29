@@ -16,20 +16,22 @@ const lambda = new AWS.Lambda({
   apiVersion: '2015-03-31',
 });
 
-function callLambdaFunction(payload) {
+async function callLambdaFunction(payload) {
   const params = {
     FunctionName: 'python-modeller',
     Payload: JSON.stringify(payload)
   };
 
-  lambda.invoke(params, function(err, data){
-    if (err) {
-      console.log("Error: ", err)
-    } else {
-      console.log("Data: ", data)
-    }
-  })
+  try {
+    const response = await lambda.invoke(params).promise();
+    console.log('Data:', response);
+    // handle the response here
+  } catch (error) {
+    console.log('Error:', error);
+    // handle the error here
+  }
 }
+
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -93,7 +95,7 @@ const Simulation = () => {
       value: [50, 2, 2, 2, 5, 1, 75, 20, 3, 4],
     },
     {
-      name: 'Homless',
+      name: 'Homeless',
       max: 100,
     },
     {
@@ -252,8 +254,9 @@ const Simulation = () => {
     ],
     dataZoom: {
       // id: 'dataZoomY',
-      type: "slider",
-      start: 0
+      type: "inside",
+      start: 0, 
+      end: 10
     },
 
     series: [
@@ -316,7 +319,7 @@ const Simulation = () => {
   );
 
   indicators.forEach((indicator) => {
-    indicator.max = applications.value[indicators.indexOf(indicator)];
+    indicator.max = 1.2 * applications.value[indicators.indexOf(indicator)];
   });
 
   const radarChart = {
@@ -361,7 +364,7 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: '50%',
+        radius: '60%',
         data: Object.keys(categoryPieChartData).map((key) => {
           return {
             value: categoryPieChartData[key],
@@ -388,7 +391,7 @@ const Simulation = () => {
 
   const bandPieChart = {
     title: {
-      text: 'Band priority',
+      text: 'Band percentage',
       // subtext: 'Fake Data',
       left: 'center'
     },
@@ -399,7 +402,7 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: '50%',
+        radius: ['30%', '60%'],
         data: Object.keys(bandPieChartData).map((key) => {
           return {
             value: bandPieChartData[key],
@@ -437,7 +440,8 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: '50%',
+        radius: '60%',
+        avoidLabelOverlap: false,
         data: Object.keys(bedroomPieChartData).map((key) => {
           return {
             value: bedroomPieChartData[key],
@@ -465,7 +469,7 @@ const Simulation = () => {
 
     <view>
     <Col span={24}>
-    <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+    <Card title="Simulation Over Time" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
         
       <div style={{ display: 'block', width: '100%' }}>
         <ReactEcharts option={simulationChart} />
@@ -474,17 +478,10 @@ const Simulation = () => {
     </Col>    
     <Row gutter={[24,24]}>
     <Col span={24}>
-    <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+    <Card title="Statistics of Simulation" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
       <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={radarChart} />
       </div>
-      {/* </Card>
-    </Col>
-    </Row>   */}
-
-    {/* <Row gutter={[24,24]}>
-    <Col span={24}>
-    <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}> */}
       <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={categoryPieChart} />
       </div>
@@ -533,6 +530,7 @@ function PolicyForm() {
   };
 
   const handleSubmit = async (e) => {
+    console.log("Pressed")
     e.preventDefault();
     let outputObj = {
       "policy": {},
@@ -540,6 +538,7 @@ function PolicyForm() {
       "startDate": "",
       "endDate": ""
     };
+    console.log("e:", e);
 
     outputObj["policy"] = policyDefaults;
     outputObj["supply"] = supplyDefaults;
@@ -548,8 +547,9 @@ function PolicyForm() {
     outputObj["endDate"] = dateInputs[1];
 
     const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
+    console.log(sum_of_inputs)
 
-    if (sum_of_inputs >= 1) {
+    if (sum_of_inputs > 1) {
       // TODO: Add some sort of dialog to alert user that policy should be less than 100%
     } else {
       callLambdaFunction(outputObj);
