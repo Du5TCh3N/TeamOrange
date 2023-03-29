@@ -496,7 +496,7 @@ function PolicyForm() {
       const response = await lambda.invoke(params).promise().then((result) => {
         // handle the response here
         console.log(result);
-        if (result["statusCode"] === 200) {
+        if (result["StatusCode"] === 200) {
           setShowDialog(true);
         }
         else {
@@ -566,12 +566,12 @@ function PolicyForm() {
     <div>
       <Row gutter={[16,16]}>
           <Col span={24}>
-              <Card title="Policy changes to simulate the allocation "
-                    bordered={false}
-                    style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }}
-                    headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }}
-                    bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
-           </Card>
+            <Card title="Policy changes to simulate the allocation "
+                  bordered={false}
+                  style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }}
+                  headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }}
+                  bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+            </Card>
           </Col>
       </Row>
       <form onSubmit={handleSubmit} className="form-container">
