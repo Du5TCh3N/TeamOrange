@@ -495,7 +495,7 @@ function PolicyForm() {
     try {
       const response = await lambda.invoke(params).promise().then(() => {
         // handle the response here
-        if (response.statusCode === 200) {
+        if (response["statusCode"] === 200) {
           setShowDialog(true);
           console.log(response);
         }
