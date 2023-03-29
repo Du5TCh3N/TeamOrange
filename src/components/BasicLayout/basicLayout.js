@@ -72,9 +72,9 @@ const BasicLayout = () => {
                             { <Link to='/Policy'> Allocation Policy </Link> }
                         </Menu.Item>
      
-                        <Menu.Item>
+                        {/* <Menu.Item>
                            { <Link to='/Datavisualisation'>Historical Data</Link> }
-                        </Menu.Item>
+                        </Menu.Item> */}
 
                     </SubMenu>
 
@@ -99,9 +99,9 @@ const BasicLayout = () => {
                             { <Link to='/TransferUpload'> Upload CSV file</Link> }
                         </Menu.Item>
 
-                        <Menu.Item>
+                        {/* <Menu.Item>
                             {<Link to='/TransferSystem'>Transfer Result</Link>}
-                        </Menu.Item>
+                        </Menu.Item> */}
 
                         <Menu.Item>
                             { <Link to='/TransferData'> Transfer Data</Link> }
@@ -115,13 +115,13 @@ const BasicLayout = () => {
                             <Link to='/UserManuals'>User Manual</Link>
                         </Menu.Item>
 
-                        <Menu.Item>
+                        {/* <Menu.Item>
                             {<Link to='/ModelAllocationManuals'>Model Allocation</Link>}
                         </Menu.Item>
 
                         <Menu.Item>
                             {<Link to='/TransferManuals'>Transfer System</Link>}
-                        </Menu.Item>
+                        </Menu.Item> */}
                     </SubMenu>
 
 

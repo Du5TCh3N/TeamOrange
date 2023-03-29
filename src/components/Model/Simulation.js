@@ -537,6 +537,7 @@ function PolicyForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await DataStore.clear();
     let outputObj = {
       "policy": {},
       "supply": {},
@@ -557,8 +558,6 @@ function PolicyForm() {
     } else {
       await callLambdaFunction(outputObj);
     }
-
-    await DataStore.clear();
   };
 
 
