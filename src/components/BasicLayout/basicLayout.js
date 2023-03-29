@@ -8,12 +8,15 @@ import {
     HistoryOutlined,
     TransactionOutlined,
     ContainerOutlined
-    
+
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import UserManuals from '../UserManuals/UserManuals';
+import ModelAllocationManuals from '../UserManuals/ModelAllocationManuals';
+import TransferManuals from '../UserManuals/TransferManuals';
+
 import FileUpload from '../FileUpload/fileUpload';
 import Home from '../Home/home';
 
@@ -75,7 +78,7 @@ const BasicLayout = () => {
 
                     </SubMenu>
 
-                    <SubMenu key="3" title="Model allocation" icon={<VideoCameraOutlined />}>
+                    <SubMenu key="3" title="Model Allocation" icon={<VideoCameraOutlined />}>
 
                             <Menu.Item>   
                                 { <Link to='/ModelUpload'>Upload CSV file</Link> }
@@ -97,7 +100,7 @@ const BasicLayout = () => {
                         </Menu.Item>
 
                         <Menu.Item>
-                            {<Link to='/TransferSystem'>Transfer System</Link>}
+                            {<Link to='/TransferSystem'>Transfer Result</Link>}
                         </Menu.Item>
 
                         <Menu.Item>
@@ -106,9 +109,23 @@ const BasicLayout = () => {
 
                     </SubMenu>
 
-                    <Menu.Item key="6" icon={<ContainerOutlined />}>
-                        <Link to='/UserManuals'>User Manual</Link>
-                    </Menu.Item>
+                    <SubMenu key="6" title = "UserManuals" icon={<ContainerOutlined />}>
+
+                        <Menu.Item>
+                            <Link to='/UserManuals'>User Manual</Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            {<Link to='/ModelAllocationManuals'>Model Allocation</Link>}
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            {<Link to='/TransferManuals'>Transfer System</Link>}
+                        </Menu.Item>
+                    </SubMenu>
+
+
+
                 </Menu>
             </Sider>
 
@@ -150,17 +167,13 @@ const BasicLayout = () => {
                         <Route path="/FileUpload" element={<FileUpload />} />
 
                         <Route path="/Model" element={<Model />} />
-
                         <Route path="/ModelUpload" element={<ModelUpload />} />
-
                         <Route path="/Simulation" element={<Simulation />} />
 
                         <Route path="/User" element={<User />} />
 
                         <Route path="/TransferData" element={<TransferData />} />
-
                         <Route path="/TransferSystem" element={<TransferSystem />} />
-
                         <Route path="/TransferUpload" element={<TransferUpload />} />
 
                     </Routes>
