@@ -5,6 +5,7 @@ import {Piechart, Radarchart, SimulationData} from '../../models';
 import './Modelling.css'
 
 import AWS from 'aws-sdk';
+import {Alert} from "@aws-amplify/ui-react";
 
 process.env.AWS_SDK_LOAD_CONFIG = 1;
 const lambda = new AWS.Lambda({
@@ -15,6 +16,10 @@ const lambda = new AWS.Lambda({
   apiVersion: '2015-03-31',
 });
 
+const [showDialog, setShowDialog] = useState(false);
+const [showErrorDialog, setErrorShowDialog] = useState(false);
+
+
 async function callLambdaFunction(payload) {
   const params = {
     FunctionName: 'python-modeller',
@@ -22,15 +27,20 @@ async function callLambdaFunction(payload) {
   };
 
   try {
-    const response = await lambda.invoke(params).promise();
-    console.log('Data:', response);
-    // handle the response here
+    const response = await lambda.invoke(params).promise().then(() => {
+      // handle the response here
+      if (response.StatusCode === 200) {
+        setShowDialog(true);
+      }
+      else {
+        setErrorShowDialog(true);
+      }
+    })
   } catch (error) {
-    console.log('Error:', error);
     // handle the error here
+    setErrorShowDialog(true);
   }
 }
-
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -164,7 +174,6 @@ const Simulation = () => {
         queued: models.queued[index],
       }));
       setData(data);
-      console.log(models);
 
       const categoryPiechartData = await DataStore.query(Piechart, "category_piechart");
       const bandPiechartData = await DataStore.query(Piechart, "band_piechart");
@@ -179,7 +188,6 @@ const Simulation = () => {
           categoryResolvedDict[categoryList[i]] = categoryResolvedList[i];
         }
       }
-      console.log(categoryResolvedDict)
       setCategoryPieChartData(categoryResolvedDict)
 
       const bandList = bandPiechartData.category;
@@ -191,8 +199,7 @@ const Simulation = () => {
         for (let i = 0; i < bandList.length; i++) {
           bandResolvedDict[bandList[i]] = bandResolvedList[i];
         }
-      };
-      console.log(categoryResolvedDict)
+      }
       setBandPieChartData(bandResolvedDict)
 
       const bedroomList = bedroomPiechartData.category;
@@ -204,13 +211,10 @@ const Simulation = () => {
         for (let i = 0; i < bedroomList.length; i++) {
           bedroomResolvedDict[bedroomList[i]] = bedroomResolvedList[i];
         }
-      };
-      console.log(bedroomResolvedDict)
+      }
       setBedroomPieChartData(bedroomResolvedDict);
 
       const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart");
-      console.log(categoryRadarchart);
-
     }
     fetchData();
   }, []);
@@ -517,7 +521,6 @@ function PolicyForm() {
   };
 
   const handleSubmit = async (e) => {
-    console.log("Pressed")
     e.preventDefault();
     let outputObj = {
       "policy": {},
@@ -525,7 +528,6 @@ function PolicyForm() {
       "startDate": "",
       "endDate": ""
     };
-    console.log("e:", e);
 
     outputObj["policy"] = policyDefaults;
     outputObj["supply"] = supplyDefaults;
@@ -534,98 +536,118 @@ function PolicyForm() {
     outputObj["endDate"] = dateInputs[1];
 
     const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
-    console.log(sum_of_inputs)
 
     if (sum_of_inputs > 1) {
       // TODO: Add some sort of dialog to alert user that policy should be less than 100%
     } else {
-      callLambdaFunction(outputObj);
+      await callLambdaFunction(outputObj);
     }
   };
 
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <div className="form-column">
-        <h2>Application Policy Inputs</h2>
-        {Object.entries(policyDefaults).map(([key, value], index) => (
-          <div className="input-group" key={`policy-input-${key}-${index}`}>
-            <label htmlFor={`policy-input-${key}-${index}`}>{policyLabelNames[key]}</label>
-            <br />
+    <div>
+      <form onSubmit={handleSubmit} className="form-container">
+        <div className="form-column">
+          <h2>Application Policy Inputs</h2>
+          {Object.entries(policyDefaults).map(([key, value], index) => (
+            <div className="input-group" key={`policy-input-${key}-${index}`}>
+              <label htmlFor={`policy-input-${key}-${index}`}>{policyLabelNames[key]}</label>
+              <br />
+              <input
+                id={`policy-input-${key}-${index}`}
+                className="range-input"
+                type="range"
+                step="0.01"
+                max="1"
+                min="0"
+                name={`policy-input-${key}-${index}`}
+                value={policyInputs[index] || value}
+                onChange={(e) => handlePolicyInputChange(index, e.target.value)}
+                style={{ width: "100px" }}
+              />
+              <br />
+              <span className="range-value">{Math.round(policyInputs[index] * 100) || Math.round(value * 100)}%</span>
+            </div>
+          ))}
+          <div className="input-group" key="total-policy">
+            <label htmlFor="total-policy">Total Al1</label>
+            <br/>
             <input
-              id={`policy-input-${key}-${index}`}
-              className="range-input"
+              disabled="true"
+              className="input-group"
               type="range"
-              step="0.01"
               max="1"
               min="0"
-              name={`policy-input-${key}-${index}`}
-              value={policyInputs[index] || value}
-              onChange={(e) => handlePolicyInputChange(index, e.target.value)}
+              step={0.01}
+              name="total-policy"
+              value={policyInputs.reduce((a, b) => a + b, 0)}
               style={{ width: "100px" }}
-            />
-            <br />
-            <span className="range-value">{Math.round(policyInputs[index] * 100) || Math.round(value * 100)}%</span>
+             />
+            <br/>
+              <span className="range-value">{Math.round(policyInputs.reduce((a, b) => a + b, 0) * 100)}%</span>
           </div>
-        ))}
-        <div className="input-group" key="total-policy">
-          <label htmlFor="total-policy">Total Al1</label>
-          <br/>
-          <input
-            disabled="true"
-            className="input-group"
-            type="range"
-            max="1"
-            min="0"
-            step={0.01}
-            name="total-policy"
-            value={policyInputs.reduce((a, b) => a + b, 0)}
-            style={{ width: "100px" }}
-           />
-          <br/>
-            <span className="range-value">{Math.round(policyInputs.reduce((a, b) => a + b, 0) * 100)}%</span>
         </div>
-      </div>
 
-      <div className="form-column">
-        <h2>Property Supply Inputs</h2>
-        {Object.entries(supplyDefaults).map(([key, value], index) => (
-          <div className="input-group" key={`supply-input-${key}-${index}`}>
-            <label htmlFor={`supply-input-${key}-${index}`}>{supplyLabelNames[key]}</label>
-            <input
-              id={`supply-input-${key}-${index}`}
-              className="number-input"
-              type="number"
-              step="1"
-              name={`supply-input-${key}-${index}`}
-              value={supplyInputs[key] || value}
-              onChange={(e) => handleSupplyInputChange(key, e.target.value)}
-            />
-          </div>
-        ))}
-      </div>
+        <div className="form-column">
+          <h2>Property Supply Inputs</h2>
+          {Object.entries(supplyDefaults).map(([key, value], index) => (
+            <div className="input-group" key={`supply-input-${key}-${index}`}>
+              <label htmlFor={`supply-input-${key}-${index}`}>{supplyLabelNames[key]}</label>
+              <input
+                id={`supply-input-${key}-${index}`}
+                className="number-input"
+                type="number"
+                step="1"
+                name={`supply-input-${key}-${index}`}
+                value={supplyInputs[key] || value}
+                onChange={(e) => handleSupplyInputChange(key, e.target.value)}
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="form-column">
-        <h2>Date Inputs</h2>
-        {Object.entries(dateDefaults).map(([key, value], index) => (
-          <div className="input-group" key={`date-input-${key}-${index}`}>
-            <label htmlFor={`date-input-${key}-${index}`}>{dateLabelNames[key]}</label>
-            <input
-              id={`date-input-${key}-${index}`}
-              className="date-input"
-              type="date"
-              name={`date-input-${key}-${index}`}
-              value={dateInputs[index] || value}
-              onChange={(e) => handleDateInputChange(index, e.target.value)}
-            />
-          </div>
-        ))}
-      </div>
+        <div className="form-column">
+          <h2>Date Inputs</h2>
+          {Object.entries(dateDefaults).map(([key, value], index) => (
+            <div className="input-group" key={`date-input-${key}-${index}`}>
+              <label htmlFor={`date-input-${key}-${index}`}>{dateLabelNames[key]}</label>
+              <input
+                id={`date-input-${key}-${index}`}
+                className="date-input"
+                type="date"
+                name={`date-input-${key}-${index}`}
+                value={dateInputs[index] || value}
+                onChange={(e) => handleDateInputChange(index, e.target.value)}
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="submit-container">
-        <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
-      </div>
-    </form>
+        <div className="submit-container">
+          <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
+        </div>
+      </form>
+      {showDialog && (
+        <div>
+          <Alert
+            variation="success"
+            heading="Policy Updated"
+          >
+            The policy has been uploaded.
+          </Alert>
+        </div>)}
+      {showErrorDialog && (
+        <div>
+          <Alert
+            variation="error"
+            heading="Error when submitting"
+          >
+            An error occurred when trying to submit the updated policy.
+          </Alert>
+        </div>
+      )}
+    </div>
   );
 }
 
