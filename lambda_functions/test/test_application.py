@@ -151,12 +151,20 @@ class TestApplication(TestCase):
         assert Application.findHistoricalCombinationAverage(historical_analysis[0]) == year_average
 
     def test_generate_applications_based_on_average(self):
+        # Set start date for the test as 1st Jan 2021
         startDate = datetime.datetime(year=2021, month=1, day=1)
+        # Set the end date for the test as today
         endDate = datetime.datetime.today()
+        # Add two additional applications on top of the two in the setUp function
         self.testApplication3 = Application("Test-3", "Band 2", "Decants", 1, "2022-03-25 00:00:00")
         self.testApplication4 = Application("Test-4", "Band 3", "Decants", 1, "2021-03-25 00:00:00")
+        # Get the historical analysis (yearly and monthly analysis)
+        # from the max date of the applications to the start date provided
         historical_analysis = Application.historicalAnalysis(startDate)
-        Application.generateApplicationsBasedOnAverage(historical_analysis[0], startDate, endDate)
+        # Use the yearly analysis to generate additional applications between the start and end date
+        yearly_average = historical_analysis[0]
+        Application.generateApplicationsBasedOnAverage(yearly_average, startDate, endDate)
+        # Check the new generated applications have been added to the instances list
         assert not Application.getNumApplications() == len(self.list_of_applications)
 
     def test_get_all_application_information(self):
