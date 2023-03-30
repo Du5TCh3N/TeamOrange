@@ -9,6 +9,8 @@ from src.property import Property
 import boto3
 import json
 
+dynamoDBTableName = "-6digekhjd5ekhhylpdrggkmczm-prod"
+
 
 def resolveApplication(currentDate):
     availableProperties = Property.getAllProperties()
@@ -32,7 +34,8 @@ def saveToDynamoDB(data):
     from datetime import datetime
 
     dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
-    table = dynamodb.Table('SimulationData-l6ud5eblpjg5rlgutkig3e5hia-dev')
+    tableName = "SimulationData" + dynamoDBTableName
+    table = dynamodb.Table(tableName)
 
     # Create a new item with the entire list as attributes
     item = {
@@ -62,7 +65,8 @@ def savePieChartToDynamoDB(category_stat, band_stat, bedroom_stat):
     bedroom_value_list = list(bedroom_stat.values())
 
     dynamodb = boto3.resource("dynamodb")
-    table = dynamodb.Table("Piechart-l6ud5eblpjg5rlgutkig3e5hia-dev")
+    tableName = "Piechart" + dynamoDBTableName
+    table = dynamodb.Table(tableName)
     table.put_item(
         Item={
             'id': 'category_piechart',
@@ -107,7 +111,8 @@ def saveKeyStatToDynamoDB(data):
     json_str = json.dumps(data)
 
     dynamodb = boto3.resource("dynamodb")
-    table = dynamodb.Table("KeyStats-l6ud5eblpjg5rlgutkig3e5hia-dev")
+    tableName = "KeyStats" + dynamoDBTableName
+    table = dynamodb.Table(tableName)
     table.put_item(
         Item={
             'id': 'key_stat',
@@ -184,7 +189,8 @@ def calculateBarcharts():
     from datetime import datetime
     
     dynamodb = boto3.resource("dynamodb")
-    table = dynamodb.Table("Barchart-l6ud5eblpjg5rlgutkig3e5hia-dev")
+    tableName = "Barchart" + dynamoDBTableName
+    table = dynamodb.Table(tableName)
 
     bandBarchartData = Application.findDistributionOfBandInApplicationBarchart()
     bandBarchartName = list(bandBarchartData.keys())
