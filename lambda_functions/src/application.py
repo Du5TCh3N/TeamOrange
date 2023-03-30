@@ -5,10 +5,15 @@ import random
 
 
 class Application:
+    # Split and store applications based on their status
+    # instances are Application objects that still need to be resolved by the simulator
+    # historical are Application objects that were used for analysis, but have no part to do in the simulation
+    # resolved are Application objects that have be resolved by the simulator
     __instances = []
     __historical = []
     __resolved = []
 
+    # Set initial values
     def __init__(self, ID, Band, Category, BedroomSize, StartDate):
         self.ApplicationID = ID
         self.Band = Band

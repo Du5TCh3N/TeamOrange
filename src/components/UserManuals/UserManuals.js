@@ -55,14 +55,20 @@ const UserManuals = () => {
                     Click here to show how to use it!
                 </Card>
             </Col>
-    
-
+            
+            <Col span={24}>
+                <Card title="Simulation" bordered={false} onClick={showModal4}>
+                    Foreast platform module is used to predict the percentage of allocation number based on the previous data over 5 years for our users based on their situation for a referable service to Kingston Councilse.<br/>
+                    <br/>
+                    Click here to show how to use it!
+                </Card>
+            </Col>
         </Row>
         
-        <Modal title="Library" open={isModal1Open} footer={null} onCancel={cancel}  >
-        <p>Step1: open left hand side manu and click button "History Data"</p>
-        <p>Step2: click button "Allocation Policy" to double check the information of Royal Borough of Kingston upon Thames Housing Allocation Scheme 2017 </p>
-        <p>Step3: click button "Historical Data" to check the historical data over 2016 - 2019 </p>
+        <Modal title="Data Visualisation user m" open={isModal1Open} footer={null} onCancel={cancel}  >
+        <p>Step1: open left hand side manu button "HistoryData"</p>
+        <p>Step2: click "Allocation Policy" to double check the information of Royal Borough of Kingston upon Thames Housing Allocation Scheme 2017 </p>
+        <p>Step3: click "Historical Data" to check the historical data over 2014 - 2022 </p>
       </Modal>
 
       <Modal title="Model allocation" open={isModal2Open} footer={null} onCancel={cancel}  >
@@ -77,7 +83,6 @@ const UserManuals = () => {
         <p>Step2: click "Upload CSV file" to upload a CSV file</p>
         <p>Step3: click "Transfer Data" to have a view about a solution about CSV file </p>
       </Modal>     
-
         </>
     )
 }

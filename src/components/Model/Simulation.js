@@ -6,6 +6,7 @@ import {Piechart, Radarchart, SimulationData} from '../../models';
 import './Simulation.css'
 
 import AWS from 'aws-sdk';
+import {Alert} from "@aws-amplify/ui-react";
 
 process.env.AWS_SDK_LOAD_CONFIG = 1;
 const lambda = new AWS.Lambda({
@@ -16,20 +17,6 @@ const lambda = new AWS.Lambda({
   apiVersion: '2015-03-31',
 });
 
-function callLambdaFunction(payload) {
-  const params = {
-    FunctionName: 'python-modeller',
-    Payload: JSON.stringify(payload)
-  };
-
-  lambda.invoke(params, function(err, data){
-    if (err) {
-      console.log("Error: ", err)
-    } else {
-      console.log("Data: ", data)
-    }
-  })
-}
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -93,7 +80,7 @@ const Simulation = () => {
       value: [50, 2, 2, 2, 5, 1, 75, 20, 3, 4],
     },
     {
-      name: 'Homless',
+      name: 'Homeless',
       max: 100,
     },
     {
@@ -153,64 +140,59 @@ const Simulation = () => {
     'Bedroom 4': 1
   });
 
-  useEffect(() => {
-    async function fetchData() {
-      const models = await DataStore.query(SimulationData, "LambdaSimulation");
-      const data = models.date.map((date, index) => ({
-        date,
-        resolved: models.resolved[index],
-        new: models.new[index],
-        queued: models.queued[index],
-      }));
-      setData(data);
-      console.log(models);
+  async function fetchData() {
+    const models = await DataStore.query(SimulationData, "LambdaSimulation");
+    const data = models.date.map((date, index) => ({
+      date,
+      resolved: models.resolved[index],
+      new: models.new[index],
+      queued: models.queued[index],
+    }));
+    setData(data);
 
-      const categoryPiechartData = await DataStore.query(Piechart, "category_piechart");
-      const bandPiechartData = await DataStore.query(Piechart, "band_piechart");
-      const bedroomPiechartData = await DataStore.query(Piechart, "bedroom_piechart");
+    const categoryPiechartData = await DataStore.query(Piechart, "category_piechart");
+    const bandPiechartData = await DataStore.query(Piechart, "band_piechart");
+    const bedroomPiechartData = await DataStore.query(Piechart, "bedroom_piechart");
 
-      const categoryList = categoryPiechartData.category;
-      const categoryResolvedList = categoryPiechartData.resolved;
-      // Create a dictionary mapping each category to its corresponding resolved value
-      const categoryResolvedDict = {};
-      if (categoryList && categoryResolvedList && categoryList.length === categoryResolvedList.length) {
-        for (let i = 0; i < categoryList.length; i++) {
-          categoryResolvedDict[categoryList[i]] = categoryResolvedList[i];
-        }
+    const categoryList = categoryPiechartData.category;
+    const categoryResolvedList = categoryPiechartData.resolved;
+    // Create a dictionary mapping each category to its corresponding resolved value
+    const categoryResolvedDict = {};
+    if (categoryList && categoryResolvedList && categoryList.length === categoryResolvedList.length) {
+      for (let i = 0; i < categoryList.length; i++) {
+        categoryResolvedDict[categoryList[i]] = categoryResolvedList[i];
       }
-      console.log(categoryResolvedDict)
-      setCategoryPieChartData(categoryResolvedDict)
-
-      const bandList = bandPiechartData.category;
-      const bandResolvedList = bandPiechartData.resolved;
-
-      // Create a dictionary mapping each category to its corresponding resolved value
-      const bandResolvedDict = {};
-      if (bandList && bandResolvedList && bandList.length === bandResolvedList.length) {
-        for (let i = 0; i < bandList.length; i++) {
-          bandResolvedDict[bandList[i]] = bandResolvedList[i];
-        }
-      };
-      console.log(categoryResolvedDict)
-      setBandPieChartData(bandResolvedDict)
-
-      const bedroomList = bedroomPiechartData.category;
-      const bedroomResolvedList = bedroomPiechartData.resolved;
-
-      // Create a dictionary mapping each category to its corresponding resolved value
-      const bedroomResolvedDict = {};
-      if (bedroomList && bedroomResolvedList && bedroomList.length === bedroomResolvedList.length) {
-        for (let i = 0; i < bedroomList.length; i++) {
-          bedroomResolvedDict[bedroomList[i]] = bedroomResolvedList[i];
-        }
-      };
-      console.log(bedroomResolvedDict)
-      setBedroomPieChartData(bedroomResolvedDict);
-
-      const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart");
-      console.log(categoryRadarchart);
-
     }
+    setCategoryPieChartData(categoryResolvedDict)
+
+    const bandList = bandPiechartData.category;
+    const bandResolvedList = bandPiechartData.resolved;
+
+    // Create a dictionary mapping each category to its corresponding resolved value
+    const bandResolvedDict = {};
+    if (bandList && bandResolvedList && bandList.length === bandResolvedList.length) {
+      for (let i = 0; i < bandList.length; i++) {
+        bandResolvedDict[bandList[i]] = bandResolvedList[i];
+      }
+    }
+    setBandPieChartData(bandResolvedDict)
+
+    const bedroomList = bedroomPiechartData.category;
+    const bedroomResolvedList = bedroomPiechartData.resolved;
+
+    // Create a dictionary mapping each category to its corresponding resolved value
+    const bedroomResolvedDict = {};
+    if (bedroomList && bedroomResolvedList && bedroomList.length === bedroomResolvedList.length) {
+      for (let i = 0; i < bedroomList.length; i++) {
+        bedroomResolvedDict[bedroomList[i]] = bedroomResolvedList[i];
+      }
+    }
+    setBedroomPieChartData(bedroomResolvedDict);
+
+    const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart");
+  }
+
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -388,7 +370,7 @@ const Simulation = () => {
 
   const bandPieChart = {
     title: {
-      text: 'Band priority',
+      text: 'Band percentage',
       // subtext: 'Fake Data',
       left: 'center'
     },
@@ -461,138 +443,126 @@ const Simulation = () => {
       }
     }
   };
-  return (
 
-    <view>
-    <Col span={24}>
-    <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
-        
-      <div style={{ display: 'block', width: '100%' }}>
-        <ReactEcharts option={simulationChart} />
-      </div>
-      </Card>
-    </Col>    
-    <Row gutter={[24,24]}>
-    <Col span={24}>
-    <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
-      <div style={{ display: 'inline-block', width: '25%' }}>
-        <ReactEcharts option={radarChart} />
-      </div>
-      {/* </Card>
-    </Col>
-    </Row>   */}
-
-    {/* <Row gutter={[24,24]}>
-    <Col span={24}>
-    <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}> */}
-      <div style={{ display: 'inline-block', width: '25%' }}>
-        <ReactEcharts option={categoryPieChart} />
-      </div>
-
-      <div style={{ display: 'inline-block', width: '25%' }}>
-        <ReactEcharts option={bandPieChart} />
-      </div>
-
-      <div style={{ display: 'inline-block', width: '25%' }}>
-        <ReactEcharts option={bedroomPieChart} />
-      </div>
-      </Card>
-    </Col>
-    </Row>  
-      <PolicyForm />
-    </view>
-
-  );
-}
-
-
-
-function PolicyForm() {
-  const [policyInputs, setPolicyInputs] = useState(Object.entries(policyDefaults).map(([_, value]) => value));
-  const [supplyInputs, setSupplyInputs] = useState(Object.entries(supplyDefaults).map(([_, value]) => value));
-  const [dateInputs, setDateInputs] = useState(Object.entries(dateDefaults).map(([_, value]) => value));
-
-  const handlePolicyInputChange = (index, value) => {
-    const newPolicyInputs = [...policyInputs];
-    newPolicyInputs[index] = parseFloat(value);
-    setPolicyInputs(newPolicyInputs);
-    const key = Object.keys(policyDefaults)[index];
-    policyDefaults[key] = newPolicyInputs[index];
-  };
-
-  const handleSupplyInputChange = (key, value) => {
-    const newSupplyInputs = { ...supplyInputs };
-    newSupplyInputs[key] = parseInt(value);
-    setSupplyInputs(newSupplyInputs);
-    supplyDefaults[key] = newSupplyInputs[key];
-  };
-
-
-  const handleDateInputChange = (index, value) => {
-    const newDateInputs = [...dateInputs];
-    newDateInputs[index] = value;
-    setDateInputs(newDateInputs);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    let outputObj = {
-      "policy": {},
-      "supply": {},
-      "startDate": "",
-      "endDate": ""
-    };
-
-    outputObj["policy"] = policyDefaults;
-    outputObj["supply"] = supplyDefaults;
-
-    outputObj["startDate"] = dateInputs[0];
-    outputObj["endDate"] = dateInputs[1];
-
-    const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
-
-    if (sum_of_inputs >= 1) {
-      // TODO: Add some sort of dialog to alert user that policy should be less than 100%
-    } else {
-      callLambdaFunction(outputObj);
+  function PolicyForm() {
+    const [showDialog, setShowDialog] = useState(false);
+    const [showErrorDialog, setErrorShowDialog] = useState(false);
+  
+    async function callLambdaFunction(payload) {
+      const params = {
+        FunctionName: 'python-modeller',
+        Payload: JSON.stringify(payload)
+      };
+  
+      try {
+        const response = await lambda.invoke(params).promise().then((result) => {
+          // handle the response here
+          console.log(result);
+          if (result["StatusCode"] === 200) {
+            setShowDialog(true);
+          }
+          else {
+            setErrorShowDialog(true);
+          }
+        })
+      } catch (error) {
+        // handle the error here
+        setErrorShowDialog(true);
+        console.log(error);
+      }
     }
-  };
-
-
-  return (
-    <Row gutter={[16,16]}>
-
-        <Col span={24}>
-            <Card title="Policy changes to simulate the allocation " bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
-
-
+    const [policyInputs, setPolicyInputs] = useState(Object.entries(policyDefaults).map(([_, value]) => value));
+    const [supplyInputs, setSupplyInputs] = useState(Object.entries(supplyDefaults).map(([_, value]) => value));
+    const [dateInputs, setDateInputs] = useState(Object.entries(dateDefaults).map(([_, value]) => value));
+  
+    const handlePolicyInputChange = (index, value) => {
+      const newPolicyInputs = [...policyInputs];
+      newPolicyInputs[index] = parseFloat(value);
+      setPolicyInputs(newPolicyInputs);
+      const key = Object.keys(policyDefaults)[index];
+      policyDefaults[key] = newPolicyInputs[index];
+    };
+  
+    const handleSupplyInputChange = (key, value) => {
+      const newSupplyInputs = { ...supplyInputs };
+      newSupplyInputs[key] = parseInt(value);
+      setSupplyInputs(newSupplyInputs);
+      supplyDefaults[key] = newSupplyInputs[key];
+    };
+  
+  
+    const handleDateInputChange = (index, value) => {
+      const newDateInputs = [...dateInputs];
+      newDateInputs[index] = value;
+      setDateInputs(newDateInputs);
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      await DataStore.clear();
+      let outputObj = {
+        "policy": {},
+        "supply": {},
+        "startDate": "",
+        "endDate": ""
+      };
+  
+      outputObj["policy"] = policyDefaults;
+      outputObj["supply"] = supplyDefaults;
+  
+      outputObj["startDate"] = dateInputs[0];
+      outputObj["endDate"] = dateInputs[1];
+  
+      const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
+  
+      if (sum_of_inputs > 1) {
+        // TODO: Add some sort of dialog to alert user that policy should be less than 100%
+      } else {
+        await callLambdaFunction(outputObj);
+      }
+      fetchData();
+    };
+  
+  
+    return (
+      <div>
+        {/* <Row gutter={[16,16]}>
+            <Col span={24}>
+              <Card title="Policy changes to simulate the allocation "
+                    bordered={false}
+                    style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }}
+                    headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }}
+                    bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+              </Card>
+            </Col>
+        </Row> */}
         <form onSubmit={handleSubmit} className="form-container">
-        <div className="form-column">
+          <div className="form-column">
             <h2>Application Policy Inputs</h2>
             {Object.entries(policyDefaults).map(([key, value], index) => (
-            <div className="input-group" key={`policy-input-${key}-${index}`}>
+              <div className="input-group" key={`policy-input-${key}-${index}`}>
                 <label htmlFor={`policy-input-${key}-${index}`}>{policyLabelNames[key]}</label>
                 <br />
                 <input
-                id={`policy-input-${key}-${index}`}
-                className="range-input"
-                type="range"
-                step="0.01"
-                max="1"
-                min="0"
-                name={`policy-input-${key}-${index}`}
-                value={policyInputs[index] || value}
-                onChange={(e) => handlePolicyInputChange(index, e.target.value)}
-                style={{ width: "100px" }}
+                  id={`policy-input-${key}-${index}`}
+                  className="range-input"
+                  type="range"
+                  step="0.01"
+                  max="1"
+                  min="0"
+                  name={`policy-input-${key}-${index}`}
+                  value={policyInputs[index] || value}
+                  onChange={(e) => handlePolicyInputChange(index, e.target.value)}
+                  style={{ width: "100px" }}
                 />
                 <br />
-                <span className="range-value">{policyInputs[index] * 100 || value * 100}%</span>
-            </div>
+                <span className="range-value">{Math.round(policyInputs[index] * 100) || Math.round(value * 100)}%</span>
+              </div>
             ))}
             <div className="input-group" key="total-policy">
-            <label htmlFor="total-policy">Total Allocation</label>
-            <br/>
-            <input
+              <label htmlFor="total-policy">Total Al1</label>
+              <br/>
+              <input
                 disabled="true"
                 className="input-group"
                 type="range"
@@ -602,54 +572,116 @@ function PolicyForm() {
                 name="total-policy"
                 value={policyInputs.reduce((a, b) => a + b, 0)}
                 style={{ width: "100px" }}
-            />
-            <br/>
-                <span className="range-value">{policyInputs.reduce((a, b) => a + b, 0) * 100}%</span>
+               />
+              <br/>
+                <span className="range-value">{Math.round(policyInputs.reduce((a, b) => a + b, 0) * 100)}%</span>
             </div>
-        </div>
-
-        <div className="form-column">
+          </div>
+  
+          <div className="form-column">
             <h2>Property Supply Inputs</h2>
             {Object.entries(supplyDefaults).map(([key, value], index) => (
-            <div className="input-group" key={`supply-input-${key}-${index}`}>
+              <div className="input-group" key={`supply-input-${key}-${index}`}>
                 <label htmlFor={`supply-input-${key}-${index}`}>{supplyLabelNames[key]}</label>
                 <input
-                id={`supply-input-${key}-${index}`}
-                className="number-input"
-                type="number"
-                step="1"
-                name={`supply-input-${key}-${index}`}
-                value={supplyInputs[key] || value}
-                onChange={(e) => handleSupplyInputChange(key, e.target.value)}
+                  id={`supply-input-${key}-${index}`}
+                  className="number-input"
+                  type="number"
+                  step="1"
+                  name={`supply-input-${key}-${index}`}
+                  value={supplyInputs[key] || value}
+                  onChange={(e) => handleSupplyInputChange(key, e.target.value)}
                 />
-            </div>
+              </div>
             ))}
-        </div>
-
-        <div className="form-column">
-            <h2>Date Inputs</h2>
-            {Object.entries(dateDefaults).map(([key, value], index) => (
-            <div className="input-group" key={`date-input-${key}-${index}`}>
-                <label htmlFor={`date-input-${key}-${index}`}>{dateLabelNames[key]}</label>
-                <input
-                id={`date-input-${key}-${index}`}
-                className="date-input"
-                type="date"
-                name={`date-input-${key}-${index}`}
-                value={dateInputs[index] || value}
-                onChange={(e) => handleDateInputChange(index, e.target.value)}
-                />
+          </div>
+  
+          <div className="form-column">
+              <h2>Date Inputs</h2>
+              {Object.entries(dateDefaults).map(([key, value], index) => (
+              <div className="input-group" key={`date-input-${key}-${index}`}>
+                  <label htmlFor={`date-input-${key}-${index}`}>{dateLabelNames[key]}</label>
+                  <input
+                  id={`date-input-${key}-${index}`}
+                  className="date-input"
+                  type="date"
+                  name={`date-input-${key}-${index}`}
+                  value={dateInputs[index] || value}
+                  onChange={(e) => handleDateInputChange(index, e.target.value)}
+                  />
+              </div>
+              ))}
+          </div>
+  
+          <div className="submit-container">
+              <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
+          </div>
+          {showDialog && (
+            <div>
+              <Alert
+                variation="success"
+                heading="Policy Updated"
+              >
+                The policy has been uploaded.
+              </Alert>
             </div>
-            ))}
-        </div>
-
-        <div className="submit-container">
-            <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
-        </div>
+          )}
+          {showErrorDialog && (
+            <div>
+              <Alert
+                variation="error"
+                heading="Error when submitting"
+              >
+                An error occurred when trying to submit the updated policy.
+              </Alert>
+            </div>
+          )}
         </form>
+      </div>
+    );
+  }
+
+  return (
+
+    <view>
+    <Col span={24}>
+    <Card title="Simulation Over Time" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+        
+      <div style={{ display: 'block', width: '100%' }}>
+        <ReactEcharts option={simulationChart} />
+      </div>
+      </Card>
+    </Col>    
+    <Row gutter={[24,24]}>
+    <Col span={24}>
+    <Card title="Statistics of Simulation" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+      {/* <div style={{ display: 'inline-block', width: '25%' }}>
+        <ReactEcharts option={radarChart} />
+      </div> */}
+      <div style={{ display: 'inline-block', width: '33%' }}>
+        <ReactEcharts option={categoryPieChart} />
+      </div>
+
+      <div style={{ display: 'inline-block', width: '33%' }}>
+        <ReactEcharts option={bandPieChart} />
+      </div>
+
+      <div style={{ display: 'inline-block', width: '33%' }}>
+        <ReactEcharts option={bedroomPieChart} />
+      </div>
+      </Card>
+      <Card title="Policy changes to simulate the allocation "
+                    bordered={false}
+                    style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }}
+                    headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }}
+                    bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+      <PolicyForm />
     </Card>
-        </Col>
+    </Col>
+    
     </Row>  
+      
+    </view>
 
   );
 }

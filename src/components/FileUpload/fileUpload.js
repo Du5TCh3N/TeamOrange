@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ReactEcharts from 'echarts-for-react';
 import AWS from 'aws-sdk';
+import {Card} from "@aws-amplify/ui-react";
 
 const FileUpload = () => {
   const [uploading, setUploading] = useState(false);
@@ -85,8 +85,11 @@ const FileUpload = () => {
 
   return (
     <div>
+      <div>
+        <Card></Card>
+      </div>
       <input type="file" accept=".csv" onChange={handleFileSelect} />
-      <button onClick={(event) => handleUpload(event.target.previousSibling.files[0])}>
+      <button className="submit-button" type="submit" onClick={(event) => handleUpload(event.target.previousSibling.files[0])}>
         {uploading ? 'Uploading...' : 'Upload'}
       </button>
     </div>
