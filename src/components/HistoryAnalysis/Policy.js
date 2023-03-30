@@ -16,7 +16,7 @@ const Policy = () => {
             <br></br>
             <Col span={24}>
                 <Card title="How the Housing Allocations Scheme was developed" bordered={false}style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }}>
-                The Housing Allocation <p>The Housing Allocation</p> Scheme was approved by the Housing Sub Committee 13 September 2016 and will be implemented from June 2017 following the necessary work to collect information on applicant’s needs, and to re-programme the Council’s computerised allocations system. The final allocations scheme was ratified by Housing Sub Committee on 8 March 2017
+                The Housing Allocation Scheme was approved by the Housing Sub Committee 13 September 2016 and will be implemented from June 2017 following the necessary work to collect information on applicant’s needs, and to re-programme the Council’s computerised allocations system. The final allocations scheme was ratified by Housing Sub Committee on 8 March 2017
                 </Card>
             </Col>
             <Col span={24}>
