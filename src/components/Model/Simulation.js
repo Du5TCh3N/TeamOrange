@@ -657,18 +657,18 @@ const Simulation = () => {
     <Row gutter={[24,24]}>
     <Col span={24}>
     <Card title="Statistics of Simulation" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
-      <div style={{ display: 'inline-block', width: '25%' }}>
+      {/* <div style={{ display: 'inline-block', width: '25%' }}>
         <ReactEcharts option={radarChart} />
-      </div>
-      <div style={{ display: 'inline-block', width: '25%' }}>
+      </div> */}
+      <div style={{ display: 'inline-block', width: '33%' }}>
         <ReactEcharts option={categoryPieChart} />
       </div>
 
-      <div style={{ display: 'inline-block', width: '25%' }}>
+      <div style={{ display: 'inline-block', width: '33%' }}>
         <ReactEcharts option={bandPieChart} />
       </div>
 
-      <div style={{ display: 'inline-block', width: '25%' }}>
+      <div style={{ display: 'inline-block', width: '33%' }}>
         <ReactEcharts option={bedroomPieChart} />
       </div>
       </Card>
