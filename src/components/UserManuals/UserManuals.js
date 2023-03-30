@@ -34,7 +34,7 @@ const UserManuals = () => {
      
             <Col  span={24}>
                 <Card  title="Library" bordered={false} onClick={showModal1} >
-                     Library module is used to illustrate information about histrical policy and allocation data percentage between 2016-2019 to give a better understanding for social housing project for an high-effective service to Kingston Councils. <br/>
+                     The Library module is used to provide information that may help with the allocation policy adjustment process, by showing the historical policy and allocation data percentage between 2016 to 2019.  <br/>
                      <br/>
                      Click here to show how to use it!
                 </Card>
@@ -42,7 +42,7 @@ const UserManuals = () => {
 
             <Col span={24}>
                 <Card title="Model allocation" bordered={false} onClick={showModal2}>
-                    Model allocation module is used to foucs on simulating the policy to generate a visualisation chart based on the policy algorithm to illustrate better views for analysing policy for a predictived service to Kingston Councils. <br/>
+                    The Model Allocation module is used to simulate the allocation process to generate visualisation of how the policy performs, giving better insights into analysing the alloction policy. <br/>
                     <br/>
                     Click here to show how to use it!
                 </Card>
@@ -50,19 +50,19 @@ const UserManuals = () => {
 
             <Col span={24}>
                 <Card title="Save Cost" bordered={false} onClick={showModal3}>
-                    Transfer System module is used to help occupied users to swap their alllocated room based on their satisfied space and stock allocated and save cost for our users based on their situation for a cost-saving service to Kingston Councilse. <br/>
+                    The Transfer module is used to help the council identify how much money can be saved per year by swapping users from underoccupied homes to ones that would fit the users' need. <br/>
                     <br/>
                     Click here to show how to use it!
                 </Card>
             </Col>
             
-            <Col span={24}>
+            {/* <Col span={24}>
                 <Card title="Simulation" bordered={false} onClick={showModal4}>
                     Foreast platform module is used to predict the percentage of allocation number based on the previous data over 5 years for our users based on their situation for a referable service to Kingston Councilse.<br/>
                     <br/>
                     Click here to show how to use it!
                 </Card>
-            </Col>
+            </Col> */}
         </Row>
         
         <Modal title="Data Visualisation user m" open={isModal1Open} footer={null} onCancel={cancel}  >
