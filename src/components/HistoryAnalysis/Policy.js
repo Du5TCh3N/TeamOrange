@@ -11,8 +11,6 @@ const Policy = () => {
             <Col span={24}>
                 <Card title="Royal Borough of Kingston upon Thames Housing Allocation Scheme 2017 " bordered={false}style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }}>
                 This document sets out the Royal Borough of Kingston upon Thames Housing Allocations Scheme. The Local Authority is required by the Housing Act 1996 (as amended) to have an allocation scheme for determining priorities and for defining the procedures to be followed in allocating housing accommodation.
-
-
                 </Card>
             </Col>
             <br></br>
@@ -23,7 +21,6 @@ const Policy = () => {
             </Col>
             <Col span={24}>
                 <Card title="Aims and Objectives" bordered={false}style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(230,255,251,)', border: 0 }}>
-
                 To meet the Council's statutory duties in allocating Council housing and making nominations to housing associations and other Councils, the Housing Allocations Scheme will:
                 Meet local housing need through providing access to affordable housing based on a full assessment of individual circumstances and a fair and transparent system for deciding who gets priority
                 Provide a simple system that is easy to understand and which customers recognise as fair.
@@ -51,7 +48,6 @@ const Policy = () => {
                 </Card>
             </Col>
         </Row>
-        
         </>
     )
 

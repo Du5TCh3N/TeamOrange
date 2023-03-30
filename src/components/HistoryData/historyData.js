@@ -29,21 +29,22 @@ const HistoryData = () => {
           }
         ]
       };
+
       const option2 = {
         series: [
           {
             type: 'pie',
             data: [
               {
-                value: 33,
+                value: 141,
                 name: 'Direct Visit'
               },
               {
-                value: 234,
+                value: 197,
                 name: 'Union Ad'
               },
               {
-                value: 148,
+                value: 346,
                 name: 'Search Engine'
               },
               {
@@ -53,7 +54,8 @@ const HistoryData = () => {
             ]
           }
         ]
-      };    
+      };  
+
       const option3 = {
         series: [
           {
@@ -79,6 +81,7 @@ const HistoryData = () => {
           }
         ]
       };    
+
       const option4 = {
         series: [
           {
@@ -104,6 +107,7 @@ const HistoryData = () => {
           }
         ]
       };    
+
       const option5 = {
         series: [
           {
@@ -129,6 +133,7 @@ const HistoryData = () => {
           }
         ]
       };    
+
       const option6 = {
         series: [
           {
@@ -155,9 +160,6 @@ const HistoryData = () => {
         ]
       };
 
-
-
-
     return (
         <> <Row gutter={[16,16]}>
 
@@ -168,7 +170,7 @@ const HistoryData = () => {
             </Col>
 
             <Col span={8}>
-                <Card title="DataData 2015" bordered={false}>
+                <Card title="Data 2015" bordered={false}>
                 <ReactEcharts option={option2}/>  
                 </Card>
             </Col>

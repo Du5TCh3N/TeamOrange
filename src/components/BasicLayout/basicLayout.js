@@ -14,8 +14,6 @@ import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import UserManuals from '../UserManuals/UserManuals';
-import ModelAllocationManuals from '../UserManuals/ModelAllocationManuals';
-import TransferManuals from '../UserManuals/TransferManuals';
 
 import FileUpload from '../FileUpload/fileUpload';
 import Home from '../Home/home';
@@ -99,9 +97,9 @@ const BasicLayout = () => {
                             { <Link to='/TransferUpload'> Upload CSV file</Link> }
                         </Menu.Item>
 
-                        <Menu.Item>
+                        {/* <Menu.Item>
                             {<Link to='/TransferSystem'>Transfer Result</Link>}
-                        </Menu.Item>
+                        </Menu.Item> */}
 
                         <Menu.Item>
                             { <Link to='/TransferData'> Transfer Data</Link> }
@@ -115,16 +113,7 @@ const BasicLayout = () => {
                             <Link to='/UserManuals'>User Manual</Link>
                         </Menu.Item>
 
-                        <Menu.Item>
-                            {<Link to='/ModelAllocationManuals'>Model Allocation</Link>}
-                        </Menu.Item>
-
-                        <Menu.Item>
-                            {<Link to='/TransferManuals'>Transfer System</Link>}
-                        </Menu.Item>
                     </SubMenu>
-
-
 
                 </Menu>
             </Sider>
