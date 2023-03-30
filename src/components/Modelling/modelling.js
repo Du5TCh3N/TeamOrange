@@ -1,10 +1,34 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { View } from "@aws-amplify/ui-react";
-import { API } from "aws-amplify";
-import { DataStore } from "@aws-amplify/datastore";
-import { SimulationData, Piechart } from '../../models';
+import {DataStore} from "@aws-amplify/datastore";
+import {Piechart, Radarchart, SimulationData} from '../../models';
 import './Modelling.css'
+
+import AWS from 'aws-sdk';
+
+process.env.AWS_SDK_LOAD_CONFIG = 1;
+const lambda = new AWS.Lambda({
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY,
+  secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY,
+  // region: process.env.REACT_APP_AWS_REGION,
+  region: "eu-west-2",
+  apiVersion: '2015-03-31',
+});
+
+function callLambdaFunction(payload) {
+  const params = {
+    FunctionName: 'python-modeller',
+    Payload: JSON.stringify(payload)
+  };
+
+  lambda.invoke(params, function(err, data){
+    if (err) {
+      console.log("Error: ", err)
+    } else {
+      console.log("Data: ", data)
+    }
+  })
+}
 
 const policyDefaults = {
   "PanelMoves": 0.02,
@@ -58,7 +82,56 @@ const dateLabelNames = {
 
 const Modelling = () => {
   const [data, setData] = useState([]);
-  const [categoryRadarChartData, setCategoryRadarChartData] = useState([]);
+  const [categoryRadarChartData, setCategoryRadarChartData] = useState([
+    {
+      name: 'Applications',
+      value: [100, 7, 11, 3, 5, 1, 100, 39, 11, 16],
+    },
+    {
+      name: 'Resolved',
+      value: [50, 2, 2, 2, 5, 1, 75, 20, 3, 4],
+    },
+    {
+      name: 'Homless',
+      max: 100,
+    },
+    {
+      name: 'SocialServicesQuota',
+      max: 20,
+    },
+    {
+      name: 'Downsizer',
+      max: 20,
+    },
+    {
+      name: 'HomeScheme',
+      max: 20,
+    },
+    {
+      name: 'Decants',
+      max: 20,
+    },
+    {
+      name: 'PanelMoves',
+      max: 20,
+    },
+    {
+      name: 'FirstTimeApplicant',
+      max: 100,
+    },
+    {
+      name: 'Transfer',
+      max: 50,
+    },
+    {
+      name: 'TenantFinder',
+      max: 20,
+    },
+    {
+      name: 'Other',
+      max: 20,
+    },
+  ]);
   const [categoryPieChartData, setCategoryPieChartData] = useState({
     'Homeless': 3,
     'SocialServicesQuota': 2,
@@ -81,8 +154,15 @@ const Modelling = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const models = await DataStore.query(SimulationData);
-      setData(models);
+      const models = await DataStore.query(SimulationData, "LambdaSimulation");
+      const data = models.date.map((date, index) => ({
+        date,
+        resolved: models.resolved[index],
+        new: models.new[index],
+        queued: models.queued[index],
+      }));
+      setData(data);
+      console.log(models);
 
       const categoryPiechartData = await DataStore.query(Piechart, "category_piechart");
       const bandPiechartData = await DataStore.query(Piechart, "band_piechart");
@@ -97,6 +177,7 @@ const Modelling = () => {
           categoryResolvedDict[categoryList[i]] = categoryResolvedList[i];
         }
       }
+      console.log(categoryResolvedDict)
       setCategoryPieChartData(categoryResolvedDict)
 
       const bandList = bandPiechartData.category;
@@ -108,7 +189,8 @@ const Modelling = () => {
         for (let i = 0; i < bandList.length; i++) {
           bandResolvedDict[bandList[i]] = bandResolvedList[i];
         }
-      }
+      };
+      console.log(categoryResolvedDict)
       setBandPieChartData(bandResolvedDict)
 
       const bedroomList = bedroomPiechartData.category;
@@ -120,8 +202,12 @@ const Modelling = () => {
         for (let i = 0; i < bedroomList.length; i++) {
           bedroomResolvedDict[bedroomList[i]] = bedroomResolvedList[i];
         }
-      }
-      setBedroomPieChartData(bedroomResolvedDict)
+      };
+      console.log(bedroomResolvedDict)
+      setBedroomPieChartData(bedroomResolvedDict);
+
+      const categoryRadarchart = await DataStore.query(Radarchart, "CategoryComparisonRadarchart");
+      console.log(categoryRadarchart);
 
     }
     fetchData();
@@ -166,7 +252,7 @@ const Modelling = () => {
     dataZoom: {
       // id: 'dataZoomY',
       type: "slider",
-      start: 90
+      start: 0
     },
 
     series: [
@@ -212,8 +298,26 @@ const Modelling = () => {
         // data: [-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210,-120, -132, -101, -134, -190, -230, -210]
         data: data.map((item) => item.queued).flat()
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
+
+  const applications = categoryRadarChartData.find(
+    (data) => data.name === 'Applications'
+  );
+  const indicators = categoryRadarChartData.filter((data) =>
+    Object.prototype.hasOwnProperty.call(data, 'max')
+  );
+
+  indicators.forEach((indicator) => {
+    indicator.max = applications.value[indicators.indexOf(indicator)];
+  });
+
   const radarChart = {
     title: {
       text: 'Comparison of Applications to Resolved',
@@ -221,37 +325,27 @@ const Modelling = () => {
     },
     tooltip: {},
     legend: {
-      data: ['Sales', 'Expenses'],
+      data: ['Applications', 'Resolved'],
       bottom: 0
     },
     radar: {
-      indicator: [
-        { name: 'Homless', max: 100 },
-        { name: 'SocialServicesQuota', max: 20 },
-        { name: 'Downsizer', max: 20 },
-        { name: 'HomeScheme', max: 20 },
-        { name: 'Decants', max: 20 },
-        { name: 'PanelMoves', max: 20 },
-        { name: 'FirstTimeApplicant', max: 100 },
-        { name: 'Transfer', max: 50 },
-        { name: 'TenantFinder', max: 20 },
-        { name: 'Other', max: 20 },
-      ]
+      indicator: indicators.map((indicator) => ({
+        name: indicator.name, 
+        max: indicator.max,
+      }))
     },
     series: [{
       name: 'Budget vs spending',
       type: 'radar',
-      data: [
-        {
-          value: [100, 7, 11, 3, 5, 1, 100, 39, 11, 16],
-          name: 'Applications'
-        },
-        {
-          value: [5, 2, 2, 2, 5, 1, 0, 0, 0, 0],
-          name: 'Resolved'
-        }
-      ]
-    }]
+      data: categoryRadarChartData.map(({ name, value }) => ({ name, value })),
+    }],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {},
+      }
+    }
   };
   const categoryPieChart = {
     title: {
@@ -281,7 +375,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
 
   const bandPieChart = {
@@ -312,7 +413,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
 
   const bedroomPieChart = {
@@ -343,7 +451,14 @@ const Modelling = () => {
           }
         }
       }
-    ]
+    ],
+    toolbox: {
+      show: true, 
+      top: 30,
+      feature: {
+        saveAsImage: {}
+      }
+    }
   };
   return (
     <view>
@@ -410,29 +525,15 @@ function PolicyForm() {
     outputObj["startDate"] = dateInputs[0];
     outputObj["endDate"] = dateInputs[1];
 
-    // try {
-    //   const response = await API.post(
-    //     "restapimodeller",
-    //     "/modeller-api",
-    //     {
-    //       body: {outputObj}
-    //     }
-    //   );
-    //   console.log(response);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    const headers = {
-      'Content-Type': 'application/json'
+    const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
+
+    if (sum_of_inputs >= 1) {
+      // TODO: Add some sort of dialog to alert user that policy should be less than 100%
+    } else {
+      callLambdaFunction(outputObj);
     }
-    try {
-      const response = await API.post('python-modeller-API', '/policytomodeller-policydev', { body: outputObj.toString(), headers: headers })
-      console.log(response)
-    } catch (error) {
-      console.log(error)
-    }
-    console.log(outputObj);
   };
+
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
@@ -455,9 +556,26 @@ function PolicyForm() {
               style={{ width: "100px" }}
             />
             <br />
-            <span className="range-value">{policyInputs[index] || value}</span>
+            <span className="range-value">{Math.round(policyInputs[index] * 100) || Math.round(value * 100)}%</span>
           </div>
         ))}
+        <div className="input-group" key="total-policy">
+          <label htmlFor="total-policy">Total Allocation</label>
+          <br/>
+          <input
+            disabled="true"
+            className="input-group"
+            type="range"
+            max="1"
+            min="0"
+            step={0.01}
+            name="total-policy"
+            value={policyInputs.reduce((a, b) => a + b, 0)}
+            style={{ width: "100px" }}
+           />
+          <br/>
+            <span className="range-value">{Math.round(policyInputs.reduce((a, b) => a + b, 0) * 100)}%</span>
+        </div>
       </div>
 
       <div className="form-column">
@@ -496,11 +614,9 @@ function PolicyForm() {
       </div>
 
       <div className="submit-container">
-        <button className="submit-button" type="submit">Submit</button>
+        <button className="submit-button" type="submit" onClick={handleSubmit}>Submit</button>
       </div>
     </form>
-
-
   );
 }
 

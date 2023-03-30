@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.3.1",
     "aws-amplify": "^5.0.17",
-    "aws-sdk": "^2.1335.0",
+    "aws-sdk": "^2.1341.0",
     "echarts": "^5.4.1",
     "echarts-for-react": "^3.0.2",
     "react": "^18.2.0",

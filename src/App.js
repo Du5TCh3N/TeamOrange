@@ -17,7 +17,7 @@ import '@aws-amplify/ui-react/styles.css';
 import awsExports from './aws-exports';
 Amplify.configure(awsExports);
 
-const apiEndpoint = 'https://sfk6ai8lg6.execute-api.eu-west-2.amazonaws.com/default'
+const apiEndpoint = 'https://4h1l85ptte.execute-api.eu-west-2.amazonaws.com/default/python-modeller'
 
 Amplify.API.configure({
   endpoints: [

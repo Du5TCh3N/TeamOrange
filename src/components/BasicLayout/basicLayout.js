@@ -1,24 +1,38 @@
 import React, { useState } from 'react';
-import { Button, Avatar, Layout, Menu } from 'antd';
+import { Avatar, Layout, Menu } from 'antd';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     UserOutlined,
     VideoCameraOutlined,
-    UploadOutlined,
     HistoryOutlined,
     TransactionOutlined,
+    ContainerOutlined
+
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Export from '../Export/export';
+
+import UserManuals from '../UserManuals/UserManuals';
+import ModelAllocationManuals from '../UserManuals/ModelAllocationManuals';
+import TransferManuals from '../UserManuals/TransferManuals';
+
 import FileUpload from '../FileUpload/fileUpload';
 import Home from '../Home/home';
-import Modelling from '../Modelling/modelling';
-import ModelData from '../ModelData/modelData';
+
+import Model from '../Model/Model';
+import Simulation from '../Model/Simulation';
+import ModelUpload from '../Model/ModelUpload';
+
 import User from '../User/user';
-import HistoryAnalysis from '../HistoryData/historyData';
-import Transfer from '../Transfer/transfer';
+
+import Policy from '../HistoryAnalysis/Policy';
+import Datavisualisation from '../HistoryAnalysis/Datavisualisation';
+
+import TransferData from '../Transfer/TransferData'
+import TransferSystem from '../Transfer/TransferSystem';
+import TransferUpload  from '../Transfer/TransferUpload';
+
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
@@ -26,18 +40,21 @@ const BasicLayout = () => {
     const [collapsed, setCollapsed] = useState(false);
     const toggle = () => {
         setCollapsed(!collapsed)
-
     }
-    const avatarUrl = "assets/logo.png"
+
+    const logo = "https://www.kingston.gov.uk/site/dist/images/site-logo.svg"
+
+    const logoWhite = "https://www.kingston.gov.uk/site/dist/images/site-logo-white.svg"
 
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
+
             <Sider className="text-white" trigger={null} collapsible collapsed={collapsed}>
 
                 <div className="w-full mt-3">
                     <div className="flex items-center">
-                        <Avatar className=" ml-3" size={48} src={avatarUrl} />
+                        <Avatar className=" ml-3" size={48} src={logoWhite} />
                         <span className="ml-5"
                             style={{ display: collapsed ? 'none' : 'block' }}><Link to='/User'>{"Kingston Councils"}</Link></span>
                     </div>
@@ -48,42 +65,64 @@ const BasicLayout = () => {
                     <Menu.Item key="1" icon={<UserOutlined />}>
                         <Link to='/'>Home</Link>
                     </Menu.Item>
-{/* 
-                    <Menu.Item key="2" icon={<HistoryOutlined />}>
 
-                        <Link to='/HistoryData'>History</Link>
+                    <SubMenu key="2" title="Library" icon={<HistoryOutlined />}>
 
-                    </Menu.Item> */}
+                        <Menu.Item>  
+                            { <Link to='/Policy'> Allocation Policy </Link> }
+                        </Menu.Item>
+     
+                        <Menu.Item>
+                           { <Link to='/Datavisualisation'>Historical Data</Link> }
+                        </Menu.Item>
 
-                    <SubMenu key="2" title="History" icon={<HistoryOutlined />}>
+                    </SubMenu>
 
-                        <Menu.Item>{<Link to='/HistoryData'>Policy</Link>}</Menu.Item> 
+                    <SubMenu key="3" title="Model Allocation" icon={<VideoCameraOutlined />}>
+
+                            <Menu.Item>   
+                                { <Link to='/ModelUpload'>Upload CSV file</Link> }
+                            </Menu.Item>
+
+                            <Menu.Item>   
+                                { <Link to='/Model'>Model Solution</Link> }
+                            </Menu.Item>
+
+                            <Menu.Item>   
+                                { <Link to='/Simulation'>Simulation</Link> }
+                            </Menu.Item>
+         
+                    </SubMenu>
+                    <SubMenu key="5" title = "Transfer" icon={<TransactionOutlined />}>
                         
-                        <Menu.Item>Data</Menu.Item>
+                        <Menu.Item>
+                            { <Link to='/TransferUpload'> Upload CSV file</Link> }
+                        </Menu.Item>
 
-                        </SubMenu>
+                        {/* <Menu.Item>
+                            {<Link to='/TransferSystem'>Transfer Result</Link>}
+                        </Menu.Item> */}
 
+                        <Menu.Item>
+                            { <Link to='/TransferData'> Transfer Data</Link> }
+                        </Menu.Item>
 
-                    <SubMenu key="3" title="Model allocation" icon={<VideoCameraOutlined />}>
-                            <Menu.Item>{<Link to='/Modelling'>Model</Link>}</Menu.Item> 
-                        
-                            <Menu.Item>{<Link to='/ModelData'>Data</Link>}</Menu.Item> 
-                        
-                        </SubMenu>
-               
-                    {/* <Link to='/modelling'>Model allocation</Link> */}
+                    </SubMenu>
 
-                    <Menu.Item key="4" icon={<UploadOutlined />}>
-                        <Link to='/FileUpload'>Load data</Link>
-                    </Menu.Item>
+                    <SubMenu key="6" title = "UserManuals" icon={<ContainerOutlined />}>
 
-                    <Menu.Item key="5" icon={<TransactionOutlined />}>
-                        <Link to='/Transfer'>Transfer</Link>
-                    </Menu.Item>
+                        <Menu.Item>
+                            <Link to='/UserManuals'>User Manual</Link>
+                        </Menu.Item>
 
-                    <Menu.Item key="6" icon={<UploadOutlined />}>
-                        <Link to='/Export'>Foreast</Link>
-                    </Menu.Item>
+                        {/* <Menu.Item>
+                            {<Link to='/ModelAllocationManuals'>Model Allocation</Link>}
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            {<Link to='/TransferManuals'>Transfer System</Link>}
+                        </Menu.Item> */}
+                    </SubMenu>
                 </Menu>
             </Sider>
 
@@ -94,10 +133,10 @@ const BasicLayout = () => {
                             className: 'trigger',
                             onClick: toggle,
                         })}
-                        <span className="  ml-auto">
-                            <Avatar className="mr-2" size={48} src={avatarUrl} />
+                        <span className="ml-auto">
+                            <Avatar className="mr-2" size={52} src={logo} />
                             <span >
-                                <Link to='/User'>{""}</Link>
+                                <Link to='/User'>{"Kingston Councils"}</Link>
                             </span>
                         </span>
 
@@ -116,20 +155,23 @@ const BasicLayout = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
 
-                        <Route path="/HistoryData" element={<HistoryAnalysis />} />
+                        <Route path="/Policy" element={<Policy />} />
 
-                        <Route path="/Export" element={<Export />} />
+                        <Route path="/Datavisualisation" element={<Datavisualisation />} />
+
+                        <Route path="/UserManuals" element={<UserManuals />} />
 
                         <Route path="/FileUpload" element={<FileUpload />} />
 
-                        <Route path="/Modelling" element={<Modelling />} />
-
-                        <Route path="/ModelData" element={<ModelData />} />
+                        <Route path="/Model" element={<Model />} />
+                        <Route path="/ModelUpload" element={<ModelUpload />} />
+                        <Route path="/Simulation" element={<Simulation />} />
 
                         <Route path="/User" element={<User />} />
 
-                        <Route path="/Transfer" element={<Transfer />} />
-
+                        <Route path="/TransferData" element={<TransferData />} />
+                        <Route path="/TransferSystem" element={<TransferSystem />} />
+                        <Route path="/TransferUpload" element={<TransferUpload />} />
 
                     </Routes>
                 </Content>
@@ -139,10 +181,8 @@ const BasicLayout = () => {
                 }} >
                     <div className="flex justify-center w-full">
                         <div className="flex items-center">
-                            <img src="https://www.kingston.gov.uk/site/dist/images/site-logo-white.svg" alt="logo" className="w-24  ml-10 mt-5" />
-
+                            <img src={logoWhite} alt="logo" className="w-24  ml-10 mt-5" />
                         </div>
-
                     </div>
                 </footer>
             </Layout>

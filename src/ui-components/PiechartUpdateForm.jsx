@@ -183,7 +183,7 @@ function ArrayField({
 export default function PiechartUpdateForm(props) {
   const {
     id: idProp,
-    piechart,
+    piechart: piechartModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -215,16 +215,16 @@ export default function PiechartUpdateForm(props) {
     setCurrentApplicationsValue("");
     setErrors({});
   };
-  const [piechartRecord, setPiechartRecord] = React.useState(piechart);
+  const [piechartRecord, setPiechartRecord] = React.useState(piechartModelProp);
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
         ? await DataStore.query(Piechart, idProp)
-        : piechart;
+        : piechartModelProp;
       setPiechartRecord(record);
     };
     queryData();
-  }, [idProp, piechart]);
+  }, [idProp, piechartModelProp]);
   React.useEffect(resetStateValues, [piechartRecord]);
   const [currentCategoryValue, setCurrentCategoryValue] = React.useState("");
   const categoryRef = React.createRef();
@@ -466,7 +466,7 @@ export default function PiechartUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || piechart)}
+          isDisabled={!(idProp || piechartModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -478,7 +478,7 @@ export default function PiechartUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || piechart) ||
+              !(idProp || piechartModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

@@ -10,11 +10,6 @@
       "StackName": "amplify-teamorange-dev-121113",
       "StackId": "arn:aws:cloudformation:eu-west-2:538841638676:stack/amplify-teamorange-dev-121113/a5734e60-c3f3-11ed-aecb-060b1defad6c",
       "AmplifyAppId": "d1htp7p0ywvi2a"
-    },
-    "categories": {
-      "api": {
-        "teamorange": {}
-      }
     }
   }
 }

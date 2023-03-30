@@ -1,57 +1,121 @@
 import React from 'react';
 import { Table } from 'antd';
+
 const Transfer = () => {
     const dataSource = [
         {
-        ApplicationId: '1',
-        Band: '2068435',
-        Bedroom: 32,
-        AppCategory: '西湖区湖底公园1号',
-        Bedroom: 32,
-
+        FlatID: '1',
+        Bedroom: '1',
+        OccupierID: '1',
+        LivingCost: '1',
+        Satisfied: '1',
+        ExpectedSpace: '1',
+        TransferCost: '1',
+        TransferRefund: '1',
         },
       ];
       
       const columns = [
         {
-          title: 'ApplicationId',
-          dataIndex: 'ApplicationId',
-          key: 'ApplicationId',
+            title: 'FlatID',
+            dataIndex: 'FlatID',
+            key: 'FlatID',
+            align: 'center',
         },
         {
-          title: 'Band',
-          dataIndex: 'Band',
-          key: 'Band',
+            title: 'Bedroom',
+            dataIndex: 'Bedroom',
+            key: 'Bedroom',
+            align: 'center',
         },
         {
-          title: 'Bedroom',
-          dataIndex: 'Bedroom',
-          key: 'Bedroom',
+            title: 'OccupierID',
+            dataIndex: 'OccupierID',
+            key: 'OccupierID',
+            align: 'center',
         },
         {
-            title: 'AppCategory',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Living Cost',
+            dataIndex: 'LivingCost',
+            key: 'LivingCost',
+            align: 'center',
         },
         {
-            title: 'AppMob',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Satisfied',
+            dataIndex: 'Satisfied',
+            key: 'Satisfied',
+            align: 'center',
         },
         {
-            title: 'BandStartDate',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Expected Space',
+            dataIndex: 'ExpectedSpace',
+            key: 'ExpectedSpace',
+            align: 'center',
+        },
+        {
+          title: 'Transfer Cost',
+          dataIndex: 'TransferCost',
+          key: 'TransferCost',
+          align: 'center',
+        },
+        {
+        title: 'Transfer Refund',
+        dataIndex: 'TransferRefund',
+        key: 'TransferRefund',
+        align: 'center',
         },
       ];
       
+
+
+
+
+
+
+    // const option2 = {
+    //   series: [
+    //      {
+    //        type: 'pie',
+    //        data: [
+    //         {
+    //            value: 335,
+    //            name: 'Direct Visit'
+    //         },
+    //          {
+    //            value: 234,
+    //           name: 'Union Ad'
+    //         },
+    //         {
+    //           value: 1548,
+    //           name: 'Search Engine'
+    //         }
+    //        ]
+    //     }
+    //   ]
+    // };
+
+
+
+
+
+
     return (
         <div>
             <h1>Transfer</h1>
-      <Table dataSource={dataSource} columns={columns} />
-
+            <Table dataSource={dataSource} columns={columns} />
         </div>
     );
 }
-// todo https://ant.design/components/table-cn
+
+
+
+
+
+
+
+
+
+
+
+
 export default Transfer;
