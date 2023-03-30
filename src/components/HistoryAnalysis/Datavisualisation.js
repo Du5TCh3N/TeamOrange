@@ -5,6 +5,9 @@ import ReactEcharts from 'echarts-for-react';
 const Datavisualisation = () => {
 
     const option1 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
@@ -29,182 +32,194 @@ const Datavisualisation = () => {
           }
         ]
       };
+
       const option2 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
             data: [
               {
-                value: 33,
-                name: 'Direct Visit'
+                value: 141,
+                name: 'One bed'
               },
               {
-                value: 234,
-                name: 'Union Ad'
+                value: 197,
+                name: 'Two bed'
               },
               {
-                value: 148,
-                name: 'Search Engine'
+                value: 346,
+                name: 'Three bed'
               },
               {
-                value: 548,
-                name: 'waiting2'
+                value: 127,
+                name: 'Four bed'
               }
             ]
           }
         ]
-      };    
+      }; 
+
       const option3 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
             data: [
               {
-                value: 335,
-                name: 'Direct Visit'
+                value: 57,
+                name: 'One bed'
               },
               {
-                value: 34,
-                name: 'Union Ad'
+                value: 83,
+                name: 'Two bed'
               },
               {
-                value: 154,
-                name: 'Search Engine'
+                value: 51,
+                name: 'Three bed'
               },
               {
-                value: 548,
-                name: 'waiting2'
+                value: 11,
+                name: 'Four bed'
               }
             ]
           }
         ]
       };    
+      
       const option4 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
             data: [
               {
-                value: 35,
-                name: 'Direct Visit'
+                value: 66,
+                name: 'One bed'
               },
               {
-                value: 234,
-                name: 'Union Ad'
+                value: 81,
+                name: 'Two bed'
               },
               {
-                value: 154,
-                name: 'Search Engine'
+                value: 41,
+                name: 'Three bed'
               },
               {
-                value: 548,
-                name: 'waiting2'
+                value: 8,
+                name: 'Four bed'
               }
             ]
           }
         ]
       };    
+
       const option5 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
             data: [
               {
-                value: 335,
-                name: 'Direct Visit'
+                value: 70,
+                name: 'One bed'
               },
               {
-                value: 234,
-                name: 'Union Ad'
+                value: 56,
+                name: 'Two bed'
               },
               {
-                value: 158,
-                name: 'Search Engine'
+                value: 25,
+                name: 'Three bed'
               },
               {
-                value: 548,
-                name: 'waiting2'
+                value: 5,
+                name: 'Four bed'
               }
             ]
           }
         ]
       };    
+
       const option6 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
             data: [
               {
-                value: 335,
-                name: 'Direct Visit'
+                value: 64,
+                name: 'One bed'
               },
               {
-                value: 234,
-                name: 'Union Ad'
+                value: 68,
+                name: 'Two bed'
               },
               {
-                value: 1548,
-                name: 'Search Engine'
+                value: 26,
+                name: 'Three bed'
               },
               {
-                value: 548,
-                name: 'waiting2'
+                value: 1,
+                name: 'Four bed'
               }
             ]
           }
         ]
+        
       };
-
-
-
 
     return (
         <> <Row gutter={[16,16]}>
 
-            <Col span={8}>
-                <Card title="First time application" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }} >
+            <Col span={12}>
+                <Card title="First time application(2022)" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }} >
                     <ReactEcharts option={option1}/>  
                 </Card>
             </Col>
 
-            <Col span={8}>
-                <Card title="Transfer target" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
+            <Col span={12}>
+                <Card title="Transfer target(2022)" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
                 <ReactEcharts option={option2}/>  
                 </Card>
             </Col>
 
-            <Col span={8}>
+            <Col span={12}>
                 <Card title="Data 2016" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
                 <ReactEcharts option={option3}/>  
                 </Card>
 
             </Col>
 
-
-            <Col span={8}>
+            <Col span={12}>
                 <Card title="Data 2017" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
                 <ReactEcharts option={option4}/>  
                 </Card>
             </Col>
 
-
-            <Col span={8}>
+            <Col span={12}>
                 <Card title="Data 2018" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
                 <ReactEcharts option={option5}/>  
                 </Card>
             </Col>
 
-
-            <Col span={8}>
+            <Col span={12}>
                 <Card title="Data 2019" bordered={false} style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }} headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }} bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
                 <ReactEcharts option={option6}/>  
                 </Card>
 
             </Col>
-
         </Row>
-        
-
         </>
     )
 

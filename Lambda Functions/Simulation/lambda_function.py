@@ -24,6 +24,8 @@ def lambda_handler(event, context):
             'statusCode': 200,
             'body': json.dumps(message)
         }
+    
+    print(policy)
 
     startDate = datetime.datetime.strptime(startDate, '%Y-%m-%d').date()
     endDate = datetime.datetime.strptime(endDate, '%Y-%m-%d').date()

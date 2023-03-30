@@ -412,7 +412,7 @@ class Application:
         return year_counts, year_averages, month_counts, month_averages
 
     @classmethod
-    def generateApplicationsBasedOnAverage(cls, year_average, startDate, endDate):
+    def generateApplicationsBasedOnAverage(cls, year_average, month_average, startDate, endDate):
         # List of all categories
         categories = ['Decants', 'FirstTimeApplicant', 'HomeScheme', 'Homeless', 'SocialServicesQuota', 'Downsizer',
                       'Transfer', 'TenantFinder', 'PanelMoves', 'Other']
@@ -425,6 +425,8 @@ class Application:
                     # Get the average number of applications per year and per month for this category, band,
                     # and bedroom size combination
                     year_average_count = year_average.get((category, band, bedroom_size), 0)
+                    # print(year_average_count)
+                    month_average_count = month_average.get((category, band, bedroom_size), 0)
 
                     # Generate applications based on the average counts
                     for i in range(int(year_average_count)):
@@ -446,7 +448,8 @@ class Application:
                         start_date_str = start_date.strftime('%Y-%m-%d %H:%M:%S')
 
                         # Create the application instance
-                        return cls(application_id, band, category, bedroom_size, start_date_str)
+                        generated_application = cls(application_id, band, category, bedroom_size, start_date_str)
+                        # Applications.instances.append(generated_application)
 
     @classmethod
     def getResolvedInformation(cls):
@@ -545,7 +548,6 @@ class Application:
         for application in all_applications:
             bedroomSize = application.BedroomSize
             if bedroomSize != None:
-
                 if bedroomSize in bedBarchartData:
                     bedBarchartData[bedroomSize] += 1
                 else:
