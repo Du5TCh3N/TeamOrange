@@ -5,6 +5,9 @@ import ReactEcharts from 'echarts-for-react';
 const Datavisualisation = () => {
 
     const option1 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
@@ -31,6 +34,9 @@ const Datavisualisation = () => {
       };
 
       const option2 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
@@ -57,6 +63,9 @@ const Datavisualisation = () => {
       }; 
 
       const option3 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
@@ -83,6 +92,9 @@ const Datavisualisation = () => {
       };    
       
       const option4 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
@@ -109,6 +121,9 @@ const Datavisualisation = () => {
       };    
 
       const option5 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
@@ -135,6 +150,9 @@ const Datavisualisation = () => {
       };    
 
       const option6 = {
+        tooltip: {
+          trigger: 'item'
+        },
         series: [
           {
             type: 'pie',
