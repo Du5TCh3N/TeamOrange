@@ -97,7 +97,7 @@ const TransferUpload = () => {
 
   const handleBedroomChange = (index, value) => {
     const newBedrooms = [...bedrooms];
-    newBedrooms[index] = parseInt(value) || 30;
+    newBedrooms[index] = parseInt(value);
     setBedrooms(newBedrooms);
   };
 
