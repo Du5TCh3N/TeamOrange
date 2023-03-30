@@ -7,13 +7,13 @@ import pandas as pd
 import copy
 
 s3 = boto3.client('s3')
-
+tableName = 'PivotTable-6digekhjd5ekhhylpdrggkmczm-prod'
 def saveToDynamoDB(data, id):
     from dateutil import tz
     from datetime import datetime
     
     dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
-    table = dynamodb.Table('PivotTable-l6ud5eblpjg5rlgutkig3e5hia-dev')
+    table = dynamodb.Table(tableName)
     
     data_copy = copy.deepcopy(data)
     
@@ -193,8 +193,11 @@ def lambda_handler(event, context):
         totalCostSaved += price_dif
         prices.append([old_sum, old_price, new_sum, new_price, sum_dif, price_dif])
     
-    maxPerHousehold = totalCostSaved / totalMoved
-    maxPerHousehold = round(maxPerHousehold, 2)
+    if totalMoved != 0:
+        maxPerHousehold = totalCostSaved / totalMoved
+        maxPerHousehold = round(maxPerHousehold, 2)
+    else: 
+        maxPerHousehold = 0
     
     summary[5] = [str(totalCostSaved), str(totalMoved), str(maxPerHousehold)]
     formatted_cost = "£{:,.2f}".format(float(summary[5][0]))
