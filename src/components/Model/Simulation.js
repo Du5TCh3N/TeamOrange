@@ -234,9 +234,8 @@ const Simulation = () => {
     ],
     dataZoom: {
       // id: 'dataZoomY',
-      type: "inside",
-      start: 0, 
-      end: 10
+      type: "slider",
+      start: 0
     },
 
     series: [
@@ -299,7 +298,7 @@ const Simulation = () => {
   );
 
   indicators.forEach((indicator) => {
-    indicator.max = 1.2 * applications.value[indicators.indexOf(indicator)];
+    indicator.max = applications.value[indicators.indexOf(indicator)];
   });
 
   const radarChart = {
@@ -344,7 +343,7 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: '60%',
+        radius: '50%',
         data: Object.keys(categoryPieChartData).map((key) => {
           return {
             value: categoryPieChartData[key],
@@ -382,7 +381,7 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: ['30%', '60%'],
+        radius: '50%',
         data: Object.keys(bandPieChartData).map((key) => {
           return {
             value: bandPieChartData[key],
@@ -420,8 +419,7 @@ const Simulation = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: '60%',
-        avoidLabelOverlap: false,
+        radius: '50%',
         data: Object.keys(bedroomPieChartData).map((key) => {
           return {
             value: bedroomPieChartData[key],
@@ -687,8 +685,5 @@ const Simulation = () => {
 
   );
 }
-
-
-
 
 export default Simulation;

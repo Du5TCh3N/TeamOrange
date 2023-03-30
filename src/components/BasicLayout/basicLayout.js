@@ -123,9 +123,6 @@ const BasicLayout = () => {
                             {<Link to='/TransferManuals'>Transfer System</Link>}
                         </Menu.Item> */}
                     </SubMenu>
-
-
-
                 </Menu>
             </Sider>
 
