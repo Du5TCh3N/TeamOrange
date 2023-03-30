@@ -183,7 +183,7 @@ function ArrayField({
 export default function SimulationDataUpdateForm(props) {
   const {
     id: idProp,
-    simulationData,
+    simulationData: simulationDataModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -223,17 +223,18 @@ export default function SimulationDataUpdateForm(props) {
     setUpdatedAt(cleanValues.updatedAt);
     setErrors({});
   };
-  const [simulationDataRecord, setSimulationDataRecord] =
-    React.useState(simulationData);
+  const [simulationDataRecord, setSimulationDataRecord] = React.useState(
+    simulationDataModelProp
+  );
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
         ? await DataStore.query(SimulationData, idProp)
-        : simulationData;
+        : simulationDataModelProp;
       setSimulationDataRecord(record);
     };
     queryData();
-  }, [idProp, simulationData]);
+  }, [idProp, simulationDataModelProp]);
   React.useEffect(resetStateValues, [simulationDataRecord]);
   const [currentDateValue, setCurrentDateValue] = React.useState("");
   const dateRef = React.createRef();
@@ -619,7 +620,7 @@ export default function SimulationDataUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || simulationData)}
+          isDisabled={!(idProp || simulationDataModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -631,7 +632,7 @@ export default function SimulationDataUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || simulationData) ||
+              !(idProp || simulationDataModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

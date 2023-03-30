@@ -183,7 +183,7 @@ function ArrayField({
 export default function RadarchartUpdateForm(props) {
   const {
     id: idProp,
-    radarchart,
+    radarchart: radarchartModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -209,16 +209,17 @@ export default function RadarchartUpdateForm(props) {
     setCurrentValueValue("");
     setErrors({});
   };
-  const [radarchartRecord, setRadarchartRecord] = React.useState(radarchart);
+  const [radarchartRecord, setRadarchartRecord] =
+    React.useState(radarchartModelProp);
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
         ? await DataStore.query(Radarchart, idProp)
-        : radarchart;
+        : radarchartModelProp;
       setRadarchartRecord(record);
     };
     queryData();
-  }, [idProp, radarchart]);
+  }, [idProp, radarchartModelProp]);
   React.useEffect(resetStateValues, [radarchartRecord]);
   const [currentTotalValue, setCurrentTotalValue] = React.useState("");
   const TotalRef = React.createRef();
@@ -407,7 +408,7 @@ export default function RadarchartUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || radarchart)}
+          isDisabled={!(idProp || radarchartModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -419,7 +420,7 @@ export default function RadarchartUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || radarchart) ||
+              !(idProp || radarchartModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

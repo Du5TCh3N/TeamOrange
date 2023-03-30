@@ -183,7 +183,7 @@ function ArrayField({
 export default function PivotTableUpdateForm(props) {
   const {
     id: idProp,
-    pivotTable,
+    pivotTable: pivotTableModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -225,16 +225,17 @@ export default function PivotTableUpdateForm(props) {
     setCurrentSummaryValue("");
     setErrors({});
   };
-  const [pivotTableRecord, setPivotTableRecord] = React.useState(pivotTable);
+  const [pivotTableRecord, setPivotTableRecord] =
+    React.useState(pivotTableModelProp);
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
         ? await DataStore.query(PivotTable, idProp)
-        : pivotTable;
+        : pivotTableModelProp;
       setPivotTableRecord(record);
     };
     queryData();
-  }, [idProp, pivotTable]);
+  }, [idProp, pivotTableModelProp]);
   React.useEffect(resetStateValues, [pivotTableRecord]);
   const [currentBedroom1Value, setCurrentBedroom1Value] = React.useState("");
   const Bedroom1Ref = React.createRef();
@@ -647,7 +648,7 @@ export default function PivotTableUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || pivotTable)}
+          isDisabled={!(idProp || pivotTableModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -659,7 +660,7 @@ export default function PivotTableUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || pivotTable) ||
+              !(idProp || pivotTableModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

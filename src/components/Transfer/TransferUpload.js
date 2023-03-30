@@ -57,14 +57,14 @@ const TransferUpload = () => {
       
       const uploadParams = {
         Bucket: 'process-transfer',
-        Key: fileName,
+        Key: "input-payload.json",
         ContentType: file.type,
         Body: JSON.stringify({
           data: jsonData,
           bedrooms: bedrooms,
         }),
       };
-  
+      console.log("UPLOAD PARAMS: ", uploadParams["Body"]);
       s3.upload(uploadParams, (err, data) => {
         if (err) {
           console.log(err);
@@ -105,23 +105,23 @@ const TransferUpload = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', border: '1px solid #ccc', padding: '10px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
         <label htmlFor="bedroom1">1 Bedroom:</label>
-        <input type="text" id="bedroom1" name="bedroom1" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[0]} onChange={(event) => handleBedroomChange(0, event.target.value)} />
+        <input type="number" id="bedroom1" name="bedroom1" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[0]} onChange={(event) => handleBedroomChange(0, event.target.value)} />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
         <label htmlFor="bedroom2">2 Bedrooms:</label>
-        <input type="text" id="bedroom2" name="bedroom2" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[1]} onChange={(event) => handleBedroomChange(1, event.target.value)} />
+        <input type="number" id="bedroom2" name="bedroom2" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[1]} onChange={(event) => handleBedroomChange(1, event.target.value)} />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
         <label htmlFor="bedroom3">3 Bedrooms:</label>
-        <input type="text" id="bedroom3" name="bedroom3" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[2]} onChange={(event) => handleBedroomChange(2, event.target.value)} />
+        <input type="number" id="bedroom3" name="bedroom3" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[2]} onChange={(event) => handleBedroomChange(2, event.target.value)} />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
         <label htmlFor="bedroom4">4 Bedrooms:</label>
-        <input type="text" id="bedroom4" name="bedroom4" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[3]} onChange={(event) => handleBedroomChange(3, event.target.value)} />
+        <input type="number" id="bedroom4" name="bedroom4" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[3]} onChange={(event) => handleBedroomChange(3, event.target.value)} />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', marginBottom: '10px' }}>
         <label htmlFor="bedroom5">5 Bedrooms:</label>
-        <input type="text" id="bedroom5" name="bedroom5" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[4]} onChange={(event) => handleBedroomChange(4, event.target.value)} />
+        <input type="number" id="bedroom5" name="bedroom5" style={{ border: '1px solid #ccc', padding: '5px', width: '100px' }} value={bedrooms[4]} onChange={(event) => handleBedroomChange(4, event.target.value)} />
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '10px' }}>
         <input type="file" accept=".csv" onChange={handleFileSelect} />

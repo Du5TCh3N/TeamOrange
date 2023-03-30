@@ -183,7 +183,7 @@ function ArrayField({
 export default function BarchartUpdateForm(props) {
   const {
     id: idProp,
-    barchart,
+    barchart: barchartModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -209,16 +209,16 @@ export default function BarchartUpdateForm(props) {
     setCurrentValueValue("");
     setErrors({});
   };
-  const [barchartRecord, setBarchartRecord] = React.useState(barchart);
+  const [barchartRecord, setBarchartRecord] = React.useState(barchartModelProp);
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
         ? await DataStore.query(Barchart, idProp)
-        : barchart;
+        : barchartModelProp;
       setBarchartRecord(record);
     };
     queryData();
-  }, [idProp, barchart]);
+  }, [idProp, barchartModelProp]);
   React.useEffect(resetStateValues, [barchartRecord]);
   const [currentNameValue, setCurrentNameValue] = React.useState("");
   const nameRef = React.createRef();
@@ -403,7 +403,7 @@ export default function BarchartUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || barchart)}
+          isDisabled={!(idProp || barchartModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -415,7 +415,7 @@ export default function BarchartUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || barchart) ||
+              !(idProp || barchartModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

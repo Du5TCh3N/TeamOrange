@@ -6,6 +6,8 @@ node_modules
 lambda_functions/src/key_stat.csv
 *.csv
 
+.env
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -27,4 +29,4 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-.env
+.DS_Store
