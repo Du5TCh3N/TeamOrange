@@ -50,7 +50,7 @@ const UserManuals = () => {
 
             <Col span={24}>
                 <Card title="Save Cost" bordered={false} onClick={showModal3}>
-                    Transfer System module is used to help occupied users to swap their alllocated room based on their satisfied space and stock allocated and save cost for our users based on their situationfor a cost-saving service to Kingston Councilse. <br/>
+                    Transfer System module is used to help occupied users to swap their alllocated room based on their satisfied space and stock allocated and save cost for our users based on their situation for a cost-saving service to Kingston Councilse. <br/>
                     <br/>
                     Click here to show how to use it!
                 </Card>
