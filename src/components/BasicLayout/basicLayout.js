@@ -72,9 +72,9 @@ const BasicLayout = () => {
                             { <Link to='/Policy'> Allocation Policy </Link> }
                         </Menu.Item>
      
-                        {/* <Menu.Item>
+                        <Menu.Item>
                            { <Link to='/Datavisualisation'>Historical Data</Link> }
-                        </Menu.Item> */}
+                        </Menu.Item>
 
                     </SubMenu>
 
