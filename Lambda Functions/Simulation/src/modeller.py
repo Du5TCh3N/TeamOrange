@@ -3,8 +3,8 @@ import datetime
 from dateutil import tz
 
 import pandas as pd
-from application import Application
-from property import Property
+from src.application import Application
+from src.property import Property
 
 import boto3
 import json
@@ -278,14 +278,13 @@ class Modeller:
         earliest, latest = Application.findTimeRange()
         startDate_datetime = datetime.datetime.combine(self.startDate, datetime.time.min)
         if latest and startDate_datetime >= latest:
-            Application.generateApplicationsBasedOnAverage(year_averages, self.startDate, self.endDate)
+            Application.generateApplicationsBasedOnAverage(year_averages, month_averages, self.startDate, self.endDate)
 
         outputData = self.runModel()
-
-        # saveToDynamoDB(outputData)
-        # calculateGraphs()
+        saveToDynamoDB(outputData)
+        calculateGraphs()
+        calculateKeyStatistics()
         calculateBarcharts()
-        # calculateKeyStatistics()
 
         print("Terminating Model")
 
