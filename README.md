@@ -68,6 +68,10 @@ This folder contains the backend for running the model simulation, and the unit 
 
 This folder contains the backend for calculating the transfer cost saved. 
 
+### Upload
+
+This folder contains the Lambda Functions used for allowing the upload functionality
+
 ## src
 
 Please find the React App javascript files inside this folder
