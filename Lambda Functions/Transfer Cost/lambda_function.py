@@ -15,9 +15,8 @@ def saveToDynamoDB(data, id):
     from datetime import datetime
     
     dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
-
     table = dynamodb.Table(tableName)
-    
+
     data_copy = copy.deepcopy(data)
     
     if len(data_copy) == 5:
@@ -101,7 +100,6 @@ def lambda_handler(event, context):
     
     void = entries["bedrooms"]
     moved = [0, 0, 0, 0, 0]
-
     for i in range(len(nested_list)-1, -1, -1):
         new_vacant = 0
         for j in range(0, len(void)):
@@ -168,7 +166,6 @@ def lambda_handler(event, context):
     print("Summary")
     print(summary)
     print("")
-
     saveToDynamoDB(summary, "Cost")
 
     

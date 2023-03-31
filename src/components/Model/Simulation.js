@@ -455,6 +455,7 @@ const Simulation = () => {
         FunctionName: 'python-modeller',
         Payload: JSON.stringify(payload)
       };
+
       try {
         // Invoke the Lambda function and wait for the response
         await lambda.invoke(params).promise().then((result) => {
@@ -513,6 +514,7 @@ const Simulation = () => {
         "startDate": "",
         "endDate": ""
       };
+      // Set the default values for the policy and supply objects
 
       // Set the default values for the policy and supply objects
       outputObj["policy"] = policyDefaults;
@@ -540,16 +542,6 @@ const Simulation = () => {
   
     return (
       <div>
-        {/* <Row gutter={[16,16]}>
-            <Col span={24}>
-              <Card title="Policy changes to simulate the allocation "
-                    bordered={false}
-                    style={{backgroundColor: 'rgba(255,242,232, 0.0)', border: 0 }}
-                    headStyle={{backgroundColor: 'rgba(255, 255, 255, 0.4)', border: 0 }}
-                    bodyStyle={{backgroundColor: 'rgba(255,242,232, 0.4)', border: 0 }}>
-              </Card>
-            </Col>
-        </Row> */}
         <form onSubmit={handleSubmit} className="form-container">
           <div className="form-column">
             <h2>Application Policy Inputs</h2>

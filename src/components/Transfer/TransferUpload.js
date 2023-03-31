@@ -125,8 +125,7 @@ const TransferUpload = () => {
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '10px' }}>
         <input type="file" accept=".csv" onChange={handleFileSelect} />
-        <button className="submit-button" onClick={(event) => handleUpload(event.target.previousSibling.files[0])}
-                style={{ border: '1px solid #ccc', padding: '5px' }}>
+        <button className="submit-button" onClick={(event) => handleUpload(event.target.previousSibling.files[0])} style={{ border: '1px solid #ccc', padding: '5px' }}>
           {uploading ? 'Uploading...' : 'Upload'}
         </button>
       </div>
