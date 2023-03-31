@@ -1,0 +1,2001 @@
+﻿FlatID;Bedroom;OccupierID ;Living Cost;Satisfied;ExpectedSpace;TransferCost;TransferRefund
+K00001;1;2300001;£5,000;Yes;1;Not available;Not available
+K00002;1;2300002;£5,000;Yes;1;Not available;Not available
+K00003;1;2300003;£5,000;Yes;1;Not available;Not available
+K00004;1;2300004;£5,000;Yes;1;Not available;Not available
+K00005;1;2300005;£5,000;Yes;1;Not available;Not available
+K00006;1;2300006;£5,000;Yes;1;Not available;Not available
+K00007;1;2300007;£5,000;Yes;1;Not available;Not available
+K00008;1;2300008;£5,000;Yes;1;Not available;Not available
+K00009;1;2300009;£5,000;Yes;1;Not available;Not available
+K00010;1;2300010;£5,000;Yes;1;Not available;Not available
+K00011;1;2300011;£5,000;Yes;1;Not available;Not available
+K00012;1;2300012;£5,000;Yes;1;Not available;Not available
+K00013;1;2300013;£5,000;Yes;1;Not available;Not available
+K00014;1;2300014;£5,000;Yes;1;Not available;Not available
+K00015;1;2300015;£5,000;Yes;1;Not available;Not available
+K00016;1;2300016;£5,000;Yes;1;Not available;Not available
+K00017;1;2300017;£5,000;Yes;1;Not available;Not available
+K00018;1;2300018;£5,000;Yes;1;Not available;Not available
+K00019;1;2300019;£5,000;Yes;1;Not available;Not available
+K00020;1;2300020;£5,000;Yes;1;Not available;Not available
+K00021;1;2300021;£5,000;Yes;1;Not available;Not available
+K00022;1;2300022;£5,000;Yes;1;Not available;Not available
+K00023;1;2300023;£5,000;Yes;1;Not available;Not available
+K00024;1;2300024;£5,000;Yes;1;Not available;Not available
+K00025;1;2300025;£5,000;Yes;1;Not available;Not available
+K00026;1;2300026;£5,000;Yes;1;Not available;Not available
+K00027;1;2300027;£5,000;Yes;1;Not available;Not available
+K00028;1;2300028;£5,000;Yes;1;Not available;Not available
+K00029;1;2300029;£5,000;Yes;1;Not available;Not available
+K00030;1;2300030;£5,000;Yes;1;Not available;Not available
+K00031;1;2300031;£5,000;Yes;1;Not available;Not available
+K00032;1;2300032;£5,000;Yes;1;Not available;Not available
+K00033;1;2300033;£5,000;Yes;1;Not available;Not available
+K00034;1;2300034;£5,000;Yes;1;Not available;Not available
+K00035;1;2300035;£5,000;Yes;1;Not available;Not available
+K00036;1;2300036;£5,000;Yes;1;Not available;Not available
+K00037;1;2300037;£5,000;Yes;1;Not available;Not available
+K00038;1;2300038;£5,000;Yes;1;Not available;Not available
+K00039;1;2300039;£5,000;Yes;1;Not available;Not available
+K00040;1;2300040;£5,000;Yes;1;Not available;Not available
+K00041;1;2300041;£5,000;Yes;1;Not available;Not available
+K00042;1;2300042;£5,000;Yes;1;Not available;Not available
+K00043;1;2300043;£5,000;Yes;1;Not available;Not available
+K00044;1;2300044;£5,000;Yes;1;Not available;Not available
+K00045;1;2300045;£5,000;Yes;1;Not available;Not available
+K00046;1;2300046;£5,000;Yes;1;Not available;Not available
+K00047;1;2300047;£5,000;Yes;1;Not available;Not available
+K00048;1;2300048;£5,000;Yes;1;Not available;Not available
+K00049;1;2300049;£5,000;Yes;1;Not available;Not available
+K00050;1;2300050;£5,000;Yes;1;Not available;Not available
+K00051;1;2300051;£5,000;Yes;1;Not available;Not available
+K00052;1;2300052;£5,000;Yes;1;Not available;Not available
+K00053;1;2300053;£5,000;Yes;1;Not available;Not available
+K00054;1;2300054;£5,000;Yes;1;Not available;Not available
+K00055;1;2300055;£5,000;Yes;1;Not available;Not available
+K00056;1;2300056;£5,000;Yes;1;Not available;Not available
+K00057;1;2300057;£5,000;Yes;1;Not available;Not available
+K00058;1;2300058;£5,000;Yes;1;Not available;Not available
+K00059;1;2300059;£5,000;Yes;1;Not available;Not available
+K00060;1;2300060;£5,000;Yes;1;Not available;Not available
+K00061;1;2300061;£5,000;Yes;1;Not available;Not available
+K00062;1;2300062;£5,000;Yes;1;Not available;Not available
+K00063;1;2300063;£5,000;Yes;1;Not available;Not available
+K00064;1;2300064;£5,000;Yes;1;Not available;Not available
+K00065;1;2300065;£5,000;Yes;1;Not available;Not available
+K00066;1;2300066;£5,000;Yes;1;Not available;Not available
+K00067;1;2300067;£5,000;Yes;1;Not available;Not available
+K00068;1;2300068;£5,000;Yes;1;Not available;Not available
+K00069;1;2300069;£5,000;Yes;1;Not available;Not available
+K00070;1;2300070;£5,000;Yes;1;Not available;Not available
+K00071;1;2300071;£5,000;Yes;1;Not available;Not available
+K00072;1;2300072;£5,000;Yes;1;Not available;Not available
+K00073;1;2300073;£5,000;Yes;1;Not available;Not available
+K00074;1;2300074;£5,000;Yes;1;Not available;Not available
+K00075;1;2300075;£5,000;Yes;1;Not available;Not available
+K00076;1;2300076;£5,000;Yes;1;Not available;Not available
+K00077;1;2300077;£5,000;Yes;1;Not available;Not available
+K00078;1;2300078;£5,000;Yes;1;Not available;Not available
+K00079;1;2300079;£5,000;Yes;1;Not available;Not available
+K00080;1;2300080;£5,000;Yes;1;Not available;Not available
+K00081;1;2300081;£5,000;Yes;1;Not available;Not available
+K00082;1;2300082;£5,000;Yes;1;Not available;Not available
+K00083;1;2300083;£5,000;Yes;1;Not available;Not available
+K00084;1;2300084;£5,000;Yes;1;Not available;Not available
+K00085;1;2300085;£5,000;Yes;1;Not available;Not available
+K00086;1;2300086;£5,000;Yes;1;Not available;Not available
+K00087;1;2300087;£5,000;Yes;1;Not available;Not available
+K00088;1;2300088;£5,000;Yes;1;Not available;Not available
+K00089;1;2300089;£5,000;Yes;1;Not available;Not available
+K00090;1;2300090;£5,000;Yes;1;Not available;Not available
+K00091;1;2300091;£5,000;Yes;1;Not available;Not available
+K00092;1;2300092;£5,000;Yes;1;Not available;Not available
+K00093;1;2300093;£5,000;Yes;1;Not available;Not available
+K00094;1;2300094;£5,000;Yes;1;Not available;Not available
+K00095;1;2300095;£5,000;Yes;1;Not available;Not available
+K00096;1;2300096;£5,000;Yes;1;Not available;Not available
+K00097;1;2300097;£5,000;Yes;1;Not available;Not available
+K00098;1;2300098;£5,000;Yes;1;Not available;Not available
+K00099;1;2300099;£5,000;Yes;1;Not available;Not available
+K00100;1;2300100;£5,000;Yes;1;Not available;Not available
+K00101;1;2300101;£5,000;Yes;1;Not available;Not available
+K00102;1;2300102;£5,000;Yes;1;Not available;Not available
+K00103;1;2300103;£5,000;Yes;1;Not available;Not available
+K00104;1;2300104;£5,000;Yes;1;Not available;Not available
+K00105;1;2300105;£5,000;Yes;1;Not available;Not available
+K00106;1;2300106;£5,000;Yes;1;Not available;Not available
+K00107;1;2300107;£5,000;Yes;1;Not available;Not available
+K00108;1;2300108;£5,000;Yes;1;Not available;Not available
+K00109;1;2300109;£5,000;Yes;1;Not available;Not available
+K00110;1;2300110;£5,000;Yes;1;Not available;Not available
+K00111;1;2300111;£5,000;Yes;1;Not available;Not available
+K00112;1;2300112;£5,000;Yes;1;Not available;Not available
+K00113;1;2300113;£5,000;Yes;1;Not available;Not available
+K00114;1;2300114;£5,000;Yes;1;Not available;Not available
+K00115;1;2300115;£5,000;Yes;1;Not available;Not available
+K00116;1;2300116;£5,000;Yes;1;Not available;Not available
+K00117;1;2300117;£5,000;Yes;1;Not available;Not available
+K00118;1;2300118;£5,000;Yes;1;Not available;Not available
+K00119;1;2300119;£5,000;Yes;1;Not available;Not available
+K00120;1;2300120;£5,000;Yes;1;Not available;Not available
+K00121;1;2300121;£5,000;Yes;1;Not available;Not available
+K00122;1;2300122;£5,000;Yes;1;Not available;Not available
+K00123;1;2300123;£5,000;Yes;1;Not available;Not available
+K00124;1;2300124;£5,000;Yes;1;Not available;Not available
+K00125;1;2300125;£5,000;Yes;1;Not available;Not available
+K00126;1;2300126;£5,000;Yes;1;Not available;Not available
+K00127;1;2300127;£5,000;Yes;1;Not available;Not available
+K00128;1;2300128;£5,000;Yes;1;Not available;Not available
+K00129;1;2300129;£5,000;Yes;1;Not available;Not available
+K00130;1;2300130;£5,000;Yes;1;Not available;Not available
+K00131;1;2300131;£5,000;Yes;1;Not available;Not available
+K00132;1;2300132;£5,000;Yes;1;Not available;Not available
+K00133;1;2300133;£5,000;Yes;1;Not available;Not available
+K00134;1;2300134;£5,000;Yes;1;Not available;Not available
+K00135;1;2300135;£5,000;Yes;1;Not available;Not available
+K00136;1;2300136;£5,000;Yes;1;Not available;Not available
+K00137;1;2300137;£5,000;Yes;1;Not available;Not available
+K00138;1;2300138;£5,000;Yes;1;Not available;Not available
+K00139;1;2300139;£5,000;Yes;1;Not available;Not available
+K00140;1;2300140;£5,000;Yes;1;Not available;Not available
+K00141;1;2300141;£5,000;Yes;1;Not available;Not available
+K00142;1;2300142;£5,000;Yes;1;Not available;Not available
+K00143;1;2300143;£5,000;Yes;1;Not available;Not available
+K00144;1;2300144;£5,000;Yes;1;Not available;Not available
+K00145;1;2300145;£5,000;Yes;1;Not available;Not available
+K00146;1;2300146;£5,000;Yes;1;Not available;Not available
+K00147;1;2300147;£5,000;Yes;1;Not available;Not available
+K00148;1;2300148;£5,000;Yes;1;Not available;Not available
+K00149;1;2300149;£5,000;Yes;1;Not available;Not available
+K00150;1;2300150;£5,000;Yes;1;Not available;Not available
+K00151;1;2300151;£5,000;Yes;1;Not available;Not available
+K00152;1;2300152;£5,000;Yes;1;Not available;Not available
+K00153;1;2300153;£5,000;Yes;1;Not available;Not available
+K00154;1;2300154;£5,000;Yes;1;Not available;Not available
+K00155;1;2300155;£5,000;Yes;1;Not available;Not available
+K00156;1;2300156;£5,000;Yes;1;Not available;Not available
+K00157;1;2300157;£5,000;Yes;1;Not available;Not available
+K00158;1;2300158;£5,000;Yes;1;Not available;Not available
+K00159;1;2300159;£5,000;Yes;1;Not available;Not available
+K00160;1;2300160;£5,000;Yes;1;Not available;Not available
+K00161;1;2300161;£5,000;Yes;1;Not available;Not available
+K00162;1;2300162;£5,000;Yes;1;Not available;Not available
+K00163;1;2300163;£5,000;Yes;1;Not available;Not available
+K00164;1;2300164;£5,000;Yes;1;Not available;Not available
+K00165;1;2300165;£5,000;Yes;1;Not available;Not available
+K00166;1;2300166;£5,000;Yes;1;Not available;Not available
+K00167;1;2300167;£5,000;Yes;1;Not available;Not available
+K00168;1;2300168;£5,000;Yes;1;Not available;Not available
+K00169;1;2300169;£5,000;Yes;1;Not available;Not available
+K00170;1;2300170;£5,000;Yes;1;Not available;Not available
+K00171;1;2300171;£5,000;Yes;1;Not available;Not available
+K00172;1;2300172;£5,000;Yes;1;Not available;Not available
+K00173;1;2300173;£5,000;Yes;1;Not available;Not available
+K00174;1;2300174;£5,000;Yes;1;Not available;Not available
+K00175;1;2300175;£5,000;Yes;1;Not available;Not available
+K00176;1;2300176;£5,000;Yes;1;Not available;Not available
+K00177;1;2300177;£5,000;Yes;1;Not available;Not available
+K00178;1;2300178;£5,000;Yes;1;Not available;Not available
+K00179;1;2300179;£5,000;Yes;1;Not available;Not available
+K00180;1;2300180;£5,000;Yes;1;Not available;Not available
+K00181;1;2300181;£5,000;Yes;1;Not available;Not available
+K00182;1;2300182;£5,000;Yes;1;Not available;Not available
+K00183;1;2300183;£5,000;Yes;1;Not available;Not available
+K00184;1;2300184;£5,000;Yes;1;Not available;Not available
+K00185;1;2300185;£5,000;Yes;1;Not available;Not available
+K00186;1;2300186;£5,000;Yes;1;Not available;Not available
+K00187;1;2300187;£5,000;Yes;1;Not available;Not available
+K00188;1;2300188;£5,000;Yes;1;Not available;Not available
+K00189;1;2300189;£5,000;Yes;1;Not available;Not available
+K00190;1;2300190;£5,000;Yes;1;Not available;Not available
+K00191;1;2300191;£5,000;Yes;1;Not available;Not available
+K00192;1;2300192;£5,000;Yes;1;Not available;Not available
+K00193;1;2300193;£5,000;Yes;1;Not available;Not available
+K00194;1;2300194;£5,000;Yes;1;Not available;Not available
+K00195;1;2300195;£5,000;Yes;1;Not available;Not available
+K00196;1;2300196;£5,000;Yes;1;Not available;Not available
+K00197;1;2300197;£5,000;Yes;1;Not available;Not available
+K00198;1;2300198;£5,000;Yes;1;Not available;Not available
+K00199;1;2300199;£5,000;Yes;1;Not available;Not available
+K00200;1;2300200;£5,000;Yes;1;Not available;Not available
+K00201;1;2300201;£5,000;Yes;1;Not available;Not available
+K00202;1;2300202;£5,000;Yes;1;Not available;Not available
+K00203;1;2300203;£5,000;Yes;1;Not available;Not available
+K00204;1;2300204;£5,000;Yes;1;Not available;Not available
+K00205;1;2300205;£5,000;Yes;1;Not available;Not available
+K00206;1;2300206;£5,000;Yes;1;Not available;Not available
+K00207;1;2300207;£5,000;Yes;1;Not available;Not available
+K00208;1;2300208;£5,000;Yes;1;Not available;Not available
+K00209;1;2300209;£5,000;Yes;1;Not available;Not available
+K00210;1;2300210;£5,000;Yes;1;Not available;Not available
+K00211;1;2300211;£5,000;Yes;1;Not available;Not available
+K00212;1;2300212;£5,000;Yes;1;Not available;Not available
+K00213;1;2300213;£5,000;Yes;1;Not available;Not available
+K00214;1;2300214;£5,000;Yes;1;Not available;Not available
+K00215;1;2300215;£5,000;Yes;1;Not available;Not available
+K00216;1;2300216;£5,000;Yes;1;Not available;Not available
+K00217;1;2300217;£5,000;Yes;1;Not available;Not available
+K00218;1;2300218;£5,000;Yes;1;Not available;Not available
+K00219;1;2300219;£5,000;Yes;1;Not available;Not available
+K00220;1;2300220;£5,000;Yes;1;Not available;Not available
+K00221;1;2300221;£5,000;Yes;1;Not available;Not available
+K00222;1;2300222;£5,000;Yes;1;Not available;Not available
+K00223;1;2300223;£5,000;Yes;1;Not available;Not available
+K00224;1;2300224;£5,000;Yes;1;Not available;Not available
+K00225;1;2300225;£5,000;Yes;1;Not available;Not available
+K00226;1;2300226;£5,000;Yes;1;Not available;Not available
+K00227;1;2300227;£5,000;Yes;1;Not available;Not available
+K00228;1;2300228;£5,000;Yes;1;Not available;Not available
+K00229;1;2300229;£5,000;Yes;1;Not available;Not available
+K00230;1;2300230;£5,000;Yes;1;Not available;Not available
+K00231;1;2300231;£5,000;Yes;1;Not available;Not available
+K00232;1;2300232;£5,000;Yes;1;Not available;Not available
+K00233;1;2300233;£5,000;Yes;1;Not available;Not available
+K00234;1;2300234;£5,000;Yes;1;Not available;Not available
+K00235;1;2300235;£5,000;Yes;1;Not available;Not available
+K00236;1;2300236;£5,000;Yes;1;Not available;Not available
+K00237;1;2300237;£5,000;Yes;1;Not available;Not available
+K00238;1;2300238;£5,000;Yes;1;Not available;Not available
+K00239;1;2300239;£5,000;Yes;1;Not available;Not available
+K00240;1;2300240;£5,000;Yes;1;Not available;Not available
+K00241;1;2300241;£5,000;Yes;1;Not available;Not available
+K00242;1;2300242;£5,000;Yes;1;Not available;Not available
+K00243;1;2300243;£5,000;Yes;1;Not available;Not available
+K00244;1;2300244;£5,000;Yes;1;Not available;Not available
+K00245;1;2300245;£5,000;Yes;1;Not available;Not available
+K00246;1;2300246;£5,000;Yes;1;Not available;Not available
+K00247;1;2300247;£5,000;Yes;1;Not available;Not available
+K00248;1;2300248;£5,000;Yes;1;Not available;Not available
+K00249;1;2300249;£5,000;Yes;1;Not available;Not available
+K00250;1;2300250;£5,000;Yes;1;Not available;Not available
+K00251;1;2300251;£5,000;Yes;1;Not available;Not available
+K00252;1;2300252;£5,000;Yes;1;Not available;Not available
+K00253;1;2300253;£5,000;Yes;1;Not available;Not available
+K00254;1;2300254;£5,000;Yes;1;Not available;Not available
+K00255;1;2300255;£5,000;Yes;1;Not available;Not available
+K00256;1;2300256;£5,000;Yes;1;Not available;Not available
+K00257;1;2300257;£5,000;Yes;1;Not available;Not available
+K00258;1;2300258;£5,000;Yes;1;Not available;Not available
+K00259;1;2300259;£5,000;Yes;1;Not available;Not available
+K00260;1;2300260;£5,000;Yes;1;Not available;Not available
+K00261;1;2300261;£5,000;Yes;1;Not available;Not available
+K00262;1;2300262;£5,000;Yes;1;Not available;Not available
+K00263;1;2300263;£5,000;Yes;1;Not available;Not available
+K00264;1;2300264;£5,000;Yes;1;Not available;Not available
+K00265;1;2300265;£5,000;Yes;1;Not available;Not available
+K00266;1;2300266;£5,000;Yes;1;Not available;Not available
+K00267;1;2300267;£5,000;Yes;1;Not available;Not available
+K00268;1;2300268;£5,000;Yes;1;Not available;Not available
+K00269;1;2300269;£5,000;Yes;1;Not available;Not available
+K00270;1;2300270;£5,000;Yes;1;Not available;Not available
+K00271;1;2300271;£5,000;Yes;1;Not available;Not available
+K00272;1;2300272;£5,000;Yes;1;Not available;Not available
+K00273;1;2300273;£5,000;Yes;1;Not available;Not available
+K00274;1;2300274;£5,000;Yes;1;Not available;Not available
+K00275;1;2300275;£5,000;Yes;1;Not available;Not available
+K00276;1;2300276;£5,000;Yes;1;Not available;Not available
+K00277;1;2300277;£5,000;Yes;1;Not available;Not available
+K00278;1;2300278;£5,000;Yes;1;Not available;Not available
+K00279;1;2300279;£5,000;Yes;1;Not available;Not available
+K00280;1;2300280;£5,000;Yes;1;Not available;Not available
+K00281;1;2300281;£5,000;Yes;1;Not available;Not available
+K00282;1;2300282;£5,000;Yes;1;Not available;Not available
+K00283;1;2300283;£5,000;Yes;1;Not available;Not available
+K00284;1;2300284;£5,000;Yes;1;Not available;Not available
+K00285;1;2300285;£5,000;Yes;1;Not available;Not available
+K00286;1;2300286;£5,000;Yes;1;Not available;Not available
+K00287;1;2300287;£5,000;Yes;1;Not available;Not available
+K00288;1;2300288;£5,000;Yes;1;Not available;Not available
+K00289;1;2300289;£5,000;Yes;1;Not available;Not available
+K00290;1;2300290;£5,000;Yes;1;Not available;Not available
+K00291;1;2300291;£5,000;Yes;1;Not available;Not available
+K00292;1;2300292;£5,000;Yes;1;Not available;Not available
+K00293;1;2300293;£5,000;Yes;1;Not available;Not available
+K00294;1;2300294;£5,000;Yes;1;Not available;Not available
+K00295;1;2300295;£5,000;Yes;1;Not available;Not available
+K00296;1;2300296;£5,000;Yes;1;Not available;Not available
+K00297;1;2300297;£5,000;Yes;1;Not available;Not available
+K00298;1;2300298;£5,000;Yes;1;Not available;Not available
+K00299;1;2300299;£5,000;Yes;1;Not available;Not available
+K00300;1;2300300;£5,000;Yes;1;Not available;Not available
+K00301;1;2300301;£5,000;Yes;1;Not available;Not available
+K00302;1;2300302;£5,000;Yes;1;Not available;Not available
+K00303;1;2300303;£5,000;Yes;1;Not available;Not available
+K00304;1;2300304;£5,000;Yes;1;Not available;Not available
+K00305;1;2300305;£5,000;Yes;1;Not available;Not available
+K00306;1;2300306;£5,000;Yes;1;Not available;Not available
+K00307;1;2300307;£5,000;Yes;1;Not available;Not available
+K00308;1;2300308;£5,000;Yes;1;Not available;Not available
+K00309;1;2300309;£5,000;Yes;1;Not available;Not available
+K00310;1;2300310;£5,000;Yes;1;Not available;Not available
+K00311;1;2300311;£5,000;Yes;1;Not available;Not available
+K00312;1;2300312;£5,000;Yes;1;Not available;Not available
+K00313;1;2300313;£5,000;Yes;1;Not available;Not available
+K00314;1;2300314;£5,000;Yes;1;Not available;Not available
+K00315;1;2300315;£5,000;Yes;1;Not available;Not available
+K00316;1;2300316;£5,000;Yes;1;Not available;Not available
+K00317;1;2300317;£5,000;Yes;1;Not available;Not available
+K00318;1;2300318;£5,000;Yes;1;Not available;Not available
+K00319;1;2300319;£5,000;Yes;1;Not available;Not available
+K00320;1;2300320;£5,000;Yes;1;Not available;Not available
+K00321;1;2300321;£5,000;Yes;1;Not available;Not available
+K00322;1;2300322;£5,000;Yes;1;Not available;Not available
+K00323;1;2300323;£5,000;Yes;1;Not available;Not available
+K00324;1;2300324;£5,000;Yes;1;Not available;Not available
+K00325;1;2300325;£5,000;Yes;1;Not available;Not available
+K00326;1;2300326;£5,000;Yes;1;Not available;Not available
+K00327;1;2300327;£5,000;Yes;1;Not available;Not available
+K00328;1;2300328;£5,000;Yes;1;Not available;Not available
+K00329;1;2300329;£5,000;Yes;1;Not available;Not available
+K00330;1;2300330;£5,000;Yes;1;Not available;Not available
+K00331;1;2300331;£5,000;Yes;1;Not available;Not available
+K00332;1;2300332;£5,000;Yes;1;Not available;Not available
+K00333;1;2300333;£5,000;Yes;1;Not available;Not available
+K00334;1;2300334;£5,000;Yes;1;Not available;Not available
+K00335;1;2300335;£5,000;Yes;1;Not available;Not available
+K00336;1;2300336;£5,000;Yes;1;Not available;Not available
+K00337;1;2300337;£5,000;Yes;1;Not available;Not available
+K00338;1;2300338;£5,000;Yes;1;Not available;Not available
+K00339;1;2300339;£5,000;Yes;1;Not available;Not available
+K00340;1;2300340;£5,000;Yes;1;Not available;Not available
+K00341;1;2300341;£5,000;Yes;1;Not available;Not available
+K00342;1;2300342;£5,000;Yes;1;Not available;Not available
+K00343;1;2300343;£5,000;Yes;1;Not available;Not available
+K00344;1;2300344;£5,000;Yes;1;Not available;Not available
+K00345;1;2300345;£5,000;Yes;1;Not available;Not available
+K00346;1;2300346;£5,000;Yes;1;Not available;Not available
+K00347;1;2300347;£5,000;Yes;1;Not available;Not available
+K00348;1;2300348;£5,000;Yes;1;Not available;Not available
+K00349;1;2300349;£5,000;Yes;1;Not available;Not available
+K00350;1;2300350;£5,000;Yes;1;Not available;Not available
+K00351;1;2300351;£5,000;Yes;1;Not available;Not available
+K00352;1;2300352;£5,000;Yes;1;Not available;Not available
+K00353;1;2300353;£5,000;Yes;1;Not available;Not available
+K00354;1;2300354;£5,000;Yes;1;Not available;Not available
+K00355;1;2300355;£5,000;Yes;1;Not available;Not available
+K00356;1;2300356;£5,000;Yes;1;Not available;Not available
+K00357;1;2300357;£5,000;Yes;1;Not available;Not available
+K00358;1;2300358;£5,000;Yes;1;Not available;Not available
+K00359;1;2300359;£5,000;Yes;1;Not available;Not available
+K00360;1;2300360;£5,000;Yes;1;Not available;Not available
+K00361;1;2300361;£5,000;Yes;1;Not available;Not available
+K00362;1;2300362;£5,000;Yes;1;Not available;Not available
+K00363;1;2300363;£5,000;Yes;1;Not available;Not available
+K00364;1;2300364;£5,000;Yes;1;Not available;Not available
+K00365;1;2300365;£5,000;Yes;1;Not available;Not available
+K00366;1;2300366;£5,000;Yes;1;Not available;Not available
+K00367;1;2300367;£5,000;Yes;1;Not available;Not available
+K00368;1;2300368;£5,000;Yes;1;Not available;Not available
+K00369;1;2300369;£5,000;Yes;1;Not available;Not available
+K00370;1;2300370;£5,000;Yes;1;Not available;Not available
+K00371;1;2300371;£5,000;Yes;1;Not available;Not available
+K00372;1;2300372;£5,000;Yes;1;Not available;Not available
+K00373;1;2300373;£5,000;Yes;1;Not available;Not available
+K00374;1;2300374;£5,000;Yes;1;Not available;Not available
+K00375;1;2300375;£5,000;Yes;1;Not available;Not available
+K00376;1;2300376;£5,000;Yes;1;Not available;Not available
+K00377;1;2300377;£5,000;Yes;1;Not available;Not available
+K00378;1;2300378;£5,000;Yes;1;Not available;Not available
+K00379;1;2300379;£5,000;Yes;1;Not available;Not available
+K00380;1;2300380;£5,000;Yes;1;Not available;Not available
+K00381;1;2300381;£5,000;Yes;1;Not available;Not available
+K00382;1;2300382;£5,000;Yes;1;Not available;Not available
+K00383;1;2300383;£5,000;Yes;1;Not available;Not available
+K00384;1;2300384;£5,000;Yes;1;Not available;Not available
+K00385;1;2300385;£5,000;Yes;1;Not available;Not available
+K00386;1;2300386;£5,000;Yes;1;Not available;Not available
+K00387;1;2300387;£5,000;Yes;1;Not available;Not available
+K00388;1;2300388;£5,000;Yes;1;Not available;Not available
+K00389;1;2300389;£5,000;Yes;1;Not available;Not available
+K00390;1;2300390;£5,000;Yes;1;Not available;Not available
+K00391;1;2300391;£5,000;Yes;1;Not available;Not available
+K00392;1;2300392;£5,000;Yes;1;Not available;Not available
+K00393;1;2300393;£5,000;Yes;1;Not available;Not available
+K00394;1;2300394;£5,000;Yes;1;Not available;Not available
+K00395;1;2300395;£5,000;Yes;1;Not available;Not available
+K00396;1;2300396;£5,000;Yes;1;Not available;Not available
+K00397;1;2300397;£5,000;Yes;1;Not available;Not available
+K00398;1;2300398;£5,000;Yes;1;Not available;Not available
+K00399;1;2300399;£5,000;Yes;1;Not available;Not available
+K00400;1;2300400;£5,000;Yes;1;Not available;Not available
+K00401;1;2300401;£5,000;Yes;1;Not available;Not available
+K00402;1;2300402;£5,000;Yes;1;Not available;Not available
+K00403;1;2300403;£5,000;Yes;1;Not available;Not available
+K00404;1;2300404;£5,000;Yes;1;Not available;Not available
+K00405;1;2300405;£5,000;Yes;1;Not available;Not available
+K00406;1;2300406;£5,000;Yes;1;Not available;Not available
+K00407;1;2300407;£5,000;Yes;1;Not available;Not available
+K00408;1;2300408;£5,000;Yes;1;Not available;Not available
+K00409;1;2300409;£5,000;Yes;1;Not available;Not available
+K00410;1;2300410;£5,000;Yes;1;Not available;Not available
+K00411;1;2300411;£5,000;Yes;1;Not available;Not available
+K00412;1;2300412;£5,000;Yes;1;Not available;Not available
+K00413;1;2300413;£5,000;Yes;1;Not available;Not available
+K00414;1;2300414;£5,000;Yes;1;Not available;Not available
+K00415;1;2300415;£5,000;Yes;1;Not available;Not available
+K00416;1;2300416;£5,000;Yes;1;Not available;Not available
+K00417;1;2300417;£5,000;Yes;1;Not available;Not available
+K00418;1;2300418;£5,000;Yes;1;Not available;Not available
+K00419;1;2300419;£5,000;Yes;1;Not available;Not available
+K00420;1;2300420;£5,000;Yes;1;Not available;Not available
+K00421;1;2300421;£5,000;Yes;1;Not available;Not available
+K00422;1;2300422;£5,000;Yes;1;Not available;Not available
+K00423;1;2300423;£5,000;Yes;1;Not available;Not available
+K00424;1;2300424;£5,000;Yes;1;Not available;Not available
+K00425;1;2300425;£5,000;Yes;1;Not available;Not available
+K00426;1;2300426;£5,000;Yes;1;Not available;Not available
+K00427;1;2300427;£5,000;Yes;1;Not available;Not available
+K00428;1;2300428;£5,000;Yes;1;Not available;Not available
+K00429;1;2300429;£5,000;Yes;1;Not available;Not available
+K00430;1;2300430;£5,000;Yes;1;Not available;Not available
+K00431;1;2300431;£5,000;Yes;1;Not available;Not available
+K00432;1;2300432;£5,000;Yes;1;Not available;Not available
+K00433;1;2300433;£5,000;Yes;1;Not available;Not available
+K00434;1;2300434;£5,000;Yes;1;Not available;Not available
+K00435;1;2300435;£5,000;Yes;1;Not available;Not available
+K00436;1;2300436;£5,000;Yes;1;Not available;Not available
+K00437;1;2300437;£5,000;Yes;1;Not available;Not available
+K00438;1;2300438;£5,000;Yes;1;Not available;Not available
+K00439;1;2300439;£5,000;Yes;1;Not available;Not available
+K00440;1;2300440;£5,000;Yes;1;Not available;Not available
+K00441;1;2300441;£5,000;Yes;1;Not available;Not available
+K00442;1;2300442;£5,000;Yes;1;Not available;Not available
+K00443;1;2300443;£5,000;Yes;1;Not available;Not available
+K00444;1;2300444;£5,000;Yes;1;Not available;Not available
+K00445;1;2300445;£5,000;Yes;1;Not available;Not available
+K00446;1;2300446;£5,000;Yes;1;Not available;Not available
+K00447;1;2300447;£5,000;Yes;1;Not available;Not available
+K00448;1;2300448;£5,000;Yes;1;Not available;Not available
+K00449;1;2300449;£5,000;Yes;1;Not available;Not available
+K00450;1;2300450;£5,000;Yes;1;Not available;Not available
+K00451;1;2300451;£5,000;Yes;1;Not available;Not available
+K00452;1;2300452;£5,000;Yes;1;Not available;Not available
+K00453;1;2300453;£5,000;Yes;1;Not available;Not available
+K00454;1;2300454;£5,000;Yes;1;Not available;Not available
+K00455;1;2300455;£5,000;Yes;1;Not available;Not available
+K00456;1;2300456;£5,000;Yes;1;Not available;Not available
+K00457;1;2300457;£5,000;Yes;1;Not available;Not available
+K00458;1;2300458;£5,000;Yes;1;Not available;Not available
+K00459;1;2300459;£5,000;Yes;1;Not available;Not available
+K00460;1;2300460;£5,000;Yes;1;Not available;Not available
+K00461;1;2300461;£5,000;Yes;1;Not available;Not available
+K00462;1;2300462;£5,000;Yes;1;Not available;Not available
+K00463;1;2300463;£5,000;Yes;1;Not available;Not available
+K00464;1;2300464;£5,000;Yes;1;Not available;Not available
+K00465;1;2300465;£5,000;Yes;1;Not available;Not available
+K00466;1;2300466;£5,000;Yes;1;Not available;Not available
+K00467;1;2300467;£5,000;Yes;1;Not available;Not available
+K00468;1;2300468;£5,000;Yes;1;Not available;Not available
+K00469;1;2300469;£5,000;Yes;1;Not available;Not available
+K00470;1;2300470;£5,000;Yes;1;Not available;Not available
+K00471;1;2300471;£5,000;Yes;1;Not available;Not available
+K00472;1;2300472;£5,000;Yes;1;Not available;Not available
+K00473;1;2300473;£5,000;Yes;1;Not available;Not available
+K00474;1;2300474;£5,000;Yes;1;Not available;Not available
+K00475;1;2300475;£5,000;Yes;1;Not available;Not available
+K00476;1;2300476;£5,000;Yes;1;Not available;Not available
+K00477;1;2300477;£5,000;Yes;1;Not available;Not available
+K00478;1;2300478;£5,000;Yes;1;Not available;Not available
+K00479;1;2300479;£5,000;Yes;1;Not available;Not available
+K00480;1;2300480;£5,000;Yes;1;Not available;Not available
+K00481;1;2300481;£5,000;Yes;1;Not available;Not available
+K00482;1;2300482;£5,000;Yes;1;Not available;Not available
+K00483;1;2300483;£5,000;Yes;1;Not available;Not available
+K00484;1;2300484;£5,000;Yes;1;Not available;Not available
+K00485;1;2300485;£5,000;Yes;1;Not available;Not available
+K00486;1;2300486;£5,000;Yes;1;Not available;Not available
+K00487;1;2300487;£5,000;Yes;1;Not available;Not available
+K00488;1;2300488;£5,000;Yes;1;Not available;Not available
+K00489;1;2300489;£5,000;Yes;1;Not available;Not available
+K00490;1;2300490;£5,000;Yes;1;Not available;Not available
+K00491;1;2300491;£5,000;Yes;1;Not available;Not available
+K00492;1;2300492;£5,000;Yes;1;Not available;Not available
+K00493;1;2300493;£5,000;Yes;1;Not available;Not available
+K00494;1;2300494;£5,000;Yes;1;Not available;Not available
+K00495;1;2300495;£5,000;Yes;1;Not available;Not available
+K00496;1;2300496;£5,000;Yes;1;Not available;Not available
+K00497;1;2300497;£5,000;Yes;1;Not available;Not available
+K00498;1;2300498;£5,000;Yes;1;Not available;Not available
+K00499;1;2300499;£5,000;Yes;1;Not available;Not available
+K00500;1;2300500;£5,000;Yes;1;Not available;Not available
+K00501;1;2300501;£5,000;Not;2;£5,000;Not available
+K00502;1;2300502;£5,000;Not;2;£5,000;Not available
+K00503;1;2300503;£5,000;Not;2;£5,000;Not available
+K00504;1;2300504;£5,000;Not;2;£5,000;Not available
+K00505;1;2300505;£5,000;Not;2;£5,000;Not available
+K00506;1;2300506;£5,000;Not;2;£5,000;Not available
+K00507;1;2300507;£5,000;Not;2;£5,000;Not available
+K00508;1;2300508;£5,000;Not;2;£5,000;Not available
+K00509;1;2300509;£5,000;Not;2;£5,000;Not available
+K00510;1;2300510;£5,000;Not;2;£5,000;Not available
+K00511;1;2300511;£5,000;Not;2;£5,000;Not available
+K00512;1;2300512;£5,000;Not;2;£5,000;Not available
+K00513;1;2300513;£5,000;Not;2;£5,000;Not available
+K00514;1;2300514;£5,000;Not;2;£5,000;Not available
+K00515;1;2300515;£5,000;Not;2;£5,000;Not available
+K00516;1;2300516;£5,000;Not;2;£5,000;Not available
+K00517;1;2300517;£5,000;Not;2;£5,000;Not available
+K00518;1;2300518;£5,000;Not;2;£5,000;Not available
+K00519;1;2300519;£5,000;Not;2;£5,000;Not available
+K00520;1;2300520;£5,000;Not;2;£5,000;Not available
+K00521;1;2300521;£5,000;Not;2;£5,000;Not available
+K00522;1;2300522;£5,000;Not;2;£5,000;Not available
+K00523;1;2300523;£5,000;Not;2;£5,000;Not available
+K00524;1;2300524;£5,000;Not;2;£5,000;Not available
+K00525;1;2300525;£5,000;Not;2;£5,000;Not available
+K00526;1;2300526;£5,000;Not;2;£5,000;Not available
+K00527;1;2300527;£5,000;Not;2;£5,000;Not available
+K00528;1;2300528;£5,000;Not;2;£5,000;Not available
+K00529;1;2300529;£5,000;Not;2;£5,000;Not available
+K00530;1;2300530;£5,000;Not;2;£5,000;Not available
+K00531;1;2300531;£5,000;Not;2;£5,000;Not available
+K00532;1;2300532;£5,000;Not;2;£5,000;Not available
+K00533;1;2300533;£5,000;Not;2;£5,000;Not available
+K00534;1;2300534;£5,000;Not;2;£5,000;Not available
+K00535;1;2300535;£5,000;Not;2;£5,000;Not available
+K00536;1;2300536;£5,000;Not;2;£5,000;Not available
+K00537;1;2300537;£5,000;Not;2;£5,000;Not available
+K00538;1;2300538;£5,000;Not;2;£5,000;Not available
+K00539;1;2300539;£5,000;Not;2;£5,000;Not available
+K00540;1;2300540;£5,000;Not;2;£5,000;Not available
+K00541;1;2300541;£5,000;Not;2;£5,000;Not available
+K00542;1;2300542;£5,000;Not;2;£5,000;Not available
+K00543;1;2300543;£5,000;Not;2;£5,000;Not available
+K00544;1;2300544;£5,000;Not;2;£5,000;Not available
+K00545;1;2300545;£5,000;Not;2;£5,000;Not available
+K00546;1;2300546;£5,000;Not;2;£5,000;Not available
+K00547;1;2300547;£5,000;Not;2;£5,000;Not available
+K00548;1;2300548;£5,000;Not;2;£5,000;Not available
+K00549;1;2300549;£5,000;Not;2;£5,000;Not available
+K00550;1;2300550;£5,000;Not;2;£5,000;Not available
+K00551;1;2300551;£5,000;Not;2;£5,000;Not available
+K00552;1;2300552;£5,000;Not;2;£5,000;Not available
+K00553;1;2300553;£5,000;Not;2;£5,000;Not available
+K00554;1;2300554;£5,000;Not;2;£5,000;Not available
+K00555;1;2300555;£5,000;Not;2;£5,000;Not available
+K00556;1;2300556;£5,000;Not;2;£5,000;Not available
+K00557;1;2300557;£5,000;Not;2;£5,000;Not available
+K00558;1;2300558;£5,000;Not;2;£5,000;Not available
+K00559;1;2300559;£5,000;Not;2;£5,000;Not available
+K00560;1;2300560;£5,000;Not;2;£5,000;Not available
+K00561;1;2300561;£5,000;Not;2;£5,000;Not available
+K00562;1;2300562;£5,000;Not;2;£5,000;Not available
+K00563;1;2300563;£5,000;Not;2;£5,000;Not available
+K00564;1;2300564;£5,000;Not;2;£5,000;Not available
+K00565;1;2300565;£5,000;Not;2;£5,000;Not available
+K00566;1;2300566;£5,000;Not;2;£5,000;Not available
+K00567;1;2300567;£5,000;Not;2;£5,000;Not available
+K00568;1;2300568;£5,000;Not;2;£5,000;Not available
+K00569;1;2300569;£5,000;Not;2;£5,000;Not available
+K00570;1;2300570;£5,000;Not;2;£5,000;Not available
+K00571;1;2300571;£5,000;Not;3;£11,000;Not available
+K00572;1;2300572;£5,000;Not;3;£11,000;Not available
+K00573;1;2300573;£5,000;Not;3;£11,000;Not available
+K00574;1;2300574;£5,000;Not;3;£11,000;Not available
+K00575;1;2300575;£5,000;Not;3;£11,000;Not available
+K00576;1;2300576;£5,000;Not;3;£11,000;Not available
+K00577;1;2300577;£5,000;Not;3;£11,000;Not available
+K00578;1;2300578;£5,000;Not;3;£11,000;Not available
+K00579;1;2300579;£5,000;Not;3;£11,000;Not available
+K00580;1;2300580;£5,000;Not;3;£11,000;Not available
+K00581;1;2300581;£5,000;Not;3;£11,000;Not available
+K00582;1;2300582;£5,000;Not;3;£11,000;Not available
+K00583;1;2300583;£5,000;Not;3;£11,000;Not available
+K00584;1;2300584;£5,000;Not;3;£11,000;Not available
+K00585;1;2300585;£5,000;Not;3;£11,000;Not available
+K00586;1;2300586;£5,000;Not;3;£11,000;Not available
+K00587;1;2300587;£5,000;Not;3;£11,000;Not available
+K00588;1;2300588;£5,000;Not;3;£11,000;Not available
+K00589;1;2300589;£5,000;Not;3;£11,000;Not available
+K00590;1;2300590;£5,000;Not;3;£11,000;Not available
+K00591;1;2300591;£5,000;Not;3;£11,000;Not available
+K00592;1;2300592;£5,000;Not;3;£11,000;Not available
+K00593;1;2300593;£5,000;Not;3;£11,000;Not available
+K00594;1;2300594;£5,000;Not;3;£11,000;Not available
+K00595;1;2300595;£5,000;Not;3;£11,000;Not available
+K00596;1;2300596;£5,000;Not;3;£11,000;Not available
+K00597;1;2300597;£5,000;Not;3;£11,000;Not available
+K00598;1;2300598;£5,000;Not;3;£11,000;Not available
+K00599;1;2300599;£5,000;Not;3;£11,000;Not available
+K00600;1;2300600;£5,000;Not;3;£11,000;Not available
+K00601;1;2300601;£5,000;Not;3;£11,000;Not available
+K00602;1;2300602;£5,000;Not;3;£11,000;Not available
+K00603;1;2300603;£5,000;Not;3;£11,000;Not available
+K00604;1;2300604;£5,000;Not;3;£11,000;Not available
+K00605;1;2300605;£5,000;Not;3;£11,000;Not available
+K00606;1;2300606;£5,000;Not;3;£11,000;Not available
+K00607;1;2300607;£5,000;Not;3;£11,000;Not available
+K00608;1;2300608;£5,000;Not;3;£11,000;Not available
+K00609;1;2300609;£5,000;Not;3;£11,000;Not available
+K00610;1;2300610;£5,000;Not;3;£11,000;Not available
+K00611;1;2300611;£5,000;Not;3;£11,000;Not available
+K00612;1;2300612;£5,000;Not;3;£11,000;Not available
+K00613;1;2300613;£5,000;Not;3;£11,000;Not available
+K00614;1;2300614;£5,000;Not;3;£11,000;Not available
+K00615;1;2300615;£5,000;Not;3;£11,000;Not available
+K00616;1;2300616;£5,000;Not;3;£11,000;Not available
+K00617;1;2300617;£5,000;Not;4;£12,000;Not available
+K00618;1;2300618;£5,000;Not;4;£12,000;Not available
+K00619;1;2300619;£5,000;Not;4;£12,000;Not available
+K00620;1;2300620;£5,000;Not;5;£13,000;Not available
+K00621;2;2300621;£8,000;Yes;2;Not available;Not available
+K00622;2;2300622;£8,000;Yes;2;Not available;Not available
+K00623;2;2300623;£8,000;Yes;2;Not available;Not available
+K00624;2;2300624;£8,000;Yes;2;Not available;Not available
+K00625;2;2300625;£8,000;Yes;2;Not available;Not available
+K00626;2;2300626;£8,000;Yes;2;Not available;Not available
+K00627;2;2300627;£8,000;Yes;2;Not available;Not available
+K00628;2;2300628;£8,000;Yes;2;Not available;Not available
+K00629;2;2300629;£8,000;Yes;2;Not available;Not available
+K00630;2;2300630;£8,000;Yes;2;Not available;Not available
+K00631;2;2300631;£8,000;Yes;2;Not available;Not available
+K00632;2;2300632;£8,000;Yes;2;Not available;Not available
+K00633;2;2300633;£8,000;Yes;2;Not available;Not available
+K00634;2;2300634;£8,000;Yes;2;Not available;Not available
+K00635;2;2300635;£8,000;Yes;2;Not available;Not available
+K00636;2;2300636;£8,000;Yes;2;Not available;Not available
+K00637;2;2300637;£8,000;Yes;2;Not available;Not available
+K00638;2;2300638;£8,000;Yes;2;Not available;Not available
+K00639;2;2300639;£8,000;Yes;2;Not available;Not available
+K00640;2;2300640;£8,000;Yes;2;Not available;Not available
+K00641;2;2300641;£8,000;Yes;2;Not available;Not available
+K00642;2;2300642;£8,000;Yes;2;Not available;Not available
+K00643;2;2300643;£8,000;Yes;2;Not available;Not available
+K00644;2;2300644;£8,000;Yes;2;Not available;Not available
+K00645;2;2300645;£8,000;Yes;2;Not available;Not available
+K00646;2;2300646;£8,000;Yes;2;Not available;Not available
+K00647;2;2300647;£8,000;Yes;2;Not available;Not available
+K00648;2;2300648;£8,000;Yes;2;Not available;Not available
+K00649;2;2300649;£8,000;Yes;2;Not available;Not available
+K00650;2;2300650;£8,000;Yes;2;Not available;Not available
+K00651;2;2300651;£8,000;Yes;2;Not available;Not available
+K00652;2;2300652;£8,000;Yes;2;Not available;Not available
+K00653;2;2300653;£8,000;Yes;2;Not available;Not available
+K00654;2;2300654;£8,000;Yes;2;Not available;Not available
+K00655;2;2300655;£8,000;Yes;2;Not available;Not available
+K00656;2;2300656;£8,000;Yes;2;Not available;Not available
+K00657;2;2300657;£8,000;Yes;2;Not available;Not available
+K00658;2;2300658;£8,000;Yes;2;Not available;Not available
+K00659;2;2300659;£8,000;Yes;2;Not available;Not available
+K00660;2;2300660;£8,000;Yes;2;Not available;Not available
+K00661;2;2300661;£8,000;Yes;2;Not available;Not available
+K00662;2;2300662;£8,000;Yes;2;Not available;Not available
+K00663;2;2300663;£8,000;Yes;2;Not available;Not available
+K00664;2;2300664;£8,000;Yes;2;Not available;Not available
+K00665;2;2300665;£8,000;Yes;2;Not available;Not available
+K00666;2;2300666;£8,000;Yes;2;Not available;Not available
+K00667;2;2300667;£8,000;Yes;2;Not available;Not available
+K00668;2;2300668;£8,000;Yes;2;Not available;Not available
+K00669;2;2300669;£8,000;Yes;2;Not available;Not available
+K00670;2;2300670;£8,000;Yes;2;Not available;Not available
+K00671;2;2300671;£8,000;Yes;2;Not available;Not available
+K00672;2;2300672;£8,000;Yes;2;Not available;Not available
+K00673;2;2300673;£8,000;Yes;2;Not available;Not available
+K00674;2;2300674;£8,000;Yes;2;Not available;Not available
+K00675;2;2300675;£8,000;Yes;2;Not available;Not available
+K00676;2;2300676;£8,000;Yes;2;Not available;Not available
+K00677;2;2300677;£8,000;Yes;2;Not available;Not available
+K00678;2;2300678;£8,000;Yes;2;Not available;Not available
+K00679;2;2300679;£8,000;Yes;2;Not available;Not available
+K00680;2;2300680;£8,000;Yes;2;Not available;Not available
+K00681;2;2300681;£8,000;Yes;2;Not available;Not available
+K00682;2;2300682;£8,000;Yes;2;Not available;Not available
+K00683;2;2300683;£8,000;Yes;2;Not available;Not available
+K00684;2;2300684;£8,000;Yes;2;Not available;Not available
+K00685;2;2300685;£8,000;Yes;2;Not available;Not available
+K00686;2;2300686;£8,000;Yes;2;Not available;Not available
+K00687;2;2300687;£8,000;Yes;2;Not available;Not available
+K00688;2;2300688;£8,000;Yes;2;Not available;Not available
+K00689;2;2300689;£8,000;Yes;2;Not available;Not available
+K00690;2;2300690;£8,000;Yes;2;Not available;Not available
+K00691;2;2300691;£8,000;Yes;2;Not available;Not available
+K00692;2;2300692;£8,000;Yes;2;Not available;Not available
+K00693;2;2300693;£8,000;Yes;2;Not available;Not available
+K00694;2;2300694;£8,000;Yes;2;Not available;Not available
+K00695;2;2300695;£8,000;Yes;2;Not available;Not available
+K00696;2;2300696;£8,000;Yes;2;Not available;Not available
+K00697;2;2300697;£8,000;Yes;2;Not available;Not available
+K00698;2;2300698;£8,000;Yes;2;Not available;Not available
+K00699;2;2300699;£8,000;Yes;2;Not available;Not available
+K00700;2;2300700;£8,000;Yes;2;Not available;Not available
+K00701;2;2300701;£8,000;Yes;2;Not available;Not available
+K00702;2;2300702;£8,000;Yes;2;Not available;Not available
+K00703;2;2300703;£8,000;Yes;2;Not available;Not available
+K00704;2;2300704;£8,000;Yes;2;Not available;Not available
+K00705;2;2300705;£8,000;Yes;2;Not available;Not available
+K00706;2;2300706;£8,000;Yes;2;Not available;Not available
+K00707;2;2300707;£8,000;Yes;2;Not available;Not available
+K00708;2;2300708;£8,000;Yes;2;Not available;Not available
+K00709;2;2300709;£8,000;Yes;2;Not available;Not available
+K00710;2;2300710;£8,000;Yes;2;Not available;Not available
+K00711;2;2300711;£8,000;Yes;2;Not available;Not available
+K00712;2;2300712;£8,000;Yes;2;Not available;Not available
+K00713;2;2300713;£8,000;Yes;2;Not available;Not available
+K00714;2;2300714;£8,000;Yes;2;Not available;Not available
+K00715;2;2300715;£8,000;Yes;2;Not available;Not available
+K00716;2;2300716;£8,000;Yes;2;Not available;Not available
+K00717;2;2300717;£8,000;Yes;2;Not available;Not available
+K00718;2;2300718;£8,000;Yes;2;Not available;Not available
+K00719;2;2300719;£8,000;Yes;2;Not available;Not available
+K00720;2;2300720;£8,000;Yes;2;Not available;Not available
+K00721;2;2300721;£8,000;Yes;2;Not available;Not available
+K00722;2;2300722;£8,000;Yes;2;Not available;Not available
+K00723;2;2300723;£8,000;Yes;2;Not available;Not available
+K00724;2;2300724;£8,000;Yes;2;Not available;Not available
+K00725;2;2300725;£8,000;Yes;2;Not available;Not available
+K00726;2;2300726;£8,000;Yes;2;Not available;Not available
+K00727;2;2300727;£8,000;Yes;2;Not available;Not available
+K00728;2;2300728;£8,000;Yes;2;Not available;Not available
+K00729;2;2300729;£8,000;Yes;2;Not available;Not available
+K00730;2;2300730;£8,000;Yes;2;Not available;Not available
+K00731;2;2300731;£8,000;Yes;2;Not available;Not available
+K00732;2;2300732;£8,000;Yes;2;Not available;Not available
+K00733;2;2300733;£8,000;Yes;2;Not available;Not available
+K00734;2;2300734;£8,000;Yes;2;Not available;Not available
+K00735;2;2300735;£8,000;Yes;2;Not available;Not available
+K00736;2;2300736;£8,000;Yes;2;Not available;Not available
+K00737;2;2300737;£8,000;Yes;2;Not available;Not available
+K00738;2;2300738;£8,000;Yes;2;Not available;Not available
+K00739;2;2300739;£8,000;Yes;2;Not available;Not available
+K00740;2;2300740;£8,000;Yes;2;Not available;Not available
+K00741;2;2300741;£8,000;Yes;2;Not available;Not available
+K00742;2;2300742;£8,000;Yes;2;Not available;Not available
+K00743;2;2300743;£8,000;Yes;2;Not available;Not available
+K00744;2;2300744;£8,000;Yes;2;Not available;Not available
+K00745;2;2300745;£8,000;Yes;2;Not available;Not available
+K00746;2;2300746;£8,000;Yes;2;Not available;Not available
+K00747;2;2300747;£8,000;Yes;2;Not available;Not available
+K00748;2;2300748;£8,000;Yes;2;Not available;Not available
+K00749;2;2300749;£8,000;Yes;2;Not available;Not available
+K00750;2;2300750;£8,000;Yes;2;Not available;Not available
+K00751;2;2300751;£8,000;Yes;2;Not available;Not available
+K00752;2;2300752;£8,000;Yes;2;Not available;Not available
+K00753;2;2300753;£8,000;Yes;2;Not available;Not available
+K00754;2;2300754;£8,000;Yes;2;Not available;Not available
+K00755;2;2300755;£8,000;Yes;2;Not available;Not available
+K00756;2;2300756;£8,000;Yes;2;Not available;Not available
+K00757;2;2300757;£8,000;Yes;2;Not available;Not available
+K00758;2;2300758;£8,000;Yes;2;Not available;Not available
+K00759;2;2300759;£8,000;Yes;2;Not available;Not available
+K00760;2;2300760;£8,000;Yes;2;Not available;Not available
+K00761;2;2300761;£8,000;Yes;2;Not available;Not available
+K00762;2;2300762;£8,000;Yes;2;Not available;Not available
+K00763;2;2300763;£8,000;Yes;2;Not available;Not available
+K00764;2;2300764;£8,000;Yes;2;Not available;Not available
+K00765;2;2300765;£8,000;Yes;2;Not available;Not available
+K00766;2;2300766;£8,000;Yes;2;Not available;Not available
+K00767;2;2300767;£8,000;Yes;2;Not available;Not available
+K00768;2;2300768;£8,000;Yes;2;Not available;Not available
+K00769;2;2300769;£8,000;Yes;2;Not available;Not available
+K00770;2;2300770;£8,000;Yes;2;Not available;Not available
+K00771;2;2300771;£8,000;Yes;2;Not available;Not available
+K00772;2;2300772;£8,000;Yes;2;Not available;Not available
+K00773;2;2300773;£8,000;Yes;2;Not available;Not available
+K00774;2;2300774;£8,000;Yes;2;Not available;Not available
+K00775;2;2300775;£8,000;Yes;2;Not available;Not available
+K00776;2;2300776;£8,000;Yes;2;Not available;Not available
+K00777;2;2300777;£8,000;Yes;2;Not available;Not available
+K00778;2;2300778;£8,000;Yes;2;Not available;Not available
+K00779;2;2300779;£8,000;Yes;2;Not available;Not available
+K00780;2;2300780;£8,000;Yes;2;Not available;Not available
+K00781;2;2300781;£8,000;Yes;2;Not available;Not available
+K00782;2;2300782;£8,000;Yes;2;Not available;Not available
+K00783;2;2300783;£8,000;Yes;2;Not available;Not available
+K00784;2;2300784;£8,000;Yes;2;Not available;Not available
+K00785;2;2300785;£8,000;Yes;2;Not available;Not available
+K00786;2;2300786;£8,000;Yes;2;Not available;Not available
+K00787;2;2300787;£8,000;Yes;2;Not available;Not available
+K00788;2;2300788;£8,000;Yes;2;Not available;Not available
+K00789;2;2300789;£8,000;Yes;2;Not available;Not available
+K00790;2;2300790;£8,000;Yes;2;Not available;Not available
+K00791;2;2300791;£8,000;Yes;2;Not available;Not available
+K00792;2;2300792;£8,000;Yes;2;Not available;Not available
+K00793;2;2300793;£8,000;Yes;2;Not available;Not available
+K00794;2;2300794;£8,000;Yes;2;Not available;Not available
+K00795;2;2300795;£8,000;Yes;2;Not available;Not available
+K00796;2;2300796;£8,000;Yes;2;Not available;Not available
+K00797;2;2300797;£8,000;Yes;2;Not available;Not available
+K00798;2;2300798;£8,000;Yes;2;Not available;Not available
+K00799;2;2300799;£8,000;Yes;2;Not available;Not available
+K00800;2;2300800;£8,000;Yes;2;Not available;Not available
+K00801;2;2300801;£8,000;Yes;2;Not available;Not available
+K00802;2;2300802;£8,000;Yes;2;Not available;Not available
+K00803;2;2300803;£8,000;Yes;2;Not available;Not available
+K00804;2;2300804;£8,000;Yes;2;Not available;Not available
+K00805;2;2300805;£8,000;Yes;2;Not available;Not available
+K00806;2;2300806;£8,000;Yes;2;Not available;Not available
+K00807;2;2300807;£8,000;Yes;2;Not available;Not available
+K00808;2;2300808;£8,000;Yes;2;Not available;Not available
+K00809;2;2300809;£8,000;Yes;2;Not available;Not available
+K00810;2;2300810;£8,000;Yes;2;Not available;Not available
+K00811;2;2300811;£8,000;Yes;2;Not available;Not available
+K00812;2;2300812;£8,000;Yes;2;Not available;Not available
+K00813;2;2300813;£8,000;Yes;2;Not available;Not available
+K00814;2;2300814;£8,000;Yes;2;Not available;Not available
+K00815;2;2300815;£8,000;Yes;2;Not available;Not available
+K00816;2;2300816;£8,000;Yes;2;Not available;Not available
+K00817;2;2300817;£8,000;Yes;2;Not available;Not available
+K00818;2;2300818;£8,000;Yes;2;Not available;Not available
+K00819;2;2300819;£8,000;Yes;2;Not available;Not available
+K00820;2;2300820;£8,000;Yes;2;Not available;Not available
+K00821;2;2300821;£8,000;Yes;2;Not available;Not available
+K00822;2;2300822;£8,000;Yes;2;Not available;Not available
+K00823;2;2300823;£8,000;Yes;2;Not available;Not available
+K00824;2;2300824;£8,000;Yes;2;Not available;Not available
+K00825;2;2300825;£8,000;Yes;2;Not available;Not available
+K00826;2;2300826;£8,000;Yes;2;Not available;Not available
+K00827;2;2300827;£8,000;Yes;2;Not available;Not available
+K00828;2;2300828;£8,000;Yes;2;Not available;Not available
+K00829;2;2300829;£8,000;Yes;2;Not available;Not available
+K00830;2;2300830;£8,000;Yes;2;Not available;Not available
+K00831;2;2300831;£8,000;Yes;2;Not available;Not available
+K00832;2;2300832;£8,000;Yes;2;Not available;Not available
+K00833;2;2300833;£8,000;Yes;2;Not available;Not available
+K00834;2;2300834;£8,000;Yes;2;Not available;Not available
+K00835;2;2300835;£8,000;Yes;2;Not available;Not available
+K00836;2;2300836;£8,000;Yes;2;Not available;Not available
+K00837;2;2300837;£8,000;Yes;2;Not available;Not available
+K00838;2;2300838;£8,000;Yes;2;Not available;Not available
+K00839;2;2300839;£8,000;Yes;2;Not available;Not available
+K00840;2;2300840;£8,000;Yes;2;Not available;Not available
+K00841;2;2300841;£8,000;Yes;2;Not available;Not available
+K00842;2;2300842;£8,000;Yes;2;Not available;Not available
+K00843;2;2300843;£8,000;Yes;2;Not available;Not available
+K00844;2;2300844;£8,000;Yes;2;Not available;Not available
+K00845;2;2300845;£8,000;Yes;2;Not available;Not available
+K00846;2;2300846;£8,000;Yes;2;Not available;Not available
+K00847;2;2300847;£8,000;Yes;2;Not available;Not available
+K00848;2;2300848;£8,000;Yes;2;Not available;Not available
+K00849;2;2300849;£8,000;Yes;2;Not available;Not available
+K00850;2;2300850;£8,000;Yes;2;Not available;Not available
+K00851;2;2300851;£8,000;Yes;2;Not available;Not available
+K00852;2;2300852;£8,000;Yes;2;Not available;Not available
+K00853;2;2300853;£8,000;Yes;2;Not available;Not available
+K00854;2;2300854;£8,000;Yes;2;Not available;Not available
+K00855;2;2300855;£8,000;Yes;2;Not available;Not available
+K00856;2;2300856;£8,000;Yes;2;Not available;Not available
+K00857;2;2300857;£8,000;Yes;2;Not available;Not available
+K00858;2;2300858;£8,000;Yes;2;Not available;Not available
+K00859;2;2300859;£8,000;Yes;2;Not available;Not available
+K00860;2;2300860;£8,000;Yes;2;Not available;Not available
+K00861;2;2300861;£8,000;Yes;2;Not available;Not available
+K00862;2;2300862;£8,000;Yes;2;Not available;Not available
+K00863;2;2300863;£8,000;Yes;2;Not available;Not available
+K00864;2;2300864;£8,000;Yes;2;Not available;Not available
+K00865;2;2300865;£8,000;Yes;2;Not available;Not available
+K00866;2;2300866;£8,000;Yes;2;Not available;Not available
+K00867;2;2300867;£8,000;Yes;2;Not available;Not available
+K00868;2;2300868;£8,000;Yes;2;Not available;Not available
+K00869;2;2300869;£8,000;Yes;2;Not available;Not available
+K00870;2;2300870;£8,000;Yes;2;Not available;Not available
+K00871;2;2300871;£8,000;Yes;2;Not available;Not available
+K00872;2;2300872;£8,000;Yes;2;Not available;Not available
+K00873;2;2300873;£8,000;Yes;2;Not available;Not available
+K00874;2;2300874;£8,000;Yes;2;Not available;Not available
+K00875;2;2300875;£8,000;Yes;2;Not available;Not available
+K00876;2;2300876;£8,000;Yes;2;Not available;Not available
+K00877;2;2300877;£8,000;Yes;2;Not available;Not available
+K00878;2;2300878;£8,000;Yes;2;Not available;Not available
+K00879;2;2300879;£8,000;Yes;2;Not available;Not available
+K00880;2;2300880;£8,000;Yes;2;Not available;Not available
+K00881;2;2300881;£8,000;Yes;2;Not available;Not available
+K00882;2;2300882;£8,000;Yes;2;Not available;Not available
+K00883;2;2300883;£8,000;Yes;2;Not available;Not available
+K00884;2;2300884;£8,000;Yes;2;Not available;Not available
+K00885;2;2300885;£8,000;Yes;2;Not available;Not available
+K00886;2;2300886;£8,000;Yes;2;Not available;Not available
+K00887;2;2300887;£8,000;Yes;2;Not available;Not available
+K00888;2;2300888;£8,000;Yes;2;Not available;Not available
+K00889;2;2300889;£8,000;Yes;2;Not available;Not available
+K00890;2;2300890;£8,000;Yes;2;Not available;Not available
+K00891;2;2300891;£8,000;Yes;2;Not available;Not available
+K00892;2;2300892;£8,000;Yes;2;Not available;Not available
+K00893;2;2300893;£8,000;Yes;2;Not available;Not available
+K00894;2;2300894;£8,000;Yes;2;Not available;Not available
+K00895;2;2300895;£8,000;Yes;2;Not available;Not available
+K00896;2;2300896;£8,000;Yes;2;Not available;Not available
+K00897;2;2300897;£8,000;Yes;2;Not available;Not available
+K00898;2;2300898;£8,000;Yes;2;Not available;Not available
+K00899;2;2300899;£8,000;Yes;2;Not available;Not available
+K00900;2;2300900;£8,000;Yes;2;Not available;Not available
+K00901;2;2300901;£8,000;Yes;2;Not available;Not available
+K00902;2;2300902;£8,000;Yes;2;Not available;Not available
+K00903;2;2300903;£8,000;Yes;2;Not available;Not available
+K00904;2;2300904;£8,000;Yes;2;Not available;Not available
+K00905;2;2300905;£8,000;Yes;2;Not available;Not available
+K00906;2;2300906;£8,000;Yes;2;Not available;Not available
+K00907;2;2300907;£8,000;Yes;2;Not available;Not available
+K00908;2;2300908;£8,000;Yes;2;Not available;Not available
+K00909;2;2300909;£8,000;Yes;2;Not available;Not available
+K00910;2;2300910;£8,000;Yes;2;Not available;Not available
+K00911;2;2300911;£8,000;Yes;2;Not available;Not available
+K00912;2;2300912;£8,000;Yes;2;Not available;Not available
+K00913;2;2300913;£8,000;Yes;2;Not available;Not available
+K00914;2;2300914;£8,000;Yes;2;Not available;Not available
+K00915;2;2300915;£8,000;Yes;2;Not available;Not available
+K00916;2;2300916;£8,000;Yes;2;Not available;Not available
+K00917;2;2300917;£8,000;Yes;2;Not available;Not available
+K00918;2;2300918;£8,000;Yes;2;Not available;Not available
+K00919;2;2300919;£8,000;Yes;2;Not available;Not available
+K00920;2;2300920;£8,000;Yes;2;Not available;Not available
+K00921;2;2300921;£8,000;Yes;2;Not available;Not available
+K00922;2;2300922;£8,000;Yes;2;Not available;Not available
+K00923;2;2300923;£8,000;Yes;2;Not available;Not available
+K00924;2;2300924;£8,000;Yes;2;Not available;Not available
+K00925;2;2300925;£8,000;Yes;2;Not available;Not available
+K00926;2;2300926;£8,000;Yes;2;Not available;Not available
+K00927;2;2300927;£8,000;Yes;2;Not available;Not available
+K00928;2;2300928;£8,000;Yes;2;Not available;Not available
+K00929;2;2300929;£8,000;Yes;2;Not available;Not available
+K00930;2;2300930;£8,000;Yes;2;Not available;Not available
+K00931;2;2300931;£8,000;Yes;2;Not available;Not available
+K00932;2;2300932;£8,000;Yes;2;Not available;Not available
+K00933;2;2300933;£8,000;Yes;2;Not available;Not available
+K00934;2;2300934;£8,000;Yes;2;Not available;Not available
+K00935;2;2300935;£8,000;Yes;2;Not available;Not available
+K00936;2;2300936;£8,000;Yes;2;Not available;Not available
+K00937;2;2300937;£8,000;Yes;2;Not available;Not available
+K00938;2;2300938;£8,000;Yes;2;Not available;Not available
+K00939;2;2300939;£8,000;Yes;2;Not available;Not available
+K00940;2;2300940;£8,000;Yes;2;Not available;Not available
+K00941;2;2300941;£8,000;Yes;2;Not available;Not available
+K00942;2;2300942;£8,000;Yes;2;Not available;Not available
+K00943;2;2300943;£8,000;Yes;2;Not available;Not available
+K00944;2;2300944;£8,000;Yes;2;Not available;Not available
+K00945;2;2300945;£8,000;Yes;2;Not available;Not available
+K00946;2;2300946;£8,000;Yes;2;Not available;Not available
+K00947;2;2300947;£8,000;Yes;2;Not available;Not available
+K00948;2;2300948;£8,000;Yes;2;Not available;Not available
+K00949;2;2300949;£8,000;Yes;2;Not available;Not available
+K00950;2;2300950;£8,000;Yes;2;Not available;Not available
+K00951;2;2300951;£8,000;Yes;2;Not available;Not available
+K00952;2;2300952;£8,000;Yes;2;Not available;Not available
+K00953;2;2300953;£8,000;Yes;2;Not available;Not available
+K00954;2;2300954;£8,000;Yes;2;Not available;Not available
+K00955;2;2300955;£8,000;Yes;2;Not available;Not available
+K00956;2;2300956;£8,000;Yes;2;Not available;Not available
+K00957;2;2300957;£8,000;Yes;2;Not available;Not available
+K00958;2;2300958;£8,000;Yes;2;Not available;Not available
+K00959;2;2300959;£8,000;Yes;2;Not available;Not available
+K00960;2;2300960;£8,000;Yes;2;Not available;Not available
+K00961;2;2300961;£8,000;Yes;2;Not available;Not available
+K00962;2;2300962;£8,000;Yes;2;Not available;Not available
+K00963;2;2300963;£8,000;Yes;2;Not available;Not available
+K00964;2;2300964;£8,000;Yes;2;Not available;Not available
+K00965;2;2300965;£8,000;Yes;2;Not available;Not available
+K00966;2;2300966;£8,000;Yes;2;Not available;Not available
+K00967;2;2300967;£8,000;Yes;2;Not available;Not available
+K00968;2;2300968;£8,000;Yes;2;Not available;Not available
+K00969;2;2300969;£8,000;Yes;2;Not available;Not available
+K00970;2;2300970;£8,000;Yes;2;Not available;Not available
+K00971;2;2300971;£8,000;Yes;2;Not available;Not available
+K00972;2;2300972;£8,000;Yes;2;Not available;Not available
+K00973;2;2300973;£8,000;Yes;2;Not available;Not available
+K00974;2;2300974;£8,000;Yes;2;Not available;Not available
+K00975;2;2300975;£8,000;Yes;2;Not available;Not available
+K00976;2;2300976;£8,000;Yes;2;Not available;Not available
+K00977;2;2300977;£8,000;Yes;2;Not available;Not available
+K00978;2;2300978;£8,000;Yes;2;Not available;Not available
+K00979;2;2300979;£8,000;Yes;2;Not available;Not available
+K00980;2;2300980;£8,000;Yes;2;Not available;Not available
+K00981;2;2300981;£8,000;Yes;2;Not available;Not available
+K00982;2;2300982;£8,000;Yes;2;Not available;Not available
+K00983;2;2300983;£8,000;Yes;2;Not available;Not available
+K00984;2;2300984;£8,000;Yes;2;Not available;Not available
+K00985;2;2300985;£8,000;Yes;2;Not available;Not available
+K00986;2;2300986;£8,000;Yes;2;Not available;Not available
+K00987;2;2300987;£8,000;Yes;2;Not available;Not available
+K00988;2;2300988;£8,000;Yes;2;Not available;Not available
+K00989;2;2300989;£8,000;Yes;2;Not available;Not available
+K00990;2;2300990;£8,000;Yes;2;Not available;Not available
+K00991;2;2300991;£8,000;Yes;2;Not available;Not available
+K00992;2;2300992;£8,000;Yes;2;Not available;Not available
+K00993;2;2300993;£8,000;Yes;2;Not available;Not available
+K00994;2;2300994;£8,000;Yes;2;Not available;Not available
+K00995;2;2300995;£8,000;Yes;2;Not available;Not available
+K00996;2;2300996;£8,000;Yes;2;Not available;Not available
+K00997;2;2300997;£8,000;Yes;2;Not available;Not available
+K00998;2;2300998;£8,000;Yes;2;Not available;Not available
+K00999;2;2300999;£8,000;Yes;2;Not available;Not available
+K01000;2;2301000;£8,000;Yes;2;Not available;Not available
+K01001;2;2301001;£8,000;Yes;2;Not available;Not available
+K01002;2;2301002;£8,000;Yes;2;Not available;Not available
+K01003;2;2301003;£8,000;Yes;2;Not available;Not available
+K01004;2;2301004;£8,000;Yes;2;Not available;Not available
+K01005;2;2301005;£8,000;Yes;2;Not available;Not available
+K01006;2;2301006;£8,000;Yes;2;Not available;Not available
+K01007;2;2301007;£8,000;Yes;2;Not available;Not available
+K01008;2;2301008;£8,000;Yes;2;Not available;Not available
+K01009;2;2301009;£8,000;Yes;2;Not available;Not available
+K01010;2;2301010;£8,000;Yes;2;Not available;Not available
+K01011;2;2301011;£8,000;Yes;2;Not available;Not available
+K01012;2;2301012;£8,000;Yes;2;Not available;Not available
+K01013;2;2301013;£8,000;Yes;2;Not available;Not available
+K01014;2;2301014;£8,000;Yes;2;Not available;Not available
+K01015;2;2301015;£8,000;Yes;2;Not available;Not available
+K01016;2;2301016;£8,000;Yes;2;Not available;Not available
+K01017;2;2301017;£8,000;Yes;2;Not available;Not available
+K01018;2;2301018;£8,000;Yes;2;Not available;Not available
+K01019;2;2301019;£8,000;Yes;2;Not available;Not available
+K01020;2;2301020;£8,000;Yes;2;Not available;Not available
+K01021;2;2301021;£8,000;Yes;2;Not available;Not available
+K01022;2;2301022;£8,000;Yes;2;Not available;Not available
+K01023;2;2301023;£8,000;Yes;2;Not available;Not available
+K01024;2;2301024;£8,000;Yes;2;Not available;Not available
+K01025;2;2301025;£8,000;Yes;2;Not available;Not available
+K01026;2;2301026;£8,000;Yes;2;Not available;Not available
+K01027;2;2301027;£8,000;Yes;2;Not available;Not available
+K01028;2;2301028;£8,000;Yes;2;Not available;Not available
+K01029;2;2301029;£8,000;Yes;2;Not available;Not available
+K01030;2;2301030;£8,000;Yes;2;Not available;Not available
+K01031;2;2301031;£8,000;Yes;2;Not available;Not available
+K01032;2;2301032;£8,000;Yes;2;Not available;Not available
+K01033;2;2301033;£8,000;Yes;2;Not available;Not available
+K01034;2;2301034;£8,000;Yes;2;Not available;Not available
+K01035;2;2301035;£8,000;Yes;2;Not available;Not available
+K01036;2;2301036;£8,000;Yes;2;Not available;Not available
+K01037;2;2301037;£8,000;Yes;2;Not available;Not available
+K01038;2;2301038;£8,000;Yes;2;Not available;Not available
+K01039;2;2301039;£8,000;Yes;2;Not available;Not available
+K01040;2;2301040;£8,000;Yes;2;Not available;Not available
+K01041;2;2301041;£8,000;Yes;2;Not available;Not available
+K01042;2;2301042;£8,000;Yes;2;Not available;Not available
+K01043;2;2301043;£8,000;Yes;2;Not available;Not available
+K01044;2;2301044;£8,000;Yes;2;Not available;Not available
+K01045;2;2301045;£8,000;Yes;2;Not available;Not available
+K01046;2;2301046;£8,000;Yes;2;Not available;Not available
+K01047;2;2301047;£8,000;Yes;2;Not available;Not available
+K01048;2;2301048;£8,000;Yes;2;Not available;Not available
+K01049;2;2301049;£8,000;Yes;2;Not available;Not available
+K01050;2;2301050;£8,000;Yes;2;Not available;Not available
+K01051;2;2301051;£8,000;Yes;2;Not available;Not available
+K01052;2;2301052;£8,000;Yes;2;Not available;Not available
+K01053;2;2301053;£8,000;Yes;2;Not available;Not available
+K01054;2;2301054;£8,000;Yes;2;Not available;Not available
+K01055;2;2301055;£8,000;Yes;2;Not available;Not available
+K01056;2;2301056;£8,000;Yes;2;Not available;Not available
+K01057;2;2301057;£8,000;Yes;2;Not available;Not available
+K01058;2;2301058;£8,000;Yes;2;Not available;Not available
+K01059;2;2301059;£8,000;Yes;2;Not available;Not available
+K01060;2;2301060;£8,000;Yes;2;Not available;Not available
+K01061;2;2301061;£8,000;Yes;2;Not available;Not available
+K01062;2;2301062;£8,000;Yes;2;Not available;Not available
+K01063;2;2301063;£8,000;Yes;2;Not available;Not available
+K01064;2;2301064;£8,000;Yes;2;Not available;Not available
+K01065;2;2301065;£8,000;Yes;2;Not available;Not available
+K01066;2;2301066;£8,000;Yes;2;Not available;Not available
+K01067;2;2301067;£8,000;Yes;2;Not available;Not available
+K01068;2;2301068;£8,000;Yes;2;Not available;Not available
+K01069;2;2301069;£8,000;Yes;2;Not available;Not available
+K01070;2;2301070;£8,000;Yes;2;Not available;Not available
+K01071;2;2301071;£8,000;Yes;2;Not available;Not available
+K01072;2;2301072;£8,000;Yes;2;Not available;Not available
+K01073;2;2301073;£8,000;Yes;2;Not available;Not available
+K01074;2;2301074;£8,000;Yes;2;Not available;Not available
+K01075;2;2301075;£8,000;Yes;2;Not available;Not available
+K01076;2;2301076;£8,000;Yes;2;Not available;Not available
+K01077;2;2301077;£8,000;Yes;2;Not available;Not available
+K01078;2;2301078;£8,000;Yes;2;Not available;Not available
+K01079;2;2301079;£8,000;Yes;2;Not available;Not available
+K01080;2;2301080;£8,000;Yes;2;Not available;Not available
+K01081;2;2301081;£8,000;Yes;2;Not available;Not available
+K01082;2;2301082;£8,000;Yes;2;Not available;Not available
+K01083;2;2301083;£8,000;Yes;2;Not available;Not available
+K01084;2;2301084;£8,000;Yes;2;Not available;Not available
+K01085;2;2301085;£8,000;Yes;2;Not available;Not available
+K01086;2;2301086;£8,000;Yes;2;Not available;Not available
+K01087;2;2301087;£8,000;Yes;2;Not available;Not available
+K01088;2;2301088;£8,000;Yes;2;Not available;Not available
+K01089;2;2301089;£8,000;Yes;2;Not available;Not available
+K01090;2;2301090;£8,000;Yes;2;Not available;Not available
+K01091;2;2301091;£8,000;Yes;2;Not available;Not available
+K01092;2;2301092;£8,000;Yes;2;Not available;Not available
+K01093;2;2301093;£8,000;Yes;2;Not available;Not available
+K01094;2;2301094;£8,000;Yes;2;Not available;Not available
+K01095;2;2301095;£8,000;Yes;2;Not available;Not available
+K01096;2;2301096;£8,000;Yes;2;Not available;Not available
+K01097;2;2301097;£8,000;Yes;2;Not available;Not available
+K01098;2;2301098;£8,000;Yes;2;Not available;Not available
+K01099;2;2301099;£8,000;Yes;2;Not available;Not available
+K01100;2;2301100;£8,000;Yes;2;Not available;Not available
+K01101;2;2301101;£8,000;Yes;2;Not available;Not available
+K01102;2;2301102;£8,000;Yes;2;Not available;Not available
+K01103;2;2301103;£8,000;Yes;2;Not available;Not available
+K01104;2;2301104;£8,000;Yes;2;Not available;Not available
+K01105;2;2301105;£8,000;Yes;2;Not available;Not available
+K01106;2;2301106;£8,000;Yes;2;Not available;Not available
+K01107;2;2301107;£8,000;Yes;2;Not available;Not available
+K01108;2;2301108;£8,000;Yes;2;Not available;Not available
+K01109;2;2301109;£8,000;Yes;2;Not available;Not available
+K01110;2;2301110;£8,000;Yes;2;Not available;Not available
+K01111;2;2301111;£8,000;Yes;2;Not available;Not available
+K01112;2;2301112;£8,000;Yes;2;Not available;Not available
+K01113;2;2301113;£8,000;Yes;2;Not available;Not available
+K01114;2;2301114;£8,000;Yes;2;Not available;Not available
+K01115;2;2301115;£8,000;Yes;2;Not available;Not available
+K01116;2;2301116;£8,000;Yes;2;Not available;Not available
+K01117;2;2301117;£8,000;Yes;2;Not available;Not available
+K01118;2;2301118;£8,000;Yes;2;Not available;Not available
+K01119;2;2301119;£8,000;Yes;2;Not available;Not available
+K01120;2;2301120;£8,000;Yes;2;Not available;Not available
+K01121;2;2301121;£8,000;Yes;2;Not available;Not available
+K01122;2;2301122;£8,000;Yes;2;Not available;Not available
+K01123;2;2301123;£8,000;Yes;2;Not available;Not available
+K01124;2;2301124;£8,000;Yes;2;Not available;Not available
+K01125;2;2301125;£8,000;Yes;2;Not available;Not available
+K01126;2;2301126;£8,000;Yes;2;Not available;Not available
+K01127;2;2301127;£8,000;Yes;2;Not available;Not available
+K01128;2;2301128;£8,000;Yes;2;Not available;Not available
+K01129;2;2301129;£8,000;Yes;2;Not available;Not available
+K01130;2;2301130;£8,000;Yes;2;Not available;Not available
+K01131;2;2301131;£8,000;Yes;2;Not available;Not available
+K01132;2;2301132;£8,000;Yes;2;Not available;Not available
+K01133;2;2301133;£8,000;Yes;2;Not available;Not available
+K01134;2;2301134;£8,000;Yes;2;Not available;Not available
+K01135;2;2301135;£8,000;Yes;2;Not available;Not available
+K01136;2;2301136;£8,000;Yes;2;Not available;Not available
+K01137;2;2301137;£8,000;Yes;2;Not available;Not available
+K01138;2;2301138;£8,000;Yes;2;Not available;Not available
+K01139;2;2301139;£8,000;Yes;2;Not available;Not available
+K01140;2;2301140;£8,000;Yes;2;Not available;Not available
+K01141;2;2301141;£8,000;Yes;2;Not available;Not available
+K01142;2;2301142;£8,000;Yes;2;Not available;Not available
+K01143;2;2301143;£8,000;Yes;2;Not available;Not available
+K01144;2;2301144;£8,000;Yes;2;Not available;Not available
+K01145;2;2301145;£8,000;Yes;2;Not available;Not available
+K01146;2;2301146;£8,000;Yes;2;Not available;Not available
+K01147;2;2301147;£8,000;Yes;2;Not available;Not available
+K01148;2;2301148;£8,000;Yes;2;Not available;Not available
+K01149;2;2301149;£8,000;Yes;2;Not available;Not available
+K01150;2;2301150;£8,000;Yes;2;Not available;Not available
+K01151;2;2301151;£8,000;Yes;2;Not available;Not available
+K01152;2;2301152;£8,000;Yes;2;Not available;Not available
+K01153;2;2301153;£8,000;Yes;2;Not available;Not available
+K01154;2;2301154;£8,000;Yes;2;Not available;Not available
+K01155;2;2301155;£8,000;Yes;2;Not available;Not available
+K01156;2;2301156;£8,000;Yes;2;Not available;Not available
+K01157;2;2301157;£8,000;Yes;2;Not available;Not available
+K01158;2;2301158;£8,000;Yes;2;Not available;Not available
+K01159;2;2301159;£8,000;Yes;2;Not available;Not available
+K01160;2;2301160;£8,000;Yes;2;Not available;Not available
+K01161;2;2301161;£8,000;Yes;2;Not available;Not available
+K01162;2;2301162;£8,000;Yes;2;Not available;Not available
+K01163;2;2301163;£8,000;Yes;2;Not available;Not available
+K01164;2;2301164;£8,000;Yes;2;Not available;Not available
+K01165;2;2301165;£8,000;Yes;2;Not available;Not available
+K01166;2;2301166;£8,000;Yes;2;Not available;Not available
+K01167;2;2301167;£8,000;Yes;2;Not available;Not available
+K01168;2;2301168;£8,000;Yes;2;Not available;Not available
+K01169;2;2301169;£8,000;Yes;2;Not available;Not available
+K01170;2;2301170;£8,000;Yes;2;Not available;Not available
+K01171;2;2301171;£8,000;Yes;2;Not available;Not available
+K01172;2;2301172;£8,000;Yes;2;Not available;Not available
+K01173;2;2301173;£8,000;Yes;2;Not available;Not available
+K01174;2;2301174;£8,000;Yes;2;Not available;Not available
+K01175;2;2301175;£8,000;Yes;2;Not available;Not available
+K01176;2;2301176;£8,000;Yes;2;Not available;Not available
+K01177;2;2301177;£8,000;Yes;2;Not available;Not available
+K01178;2;2301178;£8,000;Yes;2;Not available;Not available
+K01179;2;2301179;£8,000;Yes;2;Not available;Not available
+K01180;2;2301180;£8,000;Yes;2;Not available;Not available
+K01181;2;2301181;£8,000;Yes;2;Not available;Not available
+K01182;2;2301182;£8,000;Yes;2;Not available;Not available
+K01183;2;2301183;£8,000;Yes;2;Not available;Not available
+K01184;2;2301184;£8,000;Yes;2;Not available;Not available
+K01185;2;2301185;£8,000;Yes;2;Not available;Not available
+K01186;2;2301186;£8,000;Yes;2;Not available;Not available
+K01187;2;2301187;£8,000;Yes;2;Not available;Not available
+K01188;2;2301188;£8,000;Yes;2;Not available;Not available
+K01189;2;2301189;£8,000;Yes;2;Not available;Not available
+K01190;2;2301190;£8,000;Yes;2;Not available;Not available
+K01191;2;2301191;£8,000;Yes;2;Not available;Not available
+K01192;2;2301192;£8,000;Yes;2;Not available;Not available
+K01193;2;2301193;£8,000;Yes;2;Not available;Not available
+K01194;2;2301194;£8,000;Yes;2;Not available;Not available
+K01195;2;2301195;£8,000;Yes;2;Not available;Not available
+K01196;2;2301196;£8,000;Yes;2;Not available;Not available
+K01197;2;2301197;£8,000;Yes;2;Not available;Not available
+K01198;2;2301198;£8,000;Yes;2;Not available;Not available
+K01199;2;2301199;£8,000;Yes;2;Not available;Not available
+K01200;2;2301200;£8,000;Yes;2;Not available;Not available
+K01201;2;2301201;£8,000;Yes;2;Not available;Not available
+K01202;2;2301202;£8,000;Yes;2;Not available;Not available
+K01203;2;2301203;£8,000;Yes;2;Not available;Not available
+K01204;2;2301204;£8,000;Yes;2;Not available;Not available
+K01205;2;2301205;£8,000;Yes;2;Not available;Not available
+K01206;2;2301206;£8,000;Yes;2;Not available;Not available
+K01207;2;2301207;£8,000;Yes;2;Not available;Not available
+K01208;2;2301208;£8,000;Yes;2;Not available;Not available
+K01209;2;2301209;£8,000;Yes;2;Not available;Not available
+K01210;2;2301210;£8,000;Yes;2;Not available;Not available
+K01211;2;2301211;£8,000;Yes;2;Not available;Not available
+K01212;2;2301212;£8,000;Yes;2;Not available;Not available
+K01213;2;2301213;£8,000;Yes;2;Not available;Not available
+K01214;2;2301214;£8,000;Yes;2;Not available;Not available
+K01215;2;2301215;£8,000;Yes;2;Not available;Not available
+K01216;2;2301216;£8,000;Yes;2;Not available;Not available
+K01217;2;2301217;£8,000;Yes;2;Not available;Not available
+K01218;2;2301218;£8,000;Yes;2;Not available;Not available
+K01219;2;2301219;£8,000;Yes;2;Not available;Not available
+K01220;2;2301220;£8,000;Yes;2;Not available;Not available
+K01221;2;2301221;£8,000;Yes;2;Not available;Not available
+K01222;2;2301222;£8,000;Yes;2;Not available;Not available
+K01223;2;2301223;£8,000;Yes;2;Not available;Not available
+K01224;2;2301224;£8,000;Yes;2;Not available;Not available
+K01225;2;2301225;£8,000;Yes;2;Not available;Not available
+K01226;2;2301226;£8,000;Yes;2;Not available;Not available
+K01227;2;2301227;£8,000;Yes;2;Not available;Not available
+K01228;2;2301228;£8,000;Yes;2;Not available;Not available
+K01229;2;2301229;£8,000;Yes;2;Not available;Not available
+K01230;2;2301230;£8,000;Yes;2;Not available;Not available
+K01231;2;2301231;£8,000;Yes;2;Not available;Not available
+K01232;2;2301232;£8,000;Yes;2;Not available;Not available
+K01233;2;2301233;£8,000;Yes;2;Not available;Not available
+K01234;2;2301234;£8,000;Yes;2;Not available;Not available
+K01235;2;2301235;£8,000;Yes;2;Not available;Not available
+K01236;2;2301236;£8,000;Yes;2;Not available;Not available
+K01237;2;2301237;£8,000;Yes;2;Not available;Not available
+K01238;2;2301238;£8,000;Yes;2;Not available;Not available
+K01239;2;2301239;£8,000;Not;1;Not available;£3,000
+K01240;2;2301240;£8,000;Not;1;Not available;£3,000
+K01241;2;2301241;£8,000;Not;1;Not available;£3,000
+K01242;2;2301242;£8,000;Not;1;Not available;£3,000
+K01243;2;2301243;£8,000;Not;1;Not available;£3,000
+K01244;2;2301244;£8,000;Not;1;Not available;£3,000
+K01245;2;2301245;£8,000;Not;1;Not available;£3,000
+K01246;2;2301246;£8,000;Not;1;Not available;£3,000
+K01247;2;2301247;£8,000;Not;1;Not available;£3,000
+K01248;2;2301248;£8,000;Not;1;Not available;£3,000
+K01249;2;2301249;£8,000;Not;1;Not available;£3,000
+K01250;2;2301250;£8,000;Not;1;Not available;£3,000
+K01251;2;2301251;£8,000;Not;1;Not available;£3,000
+K01252;2;2301252;£8,000;Not;1;Not available;£3,000
+K01253;2;2301253;£8,000;Not;1;Not available;£3,000
+K01254;2;2301254;£8,000;Not;1;Not available;£3,000
+K01255;2;2301255;£8,000;Not;1;Not available;£3,000
+K01256;2;2301256;£8,000;Not;1;Not available;£3,000
+K01257;2;2301257;£8,000;Not;1;Not available;£3,000
+K01258;2;2301258;£8,000;Not;1;Not available;£3,000
+K01259;2;2301259;£8,000;Not;1;Not available;£3,000
+K01260;2;2301260;£8,000;Not;1;Not available;£3,000
+K01261;2;2301261;£8,000;Not;1;Not available;£3,000
+K01262;2;2301262;£8,000;Not;1;Not available;£3,000
+K01263;2;2301263;£8,000;Not;1;Not available;£3,000
+K01264;2;2301264;£8,000;Not;1;Not available;£3,000
+K01265;2;2301265;£8,000;Not;1;Not available;£3,000
+K01266;2;2301266;£8,000;Not;1;Not available;£3,000
+K01267;2;2301267;£8,000;Not;1;Not available;£3,000
+K01268;2;2301268;£8,000;Not;1;Not available;£3,000
+K01269;2;2301269;£8,000;Not;1;Not available;£3,000
+K01270;2;2301270;£8,000;Not;1;Not available;£3,000
+K01271;2;2301271;£8,000;Not;3;£8,000;Not available
+K01272;2;2301272;£8,000;Not;3;£8,000;Not available
+K01273;2;2301273;£8,000;Not;3;£8,000;Not available
+K01274;2;2301274;£8,000;Not;3;£8,000;Not available
+K01275;2;2301275;£8,000;Not;3;£8,000;Not available
+K01276;2;2301276;£8,000;Not;3;£8,000;Not available
+K01277;2;2301277;£8,000;Not;3;£8,000;Not available
+K01278;2;2301278;£8,000;Not;3;£8,000;Not available
+K01279;2;2301279;£8,000;Not;3;£8,000;Not available
+K01280;2;2301280;£8,000;Not;3;£8,000;Not available
+K01281;2;2301281;£8,000;Not;3;£8,000;Not available
+K01282;2;2301282;£8,000;Not;3;£8,000;Not available
+K01283;2;2301283;£8,000;Not;3;£8,000;Not available
+K01284;2;2301284;£8,000;Not;3;£8,000;Not available
+K01285;2;2301285;£8,000;Not;3;£8,000;Not available
+K01286;2;2301286;£8,000;Not;3;£8,000;Not available
+K01287;2;2301287;£8,000;Not;3;£8,000;Not available
+K01288;2;2301288;£8,000;Not;3;£8,000;Not available
+K01289;2;2301289;£8,000;Not;3;£8,000;Not available
+K01290;2;2301290;£8,000;Not;3;£8,000;Not available
+K01291;2;2301291;£8,000;Not;3;£8,000;Not available
+K01292;2;2301292;£8,000;Not;3;£8,000;Not available
+K01293;2;2301293;£8,000;Not;3;£8,000;Not available
+K01294;2;2301294;£8,000;Not;3;£8,000;Not available
+K01295;2;2301295;£8,000;Not;3;£8,000;Not available
+K01296;2;2301296;£8,000;Not;3;£8,000;Not available
+K01297;2;2301297;£8,000;Not;3;£8,000;Not available
+K01298;2;2301298;£8,000;Not;3;£8,000;Not available
+K01299;2;2301299;£8,000;Not;3;£8,000;Not available
+K01300;2;2301300;£8,000;Not;3;£8,000;Not available
+K01301;2;2301301;£8,000;Not;3;£8,000;Not available
+K01302;2;2301302;£8,000;Not;3;£8,000;Not available
+K01303;2;2301303;£8,000;Not;3;£8,000;Not available
+K01304;2;2301304;£8,000;Not;3;£8,000;Not available
+K01305;2;2301305;£8,000;Not;3;£8,000;Not available
+K01306;2;2301306;£8,000;Not;3;£8,000;Not available
+K01307;2;2301307;£8,000;Not;3;£8,000;Not available
+K01308;2;2301308;£8,000;Not;3;£8,000;Not available
+K01309;2;2301309;£8,000;Not;3;£8,000;Not available
+K01310;2;2301310;£8,000;Not;3;£8,000;Not available
+K01311;2;2301311;£8,000;Not;3;£8,000;Not available
+K01312;2;2301312;£8,000;Not;3;£8,000;Not available
+K01313;2;2301313;£8,000;Not;3;£8,000;Not available
+K01314;2;2301314;£8,000;Not;3;£8,000;Not available
+K01315;2;2301315;£8,000;Not;3;£8,000;Not available
+K01316;2;2301316;£8,000;Not;3;£8,000;Not available
+K01317;2;2301317;£8,000;Not;3;£8,000;Not available
+K01318;2;2301318;£8,000;Not;3;£8,000;Not available
+K01319;2;2301319;£8,000;Not;3;£8,000;Not available
+K01320;2;2301320;£8,000;Not;3;£8,000;Not available
+K01321;2;2301321;£8,000;Not;3;£8,000;Not available
+K01322;2;2301322;£8,000;Not;3;£8,000;Not available
+K01323;2;2301323;£8,000;Not;3;£8,000;Not available
+K01324;2;2301324;£8,000;Not;3;£8,000;Not available
+K01325;2;2301325;£8,000;Not;3;£8,000;Not available
+K01326;2;2301326;£8,000;Not;3;£8,000;Not available
+K01327;2;2301327;£8,000;Not;3;£8,000;Not available
+K01328;2;2301328;£8,000;Not;3;£8,000;Not available
+K01329;2;2301329;£8,000;Not;3;£8,000;Not available
+K01330;2;2301330;£8,000;Not;3;£8,000;Not available
+K01331;2;2301331;£8,000;Not;3;£8,000;Not available
+K01332;2;2301332;£8,000;Not;3;£8,000;Not available
+K01333;2;2301333;£8,000;Not;3;£8,000;Not available
+K01334;2;2301334;£8,000;Not;3;£8,000;Not available
+K01335;2;2301335;£8,000;Not;3;£8,000;Not available
+K01336;2;2301336;£8,000;Not;3;£8,000;Not available
+K01337;2;2301337;£8,000;Not;3;£8,000;Not available
+K01338;2;2301338;£8,000;Not;3;£8,000;Not available
+K01339;2;2301339;£8,000;Not;3;£8,000;Not available
+K01340;2;2301340;£8,000;Not;3;£8,000;Not available
+K01341;2;2301341;£8,000;Not;3;£8,000;Not available
+K01342;2;2301342;£8,000;Not;3;£8,000;Not available
+K01343;2;2301343;£8,000;Not;3;£8,000;Not available
+K01344;2;2301344;£8,000;Not;3;£8,000;Not available
+K01345;2;2301345;£8,000;Not;3;£8,000;Not available
+K01346;2;2301346;£8,000;Not;3;£8,000;Not available
+K01347;2;2301347;£8,000;Not;3;£8,000;Not available
+K01348;2;2301348;£8,000;Not;3;£8,000;Not available
+K01349;2;2301349;£8,000;Not;3;£8,000;Not available
+K01350;2;2301350;£8,000;Not;3;£8,000;Not available
+K01351;2;2301351;£8,000;Not;3;£8,000;Not available
+K01352;2;2301352;£8,000;Not;3;£8,000;Not available
+K01353;2;2301353;£8,000;Not;3;£8,000;Not available
+K01354;2;2301354;£8,000;Not;3;£8,000;Not available
+K01355;2;2301355;£8,000;Not;3;£8,000;Not available
+K01356;2;2301356;£8,000;Not;3;£8,000;Not available
+K01357;2;2301357;£8,000;Not;3;£8,000;Not available
+K01358;2;2301358;£8,000;Not;3;£8,000;Not available
+K01359;2;2301359;£8,000;Not;4;£9,000;Not available
+K01360;2;2301360;£8,000;Not;4;£9,000;Not available
+K01361;2;2301361;£8,000;Not;4;£9,000;Not available
+K01362;2;2301362;£8,000;Not;4;£9,000;Not available
+K01363;2;2301363;£8,000;Not;4;£9,000;Not available
+K01364;2;2301364;£8,000;Not;4;£9,000;Not available
+K01365;2;2301365;£8,000;Not;4;£9,000;Not available
+K01366;2;2301366;£8,000;Not;4;£9,000;Not available
+K01367;2;2301367;£8,000;Not;4;£9,000;Not available
+K01368;2;2301368;£8,000;Not;4;£9,000;Not available
+K01369;2;2301369;£8,000;Not;4;£9,000;Not available
+K01370;2;2301370;£8,000;Not;4;£9,000;Not available
+K01371;2;2301371;£8,000;Not;4;£9,000;Not available
+K01372;2;2301372;£8,000;Not;4;£9,000;Not available
+K01373;2;2301373;£8,000;Not;4;£9,000;Not available
+K01374;2;2301374;£8,000;Not;4;£9,000;Not available
+K01375;2;2301375;£8,000;Not;4;£9,000;Not available
+K01376;2;2301376;£8,000;Not;4;£9,000;Not available
+K01377;2;2301377;£8,000;Not;4;£9,000;Not available
+K01378;2;2301378;£8,000;Not;4;£9,000;Not available
+K01379;2;2301379;£8,000;Not;4;£9,000;Not available
+K01380;2;2301380;£8,000;Not;4;£9,000;Not available
+K01381;2;2301381;£8,000;Not;4;£9,000;Not available
+K01382;2;2301382;£8,000;Not;4;£9,000;Not available
+K01383;2;2301383;£8,000;Not;4;£9,000;Not available
+K01384;2;2301384;£8,000;Not;4;£9,000;Not available
+K01385;2;2301385;£8,000;Not;4;£9,000;Not available
+K01386;2;2301386;£8,000;Not;4;£9,000;Not available
+K01387;2;2301387;£8,000;Not;4;£9,000;Not available
+K01388;2;2301388;£8,000;Not;4;£9,000;Not available
+K01389;2;2301389;£8,000;Not;4;£9,000;Not available
+K01390;2;2301390;£8,000;Not;4;£9,000;Not available
+K01391;2;2301391;£8,000;Not;4;£9,000;Not available
+K01392;2;2301392;£8,000;Not;4;£9,000;Not available
+K01393;2;2301393;£8,000;Not;4;£9,000;Not available
+K01394;2;2301394;£8,000;Not;4;£9,000;Not available
+K01395;2;2301395;£8,000;Not;5;£10,000;Not available
+K01396;2;2301396;£8,000;Not;5;£10,000;Not available
+K01397;2;2301397;£8,000;Not;5;£10,000;Not available
+K01398;2;2301398;£8,000;Not;5;£10,000;Not available
+K01399;2;2301399;£8,000;Not;5;£10,000;Not available
+K01400;3;2301400;£14,000;Yes;3;Not available;Not available
+K01401;3;2301401;£14,000;Yes;3;Not available;Not available
+K01402;3;2301402;£14,000;Yes;3;Not available;Not available
+K01403;3;2301403;£14,000;Yes;3;Not available;Not available
+K01404;3;2301404;£14,000;Yes;3;Not available;Not available
+K01405;3;2301405;£14,000;Yes;3;Not available;Not available
+K01406;3;2301406;£14,000;Yes;3;Not available;Not available
+K01407;3;2301407;£14,000;Yes;3;Not available;Not available
+K01408;3;2301408;£14,000;Yes;3;Not available;Not available
+K01409;3;2301409;£14,000;Yes;3;Not available;Not available
+K01410;3;2301410;£14,000;Yes;3;Not available;Not available
+K01411;3;2301411;£14,000;Yes;3;Not available;Not available
+K01412;3;2301412;£14,000;Yes;3;Not available;Not available
+K01413;3;2301413;£14,000;Yes;3;Not available;Not available
+K01414;3;2301414;£14,000;Yes;3;Not available;Not available
+K01415;3;2301415;£14,000;Yes;3;Not available;Not available
+K01416;3;2301416;£14,000;Yes;3;Not available;Not available
+K01417;3;2301417;£14,000;Yes;3;Not available;Not available
+K01418;3;2301418;£14,000;Yes;3;Not available;Not available
+K01419;3;2301419;£14,000;Yes;3;Not available;Not available
+K01420;3;2301420;£14,000;Yes;3;Not available;Not available
+K01421;3;2301421;£14,000;Yes;3;Not available;Not available
+K01422;3;2301422;£14,000;Yes;3;Not available;Not available
+K01423;3;2301423;£14,000;Yes;3;Not available;Not available
+K01424;3;2301424;£14,000;Yes;3;Not available;Not available
+K01425;3;2301425;£14,000;Yes;3;Not available;Not available
+K01426;3;2301426;£14,000;Yes;3;Not available;Not available
+K01427;3;2301427;£14,000;Yes;3;Not available;Not available
+K01428;3;2301428;£14,000;Yes;3;Not available;Not available
+K01429;3;2301429;£14,000;Yes;3;Not available;Not available
+K01430;3;2301430;£14,000;Yes;3;Not available;Not available
+K01431;3;2301431;£14,000;Yes;3;Not available;Not available
+K01432;3;2301432;£14,000;Yes;3;Not available;Not available
+K01433;3;2301433;£14,000;Yes;3;Not available;Not available
+K01434;3;2301434;£14,000;Yes;3;Not available;Not available
+K01435;3;2301435;£14,000;Yes;3;Not available;Not available
+K01436;3;2301436;£14,000;Yes;3;Not available;Not available
+K01437;3;2301437;£14,000;Yes;3;Not available;Not available
+K01438;3;2301438;£14,000;Yes;3;Not available;Not available
+K01439;3;2301439;£14,000;Yes;3;Not available;Not available
+K01440;3;2301440;£14,000;Yes;3;Not available;Not available
+K01441;3;2301441;£14,000;Yes;3;Not available;Not available
+K01442;3;2301442;£14,000;Yes;3;Not available;Not available
+K01443;3;2301443;£14,000;Yes;3;Not available;Not available
+K01444;3;2301444;£14,000;Yes;3;Not available;Not available
+K01445;3;2301445;£14,000;Yes;3;Not available;Not available
+K01446;3;2301446;£14,000;Yes;3;Not available;Not available
+K01447;3;2301447;£14,000;Yes;3;Not available;Not available
+K01448;3;2301448;£14,000;Yes;3;Not available;Not available
+K01449;3;2301449;£14,000;Yes;3;Not available;Not available
+K01450;3;2301450;£14,000;Yes;3;Not available;Not available
+K01451;3;2301451;£14,000;Yes;3;Not available;Not available
+K01452;3;2301452;£14,000;Yes;3;Not available;Not available
+K01453;3;2301453;£14,000;Yes;3;Not available;Not available
+K01454;3;2301454;£14,000;Yes;3;Not available;Not available
+K01455;3;2301455;£14,000;Yes;3;Not available;Not available
+K01456;3;2301456;£14,000;Yes;3;Not available;Not available
+K01457;3;2301457;£14,000;Yes;3;Not available;Not available
+K01458;3;2301458;£14,000;Yes;3;Not available;Not available
+K01459;3;2301459;£14,000;Yes;3;Not available;Not available
+K01460;3;2301460;£14,000;Yes;3;Not available;Not available
+K01461;3;2301461;£14,000;Yes;3;Not available;Not available
+K01462;3;2301462;£14,000;Yes;3;Not available;Not available
+K01463;3;2301463;£14,000;Yes;3;Not available;Not available
+K01464;3;2301464;£14,000;Yes;3;Not available;Not available
+K01465;3;2301465;£14,000;Yes;3;Not available;Not available
+K01466;3;2301466;£14,000;Yes;3;Not available;Not available
+K01467;3;2301467;£14,000;Yes;3;Not available;Not available
+K01468;3;2301468;£14,000;Yes;3;Not available;Not available
+K01469;3;2301469;£14,000;Yes;3;Not available;Not available
+K01470;3;2301470;£14,000;Yes;3;Not available;Not available
+K01471;3;2301471;£14,000;Yes;3;Not available;Not available
+K01472;3;2301472;£14,000;Yes;3;Not available;Not available
+K01473;3;2301473;£14,000;Yes;3;Not available;Not available
+K01474;3;2301474;£14,000;Yes;3;Not available;Not available
+K01475;3;2301475;£14,000;Yes;3;Not available;Not available
+K01476;3;2301476;£14,000;Yes;3;Not available;Not available
+K01477;3;2301477;£14,000;Yes;3;Not available;Not available
+K01478;3;2301478;£14,000;Yes;3;Not available;Not available
+K01479;3;2301479;£14,000;Yes;3;Not available;Not available
+K01480;3;2301480;£14,000;Yes;3;Not available;Not available
+K01481;3;2301481;£14,000;Yes;3;Not available;Not available
+K01482;3;2301482;£14,000;Yes;3;Not available;Not available
+K01483;3;2301483;£14,000;Yes;3;Not available;Not available
+K01484;3;2301484;£14,000;Yes;3;Not available;Not available
+K01485;3;2301485;£14,000;Yes;3;Not available;Not available
+K01486;3;2301486;£14,000;Yes;3;Not available;Not available
+K01487;3;2301487;£14,000;Yes;3;Not available;Not available
+K01488;3;2301488;£14,000;Yes;3;Not available;Not available
+K01489;3;2301489;£14,000;Yes;3;Not available;Not available
+K01490;3;2301490;£14,000;Yes;3;Not available;Not available
+K01491;3;2301491;£14,000;Yes;3;Not available;Not available
+K01492;3;2301492;£14,000;Yes;3;Not available;Not available
+K01493;3;2301493;£14,000;Yes;3;Not available;Not available
+K01494;3;2301494;£14,000;Yes;3;Not available;Not available
+K01495;3;2301495;£14,000;Yes;3;Not available;Not available
+K01496;3;2301496;£14,000;Yes;3;Not available;Not available
+K01497;3;2301497;£14,000;Yes;3;Not available;Not available
+K01498;3;2301498;£14,000;Yes;3;Not available;Not available
+K01499;3;2301499;£14,000;Yes;3;Not available;Not available
+K01500;3;2301500;£14,000;Yes;3;Not available;Not available
+K01501;3;2301501;£14,000;Yes;3;Not available;Not available
+K01502;3;2301502;£14,000;Yes;3;Not available;Not available
+K01503;3;2301503;£14,000;Yes;3;Not available;Not available
+K01504;3;2301504;£14,000;Yes;3;Not available;Not available
+K01505;3;2301505;£14,000;Yes;3;Not available;Not available
+K01506;3;2301506;£14,000;Yes;3;Not available;Not available
+K01507;3;2301507;£14,000;Yes;3;Not available;Not available
+K01508;3;2301508;£14,000;Yes;3;Not available;Not available
+K01509;3;2301509;£14,000;Yes;3;Not available;Not available
+K01510;3;2301510;£14,000;Yes;3;Not available;Not available
+K01511;3;2301511;£14,000;Yes;3;Not available;Not available
+K01512;3;2301512;£14,000;Yes;3;Not available;Not available
+K01513;3;2301513;£14,000;Yes;3;Not available;Not available
+K01514;3;2301514;£14,000;Yes;3;Not available;Not available
+K01515;3;2301515;£14,000;Yes;3;Not available;Not available
+K01516;3;2301516;£14,000;Yes;3;Not available;Not available
+K01517;3;2301517;£14,000;Yes;3;Not available;Not available
+K01518;3;2301518;£14,000;Yes;3;Not available;Not available
+K01519;3;2301519;£14,000;Yes;3;Not available;Not available
+K01520;3;2301520;£14,000;Yes;3;Not available;Not available
+K01521;3;2301521;£14,000;Yes;3;Not available;Not available
+K01522;3;2301522;£14,000;Yes;3;Not available;Not available
+K01523;3;2301523;£14,000;Yes;3;Not available;Not available
+K01524;3;2301524;£14,000;Yes;3;Not available;Not available
+K01525;3;2301525;£14,000;Yes;3;Not available;Not available
+K01526;3;2301526;£14,000;Yes;3;Not available;Not available
+K01527;3;2301527;£14,000;Yes;3;Not available;Not available
+K01528;3;2301528;£14,000;Yes;3;Not available;Not available
+K01529;3;2301529;£14,000;Yes;3;Not available;Not available
+K01530;3;2301530;£14,000;Yes;3;Not available;Not available
+K01531;3;2301531;£14,000;Yes;3;Not available;Not available
+K01532;3;2301532;£14,000;Yes;3;Not available;Not available
+K01533;3;2301533;£14,000;Yes;3;Not available;Not available
+K01534;3;2301534;£14,000;Yes;3;Not available;Not available
+K01535;3;2301535;£14,000;Yes;3;Not available;Not available
+K01536;3;2301536;£14,000;Yes;3;Not available;Not available
+K01537;3;2301537;£14,000;Yes;3;Not available;Not available
+K01538;3;2301538;£14,000;Yes;3;Not available;Not available
+K01539;3;2301539;£14,000;Yes;3;Not available;Not available
+K01540;3;2301540;£14,000;Yes;3;Not available;Not available
+K01541;3;2301541;£14,000;Yes;3;Not available;Not available
+K01542;3;2301542;£14,000;Yes;3;Not available;Not available
+K01543;3;2301543;£14,000;Yes;3;Not available;Not available
+K01544;3;2301544;£14,000;Yes;3;Not available;Not available
+K01545;3;2301545;£14,000;Yes;3;Not available;Not available
+K01546;3;2301546;£14,000;Yes;3;Not available;Not available
+K01547;3;2301547;£14,000;Yes;3;Not available;Not available
+K01548;3;2301548;£14,000;Yes;3;Not available;Not available
+K01549;3;2301549;£14,000;Yes;3;Not available;Not available
+K01550;3;2301550;£14,000;Yes;3;Not available;Not available
+K01551;3;2301551;£14,000;Yes;3;Not available;Not available
+K01552;3;2301552;£14,000;Yes;3;Not available;Not available
+K01553;3;2301553;£14,000;Yes;3;Not available;Not available
+K01554;3;2301554;£14,000;Yes;3;Not available;Not available
+K01555;3;2301555;£14,000;Yes;3;Not available;Not available
+K01556;3;2301556;£14,000;Yes;3;Not available;Not available
+K01557;3;2301557;£14,000;Yes;3;Not available;Not available
+K01558;3;2301558;£14,000;Yes;3;Not available;Not available
+K01559;3;2301559;£14,000;Yes;3;Not available;Not available
+K01560;3;2301560;£14,000;Yes;3;Not available;Not available
+K01561;3;2301561;£14,000;Yes;3;Not available;Not available
+K01562;3;2301562;£14,000;Yes;3;Not available;Not available
+K01563;3;2301563;£14,000;Yes;3;Not available;Not available
+K01564;3;2301564;£14,000;Yes;3;Not available;Not available
+K01565;3;2301565;£14,000;Yes;3;Not available;Not available
+K01566;3;2301566;£14,000;Yes;3;Not available;Not available
+K01567;3;2301567;£14,000;Yes;3;Not available;Not available
+K01568;3;2301568;£14,000;Yes;3;Not available;Not available
+K01569;3;2301569;£14,000;Yes;3;Not available;Not available
+K01570;3;2301570;£14,000;Yes;3;Not available;Not available
+K01571;3;2301571;£14,000;Yes;3;Not available;Not available
+K01572;3;2301572;£14,000;Yes;3;Not available;Not available
+K01573;3;2301573;£14,000;Yes;3;Not available;Not available
+K01574;3;2301574;£14,000;Yes;3;Not available;Not available
+K01575;3;2301575;£14,000;Yes;3;Not available;Not available
+K01576;3;2301576;£14,000;Yes;3;Not available;Not available
+K01577;3;2301577;£14,000;Yes;3;Not available;Not available
+K01578;3;2301578;£14,000;Yes;3;Not available;Not available
+K01579;3;2301579;£14,000;Yes;3;Not available;Not available
+K01580;3;2301580;£14,000;Yes;3;Not available;Not available
+K01581;3;2301581;£14,000;Yes;3;Not available;Not available
+K01582;3;2301582;£14,000;Yes;3;Not available;Not available
+K01583;3;2301583;£14,000;Yes;3;Not available;Not available
+K01584;3;2301584;£14,000;Yes;3;Not available;Not available
+K01585;3;2301585;£14,000;Yes;3;Not available;Not available
+K01586;3;2301586;£14,000;Yes;3;Not available;Not available
+K01587;3;2301587;£14,000;Yes;3;Not available;Not available
+K01588;3;2301588;£14,000;Yes;3;Not available;Not available
+K01589;3;2301589;£14,000;Yes;3;Not available;Not available
+K01590;3;2301590;£14,000;Yes;3;Not available;Not available
+K01591;3;2301591;£14,000;Yes;3;Not available;Not available
+K01592;3;2301592;£14,000;Yes;3;Not available;Not available
+K01593;3;2301593;£14,000;Yes;3;Not available;Not available
+K01594;3;2301594;£14,000;Yes;3;Not available;Not available
+K01595;3;2301595;£14,000;Yes;3;Not available;Not available
+K01596;3;2301596;£14,000;Yes;3;Not available;Not available
+K01597;3;2301597;£14,000;Yes;3;Not available;Not available
+K01598;3;2301598;£14,000;Yes;3;Not available;Not available
+K01599;3;2301599;£14,000;Yes;3;Not available;Not available
+K01600;3;2301600;£14,000;Yes;3;Not available;Not available
+K01601;3;2301601;£14,000;Yes;3;Not available;Not available
+K01602;3;2301602;£14,000;Yes;3;Not available;Not available
+K01603;3;2301603;£14,000;Yes;3;Not available;Not available
+K01604;3;2301604;£14,000;Yes;3;Not available;Not available
+K01605;3;2301605;£14,000;Yes;3;Not available;Not available
+K01606;3;2301606;£14,000;Yes;3;Not available;Not available
+K01607;3;2301607;£14,000;Yes;3;Not available;Not available
+K01608;3;2301608;£14,000;Yes;3;Not available;Not available
+K01609;3;2301609;£14,000;Yes;3;Not available;Not available
+K01610;3;2301610;£14,000;Yes;3;Not available;Not available
+K01611;3;2301611;£14,000;Yes;3;Not available;Not available
+K01612;3;2301612;£14,000;Yes;3;Not available;Not available
+K01613;3;2301613;£14,000;Yes;3;Not available;Not available
+K01614;3;2301614;£14,000;Yes;3;Not available;Not available
+K01615;3;2301615;£14,000;Yes;3;Not available;Not available
+K01616;3;2301616;£14,000;Yes;3;Not available;Not available
+K01617;3;2301617;£14,000;Yes;3;Not available;Not available
+K01618;3;2301618;£14,000;Yes;3;Not available;Not available
+K01619;3;2301619;£14,000;Yes;3;Not available;Not available
+K01620;3;2301620;£14,000;Yes;3;Not available;Not available
+K01621;3;2301621;£14,000;Yes;3;Not available;Not available
+K01622;3;2301622;£14,000;Yes;3;Not available;Not available
+K01623;3;2301623;£14,000;Yes;3;Not available;Not available
+K01624;3;2301624;£14,000;Yes;3;Not available;Not available
+K01625;3;2301625;£14,000;Yes;3;Not available;Not available
+K01626;3;2301626;£14,000;Yes;3;Not available;Not available
+K01627;3;2301627;£14,000;Yes;3;Not available;Not available
+K01628;3;2301628;£14,000;Yes;3;Not available;Not available
+K01629;3;2301629;£14,000;Yes;3;Not available;Not available
+K01630;3;2301630;£14,000;Yes;3;Not available;Not available
+K01631;3;2301631;£14,000;Yes;3;Not available;Not available
+K01632;3;2301632;£14,000;Yes;3;Not available;Not available
+K01633;3;2301633;£14,000;Yes;3;Not available;Not available
+K01634;3;2301634;£14,000;Yes;3;Not available;Not available
+K01635;3;2301635;£14,000;Yes;3;Not available;Not available
+K01636;3;2301636;£14,000;Yes;3;Not available;Not available
+K01637;3;2301637;£14,000;Yes;3;Not available;Not available
+K01638;3;2301638;£14,000;Yes;3;Not available;Not available
+K01639;3;2301639;£14,000;Yes;3;Not available;Not available
+K01640;3;2301640;£14,000;Yes;3;Not available;Not available
+K01641;3;2301641;£14,000;Yes;3;Not available;Not available
+K01642;3;2301642;£14,000;Yes;3;Not available;Not available
+K01643;3;2301643;£14,000;Yes;3;Not available;Not available
+K01644;3;2301644;£14,000;Yes;3;Not available;Not available
+K01645;3;2301645;£14,000;Yes;3;Not available;Not available
+K01646;3;2301646;£14,000;Yes;3;Not available;Not available
+K01647;3;2301647;£14,000;Yes;3;Not available;Not available
+K01648;3;2301648;£14,000;Yes;3;Not available;Not available
+K01649;3;2301649;£14,000;Yes;3;Not available;Not available
+K01650;3;2301650;£14,000;Yes;3;Not available;Not available
+K01651;3;2301651;£14,000;Yes;3;Not available;Not available
+K01652;3;2301652;£14,000;Yes;3;Not available;Not available
+K01653;3;2301653;£14,000;Yes;3;Not available;Not available
+K01654;3;2301654;£14,000;Yes;3;Not available;Not available
+K01655;3;2301655;£14,000;Yes;3;Not available;Not available
+K01656;3;2301656;£14,000;Yes;3;Not available;Not available
+K01657;3;2301657;£14,000;Yes;3;Not available;Not available
+K01658;3;2301658;£14,000;Yes;3;Not available;Not available
+K01659;3;2301659;£14,000;Yes;3;Not available;Not available
+K01660;3;2301660;£14,000;Yes;3;Not available;Not available
+K01661;3;2301661;£14,000;Yes;3;Not available;Not available
+K01662;3;2301662;£14,000;Yes;3;Not available;Not available
+K01663;3;2301663;£14,000;Yes;3;Not available;Not available
+K01664;3;2301664;£14,000;Yes;3;Not available;Not available
+K01665;3;2301665;£14,000;Yes;3;Not available;Not available
+K01666;3;2301666;£14,000;Yes;3;Not available;Not available
+K01667;3;2301667;£14,000;Yes;3;Not available;Not available
+K01668;3;2301668;£14,000;Yes;3;Not available;Not available
+K01669;3;2301669;£14,000;Yes;3;Not available;Not available
+K01670;3;2301670;£14,000;Yes;3;Not available;Not available
+K01671;3;2301671;£14,000;Yes;3;Not available;Not available
+K01672;3;2301672;£14,000;Yes;3;Not available;Not available
+K01673;3;2301673;£14,000;Yes;3;Not available;Not available
+K01674;3;2301674;£14,000;Yes;3;Not available;Not available
+K01675;3;2301675;£14,000;Yes;3;Not available;Not available
+K01676;3;2301676;£14,000;Yes;3;Not available;Not available
+K01677;3;2301677;£14,000;Yes;3;Not available;Not available
+K01678;3;2301678;£14,000;Yes;3;Not available;Not available
+K01679;3;2301679;£14,000;Yes;3;Not available;Not available
+K01680;3;2301680;£14,000;Yes;3;Not available;Not available
+K01681;3;2301681;£14,000;Yes;3;Not available;Not available
+K01682;3;2301682;£14,000;Yes;3;Not available;Not available
+K01683;3;2301683;£14,000;Yes;3;Not available;Not available
+K01684;3;2301684;£14,000;Yes;3;Not available;Not available
+K01685;3;2301685;£14,000;Yes;3;Not available;Not available
+K01686;3;2301686;£14,000;Yes;3;Not available;Not available
+K01687;3;2301687;£14,000;Yes;3;Not available;Not available
+K01688;3;2301688;£14,000;Yes;3;Not available;Not available
+K01689;3;2301689;£14,000;Yes;3;Not available;Not available
+K01690;3;2301690;£14,000;Yes;3;Not available;Not available
+K01691;3;2301691;£14,000;Yes;3;Not available;Not available
+K01692;3;2301692;£14,000;Yes;3;Not available;Not available
+K01693;3;2301693;£14,000;Yes;3;Not available;Not available
+K01694;3;2301694;£14,000;Yes;3;Not available;Not available
+K01695;3;2301695;£14,000;Yes;3;Not available;Not available
+K01696;3;2301696;£14,000;Yes;3;Not available;Not available
+K01697;3;2301697;£14,000;Yes;3;Not available;Not available
+K01698;3;2301698;£14,000;Yes;3;Not available;Not available
+K01699;3;2301699;£14,000;Yes;3;Not available;Not available
+K01700;3;2301700;£14,000;Yes;3;Not available;Not available
+K01701;3;2301701;£14,000;Yes;3;Not available;Not available
+K01702;3;2301702;£14,000;Yes;3;Not available;Not available
+K01703;3;2301703;£14,000;Yes;3;Not available;Not available
+K01704;3;2301704;£14,000;Yes;3;Not available;Not available
+K01705;3;2301705;£14,000;Yes;3;Not available;Not available
+K01706;3;2301706;£14,000;Yes;3;Not available;Not available
+K01707;3;2301707;£14,000;Yes;3;Not available;Not available
+K01708;3;2301708;£14,000;Yes;3;Not available;Not available
+K01709;3;2301709;£14,000;Yes;3;Not available;Not available
+K01710;3;2301710;£14,000;Yes;3;Not available;Not available
+K01711;3;2301711;£14,000;Yes;3;Not available;Not available
+K01712;3;2301712;£14,000;Yes;3;Not available;Not available
+K01713;3;2301713;£14,000;Yes;3;Not available;Not available
+K01714;3;2301714;£14,000;Yes;3;Not available;Not available
+K01715;3;2301715;£14,000;Yes;3;Not available;Not available
+K01716;3;2301716;£14,000;Yes;3;Not available;Not available
+K01717;3;2301717;£14,000;Yes;3;Not available;Not available
+K01718;3;2301718;£14,000;Yes;3;Not available;Not available
+K01719;3;2301719;£14,000;Yes;3;Not available;Not available
+K01720;3;2301720;£14,000;Yes;3;Not available;Not available
+K01721;3;2301721;£14,000;Yes;3;Not available;Not available
+K01722;3;2301722;£14,000;Yes;3;Not available;Not available
+K01723;3;2301723;£14,000;Yes;3;Not available;Not available
+K01724;3;2301724;£14,000;Yes;3;Not available;Not available
+K01725;3;2301725;£14,000;Yes;3;Not available;Not available
+K01726;3;2301726;£14,000;Yes;3;Not available;Not available
+K01727;3;2301727;£14,000;Yes;3;Not available;Not available
+K01728;3;2301728;£14,000;Yes;3;Not available;Not available
+K01729;3;2301729;£14,000;Yes;3;Not available;Not available
+K01730;3;2301730;£14,000;Yes;3;Not available;Not available
+K01731;3;2301731;£14,000;Yes;3;Not available;Not available
+K01732;3;2301732;£14,000;Yes;3;Not available;Not available
+K01733;3;2301733;£14,000;Yes;3;Not available;Not available
+K01734;3;2301734;£14,000;Yes;3;Not available;Not available
+K01735;3;2301735;£14,000;Yes;3;Not available;Not available
+K01736;3;2301736;£14,000;Yes;3;Not available;Not available
+K01737;3;2301737;£14,000;Yes;3;Not available;Not available
+K01738;3;2301738;£14,000;Yes;3;Not available;Not available
+K01739;3;2301739;£14,000;Yes;3;Not available;Not available
+K01740;3;2301740;£14,000;Yes;3;Not available;Not available
+K01741;3;2301741;£14,000;Yes;3;Not available;Not available
+K01742;3;2301742;£14,000;Yes;3;Not available;Not available
+K01743;3;2301743;£14,000;Yes;3;Not available;Not available
+K01744;3;2301744;£14,000;Yes;3;Not available;Not available
+K01745;3;2301745;£14,000;Yes;3;Not available;Not available
+K01746;3;2301746;£14,000;Yes;3;Not available;Not available
+K01747;3;2301747;£14,000;Yes;3;Not available;Not available
+K01748;3;2301748;£14,000;Yes;3;Not available;Not available
+K01749;3;2301749;£14,000;Yes;3;Not available;Not available
+K01750;3;2301750;£14,000;Yes;3;Not available;Not available
+K01751;3;2301751;£14,000;Yes;3;Not available;Not available
+K01752;3;2301752;£14,000;Yes;3;Not available;Not available
+K01753;3;2301753;£14,000;Yes;3;Not available;Not available
+K01754;3;2301754;£14,000;Yes;3;Not available;Not available
+K01755;3;2301755;£14,000;Yes;3;Not available;Not available
+K01756;3;2301756;£14,000;Yes;3;Not available;Not available
+K01757;3;2301757;£14,000;Yes;3;Not available;Not available
+K01758;3;2301758;£14,000;Yes;3;Not available;Not available
+K01759;3;2301759;£14,000;Yes;3;Not available;Not available
+K01760;3;2301760;£14,000;Yes;3;Not available;Not available
+K01761;3;2301761;£14,000;Yes;3;Not available;Not available
+K01762;3;2301762;£14,000;Yes;3;Not available;Not available
+K01763;3;2301763;£14,000;Yes;3;Not available;Not available
+K01764;3;2301764;£14,000;Yes;3;Not available;Not available
+K01765;3;2301765;£14,000;Yes;3;Not available;Not available
+K01766;3;2301766;£14,000;Yes;3;Not available;Not available
+K01767;3;2301767;£14,000;Yes;3;Not available;Not available
+K01768;3;2301768;£14,000;Yes;3;Not available;Not available
+K01769;3;2301769;£14,000;Yes;3;Not available;Not available
+K01770;3;2301770;£14,000;Yes;3;Not available;Not available
+K01771;3;2301771;£14,000;Yes;3;Not available;Not available
+K01772;3;2301772;£14,000;Yes;3;Not available;Not available
+K01773;3;2301773;£14,000;Yes;3;Not available;Not available
+K01774;3;2301774;£14,000;Yes;3;Not available;Not available
+K01775;3;2301775;£14,000;Yes;3;Not available;Not available
+K01776;3;2301776;£14,000;Yes;3;Not available;Not available
+K01777;3;2301777;£14,000;Yes;3;Not available;Not available
+K01778;3;2301778;£14,000;Yes;3;Not available;Not available
+K01779;3;2301779;£14,000;Yes;3;Not available;Not available
+K01780;3;2301780;£14,000;Yes;3;Not available;Not available
+K01781;3;2301781;£14,000;Yes;3;Not available;Not available
+K01782;3;2301782;£14,000;Yes;3;Not available;Not available
+K01783;3;2301783;£14,000;Yes;3;Not available;Not available
+K01784;3;2301784;£14,000;Yes;3;Not available;Not available
+K01785;3;2301785;£14,000;Yes;3;Not available;Not available
+K01786;3;2301786;£14,000;Yes;3;Not available;Not available
+K01787;3;2301787;£14,000;Yes;3;Not available;Not available
+K01788;3;2301788;£14,000;Yes;3;Not available;Not available
+K01789;3;2301789;£14,000;Yes;3;Not available;Not available
+K01790;3;2301790;£14,000;Yes;3;Not available;Not available
+K01791;3;2301791;£14,000;Yes;3;Not available;Not available
+K01792;3;2301792;£14,000;Yes;3;Not available;Not available
+K01793;3;2301793;£14,000;Yes;3;Not available;Not available
+K01794;3;2301794;£14,000;Yes;3;Not available;Not available
+K01795;3;2301795;£14,000;Not;1;Not available;£9,000
+K01796;3;2301796;£14,000;Not;1;Not available;£9,000
+K01797;3;2301797;£14,000;Not;1;Not available;£9,000
+K01798;3;2301798;£14,000;Not;1;Not available;£9,000
+K01799;3;2301799;£14,000;Not;1;Not available;£9,000
+K01800;3;2301800;£14,000;Not;1;Not available;£9,000
+K01801;3;2301801;£14,000;Not;1;Not available;£9,000
+K01802;3;2301802;£14,000;Not;1;Not available;£9,000
+K01803;3;2301803;£14,000;Not;1;Not available;£9,000
+K01804;3;2301804;£14,000;Not;1;Not available;£9,000
+K01805;3;2301805;£14,000;Not;1;Not available;£9,000
+K01806;3;2301806;£14,000;Not;1;Not available;£9,000
+K01807;3;2301807;£14,000;Not;1;Not available;£9,000
+K01808;3;2301808;£14,000;Not;1;Not available;£9,000
+K01809;3;2301809;£14,000;Not;1;Not available;£9,000
+K01810;3;2301810;£14,000;Not;1;Not available;£9,000
+K01811;3;2301811;£14,000;Not;1;Not available;£9,000
+K01812;3;2301812;£14,000;Not;1;Not available;£9,000
+K01813;3;2301813;£14,000;Not;1;Not available;£9,000
+K01814;3;2301814;£14,000;Not;1;Not available;£9,000
+K01815;3;2301815;£14,000;Not;1;Not available;£9,000
+K01816;3;2301816;£14,000;Not;1;Not available;£9,000
+K01817;3;2301817;£14,000;Not;1;Not available;£9,000
+K01818;3;2301818;£14,000;Not;1;Not available;£9,000
+K01819;3;2301819;£14,000;Not;1;Not available;£9,000
+K01820;3;2301820;£14,000;Not;1;Not available;£9,000
+K01821;3;2301821;£14,000;Not;1;Not available;£9,000
+K01822;3;2301822;£14,000;Not;1;Not available;£9,000
+K01823;3;2301823;£14,000;Not;1;Not available;£9,000
+K01824;3;2301824;£14,000;Not;1;Not available;£9,000
+K01825;3;2301825;£14,000;Not;1;Not available;£9,000
+K01826;3;2301826;£14,000;Not;1;Not available;£9,000
+K01827;3;2301827;£14,000;Not;1;Not available;£9,000
+K01828;3;2301828;£14,000;Not;1;Not available;£9,000
+K01829;3;2301829;£14,000;Not;1;Not available;£9,000
+K01830;3;2301830;£14,000;Not;1;Not available;£9,000
+K01831;3;2301831;£14,000;Not;1;Not available;£9,000
+K01832;3;2301832;£14,000;Not;1;Not available;£9,000
+K01833;3;2301833;£14,000;Not;1;Not available;£9,000
+K01834;3;2301834;£14,000;Not;1;Not available;£9,000
+K01835;3;2301835;£14,000;Not;1;Not available;£9,000
+K01836;3;2301836;£14,000;Not;1;Not available;£9,000
+K01837;3;2301837;£14,000;Not;1;Not available;£9,000
+K01838;3;2301838;£14,000;Not;1;Not available;£9,000
+K01839;3;2301839;£14,000;Not;1;Not available;£9,000
+K01840;3;2301840;£14,000;Not;1;Not available;£9,000
+K01841;3;2301841;£14,000;Not;1;Not available;£9,000
+K01842;3;2301842;£14,000;Not;1;Not available;£9,000
+K01843;3;2301843;£14,000;Not;1;Not available;£9,000
+K01844;3;2301844;£14,000;Not;1;Not available;£9,000
+K01845;3;2301845;£14,000;Not;1;Not available;£9,000
+K01846;3;2301846;£14,000;Not;1;Not available;£9,000
+K01847;3;2301847;£14,000;Not;1;Not available;£9,000
+K01848;3;2301848;£14,000;Not;1;Not available;£9,000
+K01849;3;2301849;£14,000;Not;1;Not available;£9,000
+K01850;3;2301850;£14,000;Not;1;Not available;£9,000
+K01851;3;2301851;£14,000;Not;1;Not available;£9,000
+K01852;3;2301852;£14,000;Not;1;Not available;£9,000
+K01853;3;2301853;£14,000;Not;1;Not available;£9,000
+K01854;3;2301854;£14,000;Not;1;Not available;£9,000
+K01855;3;2301855;£14,000;Not;1;Not available;£9,000
+K01856;3;2301856;£14,000;Not;1;Not available;£9,000
+K01857;3;2301857;£14,000;Not;1;Not available;£9,000
+K01858;3;2301858;£14,000;Not;1;Not available;£9,000
+K01859;3;2301859;£14,000;Not;1;Not available;£9,000
+K01860;3;2301860;£14,000;Not;1;Not available;£9,000
+K01861;3;2301861;£14,000;Not;1;Not available;£9,000
+K01862;3;2301862;£14,000;Not;1;Not available;£9,000
+K01863;3;2301863;£14,000;Not;1;Not available;£9,000
+K01864;3;2301864;£14,000;Not;1;Not available;£9,000
+K01865;3;2301865;£14,000;Not;1;Not available;£9,000
+K01866;3;2301866;£14,000;Not;1;Not available;£9,000
+K01867;3;2301867;£14,000;Not;1;Not available;£9,000
+K01868;3;2301868;£14,000;Not;1;Not available;£9,000
+K01869;3;2301869;£14,000;Not;2;Not available;£6,000
+K01870;3;2301870;£14,000;Not;2;Not available;£6,000
+K01871;3;2301871;£14,000;Not;2;Not available;£6,000
+K01872;3;2301872;£14,000;Not;2;Not available;£6,000
+K01873;3;2301873;£14,000;Not;2;Not available;£6,000
+K01874;3;2301874;£14,000;Not;2;Not available;£6,000
+K01875;3;2301875;£14,000;Not;2;Not available;£6,000
+K01876;3;2301876;£14,000;Not;2;Not available;£6,000
+K01877;3;2301877;£14,000;Not;2;Not available;£6,000
+K01878;3;2301878;£14,000;Not;2;Not available;£6,000
+K01879;3;2301879;£14,000;Not;2;Not available;£6,000
+K01880;3;2301880;£14,000;Not;2;Not available;£6,000
+K01881;3;2301881;£14,000;Not;2;Not available;£6,000
+K01882;3;2301882;£14,000;Not;2;Not available;£6,000
+K01883;3;2301883;£14,000;Not;2;Not available;£6,000
+K01884;3;2301884;£14,000;Not;2;Not available;£6,000
+K01885;3;2301885;£14,000;Not;2;Not available;£6,000
+K01886;3;2301886;£14,000;Not;2;Not available;£6,000
+K01887;3;2301887;£14,000;Not;2;Not available;£6,000
+K01888;3;2301888;£14,000;Not;2;Not available;£6,000
+K01889;3;2301889;£14,000;Not;2;Not available;£6,000
+K01890;3;2301890;£14,000;Not;4;£3,000;Not available
+K01891;3;2301891;£14,000;Not;4;£3,000;Not available
+K01892;3;2301892;£14,000;Not;4;£3,000;Not available
+K01893;3;2301893;£14,000;Not;4;£3,000;Not available
+K01894;3;2301894;£14,000;Not;4;£3,000;Not available
+K01895;3;2301895;£14,000;Not;4;£3,000;Not available
+K01896;3;2301896;£14,000;Not;4;£3,000;Not available
+K01897;3;2301897;£14,000;Not;4;£3,000;Not available
+K01898;3;2301898;£14,000;Not;4;£3,000;Not available
+K01899;3;2301899;£14,000;Not;5;£4,000;Not available
+K01900;3;2301900;£14,000;Not;5;£4,000;Not available
+K01901;4;2301901;£14,000+;Yes;4;Not available;Not available
+K01902;4;2301902;£14,000+;Yes;4;Not available;Not available
+K01903;4;2301903;£14,000+;Yes;4;Not available;Not available
+K01904;4;2301904;£14,000+;Yes;4;Not available;Not available
+K01905;4;2301905;£14,000+;Yes;4;Not available;Not available
+K01906;4;2301906;£14,000+;Yes;4;Not available;Not available
+K01907;4;2301907;£14,000+;Yes;4;Not available;Not available
+K01908;4;2301908;£14,000+;Yes;4;Not available;Not available
+K01909;4;2301909;£14,000+;Yes;4;Not available;Not available
+K01910;4;2301910;£14,000+;Yes;4;Not available;Not available
+K01911;4;2301911;£14,000+;Yes;4;Not available;Not available
+K01912;4;2301912;£14,000+;Yes;4;Not available;Not available
+K01913;4;2301913;£14,000+;Yes;4;Not available;Not available
+K01914;4;2301914;£14,000+;Yes;4;Not available;Not available
+K01915;4;2301915;£14,000+;Yes;4;Not available;Not available
+K01916;4;2301916;£14,000+;Yes;4;Not available;Not available
+K01917;4;2301917;£14,000+;Yes;4;Not available;Not available
+K01918;4;2301918;£14,000+;Yes;4;Not available;Not available
+K01919;4;2301919;£14,000+;Yes;4;Not available;Not available
+K01920;4;2301920;£14,000+;Yes;4;Not available;Not available
+K01921;4;2301921;£14,000+;Yes;4;Not available;Not available
+K01922;4;2301922;£14,000+;Yes;4;Not available;Not available
+K01923;4;2301923;£14,000+;Yes;4;Not available;Not available
+K01924;4;2301924;£14,000+;Yes;4;Not available;Not available
+K01925;4;2301925;£14,000+;Yes;4;Not available;Not available
+K01926;4;2301926;£14,000+;Yes;4;Not available;Not available
+K01927;4;2301927;£14,000+;Yes;4;Not available;Not available
+K01928;4;2301928;£14,000+;Yes;4;Not available;Not available
+K01929;4;2301929;£14,000+;Yes;4;Not available;Not available
+K01930;4;2301930;£14,000+;Yes;4;Not available;Not available
+K01931;4;2301931;£14,000+;Yes;4;Not available;Not available
+K01932;4;2301932;£14,000+;Yes;4;Not available;Not available
+K01933;4;2301933;£14,000+;Yes;4;Not available;Not available
+K01934;4;2301934;£14,000+;Yes;4;Not available;Not available
+K01935;4;2301935;£14,000+;Yes;4;Not available;Not available
+K01936;4;2301936;£14,000+;Yes;4;Not available;Not available
+K01937;4;2301937;£14,000+;Yes;4;Not available;Not available
+K01938;4;2301938;£14,000+;Yes;4;Not available;Not available
+K01939;4;2301939;£14,000+;Yes;4;Not available;Not available
+K01940;4;2301940;£14,000+;Yes;4;Not available;Not available
+K01941;4;2301941;£14,000+;Yes;4;Not available;Not available
+K01942;4;2301942;£14,000+;Yes;4;Not available;Not available
+K01943;4;2301943;£14,000+;Yes;4;Not available;Not available
+K01944;4;2301944;£14,000+;Yes;4;Not available;Not available
+K01945;4;2301945;£14,000+;Yes;4;Not available;Not available
+K01946;4;2301946;£14,000+;Yes;4;Not available;Not available
+K01947;4;2301947;£14,000+;Yes;4;Not available;Not available
+K01948;4;2301948;£14,000+;Yes;4;Not available;Not available
+K01949;4;2301949;£14,000+;Yes;4;Not available;Not available
+K01950;4;2301950;£14,000+;Yes;4;Not available;Not available
+K01951;4;2301951;£14,000+;Yes;4;Not available;Not available
+K01952;4;2301952;£14,000+;Yes;4;Not available;Not available
+K01953;4;2301953;£14,000+;Yes;4;Not available;Not available
+K01954;4;2301954;£14,000+;Yes;4;Not available;Not available
+K01955;4;2301955;£14,000+;Yes;4;Not available;Not available
+K01956;4;2301956;£14,000+;Yes;4;Not available;Not available
+K01957;4;2301957;£14,000+;Yes;4;Not available;Not available
+K01958;4;2301958;£14,000+;Yes;4;Not available;Not available
+K01959;4;2301959;£14,000+;Yes;4;Not available;Not available
+K01960;4;2301960;£14,000+;Yes;4;Not available;Not available
+K01961;4;2301961;£14,000+;Yes;4;Not available;Not available
+K01962;4;2301962;£14,000+;Yes;4;Not available;Not available
+K01963;4;2301963;£14,000+;Yes;4;Not available;Not available
+K01964;4;2301964;£14,000+;Yes;4;Not available;Not available
+K01965;4;2301965;£14,000+;Not;1;Not available;£10,000
+K01966;4;2301966;£14,000+;Not;2;Not available;£7,000
+K01967;4;2301967;£14,000+;Not;2;Not available;£7,000
+K01968;4;2301968;£14,000+;Not;3;Not available;£1,000
+K01969;4;2301969;£14,000+;Not;3;Not available;£1,000
+K01970;4;2301970;£14,000+;Not;5;£3,000;Not available
+K01971;5;2301971;£14,000+;Yes;5;Not available;Not available
+K01972;5;2301972;£14,000+;Yes;5;Not available;Not available
+K01973;5;2301973;£14,000+;Yes;5;Not available;Not available
+K01974;5;2301974;£14,000+;Yes;5;Not available;Not available
+K01975;5;2301975;£14,000+;Yes;5;Not available;Not available
+K01976;5;2301976;£14,000+;Yes;5;Not available;Not available
+K01977;5;2301977;£14,000+;Yes;5;Not available;Not available
+K01978;5;2301978;£14,000+;Yes;5;Not available;Not available
+K01979;5;2301979;£14,000+;Yes;5;Not available;Not available
+K01980;5;2301980;£14,000+;Yes;5;Not available;Not available
+K01981;5;2301981;£14,000+;Yes;5;Not available;Not available
+K01982;5;2301982;£14,000+;Yes;5;Not available;Not available
+K01983;5;2301983;£14,000+;Yes;5;Not available;Not available
+K01984;5;2301984;£14,000+;Yes;5;Not available;Not available
+K01985;5;2301985;£14,000+;Yes;5;Not available;Not available
+K01986;5;2301986;£14,000+;Yes;5;Not available;Not available
+K01987;5;2301987;£14,000+;Yes;5;Not available;Not available
+K01988;5;2301988;£14,000+;Yes;5;Not available;Not available
+K01989;5;2301989;£14,000+;Yes;5;Not available;Not available
+K01990;5;2301990;£14,000+;Yes;5;Not available;Not available
+K01991;5;2301991;£14,000+;Yes;5;Not available;Not available
+K01992;5;2301992;£14,000+;Yes;5;Not available;Not available
+K01993;5;2301993;£14,000+;Yes;5;Not available;Not available
+K01994;5;2301994;£14,000+;Not;1;Not available;£11,000
+K01995;5;2301995;£14,000+;Not;2;Not available;£8,000
+K01996;5;2301996;£14,000+;Not;3;Not available;£2,000
+K01997;5;2301997;£14,000+;Not;3;Not available;£2,000
+K01998;5;2301998;£14,000+;Not;3;Not available;£2,000
+K01999;5;2301999;£14,000+;Not;4;Not available;£1,000
+K02000;5;2302000;£14,000+;Not;4;Not available;£1,000
