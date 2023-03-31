@@ -41,23 +41,24 @@ def saveToDynamoDB(data, id):
     table.put_item(Item=item)
     
 def lambda_handler(event, context):
-    print(event)
     bucket = "process-transfer"
     key = "input-payload.json"
     response = s3.get_object(Bucket=bucket, Key=key)
     content = response['Body'].read().decode('utf-8')
     entries = json.loads(content)
-    print(entries["bedrooms"])
+    # Get headers and rows from the file
     headers = list(entries["data"][0].keys())
     rows = [list(entry.values()) for entry in entries["data"]]
     headers[0] = "FlatID"
     for row in rows:
         row[1] = int(row[1])
         row[5] = int(row[5])
+    # Convert the entries into a dataframe
     df = pd.DataFrame(rows ,columns=headers)
     df.loc[0] = rows[0]
+    # Create the pivot table
     pivot_df = df.pivot_table(index='Bedroom', columns='ExpectedSpace', aggfunc='count')
-    
+    # Drop unnecessary columns
     new_df = pivot_df.iloc[:, :5]
     
     nested_list = new_df.values.tolist()
@@ -69,7 +70,7 @@ def lambda_handler(event, context):
     new_nested_list = copy.deepcopy(nested_list)
     
     cost_saved = 0
-    
+    # calculate saved price
     def checkPriceSaved(currentSize, newSize, downsizer_num):
         currentPrice = 0
         newPrice = 0
@@ -97,7 +98,7 @@ def lambda_handler(event, context):
         priceDifference = total_refund - total_cost
         return priceDifference
         
-    
+    # move people
     void = entries["bedrooms"]
     moved = [0, 0, 0, 0, 0]
     for i in range(len(nested_list)-1, -1, -1):
@@ -133,7 +134,7 @@ def lambda_handler(event, context):
     
     totalCostSaved = 0
     totalMoved = sum(moved)
-    
+    # calculate saving
     for i in range(len(new_nested_list)):
         old_sum = sum(nested_list[i])
         new_sum = sum(new_nested_list[i])
