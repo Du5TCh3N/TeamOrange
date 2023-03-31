@@ -48,3 +48,34 @@ The platform has been deployed using AWS Amplify, and can be accessed via this l
 
 https://main.d1htp7p0ywvi2a.amplifyapp.com/
 
+---
+
+# Where the Codes are
+
+## Front End Manual Test
+
+Please find the images that documented the steps and result of the manual tests conducted on the front-end
+
+## Lambda Functions
+
+This folder contains copies of the python codes that were deployed on AWS Lambda Functions
+
+### Simulation
+
+This folder contains the backend for running the model simulation, and the unit test that was written. 
+
+### Transfer Cost
+
+This folder contains the backend for calculating the transfer cost saved. 
+
+## src
+
+Please find the React App javascript files inside this folder
+
+## amplify
+
+Please find the Amplify configuration files, including the Amplify DataStore table GraphQL schema
+
+
+
+
