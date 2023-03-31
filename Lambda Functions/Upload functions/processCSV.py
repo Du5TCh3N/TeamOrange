@@ -5,7 +5,6 @@ import json
 import sys
 import datetime
 from dateutil import tz
-
 dynamodb = boto3.resource('dynamodb')
 table_name = 'rbk_csv_table'
 s3 = boto3.client('s3')
@@ -25,20 +24,16 @@ def lambda_handler(event, context):
     # Added the two new headers
     headers.append("createdAt")
     headers.append("updatedAt")
-    rows = [dict(zip(headers, row)) for row in row_range]
-
+    rows = [dict(zip(headers,row)) for row in row_range]
+    date = datetime.datetime.now(tz.UTC).isoformat()
     table = dynamodb.Table(table_name)
     # write the entries to the dynamodb table
     with table.batch_writer() as batch:
         for row in rows:
-            row["ApplicationIdTime"] = "/".join([row["ApplicationIdTime"], datetime.datetime.now(tz.UTC).isoformat()])
-            row["updatedAt"] = datetime.datetime.now(tz.UTC).isoformat()
-            if "createdAt" not in row.keys():
-                row["createdAt"] = datetime.datetime.now(tz.UTC).isoformat()
+            row["ApplicationIdTime"] = "/".join([row["ApplicationIdTime"],date])
+            row["updatedAt"] = date
+            if "createdAt" not in row.keys() :
+                row["createdAt"] = date
             batch.put_item(Item=row)
     print("DONE SUC")
     return "Success"
-
-
-
-
