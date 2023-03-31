@@ -171,13 +171,9 @@ class Application:
 
     @classmethod
     def updateWaitingTime(cls, currentDate):
-<<<<<<< HEAD
         # Updates the waiting time for each application based on the current date
         for application in cls.__instances:
             # Convert the current date and start date of the application to date objects
-=======
-        for application in cls.__instances:
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
             currentDate_date = datetime.date(currentDate.year, currentDate.month, currentDate.day)
             startDate_date = datetime.date(application.StartDate.year, application.StartDate.month,
                                            application.StartDate.day)
@@ -193,10 +189,7 @@ class Application:
         # Calculates the average waiting time for all applications
         waiting_times = []
         for application in cls.__instances:
-<<<<<<< HEAD
             # Append the wait time for each application to the waiting_times list
-=======
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
             waiting_times.append(application.WaitTime)
         if len(waiting_times) > 0:
             # Calculate the average of all wait times and return it
