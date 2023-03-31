@@ -154,14 +154,22 @@ def saveKeyStatToCSV(key_stat, file_path):
 def setupDynamoDB():
     # Connect to DynamoDB and get housing table
     dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
-    rbk_housing_table = dynamodb.Table('rbkhousingtable')
+    rbk_housing_table = dynamodb.Table('rbk_csv_table')
     # Query table
     response = rbk_housing_table.scan()
     items = response['Items']
+    
+    # Find the latest updatedAt entry
+    latest_updatedAt = max(item['updatedAt'] for item in items)
+    
+    # Set items to be all entries that have the same updatedAt as the latest one
+    items = [item for item in items if item['updatedAt'] == latest_updatedAt]
+    
     rbkHousing = pd.DataFrame(items)
     rbkHousing.dropna(inplace=True)
 
     return rbkHousing
+
 
 
 def calculateKeyStatistics():
