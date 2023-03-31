@@ -109,7 +109,7 @@ const BasicLayout = () => {
 
                     </SubMenu>
 
-                    <SubMenu key="6" title = "UserManuals" icon={<ContainerOutlined />}>
+                    <SubMenu key="6" title = "User Manuals" icon={<ContainerOutlined />}>
 
                         <Menu.Item>
                             <Link to='/UserManuals'>User Manual</Link>
