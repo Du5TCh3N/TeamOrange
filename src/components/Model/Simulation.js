@@ -450,15 +450,16 @@ const Simulation = () => {
     const [showErrorDialog, setErrorShowDialog] = useState(false);
   
     async function callLambdaFunction(payload) {
+      // Define the parameters for the Lambda function call
       const params = {
         FunctionName: 'python-modeller',
         Payload: JSON.stringify(payload)
       };
-  
+
       try {
-        const response = await lambda.invoke(params).promise().then((result) => {
-          // handle the response here
-          console.log(result);
+        // Invoke the Lambda function and wait for the response
+        await lambda.invoke(params).promise().then((result) => {
+          // Handle the response from the Lambda function
           if (result["StatusCode"] === 200) {
             setShowDialog(true);
           }
@@ -467,7 +468,7 @@ const Simulation = () => {
           }
         })
       } catch (error) {
-        // handle the error here
+        // Handle any errors that occur during the function call
         setErrorShowDialog(true);
         console.log(error);
       }
