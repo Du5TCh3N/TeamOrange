@@ -171,34 +171,53 @@ class Application:
 
     @classmethod
     def updateWaitingTime(cls, currentDate):
+<<<<<<< HEAD
+        # Updates the waiting time for each application based on the current date
         for application in cls.__instances:
+            # Convert the current date and start date of the application to date objects
+=======
+        for application in cls.__instances:
+>>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
             currentDate_date = datetime.date(currentDate.year, currentDate.month, currentDate.day)
             startDate_date = datetime.date(application.StartDate.year, application.StartDate.month,
                                            application.StartDate.day)
             if currentDate_date >= startDate_date:
+                # Calculate the number of days between the start date and current date and set it as the wait time
                 application.WaitTime = (currentDate_date - startDate_date).days
             else:
+                # If the start date is in the future, set the wait time to 0
                 application.WaitTime = 0
 
     @classmethod
     def getAverageWaitingTime(cls):
+        # Calculates the average waiting time for all applications
         waiting_times = []
         for application in cls.__instances:
+<<<<<<< HEAD
+            # Append the wait time for each application to the waiting_times list
+=======
+>>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
             waiting_times.append(application.WaitTime)
         if len(waiting_times) > 0:
+            # Calculate the average of all wait times and return it
             return sum(waiting_times) / len(waiting_times)
         else:
+            # If there are no applications, return 0
             return 0
 
     @classmethod
     def getAverageWaitingTimeForCategory(cls, Category):
+        # Calculates the average waiting time for applications with the specified category
         waiting_times = []
         for application in cls.__instances:
             if application.Category == Category:
+                # If the application has the specified category, append its wait time to the waiting_times list
                 waiting_times.append(application.WaitTime)
         if len(waiting_times) > 0:
+            # Calculate the average of all wait times and return it
             return sum(waiting_times) / len(waiting_times)
         else:
+            # If there are no applications with the specified category, return 0
             return 0
 
     @classmethod
