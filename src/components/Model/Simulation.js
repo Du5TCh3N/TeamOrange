@@ -517,7 +517,6 @@ const Simulation = () => {
       const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
   
       if (sum_of_inputs > 1) {
-        // TODO: Add some sort of dialog to alert user that policy should be less than 100%
       } else {
         await callLambdaFunction(outputObj);
       }
