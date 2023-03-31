@@ -574,7 +574,7 @@ const Simulation = () => {
               </div>
             ))}
             <div className="input-group" key="total-policy">
-              <label htmlFor="total-policy">Total Al1</label>
+              <label htmlFor="total-policy">Total Allocation</label>
               <br/>
               <input
                 disabled="true"
