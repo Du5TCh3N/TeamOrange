@@ -125,11 +125,8 @@ const TransferUpload = () => {
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '10px' }}>
         <input type="file" accept=".csv" onChange={handleFileSelect} />
-<<<<<<< HEAD
-        <button onClick={(event) => handleUpload(event.target.previousSibling.files[0])} style={{ border: '1px solid #ccc', padding: '5px' }}>
-=======
-        <button className="submit-button" onClick={(event) => handleUpload(event.target.previousSibling.files[0])} style={{ border: '1px solid #ccc', padding: '5px' }}>
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
+        <button className="submit-button" onClick={(event) => handleUpload(event.target.previousSibling.files[0])}
+                style={{ border: '1px solid #ccc', padding: '5px' }}>
           {uploading ? 'Uploading...' : 'Upload'}
         </button>
       </div>

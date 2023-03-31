@@ -450,27 +450,15 @@ const Simulation = () => {
     const [showErrorDialog, setErrorShowDialog] = useState(false);
   
     async function callLambdaFunction(payload) {
-<<<<<<< HEAD
       // Define the parameters for the Lambda function call
-=======
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
       const params = {
         FunctionName: 'python-modeller',
         Payload: JSON.stringify(payload)
       };
-<<<<<<< HEAD
-
       try {
         // Invoke the Lambda function and wait for the response
         await lambda.invoke(params).promise().then((result) => {
           // Handle the response from the Lambda function
-=======
-  
-      try {
-        const response = await lambda.invoke(params).promise().then((result) => {
-          // handle the response here
-          console.log(result);
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
           if (result["StatusCode"] === 200) {
             setShowDialog(true);
           }
@@ -479,11 +467,7 @@ const Simulation = () => {
           }
         })
       } catch (error) {
-<<<<<<< HEAD
         // Handle any errors that occur during the function call
-=======
-        // handle the error here
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
         setErrorShowDialog(true);
         console.log(error);
       }
@@ -515,7 +499,6 @@ const Simulation = () => {
     };
   
     const handleSubmit = async (e) => {
-<<<<<<< HEAD
       // Prevent the default form submission behavior
       // i.e. using URL based form submission
       e.preventDefault();
@@ -524,17 +507,12 @@ const Simulation = () => {
       await DataStore.clear();
 
       // Initialize an object to hold the output data
-=======
-      e.preventDefault();
-      await DataStore.clear();
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
       let outputObj = {
         "policy": {},
         "supply": {},
         "startDate": "",
         "endDate": ""
       };
-<<<<<<< HEAD
 
       // Set the default values for the policy and supply objects
       outputObj["policy"] = policyDefaults;
@@ -557,22 +535,6 @@ const Simulation = () => {
 
       // Fetch the updated data after submitting the form
       await fetchData();
-=======
-  
-      outputObj["policy"] = policyDefaults;
-      outputObj["supply"] = supplyDefaults;
-  
-      outputObj["startDate"] = dateInputs[0];
-      outputObj["endDate"] = dateInputs[1];
-  
-      const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
-  
-      if (sum_of_inputs > 1) {
-      } else {
-        await callLambdaFunction(outputObj);
-      }
-      fetchData();
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
     };
   
   
@@ -612,11 +574,7 @@ const Simulation = () => {
               </div>
             ))}
             <div className="input-group" key="total-policy">
-<<<<<<< HEAD
               <label htmlFor="total-policy">Total Allocation</label>
-=======
-              <label htmlFor="total-policy">Total Al1</label>
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
               <br/>
               <input
                 disabled="true"

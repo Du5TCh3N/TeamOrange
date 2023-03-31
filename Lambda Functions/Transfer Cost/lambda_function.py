@@ -7,21 +7,16 @@ import pandas as pd
 import copy
 
 s3 = boto3.client('s3')
-<<<<<<< HEAD
 
-=======
 tableName = 'PivotTable-6digekhjd5ekhhylpdrggkmczm-prod'
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
+
 def saveToDynamoDB(data, id):
     from dateutil import tz
     from datetime import datetime
     
     dynamodb = boto3.resource('dynamodb', region_name='eu-west-2')
-<<<<<<< HEAD
-    table = dynamodb.Table('PivotTable-l6ud5eblpjg5rlgutkig3e5hia-dev')
-=======
+
     table = dynamodb.Table(tableName)
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
     
     data_copy = copy.deepcopy(data)
     
@@ -53,30 +48,10 @@ def lambda_handler(event, context):
     response = s3.get_object(Bucket=bucket, Key=key)
     content = response['Body'].read().decode('utf-8')
     entries = json.loads(content)
-    # print("Entries::", entries)
     print(entries["bedrooms"])
-    #print(content)
-    #headers = content["data"][1].keys()
-    #rows = list(content["data"])
     headers = list(entries["data"][0].keys())
-    # print(entries["data"][0])
     rows = [list(entry.values()) for entry in entries["data"]]
-    # print("Rows",rows)
-    #table = list(zip(*rows))
-    #print("tableeee", table[1])
-    #print(rows)
-    #if 'Records' in event:
-    #    bucket = event['Records'][0]['s3']['bucket']['name']
-    #    key = event['Records'][0]['s3']['object']['key']
-    #else:
-    #    bucket = 'process-transfer' #name of the S3 bucket i made for you
-    #    key = event['Key']
-    #response = s3.get_object(Bucket=bucket, Key=key)
-    #content = response['Body'].read().decode('utf-8')
-    #csv_reader = csv.reader(io.StringIO(content), delimiter=";")
-    #headers = next(csv_reader)
     headers[0] = "FlatID"
-    #rows = list(csv_reader)
     for row in rows:
         row[1] = int(row[1])
         row[5] = int(row[5])
@@ -126,33 +101,7 @@ def lambda_handler(event, context):
     
     void = entries["bedrooms"]
     moved = [0, 0, 0, 0, 0]
-    
-<<<<<<< HEAD
-    # for i in range(1, len(nested_list)):
-    #     for j in range(i):
-    #         downsizer = nested_list[i][j]
-    #         upsizer = nested_list[j][i]
-    #         if downsizer >= upsizer:
-    #             difference = downsizer - upsizer
-    #             new_nested_list[i][j] = difference
-    #             new_nested_list[j][i] = 0
-    #             new_nested_list[j][j] += upsizer
-    #             new_nested_list[i][i] += upsizer
-    #             # change = upsizer * checkPriceSaved(currentSize=(i+1), newSize=(j+1), downsizer_num=upsizer)
-    #             # print(change)
-                
-    #         else:
-    #             difference = upsizer - downsizer
-    #             new_nested_list[i][j] = 0
-    #             new_nested_list[j][i] = difference
-    #             new_nested_list[j][j] += downsizer
-    #             new_nested_list[i][i] += downsizer
-    #             # change = downsizer * checkPriceSaved(currentSize=(j+1), newSize=(i+1), downsizer_num=downsizer)
-    #             # print(change)
-    #         print("Downsizer: ", downsizer, "Upsizer: ", upsizer, difference)
-    
-=======
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
+
     for i in range(len(nested_list)-1, -1, -1):
         new_vacant = 0
         for j in range(0, len(void)):
@@ -203,17 +152,12 @@ def lambda_handler(event, context):
         price_dif = abs(old_price - new_price)
         totalCostSaved += price_dif
         prices.append([old_sum, old_price, new_sum, new_price, sum_dif, price_dif])
-    
-<<<<<<< HEAD
-    maxPerHousehold = totalCostSaved / totalMoved
-    maxPerHousehold = round(maxPerHousehold, 2)
-=======
+
     if totalMoved != 0:
         maxPerHousehold = totalCostSaved / totalMoved
         maxPerHousehold = round(maxPerHousehold, 2)
     else: 
         maxPerHousehold = 0
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
     
     summary[5] = [str(totalCostSaved), str(totalMoved), str(maxPerHousehold)]
     formatted_cost = "£{:,.2f}".format(float(summary[5][0]))
@@ -224,15 +168,7 @@ def lambda_handler(event, context):
     print("Summary")
     print(summary)
     print("")
-<<<<<<< HEAD
-    
-    # print("Cost (Old sum, Old Price, New sum, New Price, Sum diff, Price diff)")
-    # for row in prices:
-    #     print(row)
-    
-=======
 
->>>>>>> 374465b27dfc6a43ebf7716df20b67cae23bc5fa
     saveToDynamoDB(summary, "Cost")
 
     
