@@ -58,7 +58,7 @@ Please find the images that documented the steps and result of the manual tests 
 
 ## Lambda Functions
 
-This folder contains copies of the python codes that were deployed on AWS Lambda Functions
+This folder contains copies of the python codes that were deployed on AWS Lambda Functions and the files that were used for testing the upload buttons.
 
 ### Simulation
 
