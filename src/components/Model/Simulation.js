@@ -499,29 +499,42 @@ const Simulation = () => {
     };
   
     const handleSubmit = async (e) => {
+      // Prevent the default form submission behavior
+      // i.e. using URL based form submission
       e.preventDefault();
+
+      // Clear the Amplify DataStore before submitting new data
       await DataStore.clear();
+
+      // Initialize an object to hold the output data
       let outputObj = {
         "policy": {},
         "supply": {},
         "startDate": "",
         "endDate": ""
       };
-  
+
+      // Set the default values for the policy and supply objects
       outputObj["policy"] = policyDefaults;
       outputObj["supply"] = supplyDefaults;
-  
+
+      // Set the start and end dates in the output object
       outputObj["startDate"] = dateInputs[0];
       outputObj["endDate"] = dateInputs[1];
-  
+
+      // Calculate the sum of all policy inputs
       const sum_of_inputs = policyInputs.reduce((a, b) => a + b, 0);
-  
+
+      // If the sum of policy inputs is greater than 1, show an error dialog
       if (sum_of_inputs > 1) {
-        // TODO: Add some sort of dialog to alert user that policy should be less than 100%
+        setErrorShowDialog(true);
       } else {
+        // Otherwise, call the Lambda function with the output object
         await callLambdaFunction(outputObj);
       }
-      fetchData();
+
+      // Fetch the updated data after submitting the form
+      await fetchData();
     };
   
   
